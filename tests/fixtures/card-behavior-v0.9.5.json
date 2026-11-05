@@ -1,0 +1,4994 @@
+[
+  {
+    "id": "slash",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "9774b7924cf468d0ead690b5ec56e1a3f3b07c4190cf9b4fd4c25731b9bdbb4c"
+  },
+  {
+    "id": "slash",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "f47ac77056fe000df2de171c5bf35b0d7c222da31fdb18bb0f69fa17e6701613"
+  },
+  {
+    "id": "slash",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "3330214e361a3797c3af343714d78f975b58337f11d07bc925a092122d4e72fc"
+  },
+  {
+    "id": "slash",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "392e178f151df7f25e5be033c670c89c03feaaa4805b910cfd45db9461f2bdf6"
+  },
+  {
+    "id": "slash",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "b97ca9ea920222fbe454dcb51692e160bab6630fcccbfe821ecea3f6e76cc12e"
+  },
+  {
+    "id": "slash",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "db5cfe70ce2b2bea679fa1065e1bde0dd35978ed3cfce3f262368a144daabaec"
+  },
+  {
+    "id": "slash",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "9c0fc272b88633592736bc63f7027806b6f8e7d0629d2d193f128ac5f7c5e952"
+  },
+  {
+    "id": "slash",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "07577f032540e28706b809deb35c62d140aad4502838f506a203352bdb22a7b1"
+  },
+  {
+    "id": "slash",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "b97ca9ea920222fbe454dcb51692e160bab6630fcccbfe821ecea3f6e76cc12e"
+  },
+  {
+    "id": "slash",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "db5cfe70ce2b2bea679fa1065e1bde0dd35978ed3cfce3f262368a144daabaec"
+  },
+  {
+    "id": "slash",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "7a839623d93b23cbadd50178ec67bc302e1f4925f777f75710a4ad5ecbf2deb9"
+  },
+  {
+    "id": "slash",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "slash",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "cdae09415db3761e54b998460f3e38951260f64ca05139274d16b0bdebd12048"
+  },
+  {
+    "id": "slash",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "ac750a465656775d57ce85c2b93c80cdd310988f9211514dcad6cc712c89596d"
+  },
+  {
+    "id": "slash",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "6e3c8da893df8bcfad96b47f92f5418462445f971b0fe26f7522568a82e3da37"
+  },
+  {
+    "id": "slash",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "slash",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "f7d7b2eb2443471b2e19ad1b2678a012634fae4a8a8b88b2c24acac9e58b3bb5"
+  },
+  {
+    "id": "slash",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "ef1ba3496cbfee1e32a932b254d56774da95a2b752d6f63de741b18095391859"
+  },
+  {
+    "id": "slash",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "6e3c8da893df8bcfad96b47f92f5418462445f971b0fe26f7522568a82e3da37"
+  },
+  {
+    "id": "slash",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "slash",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "17fa912365268d5bbfcd8608dc9b240198ba47f03b4c48f22c054c4ed44ffd1d"
+  },
+  {
+    "id": "slash",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "d6689ceb952244a2684588f8051a8e16240770cf30280259703738cd69fabf6f"
+  },
+  {
+    "id": "slash",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "db5851130540446a4bd8361ed3f1e930337cc32698ee75e59bdd16c07ab65630"
+  },
+  {
+    "id": "slash",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "boost",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "46eac3411e625b0003d4b179ce1d4b67b8e7e5c2dab68285e5c11a8d1cb74ec7"
+  },
+  {
+    "id": "boost",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "3e06cff2607349aa8c843d2444e71a8abda1fefb94ab8652cd92d3d8b92e2776"
+  },
+  {
+    "id": "boost",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "ee840441fcaafa3d753e1305b5a2d3019989f17f87b9484eb20287f5b08219a5"
+  },
+  {
+    "id": "boost",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "a3e7706e62ef26a9b3a8b873e4e7e5ea78288d80db7672e120ade4696552acb1"
+  },
+  {
+    "id": "boost",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "0f7a505eedcca3230141c680a433704cf1201e5e0749f29f8dafeec02e93d5be"
+  },
+  {
+    "id": "boost",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "518dc27cbf3e19851b6a0a683b3ecbc2bef7101a48b78b06693758e4fd751dba"
+  },
+  {
+    "id": "boost",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "599cbcf5491bb5ebf5b5d4059919429b15726f00827d310db08f4bae5619a091"
+  },
+  {
+    "id": "boost",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "73e93b9bbe5752f12f5d2ca5ff1c28160e7142a7ae4519bf1e5752ec7af314cd"
+  },
+  {
+    "id": "boost",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "93767565ca01649ee9f3ea68d3af89d0e2e57cd39cdfc151238e32a3eb53439b"
+  },
+  {
+    "id": "boost",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "ae34bb52f4ffb4744bb38ccd411162ac7dbb7ff20ae3ed9bba829e2ba77c0744"
+  },
+  {
+    "id": "boost",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "365c76a171f65f5dd465b9675373e1774aa1609e4977e79dcdb8c84c0dce57ae"
+  },
+  {
+    "id": "boost",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "61a39df39db3f4163a8d6bafeda5a8482d6daf461a04016e86aa89cf6a5c130c"
+  },
+  {
+    "id": "boost",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "587ee4eb97dd84f6a784382e367dfb69a6004cb0727c6a2f46f36effeab13427"
+  },
+  {
+    "id": "boost",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "b60fdb3f0ff63949663e8ee789bfaea3df750419f33f57682c743aa3d414463f"
+  },
+  {
+    "id": "boost",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "b5bd720eed18b1279d7c27cfe184d72863b62c3a407fa7fe63507923282651c4"
+  },
+  {
+    "id": "boost",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "50070b90c8eb8d0a81ce500814013440dc5a9107dc6adc97b0e6c810672be23a"
+  },
+  {
+    "id": "boost",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "7f68e7a1a9be1f9f2614d788a3cc2d6453b8c4e36cf9233c290cbf24c3093188"
+  },
+  {
+    "id": "boost",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "b1c2359b8da23241701549010baa75d323adefb4294235c37b4fa51a74392579"
+  },
+  {
+    "id": "boost",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "438769b793292eebea910dcef7b5f15fe3aade245dc95f10d56051d298c4bb24"
+  },
+  {
+    "id": "boost",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "bd0e6ce89e2fb8331449526e848fe2906c3703c3caad9464ca6db5523f2f6846"
+  },
+  {
+    "id": "boost",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "815e5bed345283f4430a973eb4e55267be8ae4d3fb304bf2c425556aa839e24b"
+  },
+  {
+    "id": "boost",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "82949fa076885de6230318afee25bc10f6750a13d59db208cab5b36c39be42c3"
+  },
+  {
+    "id": "boost",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "9d495635e3c7717bfac868789ccb3cea43a49dcc2c84865cb782da6592f5accd"
+  },
+  {
+    "id": "boost",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "4fe19f63b69098bc6e8407847c1cf2545862a97a3e4335ec664c7ae5071b5acf"
+  },
+  {
+    "id": "guard",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "7e5061b9ea006e48314ebf18de98d39943f6d72f6e17fb8af71ca2ba49f36e08"
+  },
+  {
+    "id": "guard",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "f84b7b9d9471db1a31a567e60dca3df8777d666712574bdeb77dcf3f020f1755"
+  },
+  {
+    "id": "guard",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "9f3138dc4551a640b298aa908a3c59c60f7179f171ae94933eb9a05bc6d38198"
+  },
+  {
+    "id": "guard",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "1da09e79063e5345b0b8d0af452591990b2eea17aaf5c434439879611b4703e0"
+  },
+  {
+    "id": "guard",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "7e5061b9ea006e48314ebf18de98d39943f6d72f6e17fb8af71ca2ba49f36e08"
+  },
+  {
+    "id": "guard",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "f84b7b9d9471db1a31a567e60dca3df8777d666712574bdeb77dcf3f020f1755"
+  },
+  {
+    "id": "guard",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "de5726b02fbda96c0aacc8c32782bb9861d6ac43e3091e801999acf11210e9fb"
+  },
+  {
+    "id": "guard",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "119efb47e13cf88487056b2b1c06ebb8661ffa2130c43eede37e22cd5994976e"
+  },
+  {
+    "id": "guard",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "5651928bf837b47585faa8ca833d944d7b9032208ee86d7ba3c9802ae0ffa478"
+  },
+  {
+    "id": "guard",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "52e316df47c59a7198c95a18cb17416bb99874ab03d8729a5adbbb460eeccd6b"
+  },
+  {
+    "id": "guard",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "f451393c14a77764bccaa00f2a2b34b35bbfdf0db3f6577f271648605048c257"
+  },
+  {
+    "id": "guard",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "f23049dc8188d11dec4f3dc1509cf69cd07cbe77a4c2326fe603e5167dd81fc8"
+  },
+  {
+    "id": "guard",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "2351a2eb0e314df4bdbb710eb831873e5c0eda970a7b739cad86fcd7fce550bb"
+  },
+  {
+    "id": "guard",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "cf655fa33e5f2177d7bcb07d77144c2cde0b133b868cd14f469b8bc28e19df7f"
+  },
+  {
+    "id": "guard",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "802f9454388482b6a241fd732ff90bd42397476ac844d2af481184a57fdc2479"
+  },
+  {
+    "id": "guard",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "7cef0cc1e457e3f9292f835a1ac98483a6b7e7b60e640fb95ba360324e8d6b57"
+  },
+  {
+    "id": "guard",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "5e509f36d64d181b3b411dbd7a0577c4439b0253ecc4c9f324df49006ea93ebf"
+  },
+  {
+    "id": "guard",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "4eb7007ee87787a864bf5de38a6b1e8b1939b583c17645b5109a5a484661aba3"
+  },
+  {
+    "id": "guard",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "b3c6b3b26c0cce3c8d59193ad5d3a849d08af110bf3101a19218c355b058c333"
+  },
+  {
+    "id": "guard",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "2ad3c432a02e8f239ee9603bd0fa6be07a1cd3066c11ad8f43a84b6efb376a8f"
+  },
+  {
+    "id": "guard",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "43486c02f92fcbf9636b44f021a1cb2f1b9108a485200995068aea9f062aa1fe"
+  },
+  {
+    "id": "guard",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "9be129b1a69ac2f6ac8ccc594d56a4942a38a148bd8c2dfae226fcd91d4fd9a0"
+  },
+  {
+    "id": "guard",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "647c61cf02467767e0faa8332e1e78fcc3295961317214fa5b9b4deee46ac021"
+  },
+  {
+    "id": "guard",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "118352b48740a9039e0e0bb28f76eaad83901ee2bfe2a884426613e40426a2e8"
+  },
+  {
+    "id": "return",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "922a419d5856ee8e287d5c59bbc30ac343ee1169625f52fc43e162deb7c0ff80"
+  },
+  {
+    "id": "return",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "7c46365cda97c1e29a266030ec086f67e34d924c8dc33ad76cae868a8281b271"
+  },
+  {
+    "id": "return",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "d7c39361e1ee53af6352649ea98e4092dd440924099dac39c929ba32d0a049a5"
+  },
+  {
+    "id": "return",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "13373cd9ffbffb7a960e8abcea2919eb17adc6f51c2870986029d5d1a6673b8c"
+  },
+  {
+    "id": "return",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "428d4fb15962f05b7dfffe56f7a2af48a288012cccb5ef2fbda6b07ac59d484d"
+  },
+  {
+    "id": "return",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "45380920f149baeb282e80422ee250c613602b93705b1002b37288eb81b28703"
+  },
+  {
+    "id": "return",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "996c2a2beac171af3f816ff7eb15385befc636bcebc788b3fa85987cb7f3c406"
+  },
+  {
+    "id": "return",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "13373cd9ffbffb7a960e8abcea2919eb17adc6f51c2870986029d5d1a6673b8c"
+  },
+  {
+    "id": "return",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "99f5036bd755d227ce1fd34805a939d7a9def27edeece35b16ca1021b3cb32df"
+  },
+  {
+    "id": "return",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "45380920f149baeb282e80422ee250c613602b93705b1002b37288eb81b28703"
+  },
+  {
+    "id": "return",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "81e00aa65f7ebb4fb3b211e9a237f214b5dabd52d56b4b329fd4016eca86a8cc"
+  },
+  {
+    "id": "return",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "13373cd9ffbffb7a960e8abcea2919eb17adc6f51c2870986029d5d1a6673b8c"
+  },
+  {
+    "id": "return",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "cc01778f16b8fef8dd1eb649de0db2bfe25c64490385d867554799a90ddc9259"
+  },
+  {
+    "id": "return",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "45380920f149baeb282e80422ee250c613602b93705b1002b37288eb81b28703"
+  },
+  {
+    "id": "return",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "47ae2e1980c1e45c4ff33ecf5ab30e544282b69c4e22c55b5d409defde8e4773"
+  },
+  {
+    "id": "return",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "13373cd9ffbffb7a960e8abcea2919eb17adc6f51c2870986029d5d1a6673b8c"
+  },
+  {
+    "id": "return",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "367849d788b5401c8a51a3f671e5a53e274d36022665a6eb351569c582b32d52"
+  },
+  {
+    "id": "return",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "45380920f149baeb282e80422ee250c613602b93705b1002b37288eb81b28703"
+  },
+  {
+    "id": "return",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "47ae2e1980c1e45c4ff33ecf5ab30e544282b69c4e22c55b5d409defde8e4773"
+  },
+  {
+    "id": "return",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "13373cd9ffbffb7a960e8abcea2919eb17adc6f51c2870986029d5d1a6673b8c"
+  },
+  {
+    "id": "return",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "75974e55e6422092de95de6a14535c7749d400888e3f346b54e28cfa4bb428b2"
+  },
+  {
+    "id": "return",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "45380920f149baeb282e80422ee250c613602b93705b1002b37288eb81b28703"
+  },
+  {
+    "id": "return",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "47ae2e1980c1e45c4ff33ecf5ab30e544282b69c4e22c55b5d409defde8e4773"
+  },
+  {
+    "id": "return",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "13373cd9ffbffb7a960e8abcea2919eb17adc6f51c2870986029d5d1a6673b8c"
+  },
+  {
+    "id": "pierce",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "95265cad13d1b5a56b2579d9ac6555a11f0bdc18b04486264b5236e9c00ede0e"
+  },
+  {
+    "id": "pierce",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "4116b8eba4f3cbaff73cdeebd9d364cf5f0c35acde5db63dd29128911733f1f4"
+  },
+  {
+    "id": "pierce",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "a37845768bef61bdf1576c501e453fdb47e94a6cda1bf45b8315d0673f9ab7bf"
+  },
+  {
+    "id": "pierce",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "a48dbf4d790c0752d045a2e4c97d9136f6147d781dd63830ad8eff711df4a679"
+  },
+  {
+    "id": "pierce",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "b6253665a713099052d01065ad822dfee315c823b0fcafbae398e6076c109555"
+  },
+  {
+    "id": "pierce",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "4116b8eba4f3cbaff73cdeebd9d364cf5f0c35acde5db63dd29128911733f1f4"
+  },
+  {
+    "id": "pierce",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "807137157d4a900d76f17de1d2f2cb8d726b5d83491032d854a111f6a6c645de"
+  },
+  {
+    "id": "pierce",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "a48dbf4d790c0752d045a2e4c97d9136f6147d781dd63830ad8eff711df4a679"
+  },
+  {
+    "id": "pierce",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "5b5e8a31aab4e119cef90510d721da3185b62ef597c78279e7f6f770da9e8ead"
+  },
+  {
+    "id": "pierce",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "4116b8eba4f3cbaff73cdeebd9d364cf5f0c35acde5db63dd29128911733f1f4"
+  },
+  {
+    "id": "pierce",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "1b255933f9ace5869d2abfe64847c5f3b679c939c17738241f2ab5073b240a44"
+  },
+  {
+    "id": "pierce",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "a48dbf4d790c0752d045a2e4c97d9136f6147d781dd63830ad8eff711df4a679"
+  },
+  {
+    "id": "pierce",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "7b6d11d801eaef2fa1398f935078480a6289dd6f9204b9446bc9e6c1761c28fb"
+  },
+  {
+    "id": "pierce",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "4116b8eba4f3cbaff73cdeebd9d364cf5f0c35acde5db63dd29128911733f1f4"
+  },
+  {
+    "id": "pierce",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "f3bad4d82f57e8d1de91bedf3062bec37df0f66d7d8b5accec3305d7404d49e0"
+  },
+  {
+    "id": "pierce",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "a48dbf4d790c0752d045a2e4c97d9136f6147d781dd63830ad8eff711df4a679"
+  },
+  {
+    "id": "pierce",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "0c2b82cb25e23caedca4e290bff4bd1f37c7055deeb74542732ba6068cde02c4"
+  },
+  {
+    "id": "pierce",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "4116b8eba4f3cbaff73cdeebd9d364cf5f0c35acde5db63dd29128911733f1f4"
+  },
+  {
+    "id": "pierce",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "cf109ca4e657b2263dc9c874aaa832a80ad7cad0736b67d325e58712e58930f8"
+  },
+  {
+    "id": "pierce",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "a48dbf4d790c0752d045a2e4c97d9136f6147d781dd63830ad8eff711df4a679"
+  },
+  {
+    "id": "pierce",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "0716f8a5c245437b3cca1795fb13dafeb0a9581e1b14e10bb8fa7219a5e88502"
+  },
+  {
+    "id": "pierce",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "4116b8eba4f3cbaff73cdeebd9d364cf5f0c35acde5db63dd29128911733f1f4"
+  },
+  {
+    "id": "pierce",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "16ab829ea194ec3d9e7e4b4b83c1af216d0df507f7d344bb31655532feab664f"
+  },
+  {
+    "id": "pierce",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "a48dbf4d790c0752d045a2e4c97d9136f6147d781dd63830ad8eff711df4a679"
+  },
+  {
+    "id": "rally",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "efd31a5f5c503c72b4cef49c9ed29f998f55c712558e2f0dae95e4fd60cb9450"
+  },
+  {
+    "id": "rally",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "388d5525f6bab9b44877647c3aa43ce0304d16dc03095d0479b52db5d23734c1"
+  },
+  {
+    "id": "rally",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "54be232fcf997b5583a5c89b462d530bbd9bebabed794de5bc61e092beeec210"
+  },
+  {
+    "id": "rally",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "d7356fe84316a9eeda50c0e2e1f9c058fabffa50221fe7ae17ed128351783606"
+  },
+  {
+    "id": "rally",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "5f566b98007b1419ac6dcbd2712d97882eeee1c7a9e48399f01b24a21381fa5b"
+  },
+  {
+    "id": "rally",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "f3437f697f27bfbe66ebca47cd6d7082d963173b5167e96cdb0bb8af5454a6d0"
+  },
+  {
+    "id": "rally",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "24503d1519eab64a046c4dd5362b92ff1decf9213348d94136f1e037254634be"
+  },
+  {
+    "id": "rally",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "ff712a96308b8c43428ded3dc2dc0fbe2c895e5c63c005fefd99cae7468a7761"
+  },
+  {
+    "id": "rally",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "117b77d809816628ab07101372801e1ebdc05c76c323dfe36a094a9f961dbc5f"
+  },
+  {
+    "id": "rally",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "53b1e6dc5a621eb052001f369bcd96c7c65294842728c261c26fb4f0de712bad"
+  },
+  {
+    "id": "rally",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "775f9f11b74926443266710d29dce059a08d6f5f4e163efdf8580e18421b1e22"
+  },
+  {
+    "id": "rally",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "fc15e66b82326b73f21510a5bd4d46f7ee5de3d06b82e7607fb227b4aa8dd84c"
+  },
+  {
+    "id": "rally",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "eef64e28c08b8bf4d1006a2d8368e9c65d6f801985672f7777e98c3f57f9b42b"
+  },
+  {
+    "id": "rally",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "393e3f7f00336d3cb39ffb59c753a2b35f202741129c00664ad97c15687c6d8a"
+  },
+  {
+    "id": "rally",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "6ab3654f567025801ca5da61800b7f8d81ec8bac7b39296a9fa1526ba1d2a065"
+  },
+  {
+    "id": "rally",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "0551b3092148ad3330e46c395444b5224519cad54e407818b8e756cf57d490fd"
+  },
+  {
+    "id": "rally",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "f30e22f32d229ee479cbf836331d0ed49f929a8bb7e294b99f6d129330a81c14"
+  },
+  {
+    "id": "rally",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "7092d21067806b9cbbcc3606cac54b37e7c8b364535da1f8c04fbc68f7712e54"
+  },
+  {
+    "id": "rally",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "3d694b4a15b8492566a85917505a0160c8f98fa8138c3b9c99a5adde36ce93de"
+  },
+  {
+    "id": "rally",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "e464878b392e66c4ceca2382412d0e1108ba255c0273dc668b887d5ee01079f6"
+  },
+  {
+    "id": "rally",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "35faaaa1a87fc8d79676bc62d11a9a1433571ea13e67e26a52bbacf3c53b6ff3"
+  },
+  {
+    "id": "rally",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "e1e22ee2279b268906306c0b30d693db0b38b96bcce17d3016f145e3f7aec2ac"
+  },
+  {
+    "id": "rally",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "9604f2933148346e6e6ac40e1680e26b3a8cfb7bdd8ce3ae61a8e0540b28b821"
+  },
+  {
+    "id": "rally",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "56607038e5748bef0feecdedb8bbb7b463e222ef9345b39c69a72728adb3dd11"
+  },
+  {
+    "id": "rush",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "5655f2b768c93762caa70c162a6639e0195f12167474f3a67375b2fc142a48a5"
+  },
+  {
+    "id": "rush",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "f1c35582559c2d5a67b25ba3ed234e3dba2eeaffc99dc52e95a28857a1986c6c"
+  },
+  {
+    "id": "rush",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "2e29d3905f6b2f2ea9a40a1097280ed5f3782652d3a4ba9d2c2e387c564d6981"
+  },
+  {
+    "id": "rush",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "9b7b44b071a7d5c12e84f84aa65871279e245e45c9a88012a0c769f1a58bc6bc"
+  },
+  {
+    "id": "rush",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "b97ca9ea920222fbe454dcb51692e160bab6630fcccbfe821ecea3f6e76cc12e"
+  },
+  {
+    "id": "rush",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "db5cfe70ce2b2bea679fa1065e1bde0dd35978ed3cfce3f262368a144daabaec"
+  },
+  {
+    "id": "rush",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "7a839623d93b23cbadd50178ec67bc302e1f4925f777f75710a4ad5ecbf2deb9"
+  },
+  {
+    "id": "rush",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "rush",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "fa5dbb0168c1f58069145ccf5f1705883f36e077ae4964709d5122e9c633d532"
+  },
+  {
+    "id": "rush",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "8e0ca4b6d8c7dcdbb9de9fb8cbf1e4fdffbd6a6bfb50889a6b2eaf6db7523b21"
+  },
+  {
+    "id": "rush",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "b6a0495d90a3dbae08d3b3214573cad193f3f152693c50a75d1d7ee583cd3a7b"
+  },
+  {
+    "id": "rush",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "b8efcd6ba46cad76d8ccceb364a03029eaa6d589434b6ddcc7e88b4674d09ed7"
+  },
+  {
+    "id": "rush",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "f7d7b2eb2443471b2e19ad1b2678a012634fae4a8a8b88b2c24acac9e58b3bb5"
+  },
+  {
+    "id": "rush",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "ef1ba3496cbfee1e32a932b254d56774da95a2b752d6f63de741b18095391859"
+  },
+  {
+    "id": "rush",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "6e3c8da893df8bcfad96b47f92f5418462445f971b0fe26f7522568a82e3da37"
+  },
+  {
+    "id": "rush",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "rush",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "e1c396488cf924eab63706734633b9f189b82f904e7109a0a4e725e1a716534d"
+  },
+  {
+    "id": "rush",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "c14893c70e6d9e708147cc50632cac3bef9bbc56bb53e401ddcfd310c213e227"
+  },
+  {
+    "id": "rush",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "f78eba93913d2ff089cb4c3b6e0c8059f37407d539f5fdad9706a2173d1eeadc"
+  },
+  {
+    "id": "rush",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "b160753717891ae60cf198cb82cbd664728e6f8bb6bb49845d4f5d0ad8246376"
+  },
+  {
+    "id": "rush",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "e8e6e44946344723fbdf653776a52b4d6fc84a0aa6b0c64a778f747e0b8542de"
+  },
+  {
+    "id": "rush",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "d1ad734bc8f910c970c6c66b8fc6509f12e170bce1340f53a6ba6a94d63cc98f"
+  },
+  {
+    "id": "rush",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "d7449e841d00b76077f30d7576f1716ada039f487d2a211d7d0e6e599b914a33"
+  },
+  {
+    "id": "rush",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "siphon",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "57c5e8a7c77838f4d4ab20a9dc3418ad39a7446ee4cafd1faba16d572ab77dc2"
+  },
+  {
+    "id": "siphon",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "be6fe58c01f6dfd5246decb35355bf61d14b6f63651de10c7a76d919314ccc06"
+  },
+  {
+    "id": "siphon",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "ae8f92f8a2d4fab1afa1bd93bca99de594df9e62505d90e65d98e36838e2e0e5"
+  },
+  {
+    "id": "siphon",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "eb004e67483968320e0d1792909e8edfd391e5b165398ddae45853c4b477409a"
+  },
+  {
+    "id": "siphon",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "26672ed130f95b8af132597f84d10c021770ab1422af6d9d37399d0ac9f1c818"
+  },
+  {
+    "id": "siphon",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "b20650245d226976f34fe6c11b5cd3132fb9f4907a4886c6df5be0a068b19cf6"
+  },
+  {
+    "id": "siphon",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "0f2828dab8d4a216966e70afdbc305a3b6186c2c6c994cf46d917cd608190871"
+  },
+  {
+    "id": "siphon",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "2873e576f82e4fb7f7517296ce74056a3b5efda5fd313418061af370f7d8012e"
+  },
+  {
+    "id": "siphon",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "00e8e33fc5a5b68e7e752ea9fb859c006fc7b670a7dbb31ea1002defe3699b1f"
+  },
+  {
+    "id": "siphon",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "7b483ddd34952469bf0a65a9c64aa62358625e5fd765c6184987761fd07954ee"
+  },
+  {
+    "id": "siphon",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "da28c2357a9671689aec0b85ebdcdde45d59f33fef239ec6b50917bafcbda6ca"
+  },
+  {
+    "id": "siphon",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "siphon",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "de89eb30ceec3e4f9b9c441622780480b67498922c86a94a7f79f2f090e1eb1a"
+  },
+  {
+    "id": "siphon",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "dd844ce7ddf657ac1ead13c9ccd57fb01549b106bc3977f7390751bf88873603"
+  },
+  {
+    "id": "siphon",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "1bbaa549326f920c9d8abcdad676355b90bd78d57986c6c364556460f80c2397"
+  },
+  {
+    "id": "siphon",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "siphon",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "d19b9f6fb0a7898395c6c7ae9edea5143c70bdd542393414a679570b600c1180"
+  },
+  {
+    "id": "siphon",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "e380b10984b5754dafab1f26468f1f0cdab4bdfe26adb885962a2d9e7188b922"
+  },
+  {
+    "id": "siphon",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "bef0ecfea7ae6757632b4f63292c9d1f13c1f887a0b97b9b9ffdebaae97b294d"
+  },
+  {
+    "id": "siphon",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "siphon",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "3c9e57b9fe5218eee1336eec8ad0321d522f3317e451800a38fb187349029d2a"
+  },
+  {
+    "id": "siphon",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "58be672df8b0a3a4f91ad570752ae10d5459962ddbc3b0fb202701f30e4b006c"
+  },
+  {
+    "id": "siphon",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "61d1e04766c5688d28af8ccb3e8cf47b038342dd74c8b8ad3c086a7009e68adb"
+  },
+  {
+    "id": "siphon",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "flurry",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "f7d7b2eb2443471b2e19ad1b2678a012634fae4a8a8b88b2c24acac9e58b3bb5"
+  },
+  {
+    "id": "flurry",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "ef1ba3496cbfee1e32a932b254d56774da95a2b752d6f63de741b18095391859"
+  },
+  {
+    "id": "flurry",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "175f332df70b0bcf4a7ce1ceeb27686188d99714128482dae8d45e81f4676407"
+  },
+  {
+    "id": "flurry",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "1264c20c8208f82830a141279a26dd3f5269358761a6cba94d7728eb471359e2"
+  },
+  {
+    "id": "flurry",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "17fa912365268d5bbfcd8608dc9b240198ba47f03b4c48f22c054c4ed44ffd1d"
+  },
+  {
+    "id": "flurry",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "d6689ceb952244a2684588f8051a8e16240770cf30280259703738cd69fabf6f"
+  },
+  {
+    "id": "flurry",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "e407b4c98bc29912b00196b7e2b309f92024b8f6fc86d444eff304a75d2b3017"
+  },
+  {
+    "id": "flurry",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "1264c20c8208f82830a141279a26dd3f5269358761a6cba94d7728eb471359e2"
+  },
+  {
+    "id": "flurry",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "e8e6e44946344723fbdf653776a52b4d6fc84a0aa6b0c64a778f747e0b8542de"
+  },
+  {
+    "id": "flurry",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "d1ad734bc8f910c970c6c66b8fc6509f12e170bce1340f53a6ba6a94d63cc98f"
+  },
+  {
+    "id": "flurry",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "7155d84b3ff0eb47af25655b2352100f6e887f9054495ef6d304b236ef9af90c"
+  },
+  {
+    "id": "flurry",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "1264c20c8208f82830a141279a26dd3f5269358761a6cba94d7728eb471359e2"
+  },
+  {
+    "id": "flurry",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "cdbc887b08cd6a2f9ffaf87c52151e303e24ea52cc618c545c06c706e5d517b4"
+  },
+  {
+    "id": "flurry",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "e4e28f66036b90aba5f3375e7bbe0fcc6624bfbaf101d9b2b0120e84607e7a5b"
+  },
+  {
+    "id": "flurry",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "9818fdf5d380dfcc0fa29aefb6cd91ed061b2af55747032222018dd2e427587c"
+  },
+  {
+    "id": "flurry",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "1264c20c8208f82830a141279a26dd3f5269358761a6cba94d7728eb471359e2"
+  },
+  {
+    "id": "flurry",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "17fa912365268d5bbfcd8608dc9b240198ba47f03b4c48f22c054c4ed44ffd1d"
+  },
+  {
+    "id": "flurry",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "d6689ceb952244a2684588f8051a8e16240770cf30280259703738cd69fabf6f"
+  },
+  {
+    "id": "flurry",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "db5851130540446a4bd8361ed3f1e930337cc32698ee75e59bdd16c07ab65630"
+  },
+  {
+    "id": "flurry",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "flurry",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "4c6f6a6f44d1f604a1a3c98782df16d6670847bf83463f380674d8153a48348e"
+  },
+  {
+    "id": "flurry",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "e4e28f66036b90aba5f3375e7bbe0fcc6624bfbaf101d9b2b0120e84607e7a5b"
+  },
+  {
+    "id": "flurry",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "a0318dfd1efd3b28d61b741db8daa59998ee4df57ed32a59f23ba5bdfe76dae8"
+  },
+  {
+    "id": "flurry",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "seal",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "7fcbbf502139de9fce651497b1653b2ec5ac1acdcbbae8b502ff81062eaf39c2"
+  },
+  {
+    "id": "seal",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "833dc9f966a0eb53c5d382b0bebdd643d4855253334f06273d540dd7963572a5"
+  },
+  {
+    "id": "seal",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "3b401c17bdb57096f76b13cc4e5fdf5eb46ae713f4bad1569db6b9208e7cb02f"
+  },
+  {
+    "id": "seal",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "bf55e990e946ebbf4e6d09a934d7d053c7b253d5c64470f1d7a8a7f5b060b963"
+  },
+  {
+    "id": "seal",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "77e5f1b1537a88cfc8e1f3e6c31616dc1b3ed7ff0fb42e7eb3cedee16571bf1d"
+  },
+  {
+    "id": "seal",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "aa7acd8ce13d672903a562087046ac9b60bf4e4d3e689464aa5863eeeade6633"
+  },
+  {
+    "id": "seal",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "3b401c17bdb57096f76b13cc4e5fdf5eb46ae713f4bad1569db6b9208e7cb02f"
+  },
+  {
+    "id": "seal",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "bf55e990e946ebbf4e6d09a934d7d053c7b253d5c64470f1d7a8a7f5b060b963"
+  },
+  {
+    "id": "seal",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "002c1ad69beed4e217999b4ab4f529b593ff96796e1fbe325daef54eb3541913"
+  },
+  {
+    "id": "seal",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "68ba6d4dd2a23bfa54c1e12611644e8a061627e7874bd83c96f8c38452225383"
+  },
+  {
+    "id": "seal",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "b946ad4bc4799da70ba3fe2639145c6d5bda234c51d4cc7329487ec49c7c7273"
+  },
+  {
+    "id": "seal",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "a5dffeb09c6381900203d9de62f0454c453710f84e0446e8448dd61f6d9903c5"
+  },
+  {
+    "id": "seal",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "05b087292ad0daa951ea165ef48e698e4e50add0a8283f756ce40282cd117b1a"
+  },
+  {
+    "id": "seal",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "31575f61c8cf3f46c2d32e4b738949ac8ae9ad8ba68a441608a7bf11fe1f2152"
+  },
+  {
+    "id": "seal",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "b946ad4bc4799da70ba3fe2639145c6d5bda234c51d4cc7329487ec49c7c7273"
+  },
+  {
+    "id": "seal",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "a5dffeb09c6381900203d9de62f0454c453710f84e0446e8448dd61f6d9903c5"
+  },
+  {
+    "id": "seal",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "dac06e6a5c7739951c4f2957d0c145068eedabe16edebc1210c9270ff973c07c"
+  },
+  {
+    "id": "seal",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "7b69b5b60c276a964dc31bed94cf905ecb41ddaaae5e123ce898acaa21d9efbf"
+  },
+  {
+    "id": "seal",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "76662864fc65e5897eb8e7dc5713a47ee2d3c22d9f337d43df7ac7383a4b57f9"
+  },
+  {
+    "id": "seal",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b1a22ac71f7ab0278856e7b8d9bd1cc2adf8e6793ecb8e68143393b1fc5cd24"
+  },
+  {
+    "id": "seal",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "38b1a50b86c766074a697d23f9d9ede3b9a40a75c452fce132d66b32bbfab5dc"
+  },
+  {
+    "id": "seal",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "66ba1f29ac77eed5b0ef9437ffec65dfde50f3d222cb924b82c6fb065a281b7b"
+  },
+  {
+    "id": "seal",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "76662864fc65e5897eb8e7dc5713a47ee2d3c22d9f337d43df7ac7383a4b57f9"
+  },
+  {
+    "id": "seal",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b1a22ac71f7ab0278856e7b8d9bd1cc2adf8e6793ecb8e68143393b1fc5cd24"
+  },
+  {
+    "id": "poison",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "5546f5afebee4682b3da19a21b2e324244c513daf58ddcc9fb0919718f50a115"
+  },
+  {
+    "id": "poison",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "ee60482af539568efb0f60e07c59b36432e84baa5fca4b5e5f76f5502e97ca1e"
+  },
+  {
+    "id": "poison",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "5aa593d1c59b2f099554e201532b347c944303116dd500325676e72cdcaf305e"
+  },
+  {
+    "id": "poison",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "3584e387e7c146a608ea4bf59092a09ab85ba5fed801a3be9a6516c9a9fbd3b2"
+  },
+  {
+    "id": "poison",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "7b62f0c4fd9b331473e74958a76bb713886c29f3764f678763422c061d18fbf1"
+  },
+  {
+    "id": "poison",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "1b99dcc7283956abc7f1eb0b24f7f76b82111e672aebcdf89a4f401dbfdb874f"
+  },
+  {
+    "id": "poison",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "3f8997957e2d86bb256a6915c60f08c19d48ce2662081808981b82eebd8cc8fb"
+  },
+  {
+    "id": "poison",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "2569dde90de90fd1f0ff7f31eb4321c879639a0d25be5f1418228949a48a6da0"
+  },
+  {
+    "id": "poison",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "92145cd33e18bfb9e5ee906220a7985add464e8b0eb46a8f84fc4cced5955960"
+  },
+  {
+    "id": "poison",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "e709c1c0289232a9072ccb8a36dc9a7bcaf1bea90dbd0ff835e3f72dc9f993a2"
+  },
+  {
+    "id": "poison",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "6d80c89f25d95914af613022d45e1f691c50db827fff4ce63b2c95d8d17df57c"
+  },
+  {
+    "id": "poison",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "8daeb47b6bd6000c61a9dd947724c4c96178a4b3410979347274606d3238289e"
+  },
+  {
+    "id": "poison",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "355f8a6b427bbb146cd28c059c19ff19d57e556fc79aac5b3d8c38a2780bac72"
+  },
+  {
+    "id": "poison",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "ef996968e9d5e01a702e3fccfb9065dff7ee50a80fd4b2613054829ad1c60cce"
+  },
+  {
+    "id": "poison",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "1198768339cb4328c37fb76b3f22cfd9beb3c5d4514fb1f9215c82bd80ca7fcb"
+  },
+  {
+    "id": "poison",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "98a937c7b0598dd832bdf4e88d3a21eb99b7a7939a8ee49ce57636f33e49c03a"
+  },
+  {
+    "id": "poison",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "37f160de3fa3c062cf747ba315237c92527af8fcecf988034932eb1f51310767"
+  },
+  {
+    "id": "poison",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "f1c30bf69511c371ffc35780e27be617a931e68597bb9e9233cbbf29a69dda84"
+  },
+  {
+    "id": "poison",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "aa677d1e208319c9a87f29119fe80e1c1e381da5b59503080ac8aa359de6ae07"
+  },
+  {
+    "id": "poison",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "15bef061a59aeb4a057193341b7bf53bd0b55868a3941f2c3b2a5ce831e848bf"
+  },
+  {
+    "id": "poison",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "fcb35f5ff7b181f9236a0bd660c45a5dc0c47bddb9dc122aa5a265caf0711757"
+  },
+  {
+    "id": "poison",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "f31caf5e18b67f6e2a48f47824ac857665560b222b52ae4a4d9e99e60e4216f6"
+  },
+  {
+    "id": "poison",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "9321056cc296f947a494fc901a499e1979429ed7f841979de4a92d3efbceafd0"
+  },
+  {
+    "id": "poison",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "a76a0e342cca736f8a49dbe01edb57554a620746fa67a19a2211c3912702da52"
+  },
+  {
+    "id": "thorns",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "7e5061b9ea006e48314ebf18de98d39943f6d72f6e17fb8af71ca2ba49f36e08"
+  },
+  {
+    "id": "thorns",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "f84b7b9d9471db1a31a567e60dca3df8777d666712574bdeb77dcf3f020f1755"
+  },
+  {
+    "id": "thorns",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "de5726b02fbda96c0aacc8c32782bb9861d6ac43e3091e801999acf11210e9fb"
+  },
+  {
+    "id": "thorns",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "119efb47e13cf88487056b2b1c06ebb8661ffa2130c43eede37e22cd5994976e"
+  },
+  {
+    "id": "thorns",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "fff5c0349faae509bb2fbebec6094c709908b401daefa1397cd8092a57a6cba4"
+  },
+  {
+    "id": "thorns",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "efefbf90bf3ea17db11d78e804ac6797f732aedd9c0799569fda939550eaaade"
+  },
+  {
+    "id": "thorns",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "88e04197c03c93a8dd8a9843ca923d2249977e471bdd5c2d65e868fa8eba7e03"
+  },
+  {
+    "id": "thorns",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "2c9032f25951c4d3ab765b0d6b2da936f08147ca932ddb2e1a2690dc4fdb3275"
+  },
+  {
+    "id": "thorns",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "2351a2eb0e314df4bdbb710eb831873e5c0eda970a7b739cad86fcd7fce550bb"
+  },
+  {
+    "id": "thorns",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "cf655fa33e5f2177d7bcb07d77144c2cde0b133b868cd14f469b8bc28e19df7f"
+  },
+  {
+    "id": "thorns",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "802f9454388482b6a241fd732ff90bd42397476ac844d2af481184a57fdc2479"
+  },
+  {
+    "id": "thorns",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "7cef0cc1e457e3f9292f835a1ac98483a6b7e7b60e640fb95ba360324e8d6b57"
+  },
+  {
+    "id": "thorns",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "134fdb0c091467d69aab38eca79d887f14168fb6997a32489313f31d8158aa8e"
+  },
+  {
+    "id": "thorns",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "c164bc03ebd21209bd7ab48d3995edf776ee2a682210e4cac61480596c458958"
+  },
+  {
+    "id": "thorns",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "7a773189b889e15745aacb751dc2b4ca845df2ad73e7669a4707ef2c30718dee"
+  },
+  {
+    "id": "thorns",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "7b395474dc231948230af65d75492e231fc5ab4cf18a2da7e11271979a333950"
+  },
+  {
+    "id": "thorns",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "43486c02f92fcbf9636b44f021a1cb2f1b9108a485200995068aea9f062aa1fe"
+  },
+  {
+    "id": "thorns",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "9be129b1a69ac2f6ac8ccc594d56a4942a38a148bd8c2dfae226fcd91d4fd9a0"
+  },
+  {
+    "id": "thorns",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "647c61cf02467767e0faa8332e1e78fcc3295961317214fa5b9b4deee46ac021"
+  },
+  {
+    "id": "thorns",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "118352b48740a9039e0e0bb28f76eaad83901ee2bfe2a884426613e40426a2e8"
+  },
+  {
+    "id": "thorns",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "868e23346a95b230d90dd3feac5450879be7277ce03a22ca3aa4ab099248dfdc"
+  },
+  {
+    "id": "thorns",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "ffd1a11b1a2a012aa9b6d0730a4ab408d53095e46b1fcb4db273bc3042ef6012"
+  },
+  {
+    "id": "thorns",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "e7006b690ce242db670800e7f7768cd6067e85bdf395666852921cbcb13e7b47"
+  },
+  {
+    "id": "thorns",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "56861345f76283ca77de4b4ae1e41a51567b23d7204f55aec91dd29ab4c715b3"
+  },
+  {
+    "id": "leech",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "57c5e8a7c77838f4d4ab20a9dc3418ad39a7446ee4cafd1faba16d572ab77dc2"
+  },
+  {
+    "id": "leech",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "be6fe58c01f6dfd5246decb35355bf61d14b6f63651de10c7a76d919314ccc06"
+  },
+  {
+    "id": "leech",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "ae8f92f8a2d4fab1afa1bd93bca99de594df9e62505d90e65d98e36838e2e0e5"
+  },
+  {
+    "id": "leech",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "eb004e67483968320e0d1792909e8edfd391e5b165398ddae45853c4b477409a"
+  },
+  {
+    "id": "leech",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "564336d91b4178880e4db9f9a4fc5afdcec5812dc25df13787b14fbf6c857db0"
+  },
+  {
+    "id": "leech",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "83151c16f236b90b88e56bd6ce66a4a7aa408640cfa8590401d34a1aab4f3e53"
+  },
+  {
+    "id": "leech",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "a64690bcf6d83c395438fc482c13d7cbd268b02386a66a7339f4aea422e4df18"
+  },
+  {
+    "id": "leech",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "leech",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "00e8e33fc5a5b68e7e752ea9fb859c006fc7b670a7dbb31ea1002defe3699b1f"
+  },
+  {
+    "id": "leech",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "7b483ddd34952469bf0a65a9c64aa62358625e5fd765c6184987761fd07954ee"
+  },
+  {
+    "id": "leech",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "da28c2357a9671689aec0b85ebdcdde45d59f33fef239ec6b50917bafcbda6ca"
+  },
+  {
+    "id": "leech",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "leech",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "273de949b6d602509435ba2ea511e45ac6927c75def577e8fce7521e1c9ced92"
+  },
+  {
+    "id": "leech",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "5d574f2540d931037ce43e9679bac47dd4eee486fd72786c62b731fa1493d192"
+  },
+  {
+    "id": "leech",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "a9d938796d368c1b5f6cfb1434f4cb200db19f3177ae6a0e1ce2d89914f599e1"
+  },
+  {
+    "id": "leech",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "leech",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "d19b9f6fb0a7898395c6c7ae9edea5143c70bdd542393414a679570b600c1180"
+  },
+  {
+    "id": "leech",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "e380b10984b5754dafab1f26468f1f0cdab4bdfe26adb885962a2d9e7188b922"
+  },
+  {
+    "id": "leech",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "bef0ecfea7ae6757632b4f63292c9d1f13c1f887a0b97b9b9ffdebaae97b294d"
+  },
+  {
+    "id": "leech",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "leech",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "766839b741625f84ee4b5815b90542e009abfffc9845ab6912a17677ce7fa684"
+  },
+  {
+    "id": "leech",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "67c616ee655fe543414f4da7f1f5822b643776529a522df36abba51c77c5d0cb"
+  },
+  {
+    "id": "leech",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "30da809e2dd1f9a8db3179dc1dab67f1a4b676bbc872a79eb0b1cd73d32adac5"
+  },
+  {
+    "id": "leech",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "burst",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "cdae09415db3761e54b998460f3e38951260f64ca05139274d16b0bdebd12048"
+  },
+  {
+    "id": "burst",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "ac750a465656775d57ce85c2b93c80cdd310988f9211514dcad6cc712c89596d"
+  },
+  {
+    "id": "burst",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "7155d84b3ff0eb47af25655b2352100f6e887f9054495ef6d304b236ef9af90c"
+  },
+  {
+    "id": "burst",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "burst",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "be9c7cd1573afb2b4ab7cda2f3dfcd5d9f58eb0f751cbae49ba449aa17633591"
+  },
+  {
+    "id": "burst",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "e4e28f66036b90aba5f3375e7bbe0fcc6624bfbaf101d9b2b0120e84607e7a5b"
+  },
+  {
+    "id": "burst",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "6d5df0f74613b047d378d6ba41640c10937239c014d40c8805c1b49b80d053b0"
+  },
+  {
+    "id": "burst",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "burst",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "17fa912365268d5bbfcd8608dc9b240198ba47f03b4c48f22c054c4ed44ffd1d"
+  },
+  {
+    "id": "burst",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "d6689ceb952244a2684588f8051a8e16240770cf30280259703738cd69fabf6f"
+  },
+  {
+    "id": "burst",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "fbde41625bf3d3bc6cb3b71ba623c4f3ffc5cb7471d11d7970543da10c51fc3a"
+  },
+  {
+    "id": "burst",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "burst",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "0c2d5f3e5ff407d791b99548bb11c322819b968230a8d2104ed3faef36658226"
+  },
+  {
+    "id": "burst",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "e4e28f66036b90aba5f3375e7bbe0fcc6624bfbaf101d9b2b0120e84607e7a5b"
+  },
+  {
+    "id": "burst",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "3662c8130d70f6f230a67579c7e8bd9542e0e4cf4399e1eb131c0200be903dbe"
+  },
+  {
+    "id": "burst",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "burst",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "cdbc887b08cd6a2f9ffaf87c52151e303e24ea52cc618c545c06c706e5d517b4"
+  },
+  {
+    "id": "burst",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "e4e28f66036b90aba5f3375e7bbe0fcc6624bfbaf101d9b2b0120e84607e7a5b"
+  },
+  {
+    "id": "burst",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "6d44f88ecc974f9025e43c8d03651223256b873448eef61600e96e0701cbed2b"
+  },
+  {
+    "id": "burst",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "burst",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "0a1f429b9f0df44962959cbf9c1280faef04fc58591a9ae2f27d7ed97e0cf4ae"
+  },
+  {
+    "id": "burst",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "e4e28f66036b90aba5f3375e7bbe0fcc6624bfbaf101d9b2b0120e84607e7a5b"
+  },
+  {
+    "id": "burst",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "d0eb7b323b70e48b055aca18a2326a2f117b046afd7becd66734afa377af7bf3"
+  },
+  {
+    "id": "burst",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "fortify",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "325f5c69c0a9daed1ab922df11a84aeb71ccfdd31af8a48a645b8e53cacebb21"
+  },
+  {
+    "id": "fortify",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "a419bee7f58d5ad93233ba8f55fd2e5447ae838c376fd191ba88a897e5025236"
+  },
+  {
+    "id": "fortify",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "ed6b1c07e6f9cdd652d49083d7460ba9c7174fce77a2f45d2f44a99e46e37f6e"
+  },
+  {
+    "id": "fortify",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "97f15955888f06edee59c89ff30eac35cf5c70e1fda0a4b76b96464df0f7565e"
+  },
+  {
+    "id": "fortify",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "0f7a505eedcca3230141c680a433704cf1201e5e0749f29f8dafeec02e93d5be"
+  },
+  {
+    "id": "fortify",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "518dc27cbf3e19851b6a0a683b3ecbc2bef7101a48b78b06693758e4fd751dba"
+  },
+  {
+    "id": "fortify",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "599cbcf5491bb5ebf5b5d4059919429b15726f00827d310db08f4bae5619a091"
+  },
+  {
+    "id": "fortify",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "73e93b9bbe5752f12f5d2ca5ff1c28160e7142a7ae4519bf1e5752ec7af314cd"
+  },
+  {
+    "id": "fortify",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "355ba0a6214534951d86279ec7cc7b0c5ab24b72d0119507deac946876b81b23"
+  },
+  {
+    "id": "fortify",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "a58c6ab38ea66a3ac3c7563b3f240e29e78d8aa932e69e71cc0d4cf91713addb"
+  },
+  {
+    "id": "fortify",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "1942600a823e9eff7f790a54e68f31538efa23fe08d468a1831298de5176b002"
+  },
+  {
+    "id": "fortify",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "cde08cdd2d5dfa8a97df4946661b2d99e2aa5a675167fcd34e73d59f562d4c24"
+  },
+  {
+    "id": "fortify",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "64d21ebd983cf755853206d5a5b6aa718630ac6fdb6d84ecf3af8e7e252ee2cb"
+  },
+  {
+    "id": "fortify",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "3404c4cef9bb4efaf680352518b9500eddd44656c560d466b83aacb0253017ae"
+  },
+  {
+    "id": "fortify",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "35f26f27c41bf397004f897a78ff67df6b4bb1d9f99020cf4344071f58ab22be"
+  },
+  {
+    "id": "fortify",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "08ea4230b2d9c31f8704c14927e621ac6a1876d6fc623fbd811c1d6a81cf3561"
+  },
+  {
+    "id": "fortify",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "edd01348b5ee566bc3e7afa18d5b8340806bd619f491d875345a198fb1c0b6ee"
+  },
+  {
+    "id": "fortify",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "df0f57189070186cbe97fdb7eac69d888532e0010594a277af0adbcd42f0ba65"
+  },
+  {
+    "id": "fortify",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "a3b9c5fb198d5bf51ad81621756eaaa36d984b14571217979eb695c2c75f4488"
+  },
+  {
+    "id": "fortify",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "4b186ab7a26dd3c2b56a33e219b8c03565ef2a3d08a0923b70ee5c2278410f67"
+  },
+  {
+    "id": "fortify",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "832531de93b83c486b72790861d6571462903110fb387ca8c54480872c7d81ba"
+  },
+  {
+    "id": "fortify",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "cc55fd86ca5bd2e3f6e1bf4fe5e3f432bcb024ee77e1988726692086ecf69fdd"
+  },
+  {
+    "id": "fortify",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "9319843cf5893c74060b42313c8edd02659f0300cd64b5ea5bc265881abee57e"
+  },
+  {
+    "id": "fortify",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "7ef3ef06ddc51085428368e0ac991773b4bbce40d69152b2439b93494d79b05f"
+  },
+  {
+    "id": "hex",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "2e29d3905f6b2f2ea9a40a1097280ed5f3782652d3a4ba9d2c2e387c564d6981"
+  },
+  {
+    "id": "hex",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "9b7b44b071a7d5c12e84f84aa65871279e245e45c9a88012a0c769f1a58bc6bc"
+  },
+  {
+    "id": "hex",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "18510f5ff226309ed8af4e68fc3479bbbedc928c45a06726712de858d85577f2"
+  },
+  {
+    "id": "hex",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "052813d1f8d7cfee4657e5a4bade3fe06d996850ef0b9c7db211fea61ce435e0"
+  },
+  {
+    "id": "hex",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "e10071366f9607c06706b95fa11101b53aa07ae59f19266e9b7ff2a6c65729c1"
+  },
+  {
+    "id": "hex",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "23ccc0da7c4793d037f9bfbc22d10c3d18ae3d71bf8a49393673ceb07e26f603"
+  },
+  {
+    "id": "hex",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "e808a9bf96ce912ed722bec3c8407ddcdd589760714978f794ddf09eb6577e32"
+  },
+  {
+    "id": "hex",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5a38b43cd846058c6474fe4db54b5c1dc0ff02e502a62f27a4c859ee0341e1b6"
+  },
+  {
+    "id": "hex",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "3d2019dd7867f8e45b5e656c77c154a54ea2c91f12a25e8a641c90d7612546b2"
+  },
+  {
+    "id": "hex",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "4f6896f881938889f32c7d450affc28611bd8da7dbb8e5dd1fd56825ffcafdf0"
+  },
+  {
+    "id": "hex",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "198108b9cac71e85bc708c13ecd50ffa22425210cc13b94d911598aa28d67e48"
+  },
+  {
+    "id": "hex",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "7fddce55ceb656e2af38778e1dd9db99e2425c8f1beaf51b34eaee71c045303e"
+  },
+  {
+    "id": "hex",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "b8665ad604a4e20d981ef85f89a3975bb659197b644179bee262bfd1f7832f1f"
+  },
+  {
+    "id": "hex",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "06e8472e1b7e557a60c2a9d45d19f41964343754eb6cdfca88e201dfb7f1b5f2"
+  },
+  {
+    "id": "hex",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "b3d5fec69fe93ca952f5594582d5a485b18f292821240ec099d86351aa2012a6"
+  },
+  {
+    "id": "hex",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "b0e0d2c03ca91e792a16135ba2e7f57853b986f219bf04882f228d9ed0e029f8"
+  },
+  {
+    "id": "hex",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "9b8559c11d7fefdbc6b0e1c108f23923fab1ee5ea7e31e2d0dd3d2892bfcdf1c"
+  },
+  {
+    "id": "hex",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "3f898ee7cf3a4190133a31998c6a341e11e4dae25b55f04e06c2707b5cc66277"
+  },
+  {
+    "id": "hex",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "6e51f37182360d999f8936958b69186fc7017d8f777d7159e5a10dc745c67647"
+  },
+  {
+    "id": "hex",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "35ba72a003875f9ebf79994ede6405f06ac02687ae4be74f7ef2b49a7c5409f0"
+  },
+  {
+    "id": "hex",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "d2854723b0014150e807d6f3c5c8f1503d65e49570c24f3da30161e002376bf4"
+  },
+  {
+    "id": "hex",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "271b8db523cd68f924e84245d30091e942e8fc94efe104ef2a4052dbe6ef1c27"
+  },
+  {
+    "id": "hex",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "b1701fcef43c4e91d1c1886225d3dce01485f6204d98a79c5ff966ff3efd8b91"
+  },
+  {
+    "id": "hex",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "9aeb7d1f9d75a805ef018143495dfc0eae5c82397aeee5d3798bf1ca85b48a32"
+  },
+  {
+    "id": "laststand",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "17fa912365268d5bbfcd8608dc9b240198ba47f03b4c48f22c054c4ed44ffd1d"
+  },
+  {
+    "id": "laststand",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "e4e28f66036b90aba5f3375e7bbe0fcc6624bfbaf101d9b2b0120e84607e7a5b"
+  },
+  {
+    "id": "laststand",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "fbde41625bf3d3bc6cb3b71ba623c4f3ffc5cb7471d11d7970543da10c51fc3a"
+  },
+  {
+    "id": "laststand",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "laststand",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "ebdef11d4e9651bb56aa589698e37cfee80749ff30681fb9ceb43624067726a1"
+  },
+  {
+    "id": "laststand",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "e4e28f66036b90aba5f3375e7bbe0fcc6624bfbaf101d9b2b0120e84607e7a5b"
+  },
+  {
+    "id": "laststand",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "6d5df0f74613b047d378d6ba41640c10937239c014d40c8805c1b49b80d053b0"
+  },
+  {
+    "id": "laststand",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "laststand",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "cdbc887b08cd6a2f9ffaf87c52151e303e24ea52cc618c545c06c706e5d517b4"
+  },
+  {
+    "id": "laststand",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "e4e28f66036b90aba5f3375e7bbe0fcc6624bfbaf101d9b2b0120e84607e7a5b"
+  },
+  {
+    "id": "laststand",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "6d44f88ecc974f9025e43c8d03651223256b873448eef61600e96e0701cbed2b"
+  },
+  {
+    "id": "laststand",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "laststand",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "53f35420dd794abf88c2ca0d029fd170db97b1fd8315d00116e299c29ba7a134"
+  },
+  {
+    "id": "laststand",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "e4e28f66036b90aba5f3375e7bbe0fcc6624bfbaf101d9b2b0120e84607e7a5b"
+  },
+  {
+    "id": "laststand",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "3662c8130d70f6f230a67579c7e8bd9542e0e4cf4399e1eb131c0200be903dbe"
+  },
+  {
+    "id": "laststand",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "laststand",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "4c6f6a6f44d1f604a1a3c98782df16d6670847bf83463f380674d8153a48348e"
+  },
+  {
+    "id": "laststand",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "e4e28f66036b90aba5f3375e7bbe0fcc6624bfbaf101d9b2b0120e84607e7a5b"
+  },
+  {
+    "id": "laststand",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "0a310b02cdb766eccb64717d366e38e7efa3507651484b00021939f3e626ee16"
+  },
+  {
+    "id": "laststand",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "laststand",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "4de872f45625c895eb8ee628301b8bd18ec89923c0c7cde98001dcd73b312934"
+  },
+  {
+    "id": "laststand",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "e4e28f66036b90aba5f3375e7bbe0fcc6624bfbaf101d9b2b0120e84607e7a5b"
+  },
+  {
+    "id": "laststand",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "d0eb7b323b70e48b055aca18a2326a2f117b046afd7becd66734afa377af7bf3"
+  },
+  {
+    "id": "laststand",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "venombloom",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "ee4097028daec377b8826f577069cd9681501ac436132f6df61473b705f85edc"
+  },
+  {
+    "id": "venombloom",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "4d57ccbe35a80c337de5745f2ef8446a30ce9b5e19ba561d1cc0374ea7f05343"
+  },
+  {
+    "id": "venombloom",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "eaf1246e9b14aad32fae7ad74c2b707b7108eb26b1adfdd2235a91f866f4adb6"
+  },
+  {
+    "id": "venombloom",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "fa27abc07abcfd389c2fcdf0305aeae28c038b2d53ced7e21a4d6d8e1d988652"
+  },
+  {
+    "id": "venombloom",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "6602b65e04ad57cd651fbe6885c6d9072bf94ff192a90d04f608b807150e3d9a"
+  },
+  {
+    "id": "venombloom",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "4d57ccbe35a80c337de5745f2ef8446a30ce9b5e19ba561d1cc0374ea7f05343"
+  },
+  {
+    "id": "venombloom",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "6ff1bc1b7a9be52b5b8bf386a5a6a58a221194c284389261f1b38d5556aee44f"
+  },
+  {
+    "id": "venombloom",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "fa27abc07abcfd389c2fcdf0305aeae28c038b2d53ced7e21a4d6d8e1d988652"
+  },
+  {
+    "id": "venombloom",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "da05949cc99deea9e4cae64ccf6af29b24263ac968fe73493d72ee50b4e62889"
+  },
+  {
+    "id": "venombloom",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "4d57ccbe35a80c337de5745f2ef8446a30ce9b5e19ba561d1cc0374ea7f05343"
+  },
+  {
+    "id": "venombloom",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "aa45725c8bc03382fb3904eb0db1c8186ca1fd7b9beb062a6ec74485383efd8f"
+  },
+  {
+    "id": "venombloom",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "fa27abc07abcfd389c2fcdf0305aeae28c038b2d53ced7e21a4d6d8e1d988652"
+  },
+  {
+    "id": "venombloom",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "35bcd7c2852a4596ed0e62846976112340ed2f2b33154c18b39f6184d7e05376"
+  },
+  {
+    "id": "venombloom",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "4d57ccbe35a80c337de5745f2ef8446a30ce9b5e19ba561d1cc0374ea7f05343"
+  },
+  {
+    "id": "venombloom",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "6ff1bc1b7a9be52b5b8bf386a5a6a58a221194c284389261f1b38d5556aee44f"
+  },
+  {
+    "id": "venombloom",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "fa27abc07abcfd389c2fcdf0305aeae28c038b2d53ced7e21a4d6d8e1d988652"
+  },
+  {
+    "id": "venombloom",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "6cdbd37876e3029b5e2fa88be9faa2becb6c5542b99acef8931962bb68202e32"
+  },
+  {
+    "id": "venombloom",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "4d57ccbe35a80c337de5745f2ef8446a30ce9b5e19ba561d1cc0374ea7f05343"
+  },
+  {
+    "id": "venombloom",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "4a120a7aa19cb8c9c869cc22b2e4143798c5b21dbbd350f6d91af31881e0a5f9"
+  },
+  {
+    "id": "venombloom",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "fa27abc07abcfd389c2fcdf0305aeae28c038b2d53ced7e21a4d6d8e1d988652"
+  },
+  {
+    "id": "venombloom",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "3adae5e7afb43408c1db24586cace53fdc8bb46e806d08ac9c4378afaae8d393"
+  },
+  {
+    "id": "venombloom",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "4d57ccbe35a80c337de5745f2ef8446a30ce9b5e19ba561d1cc0374ea7f05343"
+  },
+  {
+    "id": "venombloom",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "6ff1bc1b7a9be52b5b8bf386a5a6a58a221194c284389261f1b38d5556aee44f"
+  },
+  {
+    "id": "venombloom",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "fa27abc07abcfd389c2fcdf0305aeae28c038b2d53ced7e21a4d6d8e1d988652"
+  },
+  {
+    "id": "spark",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "9774b7924cf468d0ead690b5ec56e1a3f3b07c4190cf9b4fd4c25731b9bdbb4c"
+  },
+  {
+    "id": "spark",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "f47ac77056fe000df2de171c5bf35b0d7c222da31fdb18bb0f69fa17e6701613"
+  },
+  {
+    "id": "spark",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "3330214e361a3797c3af343714d78f975b58337f11d07bc925a092122d4e72fc"
+  },
+  {
+    "id": "spark",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "392e178f151df7f25e5be033c670c89c03feaaa4805b910cfd45db9461f2bdf6"
+  },
+  {
+    "id": "spark",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "03c8e27df7d988aa17f2c54a2e9907ff63cb92e316e529fcc526b5ae52c21275"
+  },
+  {
+    "id": "spark",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "cd83eab0d7f699d3fec6520a084d63a1edcaf14da1e0127e99ea31b2ce3cdc5b"
+  },
+  {
+    "id": "spark",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "eb299ce4315743ae4c9e7c74cdae8b0a5d928cf93d7fd1da0328378b0b382ac3"
+  },
+  {
+    "id": "spark",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "spark",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "b97ca9ea920222fbe454dcb51692e160bab6630fcccbfe821ecea3f6e76cc12e"
+  },
+  {
+    "id": "spark",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "db5cfe70ce2b2bea679fa1065e1bde0dd35978ed3cfce3f262368a144daabaec"
+  },
+  {
+    "id": "spark",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "7a839623d93b23cbadd50178ec67bc302e1f4925f777f75710a4ad5ecbf2deb9"
+  },
+  {
+    "id": "spark",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "spark",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "cdae09415db3761e54b998460f3e38951260f64ca05139274d16b0bdebd12048"
+  },
+  {
+    "id": "spark",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "ac750a465656775d57ce85c2b93c80cdd310988f9211514dcad6cc712c89596d"
+  },
+  {
+    "id": "spark",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "7155d84b3ff0eb47af25655b2352100f6e887f9054495ef6d304b236ef9af90c"
+  },
+  {
+    "id": "spark",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "spark",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "f7d7b2eb2443471b2e19ad1b2678a012634fae4a8a8b88b2c24acac9e58b3bb5"
+  },
+  {
+    "id": "spark",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "ef1ba3496cbfee1e32a932b254d56774da95a2b752d6f63de741b18095391859"
+  },
+  {
+    "id": "spark",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "6e3c8da893df8bcfad96b47f92f5418462445f971b0fe26f7522568a82e3da37"
+  },
+  {
+    "id": "spark",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "spark",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "33420f6daae2485bf7f284c6428ba709e734614588982caabce19afd7c406d24"
+  },
+  {
+    "id": "spark",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "f9f8bbf357c9cdb1f5ca7168ac2d74b8817dbac705f14aab64ae5d348a77641f"
+  },
+  {
+    "id": "spark",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "db5851130540446a4bd8361ed3f1e930337cc32698ee75e59bdd16c07ab65630"
+  },
+  {
+    "id": "spark",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "sunder",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "2880008b5b50e8d5845ff133a8bb9ed6fb05db5add12ff7377509ed06657cbfc"
+  },
+  {
+    "id": "sunder",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "516aa43fce511b09154eded541931ee6beb28629ab9f8d23a5bec085c822538b"
+  },
+  {
+    "id": "sunder",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "cf1b6291ffd8c99015158251449e10b492187e3c1b62c572e14fb539c96f32cf"
+  },
+  {
+    "id": "sunder",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "13373cd9ffbffb7a960e8abcea2919eb17adc6f51c2870986029d5d1a6673b8c"
+  },
+  {
+    "id": "sunder",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "82402cdf8c1d371f98010233e9323f112ab4dbbe64c8db8dc567192e7e174092"
+  },
+  {
+    "id": "sunder",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "582a902a1aae43d2d09e35186d199bf14d5ae045752068d32cb8b524fbf37939"
+  },
+  {
+    "id": "sunder",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "cf1b6291ffd8c99015158251449e10b492187e3c1b62c572e14fb539c96f32cf"
+  },
+  {
+    "id": "sunder",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "13373cd9ffbffb7a960e8abcea2919eb17adc6f51c2870986029d5d1a6673b8c"
+  },
+  {
+    "id": "sunder",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "99224eb737f8e34aaf40dcf8e1b034471cae98031036745989c541d9260b1ab9"
+  },
+  {
+    "id": "sunder",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "2c73be918c3819a72058993c6ee9030de9044a0b9dc9aea467e10315811458a2"
+  },
+  {
+    "id": "sunder",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "757ed4d30767b56e3a2d444c886ad1fb264267d2819d8fa71fdd36146242b979"
+  },
+  {
+    "id": "sunder",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "13373cd9ffbffb7a960e8abcea2919eb17adc6f51c2870986029d5d1a6673b8c"
+  },
+  {
+    "id": "sunder",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "1445c1ed5906cb34049a0618a45b811e04a496013834d66e841fab9289338c48"
+  },
+  {
+    "id": "sunder",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "45380920f149baeb282e80422ee250c613602b93705b1002b37288eb81b28703"
+  },
+  {
+    "id": "sunder",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "757ed4d30767b56e3a2d444c886ad1fb264267d2819d8fa71fdd36146242b979"
+  },
+  {
+    "id": "sunder",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "13373cd9ffbffb7a960e8abcea2919eb17adc6f51c2870986029d5d1a6673b8c"
+  },
+  {
+    "id": "sunder",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "7c5047158de54e275b98694235277a623ef232a241361c0c806c21ebc932d7f9"
+  },
+  {
+    "id": "sunder",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "33f57eb16294f5bac6162eaea6cd735c8973a60b2c4ee1cce5c5e31db17f3ce3"
+  },
+  {
+    "id": "sunder",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "a412d6ccccb688e0c0e1aad8eb01dfe3c5d481874f61672d294cb388cb4b6790"
+  },
+  {
+    "id": "sunder",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "13373cd9ffbffb7a960e8abcea2919eb17adc6f51c2870986029d5d1a6673b8c"
+  },
+  {
+    "id": "sunder",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "308c6f0e7246dcc18ff94d1b9a274c835154695fcdc1a48cd6d30aaa7b9357d9"
+  },
+  {
+    "id": "sunder",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "45380920f149baeb282e80422ee250c613602b93705b1002b37288eb81b28703"
+  },
+  {
+    "id": "sunder",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "a412d6ccccb688e0c0e1aad8eb01dfe3c5d481874f61672d294cb388cb4b6790"
+  },
+  {
+    "id": "sunder",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "13373cd9ffbffb7a960e8abcea2919eb17adc6f51c2870986029d5d1a6673b8c"
+  },
+  {
+    "id": "ember",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "55075a9b2773095c2f93759cc143bafc8dbff70525268616188a889772da87b3"
+  },
+  {
+    "id": "ember",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "5b241d15aa46f4df776b1f69f29e4feaf6c057cfc45f997012bb57bdd1169919"
+  },
+  {
+    "id": "ember",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "bb37987d7fe3fa27d2fe118cb2be499bb3c9ef0f764882efc2ee4f47d7b7519a"
+  },
+  {
+    "id": "ember",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "a7296b6fe938eb90a80cd52e219634af3a2aee110cd1ac00720d8d93dc6c9c4f"
+  },
+  {
+    "id": "ember",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "091752414a23b0490b05a73d80c04e410b210368a9ca1899a0d862c0667050ed"
+  },
+  {
+    "id": "ember",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "301f3fd7fa65c69935eacaa8a1775fdcca6b96f48009b24f08a877c6b48e5d89"
+  },
+  {
+    "id": "ember",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "bb37987d7fe3fa27d2fe118cb2be499bb3c9ef0f764882efc2ee4f47d7b7519a"
+  },
+  {
+    "id": "ember",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "a7296b6fe938eb90a80cd52e219634af3a2aee110cd1ac00720d8d93dc6c9c4f"
+  },
+  {
+    "id": "ember",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "f229da9307f0a6244694f77448fe7453288d9f41180e7290120769282e5a3fdd"
+  },
+  {
+    "id": "ember",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "def1915b2eaa3e72aae1d2c9b9f860b7da0793f3ef507aef942903a70e538cea"
+  },
+  {
+    "id": "ember",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "5aa593d1c59b2f099554e201532b347c944303116dd500325676e72cdcaf305e"
+  },
+  {
+    "id": "ember",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "3584e387e7c146a608ea4bf59092a09ab85ba5fed801a3be9a6516c9a9fbd3b2"
+  },
+  {
+    "id": "ember",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "5546f5afebee4682b3da19a21b2e324244c513daf58ddcc9fb0919718f50a115"
+  },
+  {
+    "id": "ember",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "ee60482af539568efb0f60e07c59b36432e84baa5fca4b5e5f76f5502e97ca1e"
+  },
+  {
+    "id": "ember",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "5aa593d1c59b2f099554e201532b347c944303116dd500325676e72cdcaf305e"
+  },
+  {
+    "id": "ember",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "3584e387e7c146a608ea4bf59092a09ab85ba5fed801a3be9a6516c9a9fbd3b2"
+  },
+  {
+    "id": "ember",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "694b75c02877a6ae2f4cf95fbef7b8a6e00c868d7d3d0262f76f2af91fbb35c1"
+  },
+  {
+    "id": "ember",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "cf195d985f8494121940c04581af8828a3757985432b76d2eec0445d7cec0251"
+  },
+  {
+    "id": "ember",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "a345a3dc80f622965c7daafc11d653d40f99803e77b3c7f86407815512318ce9"
+  },
+  {
+    "id": "ember",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "110d517d16f1997cd6dcce7541f85526e1c89f3fbdc8568786845c8f64526618"
+  },
+  {
+    "id": "ember",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "ca689602a738ebb354bcca6fa8ca4b7a235fff4ed85bbf39b33e591758dc977c"
+  },
+  {
+    "id": "ember",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "b251b26e5d200837282c03245116f0fc12fb701af0203ee195d241cf8b9ef104"
+  },
+  {
+    "id": "ember",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "a345a3dc80f622965c7daafc11d653d40f99803e77b3c7f86407815512318ce9"
+  },
+  {
+    "id": "ember",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "110d517d16f1997cd6dcce7541f85526e1c89f3fbdc8568786845c8f64526618"
+  },
+  {
+    "id": "pulse",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "6535c7109306c90ccb55cee2acac689c4326ce145dcfbf3d93de65c47dd7ccdf"
+  },
+  {
+    "id": "pulse",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "20b301858f8c9e12ec38b88276571e18b3584a0071142c64185112dadb32f08d"
+  },
+  {
+    "id": "pulse",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "2e29d3905f6b2f2ea9a40a1097280ed5f3782652d3a4ba9d2c2e387c564d6981"
+  },
+  {
+    "id": "pulse",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "9b7b44b071a7d5c12e84f84aa65871279e245e45c9a88012a0c769f1a58bc6bc"
+  },
+  {
+    "id": "pulse",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "7bdbb481a219116162f99c7dfcc91a6e6c3169520b970dee5ac14d6a4d31e840"
+  },
+  {
+    "id": "pulse",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "cb90353ff83cf2d54c2f97e730f3aeedebf1e1362e176996c2bd110788666339"
+  },
+  {
+    "id": "pulse",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "2e29d3905f6b2f2ea9a40a1097280ed5f3782652d3a4ba9d2c2e387c564d6981"
+  },
+  {
+    "id": "pulse",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "9b7b44b071a7d5c12e84f84aa65871279e245e45c9a88012a0c769f1a58bc6bc"
+  },
+  {
+    "id": "pulse",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "7bdbb481a219116162f99c7dfcc91a6e6c3169520b970dee5ac14d6a4d31e840"
+  },
+  {
+    "id": "pulse",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "cb90353ff83cf2d54c2f97e730f3aeedebf1e1362e176996c2bd110788666339"
+  },
+  {
+    "id": "pulse",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "2e29d3905f6b2f2ea9a40a1097280ed5f3782652d3a4ba9d2c2e387c564d6981"
+  },
+  {
+    "id": "pulse",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "9b7b44b071a7d5c12e84f84aa65871279e245e45c9a88012a0c769f1a58bc6bc"
+  },
+  {
+    "id": "pulse",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "571aab9851ca159f3079e2240987b4d3fc75573f49939b8337f7e1ffb20f474e"
+  },
+  {
+    "id": "pulse",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "5b69a2200305e9632ba302c1db8befbedb2a1932f6ed523b225f58a44f62de2c"
+  },
+  {
+    "id": "pulse",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "2e29d3905f6b2f2ea9a40a1097280ed5f3782652d3a4ba9d2c2e387c564d6981"
+  },
+  {
+    "id": "pulse",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "9b7b44b071a7d5c12e84f84aa65871279e245e45c9a88012a0c769f1a58bc6bc"
+  },
+  {
+    "id": "pulse",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "571aab9851ca159f3079e2240987b4d3fc75573f49939b8337f7e1ffb20f474e"
+  },
+  {
+    "id": "pulse",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "5b69a2200305e9632ba302c1db8befbedb2a1932f6ed523b225f58a44f62de2c"
+  },
+  {
+    "id": "pulse",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "2e29d3905f6b2f2ea9a40a1097280ed5f3782652d3a4ba9d2c2e387c564d6981"
+  },
+  {
+    "id": "pulse",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "9b7b44b071a7d5c12e84f84aa65871279e245e45c9a88012a0c769f1a58bc6bc"
+  },
+  {
+    "id": "pulse",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "c96b6416dcb97909e6a80cb267e5ce14ce23264d53ff08db7fa85321b8b1e86c"
+  },
+  {
+    "id": "pulse",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "a8507ba50e517cba2a109b550326606a9f6b6f234c8432d1837768ace0d00a8c"
+  },
+  {
+    "id": "pulse",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "2e29d3905f6b2f2ea9a40a1097280ed5f3782652d3a4ba9d2c2e387c564d6981"
+  },
+  {
+    "id": "pulse",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "9b7b44b071a7d5c12e84f84aa65871279e245e45c9a88012a0c769f1a58bc6bc"
+  },
+  {
+    "id": "repose",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "f77b33867628297b2f6fb15a40afcf5f876664738faa9789907c9a1070b613f9"
+  },
+  {
+    "id": "repose",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "24f9e19ae0fcc05635343eee220922b2e5c66c6cd3deb9d4b5df9291cfa536d4"
+  },
+  {
+    "id": "repose",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "671e8947cb9a0eb168e19ddae7944cbdd45ae5b86bf71da72edd69c65d095c90"
+  },
+  {
+    "id": "repose",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "d33556ecfcc094efabbd1ca9f9c8243cbec6324635e9b8b3c11a032020dbb4aa"
+  },
+  {
+    "id": "repose",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "a2563212f91507ac8b5ff4f8fe479302314199a6df9604ee23d34e453fe58bd6"
+  },
+  {
+    "id": "repose",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "b9b5d4eb92f1eff432d23f65c38963611cc2d95648d6e0fa5eba9bbaa42762e6"
+  },
+  {
+    "id": "repose",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "7548d673eaee70f46cacffe0d05e2ad5316c0f0ef360be23e9e47e45e77277c1"
+  },
+  {
+    "id": "repose",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "af35fd06a4ea71e4689aeaa15fc45fe8f479a709cb8911a70f3b15c68ca57c0c"
+  },
+  {
+    "id": "repose",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "6d43a5b80c4dd687459ed7af8a9167fa8a299eb161cc36521219b80837487502"
+  },
+  {
+    "id": "repose",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "2349c1ba324ff3eb5e7cc58c6d34a07aad8dac9bafd99b6c7c181067d955e01f"
+  },
+  {
+    "id": "repose",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "fdb8285b34316f03916d43135235e6552b1edb154b26d0c9cb3edfca1063c0e7"
+  },
+  {
+    "id": "repose",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "fc2c8a2b692c87f915a9df7ada68ae09c03a04f6029f73bc7f2b9a02e2e3eaf5"
+  },
+  {
+    "id": "repose",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "39de82f57ad8292dbf38b3bb72b8b91f3c8fa2b173d49c6892e82a89fc963da2"
+  },
+  {
+    "id": "repose",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "ae50f4f49c73ce857a18f0ebc392029b6e022ab9f0573466d33f74084d9a4c31"
+  },
+  {
+    "id": "repose",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "3c243c815082d9e801a2d884dd28cbb969191c82c0bca993c6ccfab7a6a27463"
+  },
+  {
+    "id": "repose",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "84a46d0d9a6fef4b2365278165174b7540edd9296f3449f42ff75d86b92d0863"
+  },
+  {
+    "id": "repose",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "973ba5dd62aaf6e3c7116a51cf85aa1c7ea083323024dc89995a1806b0ef9676"
+  },
+  {
+    "id": "repose",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "424519692ee9d99e59a29df34afce923ab811fa7706c32824e9bf941b11cf3c8"
+  },
+  {
+    "id": "repose",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "a4171e00a108feb1c1a8f7f94cd17c043a2d30113104a105ac2134f4f7d96c4d"
+  },
+  {
+    "id": "repose",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "1156243fa29a12ead833c9fb7da4c44ff387ded5fafe7e4f1a9440b345bc1590"
+  },
+  {
+    "id": "repose",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "63b6e963fb62dc36bc17276efb5a67c04b87176742dbcecbbb8d3f02d9fb502d"
+  },
+  {
+    "id": "repose",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "da7907a3d08cda4b0be33f9c023423d7a301faaa20e86ceadd5a707e3c72aeac"
+  },
+  {
+    "id": "repose",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "63220a25fe5aad63e510ea4781a1aff102186b821b550447ef09694e5543c0b8"
+  },
+  {
+    "id": "repose",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "7a389e55298b932dec1bb3668cde5a555f5b4d8e8157e187bed45705bfdf80b0"
+  },
+  {
+    "id": "duel",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "cdae09415db3761e54b998460f3e38951260f64ca05139274d16b0bdebd12048"
+  },
+  {
+    "id": "duel",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "ac750a465656775d57ce85c2b93c80cdd310988f9211514dcad6cc712c89596d"
+  },
+  {
+    "id": "duel",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "7155d84b3ff0eb47af25655b2352100f6e887f9054495ef6d304b236ef9af90c"
+  },
+  {
+    "id": "duel",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "duel",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "76808411bb9ff26936b96665da6570808ce4f8e679d398186fbaff829c77e847"
+  },
+  {
+    "id": "duel",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "a28e7a4601948f7ba0c8aa07d4f6cac7d9c502cf56ad668a707d89d781339921"
+  },
+  {
+    "id": "duel",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "7155d84b3ff0eb47af25655b2352100f6e887f9054495ef6d304b236ef9af90c"
+  },
+  {
+    "id": "duel",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "duel",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "17fa912365268d5bbfcd8608dc9b240198ba47f03b4c48f22c054c4ed44ffd1d"
+  },
+  {
+    "id": "duel",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "d6689ceb952244a2684588f8051a8e16240770cf30280259703738cd69fabf6f"
+  },
+  {
+    "id": "duel",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "fbde41625bf3d3bc6cb3b71ba623c4f3ffc5cb7471d11d7970543da10c51fc3a"
+  },
+  {
+    "id": "duel",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "duel",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "a5ccc5d8635fef17eb37d95e8fd0b3955a90dfb937e2e4974ffacc2e52b0de3e"
+  },
+  {
+    "id": "duel",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "a95fe4d2714c792c37cea06a2be4783aa8f1afd276c632cfe3a5d3e41594953a"
+  },
+  {
+    "id": "duel",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "fbde41625bf3d3bc6cb3b71ba623c4f3ffc5cb7471d11d7970543da10c51fc3a"
+  },
+  {
+    "id": "duel",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "duel",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "cdbc887b08cd6a2f9ffaf87c52151e303e24ea52cc618c545c06c706e5d517b4"
+  },
+  {
+    "id": "duel",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "e4e28f66036b90aba5f3375e7bbe0fcc6624bfbaf101d9b2b0120e84607e7a5b"
+  },
+  {
+    "id": "duel",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "6d44f88ecc974f9025e43c8d03651223256b873448eef61600e96e0701cbed2b"
+  },
+  {
+    "id": "duel",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "duel",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "1c94689c0a317344d99a98defb2f37ed81904b32b836d02ae8fa12505c67499d"
+  },
+  {
+    "id": "duel",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "2bd0409c668418eda5a4267965a308b59dac9bc615775ceeecc4372eb4135366"
+  },
+  {
+    "id": "duel",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "6d44f88ecc974f9025e43c8d03651223256b873448eef61600e96e0701cbed2b"
+  },
+  {
+    "id": "duel",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "storm",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "b97ca9ea920222fbe454dcb51692e160bab6630fcccbfe821ecea3f6e76cc12e"
+  },
+  {
+    "id": "storm",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "db5cfe70ce2b2bea679fa1065e1bde0dd35978ed3cfce3f262368a144daabaec"
+  },
+  {
+    "id": "storm",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "9c0fc272b88633592736bc63f7027806b6f8e7d0629d2d193f128ac5f7c5e952"
+  },
+  {
+    "id": "storm",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "07577f032540e28706b809deb35c62d140aad4502838f506a203352bdb22a7b1"
+  },
+  {
+    "id": "storm",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "cdae09415db3761e54b998460f3e38951260f64ca05139274d16b0bdebd12048"
+  },
+  {
+    "id": "storm",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "ac750a465656775d57ce85c2b93c80cdd310988f9211514dcad6cc712c89596d"
+  },
+  {
+    "id": "storm",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "175f332df70b0bcf4a7ce1ceeb27686188d99714128482dae8d45e81f4676407"
+  },
+  {
+    "id": "storm",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "2fc8d19913b630d2082e558186c9a7c5f347c58d06665b462a2124a3609df7ff"
+  },
+  {
+    "id": "storm",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "e8e6e44946344723fbdf653776a52b4d6fc84a0aa6b0c64a778f747e0b8542de"
+  },
+  {
+    "id": "storm",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "d1ad734bc8f910c970c6c66b8fc6509f12e170bce1340f53a6ba6a94d63cc98f"
+  },
+  {
+    "id": "storm",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "7155d84b3ff0eb47af25655b2352100f6e887f9054495ef6d304b236ef9af90c"
+  },
+  {
+    "id": "storm",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "1264c20c8208f82830a141279a26dd3f5269358761a6cba94d7728eb471359e2"
+  },
+  {
+    "id": "storm",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "cdbc887b08cd6a2f9ffaf87c52151e303e24ea52cc618c545c06c706e5d517b4"
+  },
+  {
+    "id": "storm",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "e4e28f66036b90aba5f3375e7bbe0fcc6624bfbaf101d9b2b0120e84607e7a5b"
+  },
+  {
+    "id": "storm",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "9818fdf5d380dfcc0fa29aefb6cd91ed061b2af55747032222018dd2e427587c"
+  },
+  {
+    "id": "storm",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "1264c20c8208f82830a141279a26dd3f5269358761a6cba94d7728eb471359e2"
+  },
+  {
+    "id": "storm",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "9c686d1596ed1ff5169d2b1b55c73cab37b76e52d762ad8fddbb0831031a4da7"
+  },
+  {
+    "id": "storm",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "e4e28f66036b90aba5f3375e7bbe0fcc6624bfbaf101d9b2b0120e84607e7a5b"
+  },
+  {
+    "id": "storm",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "9818fdf5d380dfcc0fa29aefb6cd91ed061b2af55747032222018dd2e427587c"
+  },
+  {
+    "id": "storm",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "storm",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "ef137a32c1210ae41f08f06585ef7db53bc350a21441134e4feb53f92b85c08a"
+  },
+  {
+    "id": "storm",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "e4e28f66036b90aba5f3375e7bbe0fcc6624bfbaf101d9b2b0120e84607e7a5b"
+  },
+  {
+    "id": "storm",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "3c540cadc95367fd5ef6a985fe4c3601dd67600e674bac13c3cc5f6f7a8fcd8f"
+  },
+  {
+    "id": "storm",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "5b6a81945c87d251157469c3c85290542ac89288a37df9c6fba3928af9da233a"
+  },
+  {
+    "id": "dusk",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "a26d222edae3a78844727248c6f4936dfd98953cf21b692fb1fbc610487d4826"
+  },
+  {
+    "id": "dusk",
+    "lv": 0,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "7d1ea564cdb7ad0161dbf51adb85eb80443e81053eb1f69aa9c2c09e7a378c2f"
+  },
+  {
+    "id": "dusk",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "b8c66d9b5b3039966f88786b89e460fabc47c58faf78d7e905d1d84416f95bd6"
+  },
+  {
+    "id": "dusk",
+    "lv": 0,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "d2ebccf3e9782118983dfc0cd1384d34ed9a1ad7ca269fb4f132dd96170003d3"
+  },
+  {
+    "id": "dusk",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "f3f8e7b2d496dde189d4536e6eb5c8d2651ccd3ae9640403659f20b9d195cd9d"
+  },
+  {
+    "id": "dusk",
+    "lv": 0,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "684e1090fb04d71617a1eaa92526e3947ba4d124180f5697f498bb8d789f18a4"
+  },
+  {
+    "id": "dusk",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "5e8b71df67dbe3d78c16a14c40c25a08193683ba3946dc067745ce80e8244cf0"
+  },
+  {
+    "id": "dusk",
+    "lv": 0,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "4c0b7aaf123faeb2c0b6efac3434e5cb29094af7efdfac7edb9999ebcdd5498e"
+  },
+  {
+    "id": "dusk",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "35fda0946d32c6bcdd0ddfbd41ce0aaf21a949fc6ee9b6fe5100198013684e6f"
+  },
+  {
+    "id": "dusk",
+    "lv": 1,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "4a703e4461b9cdc2ef2625f6c4920bae4a4945deb9abe0b3499c7d798e96d164"
+  },
+  {
+    "id": "dusk",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "765f3238baa020a793a85a60b8fcb044d5bea6ff6f508db4f7f99383af2b8f29"
+  },
+  {
+    "id": "dusk",
+    "lv": 1,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "2dd6e1994fd8d2da7f41d3c376251d0134e3d8f93d9661bbfdcf3ffb8ec06e53"
+  },
+  {
+    "id": "dusk",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "975aa47dbb4844609dfb18bcad9fc8b6230c64e99471c978842d5f39dab2f5c1"
+  },
+  {
+    "id": "dusk",
+    "lv": 1,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "f8dbf205b0a45736a4f3cc6fc72e3b5114f8aca843727be410a53193bedff22c"
+  },
+  {
+    "id": "dusk",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "e1a6db228cc721495f7015de9da29c18802054394912e0f6b80d7f1af7c8dd76"
+  },
+  {
+    "id": "dusk",
+    "lv": 1,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "90861b392f3453f03f977f4217cd026692e6d7191d99a1e88c8959d15df8371b"
+  },
+  {
+    "id": "dusk",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": false,
+    "hash": "3bd815db9f5c71e1a7455f8a877ced03e2df42657e93251972e9eb36684ec69b"
+  },
+  {
+    "id": "dusk",
+    "lv": 2,
+    "trait": false,
+    "side": "player",
+    "lethal": true,
+    "hash": "449de330e1e5902bc086143c56a22e883f0d8db497dcf4835e92bdcbf163fd18"
+  },
+  {
+    "id": "dusk",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": false,
+    "hash": "4327a23d10b6783654dfe66035bf7120e7c7b15d339ec808b2c0915c0f14a966"
+  },
+  {
+    "id": "dusk",
+    "lv": 2,
+    "trait": false,
+    "side": "boss",
+    "lethal": true,
+    "hash": "2e068f8d66caf684351b2772b8195e57c1a0ab727946a88b238f0b61db3e50ab"
+  },
+  {
+    "id": "dusk",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": false,
+    "hash": "6ce4a2c8fb1a07d477473846f7c2f121afa99f61e5017b2b01240fc95352187b"
+  },
+  {
+    "id": "dusk",
+    "lv": 2,
+    "trait": true,
+    "side": "player",
+    "lethal": true,
+    "hash": "35664032f401d3ec1c1e4443053e4ea8d2064f1d038891c3a976e7255b5369a2"
+  },
+  {
+    "id": "dusk",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": false,
+    "hash": "008198d0c2443cc770ff1109d545660379d00c233a0773e7fb91dc50244e3599"
+  },
+  {
+    "id": "dusk",
+    "lv": 2,
+    "trait": true,
+    "side": "boss",
+    "lethal": true,
+    "hash": "0e0836c6a3d4046188b7a30a3a4030d0df0a2ed8bd95db02dcf4ee64608fa8a3"
+  }
+]

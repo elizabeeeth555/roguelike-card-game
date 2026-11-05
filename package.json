@@ -5,6 +5,6 @@
   "description": "継世の戦闘 — 第三紀・ボス固有能力版",
   "scripts": {
     "test": "node --test tests/*.test.cjs",
-    "check": "node --check src/game/card-data.js && node --check src/game/combat-math.js && node --check src/game/boss-planner.js && node --check src/game/battle.js && node --check src/game/draft.js && node --check src/ui/render.js && node --check src/ui/effects.js && node --check src/ui/controls.js && node --check src/main.js"
+    "check": "node scripts/check.cjs"
   }
 }

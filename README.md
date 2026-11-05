@@ -55,11 +55,20 @@ src/
   main.js
   game/
     card-data.js
+    card-effects.js
     combat-math.js
     boss-planner.js
-    draft.js
-    battle.js
+    battle-engine.js
+    progression.js
+  app/
+    battle-controller.js
+    draft-controller.js
+    task-scope.js
   ui/
+    dom.js
+    battle-events.js
+    draft-render.js
+    result.js
     render.js
     effects.js
     controls.js
@@ -71,8 +80,11 @@ assets/
   cards/
   sounds/           # BGMと仮SE
 package.json
+scripts/check.cjs
 tests/
 ```
+
+ゲームルールとブラウザの進行・表示を分離しています。ReactやNode.jsへの移行に向けた共通コアの使い方は [docs/architecture.md](docs/architecture.md) を参照してください。現在もビルド不要で、直接起動できます。
 
 BGMは道中 **Whispers in the Fog**（Ruhinre）、ボス戦 **Determined Pursuit**（Emma_MA）。サウンド素材の参照先は `assets/asset-map.js` に集約しているため、画像・BGM・SEを後から入れ替えられます。著作権・配布条件については原配布元と `assets/sounds/README.md` を参照してください。
 
@@ -85,8 +97,8 @@ BGMは道中 **Whispers in the Fog**（Ruhinre）、ボス戦 **Determined Pursu
 
 ## テスト・留意事項
 
-- `npm test`：**12件の自動テスト**。回復、軽減、毒、切り札、敵マナ、強化グレード、カード説明、音源パス、**三世代の進行・継承・バリア検証**を含みます。
-- `npm run check`：JavaScript構文チェック。
+- `npm test`：**28件の自動テスト**。変更前の全カード624ケースとの比較、回復、軽減、毒、切り札、敵マナ、AI、強化、継承、三世代進行、入れ替え／破棄操作、JSON状態往復、演出中断、全スクリプトの読み込みを検証します。
+- `npm run check`：`src/`・`assets/`・`scripts/`・`tests/`の全JavaScript構文チェック。
 - テスト環境におけるブラウザ起動制限により、今回のブラウザ実機による視覚・音声確認は未実施です。PC・スマホの実機で、特にターン演出のスキップ、第二紀ボスのバリア、第三紀の継承、BGM/SEを確認してください。
 
 Ver.0.9.5は**完成したゲームバランスではなく、固有能力と強化制限の体験を確認するための版**です。HPやカード威力、3面の固有能力数値はプレイ結果を踏まえて見直します。

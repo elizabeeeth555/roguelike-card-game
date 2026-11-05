@@ -2,6 +2,24 @@
 // Card specifications, pools, routes and formatting helpers.
 // Classic scripts retain direct file:// playability; do not turn these into ES modules.
 const RULES={firstHp:42,secondHp:52,thirdHp:62,firstBossHp:45,secondBossHp:59,thirdBossHp:72,cap:5};
+// Generation-specific configuration. Values remain the Ver.0.9.5 trial balance.
+const ERAS={
+ 1:{label:'第一紀',english:'BEGINNING',playerHp:RULES.firstHp,bossHp:RULES.firstBossHp,
+   bossName:'灰の騎士',region:'忘却の聖堂',bossPortrait:'guardian',upgradeGrade:0,trump:'laststand',
+   enemyDeck:['slash','boost','guard','pierce'],barrier:0,rageFromRound:0},
+ 2:{label:'第二紀',english:'INHERITANCE',playerHp:RULES.secondHp,bossHp:RULES.secondBossHp,
+   bossName:'第一紀の英雄',region:'継承の聖堂',bossPortrait:'era1',upgradeGrade:1,trump:'venombloom',
+   barrier:7,rageFromRound:0},
+ 3:{label:'第三紀',english:'AWAKENING',playerHp:RULES.thirdHp,bossHp:RULES.thirdBossHp,
+   bossName:'第二紀の英雄',region:'遺志の回廊',bossPortrait:'era2',upgradeGrade:2,trump:'laststand',
+   barrier:0,rageFromRound:2}
+};
+const LAST_ERA=Math.max(...Object.keys(ERAS).map(Number));
+function eraConfig(era){
+ const config=ERAS[era];
+ if(!config)throw new RangeError('Unknown era: '+era);
+ return config;
+}
 const LIB={
  slash:{name:'斬撃',family:'attack',type:'攻撃',icon:'⚔',cost:1,desc:'攻撃力+強化×2のダメージ。',mark:'追撃：半分の威力でもう1回攻撃'},
  boost:{name:'闘志',family:'buff',type:'強化',icon:'✦',cost:1,desc:'この戦闘中、攻撃力+2（強化ごとに+1）。',mark:'強化時に軽減4も獲得'},
@@ -37,11 +55,11 @@ const ROUTES={1:['add','trump','add','fork','add','fork'],2:['add','trump','upgr
 const ROUTE=ROUTES[2];
 function routeForEra(e){return ROUTES[e]||ROUTE;}
 function hasUpgraded(c){return !!(c.upgraded||c.lv>0||c.trait);}
-function upgradeGrade(e){return e===3?2:e===2?1:0;}
+function upgradeGrade(e){return ERAS[e]?.upgradeGrade||0;}
 const clone=c=>({...c});
 const nameOf=c=>LIB[c.id].name+(c.lv>=2?'［改］':c.lv?' +1':'')+(c.trait?' ✦':'');
-function newCard(id,legacy=false){return {id,lv:0,trait:false,upgraded:false,inherited:legacy,key:legacy?'legacy':`${id}-${Math.random().toString(36).slice(2,7)}`};}
-function pickRandom(ids,n){const a=[...ids];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a.slice(0,n);}
+function newCard(id,legacy=false,random=Math.random){return {id,lv:0,trait:false,upgraded:false,inherited:legacy,key:legacy?'legacy':`${id}-${random().toString(36).slice(2,7)}`};}
+function pickRandom(ids,n,random=Math.random){const a=[...ids];for(let i=a.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a.slice(0,n);}
 function effectSummary(c){const lv=c.lv||0,t=!!c.trait;switch(c.id){
  case 'slash':return `攻撃力+${lv*2}ダメージ${t?'／追撃：その半分のダメージ':''}`;
  case 'boost':return `戦闘中の攻撃力+${2+lv}${t?'／次の敵ターン軽減4':''}`;
@@ -72,3 +90,10 @@ function effectSummary(c){const lv=c.lv||0,t=!!c.trait;switch(c.id){
  default:return LIB[c.id].desc;
 }}
 function upgradePreview(c,special=false,eraGrade=2){const next={...c,lv:upgradeGrade(eraGrade),trait:special||c.trait,upgraded:true};return `現在：${effectSummary(c)}\n変更後：${effectSummary(next)}${special?'\n追加効果：'+LIB[c.id].mark:''}`;}
+
+// Shared entry point: classic scripts and Node.js use the same definitions.
+const GAME_DATA_API = Object.freeze({RULES, ERAS, LAST_ERA, eraConfig, LIB, POOLS, STARTERS, ROUTE, ROUTES,
+ routeForEra, hasUpgraded, upgradeGrade, clone, nameOf, newCard, pickRandom,
+ effectSummary, upgradePreview});
+if (typeof module !== 'undefined' && module.exports) module.exports = GAME_DATA_API;
+else globalThis.GameData = GAME_DATA_API;

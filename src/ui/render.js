@@ -1,6 +1,6 @@
 'use strict';
 // Ver.0.9.4: extracted unchanged from Ver.0.9.3.
-function setHeader(){const tag=['','第一紀','第二紀','第三紀'][era];$('generationName').textContent=tag;$('phaseLabel').textContent=`${tag}・${mode==='battle'?'戦闘':'道中構築'}`;$('heroName').textContent=tag+'の英雄';}
+function setHeader(){const tag=eraConfig(era).label;$('generationName').textContent=tag;$('phaseLabel').textContent=`${tag}・${mode==='battle'?'戦闘':'道中構築'}`;$('heroName').textContent=tag+'の英雄';}
 
 function displayEnemyDeck(){const panel=$('enemyDeck');panel.replaceChildren();$('enemyDeckHeading').textContent=`敵デッキ ${state.enemyDeck.length}枚 / 行動は非公開`;for(const c of state.enemyDeck){const d=document.createElement('button');d.type='button';d.className='enemy-mini-card info-trigger'+(LIB[c.id].oneShot?' enemy-trump':'');d.dataset.key=c.key;d.dataset.info=`${nameOf(c)} / コスト${LIB[c.id].cost}|${effectSummary(c)}${c.trait?'\n刻印：'+LIB[c.id].mark:''}`;d.setAttribute('aria-label',`${nameOf(c)}、コスト${LIB[c.id].cost}。タップで効果を表示`);const a=document.createElement('span');a.className='e-cost';a.textContent=LIB[c.id].cost;const b=document.createElement('span');b.className='e-symbol';b.textContent=LIB[c.id].icon;const cc=document.createElement('span');cc.className='e-name';cc.textContent=nameOf(c);d.append(a,b,cc);applyCardArt(b,c.id);panel.append(d);}updateEnemyCardClasses();}
 
