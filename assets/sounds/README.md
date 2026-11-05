@@ -1,4 +1,10 @@
-# SE差し替え
-ここに効果音ファイル（mp3/wav/ogg）を配置し、`../asset-map.js` の `sounds` にパスを書いてください。
-未指定時はブラウザのWeb Audio APIで合成した簡易SEを使います。
-ユーザーが♪ボタンをONにするまで無音です。
+# BGM and sound effects
+
+## BGM
+- `bgm/whispers_in_the_fog.ogg` (Ruhinre) — event / route
+- `bgm/determined_pursuit_loop.ogg` (Emma_MA) — boss battle
+- Matching `.mp3` files are included for cross-browser playback.
+- Music files were provided by the user; confirm the licenses at their distribution pages before publishing.
+
+## SFX
+The `sfx/` directory holds 36 short temporary original effect sounds used by the game. Change any mapped entry in `assets/asset-map.js` to replace an individual sound.

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0c111c">
-  <title>継世の戦闘 — Phase 3 Ver.0.9.2 / 敵アクション・切り札アップデート</title>
+  <title>継世の戦闘 — Phase 3 Ver.0.9.3 / SE・BGM・演出・カード獲得改善</title>
 <style>
 :root{color-scheme:dark;--bg:#0a101b;--bg2:#111927;--panel:#141d2b;--panel2:#182332;--line:#2a3647;--softline:#263043;--cream:#eef0ed;--muted:#8795a7;--gold:#dcb47a;--gold2:#a77e49;--red:#dd807a;--green:#78bba5;--blue:#80b9c7;--shadow:0 12px 40px #0003}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 62% -10%,#24334b 0%,transparent 38%),linear-gradient(140deg,#0c1420 0%,#0b111b 45%,#090d15 100%);font-family:system-ui,-apple-system,"Yu Gothic UI","Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--cream)}button{font:inherit}button:focus-visible{outline:2px solid #f0c687;outline-offset:3px}button:disabled{cursor:not-allowed}.app-shell{width:min(100% - 56px,1536px);margin:0 auto;display:flex;flex-direction:column;min-height:100vh}.topbar{display:flex;justify-content:space-between;align-items:center;min-height:84px;gap:20px;border-bottom:1px solid #ffffff14}.identity{display:flex;align-items:center;gap:15px}.crest{font-size:25px;width:48px;height:48px;display:grid;place-items:center;border:1px solid #9e835a80;background:linear-gradient(135deg,#423c36,#151a25);transform:rotate(45deg);border-radius:7px;color:#f2c27f}.crest::first-letter{transform:rotate(-45deg)}.eyebrow{font-size:10px;letter-spacing:.25em;color:#b6a18a;font-weight:750}.identity h1{font-size:23px;letter-spacing:.08em;font-weight:800;margin:4px 0 0}.title-muted{color:#9aa2a6;font-size:15px;font-weight:500;letter-spacing:.03em}.top-right{display:flex;align-items:center;gap:10px}.phase-pill,.top-button,.icon-button{border:1px solid var(--line);background:#151e2d;color:#d6e0e7;min-height:37px;border-radius:8px;padding:0 13px;font-size:12px;font-weight:700;white-space:nowrap}.phase-pill{display:flex;align-items:center;gap:9px;letter-spacing:.08em;color:#e2c18e}.pill-dim{font-weight:500;color:#9baaba;letter-spacing:0}.pulse{width:6px;height:6px;border-radius:50%;background:#8dd2aa;box-shadow:0 0 10px #87dcb3}.top-button,.icon-button{cursor:pointer;transition:background .15s,border-color .15s}.top-button:hover,.icon-button:hover{background:#273348;border-color:#718098}.icon-button{color:#b8c9d5}.icon-button span{font-size:10px;margin-left:6px;color:#8fa4b8}.game-layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:16px;flex:1;min-height:0;padding:17px 0 12px}.main-column{display:flex;flex-direction:column;gap:16px;min-width:0;min-height:0}.arena{min-height:370px;position:relative;flex:1;border:1px solid #405065;border-radius:12px;overflow:hidden;background:radial-gradient(ellipse 45% 55% at 53% 56%,#344350 0%,#202c3b 37%,transparent 70%),linear-gradient(180deg,#1b283b,#101824 74%,#172235)}.arena::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0,transparent 90px,#ffffff04 91px,transparent 92px),linear-gradient(180deg,transparent 0 72%,#05080e66 98%);pointer-events:none}.arena::after{content:"";position:absolute;inset:auto 0 68px;height:1px;background:linear-gradient(90deg,transparent,#5b708160,transparent)}.arena-grain{position:absolute;inset:0;background-image:radial-gradient(#ffffff0c 1px,transparent 1px);background-size:23px 23px;opacity:.45}.arena-topline{position:absolute;z-index:2;left:25px;right:25px;top:19px;display:flex;justify-content:space-between;align-items:center}.region-label{font-size:12px;color:#afbec4;letter-spacing:.12em;font-weight:700}.region-en{font-size:10px;color:#788b9e;letter-spacing:.05em;margin-left:3px}.tiny-diamond{display:inline-block;width:6px;height:6px;background:#d6aa6c;transform:rotate(45deg);margin-right:9px}.round-marker{color:#d7bd94;font-size:11px;font-weight:700;letter-spacing:.18em;padding:8px 11px;border:1px solid #bca27677;background:#211f26ad;border-radius:6px}.round-marker b{font-size:19px;margin-left:7px}.arena-center{position:absolute;inset:42px 0 75px;display:flex;flex-direction:column;align-items:center;justify-content:center}.enemy-shadow{position:relative;width:240px;height:225px;filter:drop-shadow(0 16px 26px #03050dbb);transform-origin:50% 75%;transition:transform .16s}.halo{position:absolute;left:50%;top:8px;width:174px;height:174px;transform:translateX(-50%);border:1px solid #b9a67e35;border-radius:50%;box-shadow:inset 0 0 0 16px #ad99750c,inset 0 0 0 18px #afa3852b,0 0 70px #dbc18f14}.halo:before,.halo:after{content:"";position:absolute;inset:-18px;border-radius:50%;border:1px dotted #958d8152}.halo:after{inset:22px;border-color:#afa58d24;transform:rotate(15deg)}.enemy-figure{position:absolute;width:175px;height:197px;bottom:7px;left:50%;transform:translateX(-50%)}.enemy-head{position:absolute;z-index:3;width:59px;height:62px;left:58px;top:22px;background:linear-gradient(160deg,#374353,#101724 65%);border:3px solid #566270;clip-path:polygon(16% 0,84% 0,100% 27%,89% 91%,50% 100%,11% 91%,0 27%);filter:drop-shadow(0 8px 3px #0008)}.enemy-crown{z-index:4;position:absolute;left:53px;top:5px;width:70px;height:32px;background:linear-gradient(170deg,#bc9e6e,#5c5144);clip-path:polygon(0 100%,0 34%,20% 53%,30% 0,50% 44%,70% 0,80% 53%,100% 34%,100% 100%)}.eyes{position:absolute;left:15px;top:35px;width:27px;height:4px;background:#f4ae86;box-shadow:0 0 8px #ff8366}.enemy-body{position:absolute;bottom:0;left:7px;width:160px;height:138px;background:linear-gradient(90deg,#090e19,#334454 35%,#162231 60%,#090e19);border:3px solid #647180aa;clip-path:polygon(25% 0,75% 0,99% 28%,84% 100%,16% 100%,1% 28%);box-shadow:inset 0 -25px 24px #03060c99}.enemy-body:after{content:"";position:absolute;width:18px;height:115px;left:68px;top:0;background:linear-gradient(90deg,#4e5866,#1a2634,#455363);opacity:.65}.enemy-blade{position:absolute;z-index:1;width:9px;height:166px;right:0;top:4px;transform:rotate(30deg);background:linear-gradient(90deg,#9cb6c4,#dce5dc,#7d96a5);clip-path:polygon(50% 0,100% 16%,100% 100%,0 100%,0 16%);box-shadow:0 0 11px #92bbd855}.ground-glow{position:absolute;width:220px;height:24px;background:radial-gradient(ellipse,#b88c5773,transparent 73%);left:50%;bottom:4px;transform:translateX(-50%)}.arena-message{position:absolute;bottom:0;color:#c4c8c9;font-size:12px;letter-spacing:.07em;background:#101925a3;padding:6px 15px;border-radius:100px;border:1px solid #68778736;white-space:nowrap;max-width:92%;overflow:hidden;text-overflow:ellipsis}.hit-number{position:absolute;z-index:4;left:59%;top:36%;color:#ffd5b0;font-size:40px;font-weight:900;text-shadow:0 3px #782e28,0 0 17px #e49b5077;opacity:0;pointer-events:none}.hit-number.active{animation:damageFloat .72s cubic-bezier(.15,.75,.25,1) forwards}@keyframes damageFloat{0%{transform:translateY(25px) scale(.65);opacity:0}15%{transform:translateY(0) scale(1.12);opacity:1}65%{opacity:1}100%{transform:translateY(-47px) scale(.94);opacity:0}}.enemy-shadow.shake{animation:shake .24s linear}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(6px)}65%{transform:translateX(-5px)}85%{transform:translateX(3px)}}.arena.player-hurt{animation:arenaHurt .38s ease}@keyframes arenaHurt{0%,100%{box-shadow:none}40%{box-shadow:inset 0 0 85px #bf4c4773}}.boss-strip{position:absolute;z-index:2;left:0;right:0;bottom:0;height:79px;background:linear-gradient(90deg,#111924eb,#1b2835ed);border-top:1px solid #54647563;display:flex;gap:20px;padding:11px 23px;align-items:center}.boss-title{width:175px;display:flex;gap:9px;align-items:center;flex-shrink:0}.boss-title small{display:block;color:#c5a77d;font-size:9px;letter-spacing:.08em;margin-bottom:2px}.boss-title strong{display:block;font-size:17px}.boss-seal{display:grid;place-items:center;width:31px;height:35px;color:#d8b079;border:1px solid #a88d6799;background:#44372933;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}.boss-health{min-width:100px;flex:1}.health-topline{display:flex;justify-content:space-between;align-items:baseline;color:#a6b4be;font-size:10px;font-weight:700}.health-topline b{color:#f9e7db;font-size:16px}.health-topline i,.side-health i{font-style:normal;color:#90a0b1;font-size:12px;font-weight:500}.hp-track{height:11px;background:#0b131e;border-radius:5px;overflow:hidden;border:1px solid #55637766;margin-top:6px}.hp-fill{height:100%;width:100%;transition:width .28s ease}.boss-fill{background:linear-gradient(90deg,#913c41,#e27e76);box-shadow:inset 0 1px #ffb6a566}.player-fill{background:linear-gradient(90deg,#378777,#7dd3b3);box-shadow:inset 0 1px #c4ffdf66}.boss-badges{width:136px;display:flex;flex-direction:column;gap:5px;font-size:11px;color:#e1c7a8}.boss-badges span{background:#2933448c;border:1px solid #57637556;padding:3px 8px;border-radius:5px}.vignette{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 70px #03060c78}
@@ -463,6 +463,27 @@
 }
 @media(prefers-reduced-motion:reduce){.enemy-action-toast{animation:none}}
 
+
+/* v0.9.3: audio controls + transition screen + full deck swap */
+.audio-panel[hidden],.battle-transition[hidden],.swap-overlay[hidden]{display:none!important}
+.audio-panel{position:fixed;z-index:110;top:65px;right:20px;width:min(345px,calc(100vw - 24px));padding:18px;background:#111a28;box-shadow:0 18px 60px #000a;border:1px solid #526279;border-radius:13px}
+.audio-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.audio-row{display:grid;grid-template-columns:102px 1fr 40px;gap:10px;align-items:center;font-size:12px;padding:12px 0;border-bottom:1px solid #314053}
+.audio-row span{white-space:nowrap}.audio-row input[type=range]{width:100%;accent-color:#ddb077}.audio-row output{font-size:11px;color:#c6bcae;text-align:right}
+.audio-test{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:13px}.audio-test button{background:#253246;border:1px solid #50627c;color:#e9ebf0;border-radius:7px;padding:8px 3px;cursor:pointer;font-size:11px}
+.audio-panel p{font-size:11px;color:#a4b3c5;line-height:1.5;margin:12px 0 0}
+.swap-overlay{position:fixed;z-index:115;inset:0;background:#02060cbf;display:flex;align-items:center;justify-content:center;padding:16px}
+.swap-dialog{width:min(630px,100%);max-height:92dvh;overflow:auto;background:#172337;border:1px solid #9f8968;border-radius:15px;padding:24px;box-shadow:0 20px 70px #000b}
+.swap-dialog h2{font-size:20px;margin:10px 0}.swap-dialog p{font-size:12px;color:#b7c8d3;line-height:1.6}.swap-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:15px 0}
+.swap-option{text-align:left;white-space:pre-line;cursor:pointer;font-size:12px;line-height:1.5;border:1px solid #516983;background:#24344a;color:#ebeff3;border-radius:8px;padding:12px}.swap-option:hover{border-color:#dbb982;background:#32465d}
+.swap-discard{width:100%;padding:12px;border:1px solid #a77e49;color:#ebd2ad;background:#2a2a33;border-radius:8px;cursor:pointer}
+.battle-transition{position:fixed;z-index:102;inset:0;pointer-events:none;display:grid;place-items:center;background:radial-gradient(ellipse,#111722ce 0%,#060b12a8 55%,#080e1444);animation:transitionIn .35s ease both}
+.transition-text{font-family:Georgia,'Yu Mincho',serif;letter-spacing:.18em;text-align:center;font-size:clamp(34px,7vw,94px);font-weight:850;color:#a7e7f1;text-shadow:0 0 19px #6bc8db9c,0 7px 18px #000;animation:heroText .6s ease-out both}
+.battle-transition.enemy .transition-text{color:#f4a6a0;text-shadow:0 0 24px #db605a90,0 8px 19px #000}
+.battle-transition.victory .transition-text{color:#ffe0a0;text-shadow:0 0 23px #f6bc5ebc,0 6px 23px #000}
+.battle-transition.defeat .transition-text{color:#e69f9f;text-shadow:0 0 22px #b44154b0}
+@keyframes transitionIn{from{opacity:0}to{opacity:1}}@keyframes heroText{from{transform:scale(.75);opacity:0}to{transform:scale(1);opacity:1}}
+@media(max-width:520px){.audio-panel{top:55px;right:9px}.swap-options{grid-template-columns:1fr}.swap-dialog{padding:16px}}
 </style>
 
 </head>
@@ -479,11 +500,18 @@
       <div class="top-right">
         <div class="phase-pill"><span class="pulse"></span> PHASE 03 <span class="pill-dim" id="phaseLabel">第一紀・固定デッキ</span></div>
         <button class="icon-button" type="button" id="speedButton" aria-label="敵の演出速度を変更" title="敵の演出速度（通常・高速）">演出 <span id="speedLabel">通常</span></button>
-        <button class="icon-button" type="button" id="soundButton" aria-label="効果音をオンにする" title="効果音 オン / オフ">♪ <span id="soundLabel">OFF</span></button>
+        <button class="icon-button" type="button" id="soundButton" aria-label="音量設定を開く" aria-controls="audioPanel" aria-expanded="false" title="BGM・SEの設定">♫ <span id="soundLabel">音声</span></button>
         <button class="top-button" type="button" id="resetButton">↺ <span>最初から</span></button>
       </div>
     </header>
 
+    <section id="audioPanel" class="audio-panel" aria-label="BGM・SE設定" hidden>
+      <div class="audio-header"><strong>♪ サウンド設定</strong><button type="button" id="audioClose" class="top-button">閉じる ×</button></div>
+      <label class="audio-row"><span><input id="bgmEnabled" type="checkbox" checked> BGM</span><input id="bgmVolume" type="range" min="0" max="100" value="20" aria-label="BGM音量"><output id="bgmVolumeText">20%</output></label>
+      <label class="audio-row"><span><input id="seEnabled" type="checkbox" checked> 効果音</span><input id="seVolume" type="range" min="0" max="100" value="47" aria-label="効果音の音量"><output id="seVolumeText">47%</output></label>
+      <div class="audio-test"><button type="button" data-test-se="attack">⚔ 攻撃音</button><button type="button" data-test-se="heal">✦ 回復音</button><button type="button" data-test-se="win">◆ 勝利音</button></div>
+      <p>初回操作後から再生。現在のBGMはオリジナルの仮ループで、正式な選曲後に差し替え可能。</p>
+    </section>
     <section id="draftStage" class="draft-stage" aria-label="道中のビルド構築">
   <div class="draft-head"><div><div class="overline" id="draftEra">第一紀 / BEGINNING</div><h2 id="draftTitle">英雄の素質</h2><p id="draftDescription">道中のイベントを進めてビルドを作ろう。</p></div><div class="draft-step" id="draftStep">START</div></div>
   <div id="draftOptions" class="draft-options" role="group" aria-label="今回の選択肢"></div>
@@ -583,9 +611,20 @@
       </section>
     </main>
 
-    <div class="bottom-caption"><span>PHASE 3 / VER.0.9.2</span><span>既存カードの性能は維持 / 切り札2種を試験追加</span><span class="caption-right">オフライン可 / 仮素材は差し替え対応</span></div>
+    <div class="bottom-caption"><span>PHASE 3 / VER.0.9.3</span><span>演出・SE・毒とカード獲得の試験調整</span><span class="caption-right">オフライン可 / 仮素材は差し替え対応</span></div>
   </div>
   <div id="infoTooltip" class="info-tooltip" role="tooltip" hidden></div>
+  <div id="swapOverlay" class="swap-overlay" hidden>
+    <div class="swap-dialog" role="dialog" aria-modal="true" aria-labelledby="swapTitle">
+      <span class="end-ornament">◇ NEW CARD ◇</span>
+      <h2 id="swapTitle">デッキ上限：入れ替えますか？</h2>
+      <p id="swapDescription">新しいカードと、現在の通常カードを1枚入れ替えられます。</p>
+      <div class="swap-options" id="swapOptions"></div>
+      <button id="swapDiscard" type="button" class="swap-discard">新しいカードを破棄して進む</button>
+    </div>
+  </div>
+  <div id="battleTransition" class="battle-transition" aria-live="polite" hidden><div class="transition-text" id="transitionText">YOUR TURN</div></div>
+  <div id="infoTooltipDummy" hidden></div>
   <div class="end-overlay" id="resultOverlay" hidden>
     <div class="end-dialog" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
       <span class="end-ornament">✦ ◇ ✦</span>
@@ -600,9 +639,10 @@
     </div>
   </div>
 <script src="assets/asset-map.js"></script>
+<script src="assets/audio-engine.js"></script>
 <script>
 'use strict';
-// Phase 3 Ver.0.9.2: timing, mobile log, and two experimental one-shot finisher cards.
+// Phase 3 Ver.0.9.3: sound preview, turn/results, full-deck replacement, poison combo.
 // All balance values and the 5-card cap are experimental, not final rules.
 const RULES={firstHp:42,secondHp:52,firstBossHp:45,secondBossHp:59,cap:5};
 const LIB={
@@ -631,21 +671,29 @@ const ROUTE=['add','trump','upgrade','fork','special','fork'];
 const $=id=>document.getElementById(id);
 const clone=c=>({...c});
 const nameOf=c=>LIB[c.id].name+(c.lv?` +${c.lv}`:'')+(c.trait?' ✦':'');
-let era=1, mode='draft',draftIndex=-1,draftKind='starter', draftCards=[], inherited=null,previousHeroDeck=null,playedDeck=[],state=null,busy=false,soundOn=false,audio=null,version=0,selectedDraftKey=null;
+let era=1, mode='draft',draftIndex=-1,draftKind='starter', draftCards=[], inherited=null,previousHeroDeck=null,playedDeck=[],state=null,busy=false,version=0,selectedDraftKey=null,pendingCardId=null,turnTransitionTimer=null;
 let enemyTurnActive=false, enemyActiveKey=null, enemyUsedKeys=new Set(), logOpen=false,fastFx=false;
 const ENEMY_ACTION_DURATION=2000; // 通常演出の表示時間。ゲームルールとは切り離して調整する。
 const GAME_ASSETS=window.GAME_ASSETS||{characters:{guardian:'assets/characters/guardian.svg',era1:'assets/characters/era-1.svg',era2:'assets/characters/era-2.svg'},background:'assets/backgrounds/arena.svg',sounds:{}};
 function newCard(id,legacy=false){return {id,lv:0,trait:false,inherited:legacy,key:legacy?'legacy':`${id}-${Math.random().toString(36).slice(2,7)}`};}
 function pickRandom(ids,n){const a=[...ids];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a.slice(0,n);}
 function getOptions(){return pickRandom(POOLS[era].filter(id=>!draftCards.some(c=>c.id===id)&&id!==inherited?.id),3);}
-function resetGame(){version++;era=1;inherited=null;previousHeroDeck=null;enemyTurnActive=false;enemyActiveKey=null;enemyUsedKeys.clear();clearBattleVisuals();startEra();}
-function startEra(){version++;busy=false;enemyTurnActive=false;enemyActiveKey=null;enemyUsedKeys.clear();clearBattleVisuals();state=null;mode='draft';draftIndex=-1;draftKind='starter';draftCards=[];selectedDraftKey=null;$('gameLayout').hidden=true;$('draftStage').hidden=false;$('resultOverlay').hidden=true;setHeader();renderDraft();}
+function resetGame(){version++;era=1;inherited=null;previousHeroDeck=null;enemyTurnActive=false;enemyActiveKey=null;enemyUsedKeys.clear();clearBattleVisuals();hideTransitions();$('swapOverlay').hidden=true;startEra();}
+function startEra(){version++;busy=false;enemyTurnActive=false;enemyActiveKey=null;enemyUsedKeys.clear();clearBattleVisuals();hideTransitions();state=null;mode='draft';draftIndex=-1;draftKind='starter';draftCards=[];selectedDraftKey=null;pendingCardId=null;$('swapOverlay').hidden=true;$('gameLayout').hidden=true;$('draftStage').hidden=false;$('resultOverlay').hidden=true;setHeader();renderDraft();GameAudio.setScene('event');}
 function setHeader(){const tag=era===1?'第一紀':'第二紀';$('generationName').textContent=tag;$('phaseLabel').textContent=`${tag}・${mode==='battle'?'戦闘':'道中構築'}`;$('heroName').textContent=tag+'の英雄';}
 function moveNext(){draftIndex++;if(draftIndex>=ROUTE.length){initBattle();return;}draftKind=ROUTE[draftIndex];renderDraft();}
-function applyStarter(cards){draftCards=cards.map(x=>newCard(x));moveNext();}
-function addCard(id){if(draftCards.length>=RULES.cap)return;draftCards.push(newCard(id));moveNext();}
-function upgradeCard(key,special=false){const c=draftCards.find(x=>x.key===key);if(!c||c.inherited)return; if(special){if(c.trait)return;c.trait=true;}else c.lv++;selectedDraftKey=c.key;moveNext();}
-function beginUpgradeFork(){draftKind='upgradeFork';renderDraft();}
+function applyStarter(cards){sound('ui_confirm');draftCards=cards.map(x=>newCard(x));moveNext();}
+function addCard(id){if(draftCards.length>=RULES.cap){pendingCardId=id;showSwapDialog(id);return;}sound('card_gain');draftCards.push(newCard(id));moveNext();}
+function showSwapDialog(id){
+ const c=newCard(id);$('swapTitle').textContent=`デッキ上限（${RULES.cap}枚）`; $('swapDescription').textContent=`獲得候補：${LIB[id].name}｜${effectSummary(c)}。入れ替え先を選ぶか、このカードを破棄して進んでね。`;
+ const list=$('swapOptions');list.replaceChildren();
+ for(const previous of draftCards){const b=document.createElement('button');b.type='button';b.className='swap-option';b.textContent=`${nameOf(previous)} を外す
+${effectSummary(previous)}`;b.addEventListener('click',()=>{if(pendingCardId!==id)return;const pos=draftCards.findIndex(x=>x.key===previous.key);if(pos<0)return;draftCards[pos]=c;pendingCardId=null;$('swapOverlay').hidden=true;sound('card_replace');moveNext();});list.append(b);}
+ $('swapOverlay').hidden=false;sound('ui_open');
+}
+function discardPending(){if(pendingCardId===null)return;pendingCardId=null;$('swapOverlay').hidden=true;sound('card_discard');moveNext();}
+function upgradeCard(key,special=false){const c=draftCards.find(x=>x.key===key);if(!c||c.inherited)return; if(special){if(c.trait)return;c.trait=true;}else c.lv++;selectedDraftKey=c.key;sound(special?'engraving':'upgrade');moveNext();}
+function beginUpgradeFork(){sound('ui_confirm');draftKind='upgradeFork';renderDraft();}
 function addDraftChoice(title,subtitle,tag,onClick,cls=''){
  const b=document.createElement('button');b.type='button';b.className='draft-choice '+cls;
  for(const [tagName,className,value] of [['span','draft-label',tag],['strong','',title],['span','draft-desc',subtitle],['span','draft-cta','選択する →']]){
@@ -665,14 +713,14 @@ function effectSummary(c){const lv=c.lv||0,t=!!c.trait;switch(c.id){
  case 'siphon':return `攻撃力+${lv*2}ダメージ／HPを${3+lv+(t?3:0)}回復`;
  case 'flurry':return `攻撃力+${lv}ダメージ×${t?3:2}回`;
  case 'seal':return `敵の次ターンのマナ-${2+lv}${t?'／敵に2ダメージ':''}`;
- case 'poison':return `${2+lv}ダメージ／毒${3+lv}ダメージ×${t?3:2}ターン`;
+ case 'poison':return `${2+lv}ダメージ／毒${3+lv}を付与（最大4層、${t?3:2}ターン）。毒は重複・更新`;
  case 'thorns':return `次の敵ターン${6+2*lv}軽減／防いだ攻撃に${3+lv+(t?3:0)}反射`;
  case 'leech':return `攻撃力+${lv*2+(t?5:0)}ダメージ／HPを${3+lv}回復`;
  case 'burst':return `攻撃力×2+${3*lv+(t?8:0)}ダメージ`;
  case 'fortify':return `攻撃力+${1+lv+(t?1:0)}／次の敵ターン${4+2*lv}軽減`;
  case 'hex':return `敵の次の攻撃ダメージ-${2+lv}${t?'／次の敵ターン軽減4':''}`;
  case 'laststand':return `【切り札・1戦闘1回】攻撃力＋失ったHPの${t?60:40}%＋${lv*3}ダメージ`;
- case 'venombloom':return `【切り札・1戦闘1回】毒状態の敵に使用可。攻撃力＋毒ダメージ×${4+(t?1:0)}＋残り毒ターン×2＋${lv*3}。毒を消費する`;
+ case 'venombloom':return `【切り札・1戦闘1回】毒状態の敵に使用可。攻撃力＋毒の層数×${t?13:9}＋残り毒ターン×3＋${lv*3}。毒を消費`;
  default:return LIB[c.id].desc;
 }}
 function upgradePreview(c,special=false){const next={...c,lv:c.lv+(special?0:1),trait:special?true:c.trait};return `現在：${effectSummary(c)}\n変更後：${effectSummary(next)}${special?'\n追加効果：'+LIB[c.id].mark:''}`;}
@@ -701,7 +749,7 @@ function renderDraft(){window.scrollTo(0,0);setHeader();$('draftStage').hidden=f
   const fallback=getOptions()[0];
   if(fallback)addDraftChoice('通常カードを獲得：'+LIB[fallback].name,effectSummary(newCard(fallback)),'通常カード',()=>addCard(fallback));
  }else if(draftKind==='fork'){
-  if(draftCards.length<RULES.cap)for(const id of getOptions().slice(0,2))addDraftChoice(LIB[id].name,effectSummary(newCard(id)),`獲得 / COST ${LIB[id].cost}`,()=>addCard(id));
+  for(const id of getOptions().slice(0,2))addDraftChoice(LIB[id].name,effectSummary(newCard(id)),`獲得 / COST ${LIB[id].cost}`,()=>addCard(id));
   addDraftChoice('既存カードを強化','任意のカードを+1強化。新しいカードは増えない。','強化',beginUpgradeFork,'upgrade-branch');
  }else{
   const special=draftKind==='special';const canUpgrade=draftCards.filter(c=>!special||!c.trait);
@@ -709,8 +757,8 @@ function renderDraft(){window.scrollTo(0,0);setHeader();$('draftStage').hidden=f
  }
  $('draftHint').textContent='※ 枚数・イベント数・効果は仮設定。切り札は1戦闘1回、次の戦闘で再使用可能。継承カードは道中の通常強化対象外。';renderDraftCardDetails();
 }
-function initBattle(){version++;clearBattleVisuals();window.scrollTo(0,0);mode='battle';busy=false;enemyTurnActive=false;enemyActiveKey=null;enemyUsedKeys.clear();state={round:1,deck:[...draftCards.map(clone),...(era===2&&inherited?[clone(inherited)]:[])],enemyDeck:era===1?['slash','boost','guard','pierce'].map(id=>newCard(id)):previousHeroDeck.map(clone),playerHp:era===1?RULES.firstHp:RULES.secondHp,maxPlayerHp:era===1?RULES.firstHp:RULES.secondHp,bossHp:era===1?RULES.firstBossHp:RULES.secondBossHp,maxBossHp:era===1?RULES.firstBossHp:RULES.secondBossHp,playerAtk:5,bossAtk:5,mana:1,playerManaPenalty:0,bossManaPenalty:0,playerGuard:0,bossGuard:0,playerThorns:0,bossThorns:0,playerPoison:{turns:0,dmg:0},bossPoison:{turns:0,dmg:0},playerWeak:0,bossWeak:0,playerBlockedNow:0,playerBlockedPrev:0,bossBlockedNow:0,bossBlockedPrev:0,played:new Set(),playerOneShots:new Set(),bossOneShots:new Set(),bossPlan:[],end:null};
- $('draftStage').hidden=true;$('gameLayout').hidden=false;$('resultOverlay').hidden=true;
+function initBattle(){version++;clearBattleVisuals();window.scrollTo(0,0);mode='battle';busy=false;enemyTurnActive=false;enemyActiveKey=null;enemyUsedKeys.clear();state={round:1,deck:[...draftCards.map(clone),...(era===2&&inherited?[clone(inherited)]:[])],enemyDeck:era===1?['slash','boost','guard','pierce'].map(id=>newCard(id)):previousHeroDeck.map(clone),playerHp:era===1?RULES.firstHp:RULES.secondHp,maxPlayerHp:era===1?RULES.firstHp:RULES.secondHp,bossHp:era===1?RULES.firstBossHp:RULES.secondBossHp,maxBossHp:era===1?RULES.firstBossHp:RULES.secondBossHp,playerAtk:5,bossAtk:5,mana:1,playerManaPenalty:0,bossManaPenalty:0,playerGuard:0,bossGuard:0,playerThorns:0,bossThorns:0,playerPoison:{turns:0,dmg:0,stacks:0},bossPoison:{turns:0,dmg:0,stacks:0},playerWeak:0,bossWeak:0,playerBlockedNow:0,playerBlockedPrev:0,bossBlockedNow:0,bossBlockedPrev:0,played:new Set(),playerOneShots:new Set(),bossOneShots:new Set(),bossPlan:[],end:null};
+ $('draftStage').hidden=true;$('gameLayout').hidden=false;$('resultOverlay').hidden=true;GameAudio.setScene('battle');sound('battle_start');
  $('bossName').textContent=era===1?'灰の騎士':'先代の英雄';$('regionLabel').textContent=era===1?'忘却の聖堂':'継承の聖堂';$('combatLog').replaceChildren();
  displayEnemyDeck();
  commitBossPlan();addLog(`ROUND 1：使用可能マナ1。戦闘開始！`,'turn');announce('カードを使うか、ターン終了を選択');setHeader();applyVisualAssets();render();
@@ -731,27 +779,27 @@ function displayEnemyDeck(){const panel=$('enemyDeck');panel.replaceChildren();$
 function updateEnemyCardClasses(){document.querySelectorAll('.enemy-mini-card').forEach(el=>{const key=el.dataset.key;el.classList.toggle('active',key===enemyActiveKey);el.classList.toggle('spent',enemyUsedKeys.has(key));el.classList.toggle('once-burned',!!state?.bossOneShots?.has(key));el.setAttribute('aria-current',key===enemyActiveKey?'true':'false');});}
 function applyVisualAssets(){const character=(era===1?'guardian':'era1');const boss=GAME_ASSETS.characters?.[character]||`assets/characters/${character}.svg`;const player=GAME_ASSETS.characters?.[era===1?'era1':'era2']||`assets/characters/era-${era}.svg`;const bossEl=$('bossPortrait'),playerEl=$('playerPortrait');bossEl.style.display='';bossEl.src=boss;bossEl.parentElement.classList.add('has-sprite');playerEl.style.display='';playerEl.src=player;const bg=GAME_ASSETS.background;$('gameLayout').querySelector('.arena').style.setProperty('--battle-art',bg?`url("${String(bg).replaceAll('"','%22')}")`:'none');}
 function effectVisual(kind,who){const e=$('attackFx'),arena=document.querySelector('.arena');e.className='attack-fx';void e.offsetWidth;e.classList.add(['attack','counter'].includes(kind)?'slash':['guard'].includes(kind)?'guard':'magic');if(who==='boss'){$('enemyShadow').classList.remove('attacking');void $('enemyShadow').offsetWidth;$('enemyShadow').classList.add('attacking');}else{$('hand').closest('.hand-panel').classList.remove('player-cast');void $('hand').closest('.hand-panel').offsetWidth;$('hand').closest('.hand-panel').classList.add('player-cast');}sound(kind==='guard'?'block':kind==='buff'?'boost':kind==='dot'?'poison':'attack');}
-function setupLogToggle(){const btn=$('logToggle');btn.addEventListener('click',()=>{logOpen=!logOpen;$('logPanel').classList.toggle('expanded',logOpen);$('logPanel').classList.toggle('collapsed',!logOpen);btn.setAttribute('aria-expanded',String(logOpen));btn.textContent=logOpen?'ログを閉じる −':'ログを開く ＋';if(logOpen)$('combatLog').scrollTop=$('combatLog').scrollHeight;});}
+function setupLogToggle(){const btn=$('logToggle');btn.addEventListener('click',()=>{sound(logOpen?'ui_close':'ui_open');logOpen=!logOpen;$('logPanel').classList.toggle('expanded',logOpen);$('logPanel').classList.toggle('collapsed',!logOpen);btn.setAttribute('aria-expanded',String(logOpen));btn.textContent=logOpen?'ログを閉じる −':'ログを開く ＋';if(logOpen)$('combatLog').scrollTop=$('combatLog').scrollHeight;});}
 function setupInfoTooltips(){const tooltip=$('infoTooltip');let pinned=null;function show(button){if(!button?.dataset?.info)return;const [heading,...text]=button.dataset.info.split('|');tooltip.replaceChildren();const h=document.createElement('strong');h.textContent=heading;const d=document.createElement('div');d.textContent=text.join('|');tooltip.append(h,d);tooltip.hidden=false;const rect=button.getBoundingClientRect(),w=tooltip.offsetWidth,hgt=tooltip.offsetHeight;tooltip.style.left=Math.max(10,Math.min(window.innerWidth-w-10,rect.left+rect.width/2-w/2))+'px';tooltip.style.top=(rect.top-hgt-10>=8?rect.top-hgt-8:Math.min(window.innerHeight-hgt-8,rect.bottom+8))+'px';}function hide(){tooltip.hidden=true;}
  document.addEventListener('pointerover',e=>{const b=e.target.closest('.info-trigger');if(b&&e.pointerType!=='touch'&&!pinned)show(b);});document.addEventListener('pointerout',e=>{const b=e.target.closest('.info-trigger');if(b&&!b.contains(e.relatedTarget)&&!pinned)hide();});document.addEventListener('focusin',e=>{const b=e.target.closest('.info-trigger');if(b&&!pinned)show(b);});document.addEventListener('focusout',e=>{if(e.target.closest('.info-trigger')&&!pinned)hide();});document.addEventListener('click',e=>{const b=e.target.closest('.info-trigger');if(b){if(pinned===b){pinned=null;hide();}else{pinned=b;show(b);}return;}if(pinned){pinned=null;hide();}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){pinned=null;hide();}});
 }
 
 function addLog(msg,type='info'){const list=$('combatLog'),d=document.createElement('div');d.className='log-item '+type;d.textContent=msg;const near=list.scrollHeight-list.clientHeight-list.scrollTop<45;list.appendChild(d);$('logPeek').textContent=msg;if(near)list.scrollTop=list.scrollHeight;}
 function announce(msg){$('arenaMessage').textContent=msg;$('handTip').textContent=msg;}
-function sound(k){if(!soundOn)return;try{const path=GAME_ASSETS.sounds?.[k];if(path){const effect=new Audio(path);effect.volume=.38;effect.play().catch(()=>{});return;}audio??=new (window.AudioContext||window.webkitAudioContext)();audio.resume();const now=audio.currentTime,os=audio.createOscillator(),g=audio.createGain();const notes={attack:[330,90,.18,'sawtooth'],hit:[155,62,.17,'sawtooth'],block:[680,290,.2,'triangle'],boost:[520,790,.22,'sine'],poison:[250,165,.24,'triangle'],win:[610,880,.38,'sine']};const [a,b,d,wave]=notes[k]||notes.attack;os.type=wave;os.frequency.setValueAtTime(a,now);os.frequency.exponentialRampToValueAtTime(b,now+d);g.gain.setValueAtTime(.0001,now);g.gain.exponentialRampToValueAtTime(.055,now+.012);g.gain.exponentialRampToValueAtTime(.0001,now+d);os.connect(g);g.connect(audio.destination);os.start(now);os.stop(now+d+.015);}catch(_){}}
+function sound(key){GameAudio.se(key);}
 function animateHit(dmg,target){if(target==='boss'){$('bossHit').textContent='−'+dmg;const b=$('bossHit');b.classList.remove('active');void b.offsetWidth;b.classList.add('active');const e=$('enemyShadow');e.classList.remove('shake');void e.offsetWidth;e.classList.add('shake');}else{$('playerHit').textContent='−'+dmg;const p=$('playerHit');p.classList.remove('active');void p.offsetWidth;p.classList.add('active');const hud=$('gameLayout').querySelector('.player-status');hud.classList.remove('player-hit');void hud.offsetWidth;hud.classList.add('player-hit');const arena=$('gameLayout').querySelector('.arena');arena.classList.remove('player-hurt');void arena.offsetWidth;arena.classList.add('player-hurt');}}
 function other(who){return who==='player'?'boss':'player';}
 function hpGet(who){return who==='player'?'playerHp':'bossHp';}
 function atkGet(who){return who==='player'?'playerAtk':'bossAtk';}
-function heal(who,n,label){const k=hpGet(who),limKey=who==='player'?'maxPlayerHp':'maxBossHp',missing=Math.max(0,state[limKey]-state[k]),v=Math.max(0,Math.min(n,missing));state[k]=Math.min(state[limKey],state[k]+v);addLog(`${who==='player'?'あなた':'敵'}：${label}でHP+${v}`,who==='player'?'hero':'enemy');}
+function heal(who,n,label){const k=hpGet(who),limKey=who==='player'?'maxPlayerHp':'maxBossHp',missing=Math.max(0,state[limKey]-state[k]),v=Math.max(0,Math.min(n,missing));state[k]=Math.min(state[limKey],state[k]+v);if(v>0)sound('heal');addLog(`${who==='player'?'あなた':'敵'}：${label}でHP+${v}`,who==='player'?'hero':'enemy');}
 function hit(who,base,label,ignoreGuard=false,reflect=false,ignoreWeak=false,chargeReturn=true,guardPierce=0){if(state.end)return 0;const target=other(who),weak=ignoreWeak?0:state[`${who}Weak`],raw=Math.max(0,base-weak),key=`${target}Guard`,effectiveGuard=Math.floor(raw*(1-guardPierce)),block=ignoreGuard?0:Math.min(state[key],effectiveGuard),dmg=raw-block;
  state[key]-=block;if(chargeReturn&&!reflect)state[`${target}BlockedNow`]+=block;state[hpGet(target)]=Math.max(0,state[hpGet(target)]-dmg);
- addLog(`${who==='player'?'あなた':'敵'}の${label}：${dmg}ダメージ${block?`（${block}軽減）`:''}`,who==='player'?'hero':'enemy');if(dmg>0){animateHit(dmg,target);sound('hit');}else if(block)sound('block');
+ addLog(`${who==='player'?'あなた':'敵'}の${label}：${dmg}ダメージ${block?`（${block}軽減）`:''}`,who==='player'?'hero':'enemy');if(dmg>0){animateHit(dmg,target);sound(dmg>=22?'heavy_hit':'hit');}else if(block)sound('block');
  if(state[hpGet(target)]===0){finish(who==='player');return dmg;}
  if(block>0&&!reflect&&state[`${target}Thorns`]>0)hit(target,state[`${target}Thorns`],'反射',false,true,false,false);
  return dmg;
 }
-function playCard(who,c){if(state.end)return;const lib=LIB[c.id],lv=c.lv||0,t=!!c.trait,a=state[atkGet(who)],opp=other(who),prefix=who==='player'?'あなた':'敵';effectVisual(lib.family,who);addLog(`${prefix}：${nameOf(c)}を使用${c.inherited?'【継承】':''}`,who==='player'?'hero':'enemy');
+function playCard(who,c){if(state.end)return;const lib=LIB[c.id],lv=c.lv||0,t=!!c.trait,a=state[atkGet(who)],opp=other(who),prefix=who==='player'?'あなた':'敵';effectVisual(lib.family,who);if(lib.oneShot)sound('one_shot');else if(c.id==='return')sound('counter');else if(c.id==='seal')sound('seal');else if(c.id==='pierce')sound('pierce');else if(c.id==='flurry')sound('flurry');addLog(`${prefix}：${nameOf(c)}を使用${c.inherited?'【継承】':''}`,who==='player'?'hero':'enemy');
  switch(c.id){
  case 'slash':hit(who,a+lv*2,'斬撃');if(t&&!state.end)hit(who,Math.ceil((a+lv*2)/2),'追撃');break;
  case 'boost':state[atkGet(who)]+=2+lv;if(t)state[`${who}Guard`]+=4;addLog(`${prefix}の攻撃力+${2+lv}`);break;
@@ -763,14 +811,14 @@ function playCard(who,c){if(state.end)return;const lib=LIB[c.id],lv=c.lv||0,t=!!
  case 'siphon':hit(who,a+lv*2,'吸命');if(!state.end)heal(who,3+lv+(t?3:0),'吸命');break;
  case 'flurry':for(let i=0;i<(t?3:2)&&!state.end;i++)hit(who,a+lv,`連牙 ${i+1}撃目`);break;
  case 'seal':state[`${opp}ManaPenalty`]+=2+lv; if(t)hit(who,2,'封魔の余波');break;
- case 'poison':hit(who,2+lv,'腐蝕');if(!state.end)state[`${opp}Poison`]={turns:t?3:2,dmg:3+lv};break;
+ case 'poison':hit(who,2+lv,'腐蝕');if(!state.end){const p=state[`${opp}Poison`];const old=p.stacks||0;p.stacks=Math.min(4,old+1);p.dmg=p.stacks*(3+lv);p.turns=t?3:2;addLog(`${prefix}：毒${p.stacks}層（毎回${p.dmg}ダメージ）`);sound('poison');}break;
  case 'thorns':state[`${who}Guard`]+=6+2*lv;state[`${who}Thorns`]=3+lv+(t?3:0);break;
  case 'leech':hit(who,a+lv*2+(t?5:0),'血吸');if(!state.end)heal(who,3+lv,'血吸');break;
  case 'burst':hit(who,2*a+3*lv+(t?8:0),'破砕');break;
  case 'fortify':state[atkGet(who)]+=1+(t?1:0)+lv;state[`${who}Guard`]+=4+lv*2;break;
  case 'hex':state[`${opp}Weak`]=Math.max(state[`${opp}Weak`],2+lv);if(t)state[`${who}Guard`]+=4;break;
  case 'laststand':{const missing=Math.max(0,state[who==='player'?'maxPlayerHp':'maxBossHp']-state[hpGet(who)]);hit(who,a+Math.floor(missing*(t?.6:.4))+lv*3,'逆境の一撃');break;}
- case 'venombloom':{const poison=state[`${opp}Poison`];if(poison.turns<=0)break;const power=a+poison.dmg*(4+(t?1:0))+poison.turns*2+lv*3;state[`${opp}Poison`]={turns:0,dmg:0};addLog(`${prefix}：敵の毒を消費して劇毒開花！`,who==='player'?'hero':'enemy');hit(who,power,'劇毒開花');break;}
+ case 'venombloom':{const poison=state[`${opp}Poison`];if(poison.turns<=0)break;const power=a+(poison.stacks||1)*(t?13:9)+poison.turns*3+lv*3;state[`${opp}Poison`]={turns:0,dmg:0,stacks:0};addLog(`${prefix}：敵の毒を消費して劇毒開花！`,who==='player'?'hero':'enemy');hit(who,power,'劇毒開花');break;}
  }
 }
 function canPlay(c,who){if(LIB[c.id].oneShot&&state[`${who}OneShots`].has(c.key))return false;if(c.id==='venombloom'&&state[`${other(who)}Poison`].turns<=0)return false;return c.id!=='return'||state[`${who}BlockedPrev`]>0||c.trait;}
@@ -787,14 +835,14 @@ function commitBossPlan(){const budget=state.round;let mana=budget;const availab
 const sleep=t=>new Promise(r=>setTimeout(r,t));
 async function endTurn(){
  if(mode!=='battle'||!state||state.end||busy)return;
- busy=true;enemyTurnActive=true;enemyUsedKeys.clear();enemyActiveKey=null;updateEnemyCardClasses();const myVersion=version;render();
+ busy=true;enemyTurnActive=true;enemyUsedKeys.clear();enemyActiveKey=null;updateEnemyCardClasses();const myVersion=version;render();turnMessage('ENEMY TURN','enemy',fastFx?430:850);await sleep(fastFx?430:850);if(myVersion!==version||state.end)return;
  // 守りの有効期限と、返礼の前ターン軽減量は従来どおり。
  state.playerWeak=0;state.bossBlockedPrev=state.bossBlockedNow;state.bossBlockedNow=0;state.bossGuard=0;state.bossThorns=0;
  let mana=Math.max(0,state.round-state.bossManaPenalty);const actions=[];
  for(const key of state.bossPlan){const c=state.enemyDeck.find(x=>x.key===key);
   if(c&&LIB[c.id].cost<=mana&&canPlay(c,'boss')){actions.push(c);mana-=LIB[c.id].cost;}}
  addLog(`敵のターン：${actions.length}枚使用${state.bossManaPenalty?`（封魔 −${state.bossManaPenalty}マナ）`:''}`,'turn');
- if(state.bossPoison.turns>0){state.bossPoison.turns--;hit('player',state.bossPoison.dmg,'毒',false,false,true);render();}
+ if(state.bossPoison.turns>0){state.bossPoison.turns--;sound('poison_tick');hit('player',state.bossPoison.dmg,'毒',false,false,true);if(state.bossPoison.turns<=0)state.bossPoison={turns:0,dmg:0,stacks:0};render();}
  if(state.end){enemyTurnActive=false;busy=false;clearEnemyAction();render();return;}
  for(const c of actions){
   if(version!==myVersion||state.end)break;
@@ -816,8 +864,14 @@ async function endTurn(){
  if(state.end){enemyTurnActive=false;busy=false;render();return;}
  state.bossWeak=0;state.playerBlockedPrev=state.playerBlockedNow;state.playerBlockedNow=0;state.playerGuard=0;state.playerThorns=0;
  state.round++;state.mana=Math.max(1,state.round-state.playerManaPenalty);state.playerManaPenalty=0;state.bossManaPenalty=0;state.played.clear();
- if(state.playerPoison.turns>0){state.playerPoison.turns--;hit('boss',state.playerPoison.dmg,'毒',false,false,true);if(state.end){busy=false;render();return;}}
- commitBossPlan();enemyTurnActive=false;busy=false;addLog(`ROUND ${state.round}：マナ${state.mana}で開始`,'turn');announce('次の行動を選択してください');render();
+ if(state.playerPoison.turns>0){state.playerPoison.turns--;sound('poison_tick');hit('boss',state.playerPoison.dmg,'毒',false,false,true);if(state.playerPoison.turns<=0)state.playerPoison={turns:0,dmg:0,stacks:0};if(state.end){busy=false;render();return;}}
+ commitBossPlan();enemyTurnActive=false;addLog(`ROUND ${state.round}：マナ${state.mana}で開始`,'turn');announce('次の行動を選択してください');render();turnMessage('YOUR TURN','player',fastFx?390:780);await sleep(fastFx?390:780);if(myVersion!==version||state.end)return;busy=false;render();
+}
+function hideTransitions(){if(turnTransitionTimer){clearTimeout(turnTransitionTimer);turnTransitionTimer=null;}$('battleTransition').hidden=true;}
+function turnMessage(label,kind,ms){
+ hideTransitions();const overlay=$('battleTransition'),text=$('transitionText');text.textContent=label;overlay.className='battle-transition '+kind;overlay.hidden=false;
+ sound(kind==='enemy'?'enemy_turn':kind==='player'?'player_turn':kind==='victory'?'win':kind==='defeat'?'lose':'ui_open');
+ turnTransitionTimer=setTimeout(()=>{overlay.hidden=true;turnTransitionTimer=null;},ms);
 }
 function clearEnemyAction(){enemyActiveKey=null;const toast=$('enemyActionToast');if(toast){toast.hidden=true;toast.textContent='';}updateEnemyCardClasses();}
 
@@ -832,15 +886,45 @@ function render(){if(!state||mode!=='battle')return;const s=state;$('turnBanner'
  applyCardArt(b.querySelector('.card-symbol'),c.id);b.addEventListener('click',()=>useCard(c.key));hand.appendChild(b);
  }
 }
-function finish(won){if(!state||state.end)return;enemyTurnActive=false;enemyActiveKey=null;clearEnemyAction();state.end=won?'win':'lose';busy=false;const panel=$('resultOverlay'),dlg=panel.querySelector('.end-dialog');dlg.classList.toggle('lose',!won);panel.hidden=false;$('resultKicker').textContent=won?'VICTORY / 時代の継承':'DEFEAT / 挑戦は続く';$('resultTitle').textContent=won?'勝利':'敗北';$('resultRound').textContent=`ROUND ${state.round}`;$('resultHp').textContent=`残りHP ${state.playerHp}`;$('resultNote').textContent='Phase 3試作：道中の強化・カード数・性能は仮ルール。';$('inheritChoices').hidden=true;$('nextGenerationButton').hidden=true;$('restartButton').hidden=false;
- if(won&&era===1){$('resultTitle').textContent='第一紀を突破';$('resultText').textContent='いま組んだデッキから、次の英雄に託す1枚を選ぼう。';$('inheritChoices').hidden=false;$('nextGenerationButton').hidden=false;$('nextGenerationButton').disabled=true;$('restartButton').hidden=true;const choices=$('inheritChoices');choices.replaceChildren();const snapshot=state.deck.filter(c=>!c.inherited).map(clone);previousHeroDeck=snapshot.map(clone);for(const c of snapshot){const b=document.createElement('button');b.className='inherit-option';b.type='button';b.textContent=`${LIB[c.id].icon} ${nameOf(c)}（コスト${LIB[c.id].cost}）`;b.addEventListener('click',()=>{inherited={...clone(c),inherited:true,key:'legacy'};for(const x of choices.children)x.classList.remove('chosen');b.classList.add('chosen');$('nextGenerationButton').disabled=false;$('resultText').textContent=`${nameOf(c)}を次の英雄へ。前の英雄は今回の通常デッキ全体を使用する。`;});choices.append(b);}$('nextGenerationButton').textContent='継承して第二紀の道中へ →';
- }else if(won){$('resultText').textContent='自分が育てた先代の英雄を乗り越えた！ 2世代のテストはここまで。';$('resultKicker').textContent='PHASE 3 COMPLETE';$('restartButton').textContent='第一紀からもう一度';}else{$('resultText').textContent='このデッキのまま再戦できる。道中から組み直す場合は右上の「最初から」。';$('restartButton').textContent='この戦闘を再戦';}
- addLog(won?'敵を倒した！':'英雄は倒れた……',won?'hero':'enemy');sound(won?'win':'hit');
+function finish(won){if(!state||state.end)return;
+ const myVersion=version;enemyTurnActive=false;enemyActiveKey=null;clearEnemyAction();state.end=won?'win':'lose';busy=true;
+ render();
+ // Show hit animation and HP reaching zero before displaying the result.
+ setTimeout(()=>{if(myVersion!==version||!state)return;turnMessage(won?'VICTORY':'DEFEAT',won?'victory':'defeat',fastFx?650:1400);GameAudio.stop(350);},fastFx?220:580);
+ setTimeout(()=>{if(myVersion!==version||!state)return;hideTransitions();busy=false;showResult(won);},fastFx?1100:2450);
 }
-function goNext(){if(era!==1||!inherited||!state||state.end!=='win')return;era=2;startEra();}
+function showResult(won){const panel=$('resultOverlay'),dlg=panel.querySelector('.end-dialog');dlg.classList.toggle('lose',!won);panel.hidden=false;$('resultKicker').textContent=won?'VICTORY / 時代の継承':'DEFEAT / 挑戦は続く';$('resultTitle').textContent=won?'勝利':'敗北';$('resultRound').textContent=`ROUND ${state.round}`;$('resultHp').textContent=`残りHP ${state.playerHp}`;$('resultNote').textContent='Phase 3試作：道中の強化・カード数・性能は仮ルール。';$('inheritChoices').hidden=true;$('nextGenerationButton').hidden=true;$('restartButton').hidden=false;
+ if(won&&era===1){$('resultTitle').textContent='第一紀を突破';$('resultText').textContent='いま組んだデッキから、次の英雄に託す1枚を選ぼう。';$('inheritChoices').hidden=false;$('nextGenerationButton').hidden=false;$('nextGenerationButton').disabled=true;$('restartButton').hidden=true;const choices=$('inheritChoices');choices.replaceChildren();const snapshot=state.deck.filter(c=>!c.inherited).map(clone);previousHeroDeck=snapshot.map(clone);for(const c of snapshot){const b=document.createElement('button');b.className='inherit-option';b.type='button';b.textContent=`${LIB[c.id].icon} ${nameOf(c)}（コスト${LIB[c.id].cost}）`;b.addEventListener('click',()=>{inherited={...clone(c),inherited:true,key:'legacy'};for(const x of choices.children)x.classList.remove('chosen');b.classList.add('chosen');$('nextGenerationButton').disabled=false;sound('legacy_pick');$('resultText').textContent=`${nameOf(c)}を次の英雄へ。前の英雄は今回の通常デッキ全体を使用する。`;});choices.append(b);}$('nextGenerationButton').textContent='継承して第二紀の道中へ →';
+ }else if(won){$('resultText').textContent='自分が育てた先代の英雄を乗り越えた！ 2世代のテストはここまで。';$('resultKicker').textContent='PHASE 3 COMPLETE';$('restartButton').textContent='第一紀からもう一度';}else{$('resultText').textContent='このデッキのまま再戦できる。道中から組み直す場合は右上の「最初から」。';$('restartButton').textContent='この戦闘を再戦';}
+ addLog(won?'敵を倒した！':'英雄は倒れた……',won?'hero':'enemy');
+}
+function goNext(){if(era!==1||!inherited||!state||state.end!=='win')return;sound('stage_transition');era=2;startEra();}
+$('swapDiscard').addEventListener('click',discardPending);
+function setupAudioMenu(){
+ const panel=$('audioPanel'),btn=$('soundButton');
+ function toggle(open){panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));}
+ btn.addEventListener('click',()=>{toggle(panel.hidden);sound('ui_open');});
+ $('audioClose').addEventListener('click',()=>{toggle(false);sound('ui_close');});
+ $('bgmEnabled').addEventListener('change',e=>GameAudio.toggle('bgm',e.target.checked));
+ $('seEnabled').addEventListener('change',e=>{GameAudio.toggle('se',e.target.checked);sound('ui_confirm');});
+ $('bgmVolume').addEventListener('input',e=>{GameAudio.volume('bgm',e.target.value/100);$('bgmVolumeText').textContent=e.target.value+'%';});
+ $('seVolume').addEventListener('input',e=>{GameAudio.volume('se',e.target.value/100);$('seVolumeText').textContent=e.target.value+'%';});
+ panel.querySelectorAll('[data-test-se]').forEach(b=>b.addEventListener('click',()=>sound(b.dataset.testSe)));
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')toggle(false);});
+}
+setupAudioMenu();
+// Soft tactile feedback for actions not already given a dedicated sound.
+document.addEventListener('click',e=>{
+ const b=e.target.closest('button');if(!b||b.disabled||b.closest('#audioPanel')||b.id==='soundButton'||b.id==='logToggle')return;
+ if(b.matches('.draft-deck-chip'))sound('card_pick');
+ else if(b.matches('.info-trigger'))sound('ui_open');
+ else if(b.matches('.draft-choice'))sound('ui_click');
+ else if(b.id==='resetButton'||b.id==='restartButton')sound('ui_confirm');
+ else if(b.id==='endTurn'||b.id==='speedButton')sound('ui_click');
+},true);
 $('endTurn').addEventListener('click',endTurn);$('resetButton').addEventListener('click',resetGame);$('restartButton').addEventListener('click',()=>{if(state&&state.end==='lose')initBattle();else resetGame();});$('nextGenerationButton').addEventListener('click',goNext);
 $('speedButton').addEventListener('click',()=>{fastFx=!fastFx;$('speedLabel').textContent=fastFx?'高速':'通常';});
-$('soundButton').addEventListener('click',()=>{soundOn=!soundOn;$('soundLabel').textContent=soundOn?'ON':'OFF';sound('boost');});setupLogToggle();setupInfoTooltips();
+setupLogToggle();setupInfoTooltips();
 document.addEventListener('keydown',e=>{if(e.ctrlKey||e.altKey||e.metaKey||e.repeat||e.target.closest('button,input,textarea,select'))return;if(mode!=='battle'||!state||state.end)return;const i=Number(e.key)-1;if(i>=0&&i<state.deck.length){useCard(state.deck[i].key);e.preventDefault();}if(e.code==='Space'){endTurn();e.preventDefault();}});
 window.phase3Debug=Object.freeze({effectSummary,heal,hit,playCard,renderDraftCardDetails,snapshot:()=>({mode,era,draftIndex,draftKind,draftCards:draftCards.map(clone),inherited:inherited&&clone(inherited),previousHeroDeck:previousHeroDeck&&previousHeroDeck.map(clone),state:state&&{...state,played:[...state.played],playerOneShots:[...state.playerOneShots],bossOneShots:[...state.bossOneShots],bossPlan:'非公開'}}),reset:resetGame,goNext});
 resetGame();
