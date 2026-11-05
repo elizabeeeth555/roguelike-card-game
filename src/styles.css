@@ -477,3 +477,9 @@
 .battle-transition.defeat .transition-text{color:#e69f9f;text-shadow:0 0 22px #b44154b0}
 @keyframes transitionIn{from{opacity:0}to{opacity:1}}@keyframes heroText{from{transform:scale(.75);opacity:0}to{transform:scale(1);opacity:1}}
 @media(max-width:520px){.audio-panel{top:55px;right:9px}.swap-options{grid-template-columns:1fr}.swap-dialog{padding:16px}}
+
+/* Ver.0.9.5: clear, skippable three-second turn banner. */
+.battle-transition.skippable{pointer-events:auto;cursor:pointer;animation:turnBannerFade var(--banner-time,3000ms) ease-in-out both;}
+.battle-transition.skippable::after{content:"クリック / タップでスキップ";position:absolute;left:50%;bottom:19%;transform:translateX(-50%);color:#cbd9e4;font-size:12px;letter-spacing:.07em;padding:6px 12px;border:1px solid #8695a37a;border-radius:20px;background:#131d29e0;white-space:nowrap;}
+@keyframes turnBannerFade{0%{opacity:0}11%{opacity:1}75%{opacity:1}100%{opacity:0}}
+.boss-badges{min-width:116px;}

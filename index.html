@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0c111c">
-  <title>継世の戦闘 — Phase 3 Ver.0.9.4 / リファクタリング</title>
+  <title>継世の戦闘 — Phase 3 Ver.0.9.5 / 第三紀・ボス固有能力</title>
 <link rel="stylesheet" href="src/styles.css">
 
 </head>
@@ -31,7 +31,7 @@
       <label class="audio-row"><span><input id="bgmEnabled" type="checkbox" checked> BGM</span><input id="bgmVolume" type="range" min="0" max="100" value="20" aria-label="BGM音量"><output id="bgmVolumeText">20%</output></label>
       <label class="audio-row"><span><input id="seEnabled" type="checkbox" checked> 効果音</span><input id="seVolume" type="range" min="0" max="100" value="47" aria-label="効果音の音量"><output id="seVolumeText">47%</output></label>
       <div class="audio-test"><button type="button" data-test-se="attack">⚔ 攻撃音</button><button type="button" data-test-se="heal">✦ 回復音</button><button type="button" data-test-se="win">◆ 勝利音</button></div>
-      <p>初回操作後から再生。現在のBGMはオリジナルの仮ループで、正式な選曲後に差し替え可能。</p>
+      <p>初回操作後から再生。道中：Whispers in the Fog／戦闘：Determined Pursuit。音源は素材フォルダから差し替え可能。</p>
     </section>
     <section id="draftStage" class="draft-stage" aria-label="道中のビルド構築">
   <div class="draft-head"><div><div class="overline" id="draftEra">第一紀 / BEGINNING</div><h2 id="draftTitle">英雄の素質</h2><p id="draftDescription">道中のイベントを進めてビルドを作ろう。</p></div><div class="draft-step" id="draftStep">START</div></div>
@@ -84,7 +84,7 @@
           <section class="sidebar-card intel-panel compact-intel">
             <div class="sidebar-heading"><span class="side-kicker">BOSS STATUS</span><span class="info-dot">i</span></div>
             <div class="ability-icon-row">
-              <button class="ability-icon info-trigger pending" type="button" data-info="固有能力|周回固有能力は今後実装予定。Ver.0.9.1では発動しません。" aria-label="敵固有能力（未実装）">♜<small>固有</small></button>
+              <button id="bossAbility" class="ability-icon info-trigger pending" type="button" data-info="固有能力|第一紀の灰の騎士には固有能力がありません。" aria-label="敵固有能力">♜<small>固有</small></button>
               <button class="ability-icon info-trigger pending" type="button" data-info="ボスのパッシブ|パッシブ能力の引き継ぎは後続バージョンで実装予定。現バージョンでは効果はありません。" aria-label="ボスのパッシブ（未実装）">✦<small>能力</small></button>
               <button class="ability-icon info-trigger pending" type="button" data-info="ボスの枷|枷の引き継ぎは後続バージョンで実装予定。現バージョンでは効果はありません。" aria-label="ボスの枷（未実装）">⛓<small>枷</small></button>
             </div>
@@ -132,7 +132,7 @@
       </section>
     </main>
 
-    <div class="bottom-caption"><span>PHASE 3 / VER.0.9.4</span><span>演出・SE・毒とカード獲得の試験調整</span><span class="caption-right">オフライン可 / 仮素材は差し替え対応</span></div>
+    <div class="bottom-caption"><span>PHASE 3 / VER.0.9.5</span><span>第三紀・敵固有能力・1枚1回強化</span><span class="caption-right">オフライン可 / 仮素材は差し替え対応</span></div>
   </div>
   <div id="infoTooltip" class="info-tooltip" role="tooltip" hidden></div>
   <div id="swapOverlay" class="swap-overlay" hidden>
@@ -144,7 +144,7 @@
       <button id="swapDiscard" type="button" class="swap-discard">新しいカードを破棄して進む</button>
     </div>
   </div>
-  <div id="battleTransition" class="battle-transition" aria-live="polite" hidden><div class="transition-text" id="transitionText">YOUR TURN</div></div>
+  <div id="battleTransition" class="battle-transition" role="button" tabindex="0" aria-label="ターン演出。クリックまたはEnterでスキップ" aria-live="polite" hidden><div class="transition-text" id="transitionText">YOUR TURN</div></div>
   <div id="infoTooltipDummy" hidden></div>
   <div class="end-overlay" id="resultOverlay" hidden>
     <div class="end-dialog" role="dialog" aria-modal="true" aria-labelledby="resultTitle">

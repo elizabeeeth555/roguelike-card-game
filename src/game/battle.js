@@ -1,10 +1,24 @@
 'use strict';
 // Ver.0.9.4: extracted unchanged from Ver.0.9.3.
-function initBattle(){version++;clearBattleVisuals();window.scrollTo(0,0);mode='battle';busy=false;enemyTurnActive=false;enemyActiveKey=null;enemyUsedKeys.clear();state={round:1,deck:[...draftCards.map(clone),...(era===2&&inherited?[clone(inherited)]:[])],enemyDeck:era===1?['slash','boost','guard','pierce'].map(id=>newCard(id)):previousHeroDeck.map(clone),playerHp:era===1?RULES.firstHp:RULES.secondHp,maxPlayerHp:era===1?RULES.firstHp:RULES.secondHp,bossHp:era===1?RULES.firstBossHp:RULES.secondBossHp,maxBossHp:era===1?RULES.firstBossHp:RULES.secondBossHp,playerAtk:5,bossAtk:5,mana:1,playerManaPenalty:0,bossManaPenalty:0,playerGuard:0,bossGuard:0,playerThorns:0,bossThorns:0,playerPoison:{turns:0,dmg:0,stacks:0},bossPoison:{turns:0,dmg:0,stacks:0},playerWeak:0,bossWeak:0,playerBlockedNow:0,playerBlockedPrev:0,bossBlockedNow:0,bossBlockedPrev:0,played:new Set(),playerOneShots:new Set(),bossOneShots:new Set(),bossPlan:[],end:null};
+function bossStartMana(round){return GameMath.bossTurnMana(round);}
+function grantBossAbility(){
+ if(!state||state.end)return;
+ if(era===2){state.bossBarrier=7;addLog('敵固有能力「不屈の意志」：このターンのみバリア7','enemy');sound('block');}
+}
+function expireBossBarrier(){if(state&&state.bossBarrier>0){addLog('敵の固有バリアが消滅','info');state.bossBarrier=0;}}
+function triggerThirdBossAbility(){
+ if(era===3&&state.round>=2){state.bossAtk+=1;addLog(`敵固有能力「闘争本能」：敵攻撃力+1（現在${state.bossAtk}）`,'enemy');sound('boost');}
+}
+function initBattle(){
+ version++;clearBattleVisuals();window.scrollTo(0,0);mode='battle';busy=true;enemyTurnActive=false;enemyActiveKey=null;enemyUsedKeys.clear();
+ const hp=[0,RULES.firstHp,RULES.secondHp,RULES.thirdHp][era],bossHp=[0,RULES.firstBossHp,RULES.secondBossHp,RULES.thirdBossHp][era];
+ state={round:1,deck:[...draftCards.map(clone),...(era>=2&&inherited?[clone(inherited)]:[])],enemyDeck:era===1?['slash','boost','guard','pierce'].map(id=>newCard(id)):previousHeroDeck.map(clone),playerHp:hp,maxPlayerHp:hp,bossHp,maxBossHp:bossHp,playerAtk:5,bossAtk:5,mana:1,playerManaPenalty:0,bossManaPenalty:0,playerGuard:0,bossGuard:0,bossBarrier:0,playerThorns:0,bossThorns:0,playerPoison:{turns:0,dmg:0,stacks:0},bossPoison:{turns:0,dmg:0,stacks:0},playerWeak:0,bossWeak:0,playerBlockedNow:0,playerBlockedPrev:0,bossBlockedNow:0,bossBlockedPrev:0,played:new Set(),playerOneShots:new Set(),bossOneShots:new Set(),bossPlan:[],end:null};
  $('draftStage').hidden=true;$('gameLayout').hidden=false;$('resultOverlay').hidden=true;GameAudio.setScene('battle');sound('battle_start');
- $('bossName').textContent=era===1?'灰の騎士':'先代の英雄';$('regionLabel').textContent=era===1?'忘却の聖堂':'継承の聖堂';$('combatLog').replaceChildren();
- displayEnemyDeck();
- commitBossPlan();addLog(`ROUND 1：使用可能マナ1。戦闘開始！`,'turn');announce('カードを使うか、ターン終了を選択');setHeader();applyVisualAssets();render();
+ $('bossName').textContent=era===1?'灰の騎士':`第${era-1===1?'一':'二'}紀の英雄`;
+ $('regionLabel').textContent=era===1?'忘却の聖堂':era===2?'継承の聖堂':'遺志の回廊';$('combatLog').replaceChildren();
+ displayEnemyDeck();grantBossAbility();commitBossPlan();addLog('ROUND 1：あなた1マナ／敵初回2マナ。戦闘開始！','turn');announce('カードを使うか、ターン終了を選択');setHeader();applyVisualAssets();render();
+ const battleVersion=version;
+ turnMessage('YOUR TURN','player',fastFx?450:3000).then(()=>{if(version!==battleVersion||!state||state.end)return;busy=false;render();});
 }
 // 戦闘の切り替え時はCSSアニメーションの状態も初期化する。前の一撃が次のボスに残るのを防ぐ。
 
@@ -24,9 +38,11 @@ function heal(who,n,label){
 function hit(who,base,label,ignoreGuard=false,reflect=false,ignoreWeak=false,chargeReturn=true,guardPierce=0){
  if(state.end)return 0;
  const target=other(who),key=`${target}Guard`;
- const result=GameMath.resolveDamage({base,weak:state[`${who}Weak`],guard:state[key],ignoreGuard,ignoreWeak,guardPierce});
+ const barrier=target==='boss'?state.bossBarrier:0;
+ const result=GameMath.resolveDamage({base,weak:state[`${who}Weak`],guard:state[key]+barrier,ignoreGuard,ignoreWeak,guardPierce});
  const block=result.blocked,dmg=result.damage;
- state[key]=result.nextGuard;
+ if(target==='boss'){const usedBarrier=Math.min(barrier,block);state.bossBarrier-=usedBarrier;state.bossGuard=Math.max(0,state.bossGuard-(block-usedBarrier));}
+ else state[key]=result.nextGuard;
  if(chargeReturn&&!reflect)state[`${target}BlockedNow`]+=block;
  state[hpGet(target)]=Math.max(0,state[hpGet(target)]-dmg);
  addLog(`${who==='player'?'あなた':'敵'}の${label}：${dmg}ダメージ${block?`（${block}軽減）`:''}`,who==='player'?'hero':'enemy');
@@ -56,6 +72,14 @@ function playCard(who,c){if(state.end)return;const lib=LIB[c.id],lv=c.lv||0,t=!!
  case 'hex':state[`${opp}Weak`]=Math.max(state[`${opp}Weak`],2+lv);if(t)state[`${who}Guard`]+=4;break;
  case 'laststand':{const missing=Math.max(0,state[who==='player'?'maxPlayerHp':'maxBossHp']-state[hpGet(who)]);hit(who,a+Math.floor(missing*(t?.6:.4))+lv*3,'逆境の一撃');break;}
  case 'venombloom':{const poison=state[`${opp}Poison`];if(poison.turns<=0)break;const power=a+(poison.stacks||1)*(t?13:9)+poison.turns*3+lv*3;state[`${opp}Poison`]={turns:0,dmg:0,stacks:0};addLog(`${prefix}：敵の毒を消費して劇毒開花！`,who==='player'?'hero':'enemy');hit(who,power,'劇毒開花');break;}
+ case 'spark':hit(who,5+lv*2+(t?3:0),'星火');break;
+ case 'sunder':{const removed=Math.min(state[`${opp}Guard`]+(opp==='boss'?state.bossBarrier:0),6+lv*3+(t?4:0));const fromBarrier=opp==='boss'?Math.min(state.bossBarrier,removed):0;if(fromBarrier)state.bossBarrier-=fromBarrier;state[`${opp}Guard`]=Math.max(0,state[`${opp}Guard`]-(removed-fromBarrier));addLog(`${prefix}：敵の軽減を${removed}破壊`);hit(who,3+lv,'破戒');break;}
+ case 'ember':{const p=state[`${opp}Poison`];Object.assign(p,GameMath.applyPoison(p,2+lv,2));addLog(`${prefix}：毒${p.stacks}層（毎回${p.dmg}ダメージ）`);sound('poison');if(t)hit(who,2,'残火の余波');break;}
+ case 'pulse':if(who==='player'){state.mana+=2+lv+(t?1:0);}else{/* 敵のマナ回復は敵ターンの行動選択時に計算済み */}addLog(`${prefix}のマナ回復 +${2+lv+(t?1:0)}`);sound('mana');break;
+ case 'repose':heal(who,6+lv*3,'癒しの詠唱');if(t)state[`${who}Guard`]+=3;break;
+ case 'duel':hit(who,a+5+lv*3,'一騎討ち',false,false,false,true,t?.5:0);break;
+ case 'storm':for(let i=0;i<(t?3:2)&&!state.end;i++)hit(who,4+lv*2,`雷閃 ${i+1}撃目`);break;
+ case 'dusk':state[`${opp}ManaPenalty`]+=1+Math.floor(lv/2)+(t?1:0);state[`${opp}Weak`]=Math.max(state[`${opp}Weak`],3+lv);break;
  }
 }
 
@@ -63,7 +87,7 @@ function canPlay(c,who){return GameMath.canPlayCard(c,who,state,LIB);}
 
 function useCard(key){if(mode!=='battle'||!state||busy||state.end)return;const c=state.deck.find(x=>x.key===key);if(!c||state.played.has(key)||LIB[c.id].cost>state.mana||!canPlay(c,'player'))return;state.mana-=LIB[c.id].cost;state.played.add(key);if(LIB[c.id].oneShot)state.playerOneShots.add(key);playCard('player',c);render();}
 
-function aiScore(c){let s={slash:14,boost:18,guard:9,return:18,pierce:13,rally:15,rush:17,siphon:13,flurry:17,seal:15,poison:18,thorns:10,leech:13,burst:16,fortify:15,hex:13}[c.id]||10;
+function aiScore(c){let s={slash:14,boost:18,guard:9,return:18,pierce:13,rally:15,rush:17,siphon:13,flurry:17,seal:15,poison:18,thorns:10,leech:13,burst:16,fortify:15,hex:13,spark:14,sunder:18,ember:16,pulse:22,repose:9,duel:17,storm:17,dusk:13}[c.id]||10;
  if(c.id==='boost'&&state.round>=5)s-=6;if(['guard','thorns'].includes(c.id)&&state.round%2===0)s+=5;if(c.id==='return'&&state.bossBlockedPrev===0&&!c.trait)s=-100;
  if(c.id==='seal'&&state.round>=5)s-=5;
  if(c.id==='laststand')s=16+Math.max(0,state.maxBossHp-state.bossHp)*.45;if(c.id==='venombloom')s=state.playerPoison.turns>0?28:0;
@@ -71,20 +95,21 @@ function aiScore(c){let s={slash:14,boost:18,guard:9,return:18,pierce:13,rally:1
 }
 
 function commitBossPlan(){
- state.bossPlan=GamePlanner.chooseCards(state.enemyDeck,state.round,aiScore,c=>LIB[c.id].cost,c=>canPlay(c,'boss'));
+ state.bossPlan=GamePlanner.chooseCards(state.enemyDeck,bossStartMana(state.round),aiScore,c=>LIB[c.id].cost,c=>canPlay(c,'boss'),c=>c.id==='pulse'?2+(c.lv||0)+(c.trait?1:0):0);
 }
 
 const sleep=t=>new Promise(r=>setTimeout(r,t));
 
 async function endTurn(){
  if(mode!=='battle'||!state||state.end||busy)return;
- busy=true;enemyTurnActive=true;enemyUsedKeys.clear();enemyActiveKey=null;updateEnemyCardClasses();const myVersion=version;render();turnMessage('ENEMY TURN','enemy',fastFx?430:850);await sleep(fastFx?430:850);if(myVersion!==version||state.end)return;
+ busy=true;enemyTurnActive=true;enemyUsedKeys.clear();enemyActiveKey=null;updateEnemyCardClasses();const myVersion=version;render();await turnMessage('ENEMY TURN','enemy',fastFx?450:3000);if(myVersion!==version||state.end)return;
+ expireBossBarrier();triggerThirdBossAbility();render();
  // 守りの有効期限と、返礼の前ターン軽減量は従来どおり。
  state.playerWeak=0;state.bossBlockedPrev=state.bossBlockedNow;state.bossBlockedNow=0;state.bossGuard=0;state.bossThorns=0;
- let mana=Math.max(0,state.round-state.bossManaPenalty);const actions=[];
+ let mana=Math.max(0,bossStartMana(state.round)-state.bossManaPenalty);const actions=[];
  for(const key of state.bossPlan){const c=state.enemyDeck.find(x=>x.key===key);
-  if(c&&LIB[c.id].cost<=mana&&canPlay(c,'boss')){actions.push(c);mana-=LIB[c.id].cost;}}
- addLog(`敵のターン：${actions.length}枚使用${state.bossManaPenalty?`（封魔 −${state.bossManaPenalty}マナ）`:''}`,'turn');
+  if(c&&LIB[c.id].cost<=mana&&canPlay(c,'boss')){actions.push(c);mana-=LIB[c.id].cost;if(c.id==='pulse')mana+=2+(c.lv||0)+(c.trait?1:0);}}
+ addLog(`敵のターン：使用可能マナ${bossStartMana(state.round)}、${actions.length}枚使用${state.bossManaPenalty?`（封魔 −${state.bossManaPenalty}マナ）`:''}`,'turn');
  if(state.bossPoison.turns>0){state.bossPoison.turns--;sound('poison_tick');hit('player',state.bossPoison.dmg,'毒',false,false,true);if(state.bossPoison.turns<=0)state.bossPoison={turns:0,dmg:0,stacks:0};render();}
  if(state.end){enemyTurnActive=false;busy=false;clearEnemyAction();render();return;}
  for(const c of actions){
@@ -108,7 +133,7 @@ async function endTurn(){
  state.bossWeak=0;state.playerBlockedPrev=state.playerBlockedNow;state.playerBlockedNow=0;state.playerGuard=0;state.playerThorns=0;
  state.round++;state.mana=Math.max(1,state.round-state.playerManaPenalty);state.playerManaPenalty=0;state.bossManaPenalty=0;state.played.clear();
  if(state.playerPoison.turns>0){state.playerPoison.turns--;sound('poison_tick');hit('boss',state.playerPoison.dmg,'毒',false,false,true);if(state.playerPoison.turns<=0)state.playerPoison={turns:0,dmg:0,stacks:0};if(state.end){busy=false;render();return;}}
- commitBossPlan();enemyTurnActive=false;addLog(`ROUND ${state.round}：マナ${state.mana}で開始`,'turn');announce('次の行動を選択してください');render();turnMessage('YOUR TURN','player',fastFx?390:780);await sleep(fastFx?390:780);if(myVersion!==version||state.end)return;busy=false;render();
+ grantBossAbility();commitBossPlan();enemyTurnActive=false;addLog(`ROUND ${state.round}：マナ${state.mana}で開始`,'turn');announce('次の行動を選択してください');render();await turnMessage('YOUR TURN','player',fastFx?450:3000);if(myVersion!==version||state.end)return;busy=false;render();
 }
 
 function finish(won){if(!state||state.end)return;
@@ -119,10 +144,20 @@ function finish(won){if(!state||state.end)return;
  setTimeout(()=>{if(myVersion!==version||!state)return;hideTransitions();busy=false;showResult(won);},fastFx?1100:2450);
 }
 
-function showResult(won){const panel=$('resultOverlay'),dlg=panel.querySelector('.end-dialog');dlg.classList.toggle('lose',!won);panel.hidden=false;$('resultKicker').textContent=won?'VICTORY / 時代の継承':'DEFEAT / 挑戦は続く';$('resultTitle').textContent=won?'勝利':'敗北';$('resultRound').textContent=`ROUND ${state.round}`;$('resultHp').textContent=`残りHP ${state.playerHp}`;$('resultNote').textContent='Phase 3試作：道中の強化・カード数・性能は仮ルール。';$('inheritChoices').hidden=true;$('nextGenerationButton').hidden=true;$('restartButton').hidden=false;
- if(won&&era===1){$('resultTitle').textContent='第一紀を突破';$('resultText').textContent='いま組んだデッキから、次の英雄に託す1枚を選ぼう。';$('inheritChoices').hidden=false;$('nextGenerationButton').hidden=false;$('nextGenerationButton').disabled=true;$('restartButton').hidden=true;const choices=$('inheritChoices');choices.replaceChildren();const snapshot=state.deck.filter(c=>!c.inherited).map(clone);previousHeroDeck=snapshot.map(clone);for(const c of snapshot){const b=document.createElement('button');b.className='inherit-option';b.type='button';b.textContent=`${LIB[c.id].icon} ${nameOf(c)}（コスト${LIB[c.id].cost}）`;b.addEventListener('click',()=>{inherited={...clone(c),inherited:true,key:'legacy'};for(const x of choices.children)x.classList.remove('chosen');b.classList.add('chosen');$('nextGenerationButton').disabled=false;sound('legacy_pick');$('resultText').textContent=`${nameOf(c)}を次の英雄へ。前の英雄は今回の通常デッキ全体を使用する。`;});choices.append(b);}$('nextGenerationButton').textContent='継承して第二紀の道中へ →';
- }else if(won){$('resultText').textContent='自分が育てた先代の英雄を乗り越えた！ 2世代のテストはここまで。';$('resultKicker').textContent='PHASE 3 COMPLETE';$('restartButton').textContent='第一紀からもう一度';}else{$('resultText').textContent='このデッキのまま再戦できる。道中から組み直す場合は右上の「最初から」。';$('restartButton').textContent='この戦闘を再戦';}
+function showResult(won){
+ const panel=$('resultOverlay'),dlg=panel.querySelector('.end-dialog');dlg.classList.toggle('lose',!won);panel.hidden=false;
+ $('resultKicker').textContent=won?'VICTORY / 時代の継承':'DEFEAT / 挑戦は続く';$('resultTitle').textContent=won?'勝利':'敗北';$('resultRound').textContent=`ROUND ${state.round}`;$('resultHp').textContent=`残りHP ${state.playerHp}`;
+ $('resultNote').textContent='Phase 3試作：強化は1枚1回、第三紀まで実装。カード性能は仮調整。';$('inheritChoices').hidden=true;$('nextGenerationButton').hidden=true;$('restartButton').hidden=false;
+ if(won&&era<3){
+  $('resultTitle').textContent=`第${era===1?'一':'二'}紀を突破`;
+  $('resultText').textContent='今回の通常デッキから、次の英雄に託す1枚を選ぼう。';
+  $('inheritChoices').hidden=false;$('nextGenerationButton').hidden=false;$('nextGenerationButton').disabled=true;$('restartButton').hidden=true;
+  const choices=$('inheritChoices');choices.replaceChildren();const snapshot=state.deck.filter(c=>!c.inherited).map(clone);previousHeroDeck=snapshot.map(clone);
+  for(const c of snapshot){const b=document.createElement('button');b.className='inherit-option';b.type='button';b.textContent=`${LIB[c.id].icon} ${nameOf(c)}（コスト${LIB[c.id].cost}）`;b.addEventListener('click',()=>{inherited={...clone(c),inherited:true,key:'legacy'};for(const x of choices.children)x.classList.remove('chosen');b.classList.add('chosen');$('nextGenerationButton').disabled=false;sound('legacy_pick');$('resultText').textContent=`${nameOf(c)}を次の英雄へ。先代ボスは今回の通常デッキを再現する。`;});choices.append(b);}
+  $('nextGenerationButton').textContent=`継承して第${era===1?'二':'三'}紀の道中へ →`;
+ }else if(won){$('resultText').textContent='三世代の英雄を突破した！ Ver.0.9.5の試作はここまで。';$('resultKicker').textContent='PHASE 3 COMPLETE';$('restartButton').textContent='第一紀からもう一度';}
+ else{$('resultText').textContent='このデッキのまま再戦できる。道中から組み直す場合は右上の「最初から」。';$('restartButton').textContent='この戦闘を再戦';}
  addLog(won?'敵を倒した！':'英雄は倒れた……',won?'hero':'enemy');
 }
 
-function goNext(){if(era!==1||!inherited||!state||state.end!=='win')return;sound('stage_transition');era=2;startEra();}
+function goNext(){if(era>=3||!inherited||!state||state.end!=='win')return;sound('stage_transition');era++;startEra();}

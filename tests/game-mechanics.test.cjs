@@ -12,7 +12,7 @@ function cardData() {
   // Card data is a classic script to keep index.html directly openable in file://.
   const sandbox = {};
   vm.runInNewContext(readFileSync(join(__dirname, '../src/game/card-data.js'), 'utf8') +
-    '\n globalThis.__cards = { RULES, LIB, POOLS, STARTERS, ROUTE, effectSummary, upgradePreview };', sandbox);
+    '\n globalThis.__cards = { RULES, LIB, POOLS, STARTERS, ROUTE, ROUTES, routeForEra, upgradeGrade, hasUpgraded, effectSummary, upgradePreview };', sandbox);
   return sandbox.__cards;
 }
 
@@ -64,13 +64,36 @@ test('敵AI：スコア優先で使用し、ラウンドのマナ予算を超え
   assert.deepEqual(result, ['b','c']);
   assert.deepEqual(cards.map(c=>c.key), ['a','b','c'], '元デッキの順番は変えない');
   assert.deepEqual(GamePlanner.chooseCards(cards, 3, c=>c.score,c=>c.cost,c=>c.key!=='b'), ['c','a']);
+  const manaLoop=[{key:'pulse',cost:1,score:20,refund:2},{key:'strike',cost:2,score:10,refund:0}];
+  assert.deepEqual(GamePlanner.chooseCards(manaLoop,1,c=>c.score,c=>c.cost,()=>true,c=>c.refund),['pulse','strike']);
 });
 
 test('カード効果の表示：強化前後・刻印・劇毒開花が計算できる', () => {
   const { LIB, effectSummary, upgradePreview } = cardData();
-  assert.equal(Object.keys(LIB).length, 18);
+  assert.equal(Object.keys(LIB).length, 26);
   assert.match(effectSummary({ id:'slash',lv:1,trait:false }), /攻撃力\+2/);
   assert.match(upgradePreview({ id:'slash',lv:0,trait:false }, false), /変更後：攻撃力\+2/);
   assert.match(upgradePreview({ id:'guard',lv:0,trait:false }, true), /追加効果/);
   assert.match(effectSummary({ id:'venombloom',lv:0,trait:false }), /毒の層数/);
+});
+
+
+test('周回：第一紀は強化なし／第二紀は強化／第三紀は改',()=>{
+  const { ROUTES, upgradeGrade, hasUpgraded, POOLS, STARTERS, upgradePreview }=cardData();
+  assert.equal(ROUTES[1].filter(x=>x==='upgrade'||x==='special').length,0);
+  assert.equal(upgradeGrade(1),0);assert.equal(upgradeGrade(2),1);assert.equal(upgradeGrade(3),2);
+  assert.equal(hasUpgraded({lv:0,trait:false}),false);
+  assert.equal(hasUpgraded({lv:1,trait:false}),true);
+  assert.equal(hasUpgraded({lv:0,trait:true}),true);
+  assert.match(upgradePreview({id:'slash',lv:0,trait:false},false,3),/攻撃力\+4/);
+  assert.equal(STARTERS[3].length,3);
+  assert.equal(POOLS[3].length,8);
+  assert.equal(POOLS[3].some(id=>POOLS[2].includes(id)||POOLS[1].includes(id)),false);
+});
+
+test('敵初回マナ補正：初回のみ2マナ、以後は通常進行',()=>{
+  assert.equal(GameMath.bossTurnMana(1),2);
+  assert.equal(GameMath.bossTurnMana(2),2);
+  assert.equal(GameMath.bossTurnMana(3),3);
+  assert.equal(GameMath.bossTurnMana(5),5);
 });

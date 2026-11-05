@@ -6,7 +6,7 @@
   else root.GamePlanner = api;
 })(typeof globalThis === 'object' ? globalThis : this, function () {
   'use strict';
-  function chooseCards(cards, manaBudget, score, cost, canPlay) {
+  function chooseCards(cards, manaBudget, score, cost, canPlay, manaRefund = () => 0) {
     let mana = manaBudget;
     const sorted = [...cards].sort((a, b) => score(b) - score(a) || cost(a) - cost(b));
     const chosen = [];
@@ -14,6 +14,7 @@
       if (cost(card) <= mana && canPlay(card)) {
         chosen.push(card.key);
         mana -= cost(card);
+        mana += manaRefund(card);
       }
     }
     return chosen;

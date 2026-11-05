@@ -6,7 +6,7 @@ function resetGame(){version++;era=1;inherited=null;previousHeroDeck=null;enemyT
 
 function startEra(){version++;busy=false;enemyTurnActive=false;enemyActiveKey=null;enemyUsedKeys.clear();clearBattleVisuals();hideTransitions();state=null;mode='draft';draftIndex=-1;draftKind='starter';draftCards=[];selectedDraftKey=null;pendingCardId=null;$('swapOverlay').hidden=true;$('gameLayout').hidden=true;$('draftStage').hidden=false;$('resultOverlay').hidden=true;setHeader();renderDraft();GameAudio.setScene('event');}
 
-function moveNext(){draftIndex++;if(draftIndex>=ROUTE.length){initBattle();return;}draftKind=ROUTE[draftIndex];renderDraft();}
+function moveNext(){draftIndex++;const route=routeForEra(era);if(draftIndex>=route.length){initBattle();return;}draftKind=route[draftIndex];renderDraft();}
 
 function applyStarter(cards){sound('ui_confirm');draftCards=cards.map(x=>newCard(x));moveNext();}
 
@@ -22,9 +22,9 @@ ${effectSummary(previous)}`;b.addEventListener('click',()=>{if(pendingCardId!==i
 
 function discardPending(){if(pendingCardId===null)return;pendingCardId=null;$('swapOverlay').hidden=true;sound('card_discard');moveNext();}
 
-function upgradeCard(key,special=false){const c=draftCards.find(x=>x.key===key);if(!c||c.inherited)return; if(special){if(c.trait)return;c.trait=true;}else c.lv++;selectedDraftKey=c.key;sound(special?'engraving':'upgrade');moveNext();}
+function upgradeCard(key,special=false){const c=draftCards.find(x=>x.key===key);if(!c||c.inherited||era===1||hasUpgraded(c))return;c.lv=upgradeGrade(era);c.trait=special;c.upgraded=true;selectedDraftKey=c.key;sound(special?'engraving':'upgrade');moveNext();}
 
-function beginUpgradeFork(){sound('ui_confirm');draftKind='upgradeFork';renderDraft();}
+function beginUpgradeFork(){if(era===1||!draftCards.some(c=>!hasUpgraded(c)))return;sound('ui_confirm');draftKind='upgradeFork';renderDraft();}
 
 function addDraftChoice(title,subtitle,tag,onClick,cls=''){
  const b=document.createElement('button');b.type='button';b.className='draft-choice '+cls;
@@ -35,19 +35,19 @@ function addDraftChoice(title,subtitle,tag,onClick,cls=''){
 }
 // Card rules, choice previews, and the deck detail panel share the same number formulas.
 
-function renderDraftCardDetails(){const area=$('draftCardDetails');if(!area)return;const all=[...draftCards,...(era===2&&inherited?[inherited]:[])];
+function renderDraftCardDetails(){const area=$('draftCardDetails');if(!area)return;const all=[...draftCards,...(era>=2&&inherited?[inherited]:[])];
  const c=all.find(x=>x.key===selectedDraftKey)||all[0];area.replaceChildren();if(!c){area.textContent='カードを選ぶと詳細が表示されます。';return;}
  selectedDraftKey=c.key;const title=document.createElement('strong');title.textContent=`${LIB[c.id].icon} ${nameOf(c)}${c.inherited?' ［継承］':''} ／ COST ${LIB[c.id].cost}`;
  const desc=document.createElement('span');desc.textContent=`現在の効果：${effectSummary(c)}`;
  const trait=document.createElement('span');trait.className='draft-special-info';trait.textContent=c.trait?`✦ 刻印済：${LIB[c.id].mark}`:'刻印：なし';
- const note=document.createElement('small');note.textContent=c.inherited?'継承枠：今回の通常強化イベントでは強化できません。':'強化候補では変更前後の性能を比較できます。';area.append(title,desc,trait,note);
+ const note=document.createElement('small');note.textContent=c.inherited?'継承枠：今回の通常強化イベントでは強化できません。':hasUpgraded(c)?'強化済み：このカードは通常強化できません。':'強化候補では変更前後の性能を比較できます。';area.append(title,desc,trait,note);
  for(const btn of $('draftDeck').children){btn.classList.toggle('selected',btn.dataset.key===c.key);btn.setAttribute('aria-pressed',String(btn.dataset.key===c.key));}
 }
 
-function renderDraft(){window.scrollTo(0,0);setHeader();$('draftStage').hidden=false;$('gameLayout').hidden=true;const titles={starter:['英雄の素質','この時代の戦い方を選ぶ。2枚から始まり、道中でビルドを育てる。'],add:['新しい技を獲得','3枚の候補から1枚を取得する。'],upgrade:['技の研鑽','カードを1段階強化する。強化内容はカードごとに異なる。'],fork:['分かれ道','新しいカードを取るか、既存カードを磨くか。'],upgradeFork:['技を磨く','代わりに通常カードを1段階強化する。継承カードは選べません。'],special:['特殊強化・刻印','カード1枚に専用の強力な効果を追加。1回限りの選択。'],trump:['一度きりの切り札','通常のデッキ枠に入る、1戦闘1回のカード。獲得するか通常カードを選ぶ。']};
+function renderDraft(){window.scrollTo(0,0);setHeader();$('draftStage').hidden=false;$('gameLayout').hidden=true;const titles={starter:['英雄の素質','この時代の戦い方を選ぶ。2枚から始まり、道中でビルドを育てる。'],add:['新しい技を獲得','3枚の候補から1枚を取得する。'],upgrade:['技の研鑽',era===3?'まだ強化していないカード1枚を「強化・改」にする。':'まだ強化していないカード1枚を強化する。'],fork:['分かれ道',era===1?'新しいカードを選んでデッキを構築する。':'新しいカードを取るか、未強化カードを磨くか。'],upgradeFork:['技を磨く',era===3?'通常カード1枚を強化・改にする。継承カードは対象外。':'通常カード1枚を強化する。継承カードは対象外。'],special:['特殊強化・刻印','未強化カード1枚を強化し、刻印を付ける。通常強化とは併用不可。'],trump:['一度きりの切り札','通常のデッキ枠に入る、1戦闘1回のカード。獲得するか通常カードを選ぶ。']};
  const [title,detail]=titles[draftKind];$('draftTitle').textContent=title;$('draftDescription').textContent=detail;
- $('draftEra').textContent=era===1?'第一紀 / BEGINNING':'第二紀 / INHERITANCE';$('draftStep').textContent=draftIndex<0?'START':`${draftIndex+1} / ${ROUTE.length} EVENT`;
- const deck=$('draftDeck');deck.replaceChildren();const all=[...draftCards,...(era===2&&inherited?[inherited]:[])];$('draftDeckCount').textContent=`通常 ${draftCards.length}枚${era===2&&inherited?' ＋ 継承1枚':''}　/ 仮上限5枚`;
+ $('draftEra').textContent=['','第一紀 / BEGINNING','第二紀 / INHERITANCE','第三紀 / AWAKENING'][era];$('draftStep').textContent=draftIndex<0?'START':`${draftIndex+1} / ${routeForEra(era).length} EVENT`;
+ const deck=$('draftDeck');deck.replaceChildren();const all=[...draftCards,...(era>=2&&inherited?[inherited]:[])];$('draftDeckCount').textContent=`通常 ${draftCards.length}枚${era>=2&&inherited?' ＋ 継承1枚':''}　/ 仮上限5枚`;
  for(const c of all){const s=document.createElement('button');s.type='button';s.dataset.key=c.key;s.className='draft-deck-chip'+(c.inherited?' legacy-chip':'');s.textContent=nameOf(c)+(c.inherited?'［継承］':'');s.title='カードの詳しい効果を表示';s.addEventListener('click',()=>{selectedDraftKey=c.key;renderDraftCardDetails();});deck.appendChild(s);}
  const options=$('draftOptions');options.replaceChildren();
  if(draftKind==='starter'){
@@ -55,16 +55,17 @@ function renderDraft(){window.scrollTo(0,0);setHeader();$('draftStage').hidden=f
  }else if(draftKind==='add'){
   for(const id of getOptions())addDraftChoice(LIB[id].name,effectSummary(newCard(id)),`コスト ${LIB[id].cost}`,()=>addCard(id));
  }else if(draftKind==='trump'){
-  const specialId=era===1?'laststand':'venombloom';
+  const specialId=era===1?'laststand':era===2?'venombloom':'laststand';
   addDraftChoice('✸ '+LIB[specialId].name,effectSummary(newCard(specialId)),'新要素 / 切り札',()=>addCard(specialId),'trump-choice');
   const fallback=getOptions()[0];
   if(fallback)addDraftChoice('通常カードを獲得：'+LIB[fallback].name,effectSummary(newCard(fallback)),'通常カード',()=>addCard(fallback));
  }else if(draftKind==='fork'){
   for(const id of getOptions().slice(0,2))addDraftChoice(LIB[id].name,effectSummary(newCard(id)),`獲得 / COST ${LIB[id].cost}`,()=>addCard(id));
-  addDraftChoice('既存カードを強化','任意のカードを+1強化。新しいカードは増えない。','強化',beginUpgradeFork,'upgrade-branch');
+  if(era>1&&draftCards.some(c=>!hasUpgraded(c)))addDraftChoice('既存カードを強化',era===3?'未強化カード1枚を「強化・改」にする。':'未強化カード1枚を強化する。','強化',beginUpgradeFork,'upgrade-branch');
  }else{
-  const special=draftKind==='special';const canUpgrade=draftCards.filter(c=>!special||!c.trait);
-  for(const c of canUpgrade){addDraftChoice(nameOf(c),upgradePreview(c,special),special?'刻印を付与':'+1 強化',()=>upgradeCard(c.key,special));}
+  const special=draftKind==='special';const canUpgrade=draftCards.filter(c=>!hasUpgraded(c));
+  for(const c of canUpgrade){addDraftChoice(nameOf(c),upgradePreview(c,special,era),special?(era===3?'改＋刻印':'強化＋刻印'):(era===3?'強化・改':'1回限りの強化'),()=>upgradeCard(c.key,special));}
+  if(!canUpgrade.length){const id=getOptions()[0];if(id)addDraftChoice('強化できるカードなし：新しいカードを獲得',LIB[id].name+'｜'+effectSummary(newCard(id)),'代替報酬',()=>addCard(id));else addDraftChoice('先へ進む','すべて強化済み、またはカード候補がありません。','次へ',moveNext);}
  }
- $('draftHint').textContent='※ 枚数・イベント数・効果は仮設定。切り札は1戦闘1回、次の戦闘で再使用可能。継承カードは道中の通常強化対象外。';renderDraftCardDetails();
+ $('draftHint').textContent='※ 第一紀は強化不可／第二紀は強化／第三紀は強化・改。強化・刻印は1枚につき合計1回。継承カードは通常強化対象外。';renderDraftCardDetails();
 }

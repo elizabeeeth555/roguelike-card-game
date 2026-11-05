@@ -1,6 +1,6 @@
 // All artwork, BGM and SE paths are configured here. Swap the referenced files at any time.
 window.GAME_ASSETS={
-  characters:{guardian:'assets/characters/guardian.svg',era1:'assets/characters/era-1.svg',era2:'assets/characters/era-2.svg'},
+  characters:{guardian:'assets/characters/guardian.svg',era1:'assets/characters/era-1.svg',era2:'assets/characters/era-2.svg',era3:'assets/characters/era-3.svg'},
   background:'assets/backgrounds/arena.svg',
   cards:{},
   // Selected tracks: use OGG for seamless loops; fall back to MP3 on unsupported browsers.

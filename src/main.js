@@ -14,6 +14,8 @@ document.addEventListener('click',e=>{
 $('endTurn').addEventListener('click',endTurn);$('resetButton').addEventListener('click',resetGame);$('restartButton').addEventListener('click',()=>{if(state&&state.end==='lose')initBattle();else resetGame();});$('nextGenerationButton').addEventListener('click',goNext);
 $('speedButton').addEventListener('click',()=>{fastFx=!fastFx;$('speedLabel').textContent=fastFx?'高速':'通常';});
 setupLogToggle();setupInfoTooltips();
-document.addEventListener('keydown',e=>{if(e.ctrlKey||e.altKey||e.metaKey||e.repeat||e.target.closest('button,input,textarea,select'))return;if(mode!=='battle'||!state||state.end)return;const i=Number(e.key)-1;if(i>=0&&i<state.deck.length){useCard(state.deck[i].key);e.preventDefault();}if(e.code==='Space'){endTurn();e.preventDefault();}});
+$('battleTransition').addEventListener('click',()=>{if(!$('battleTransition').hidden&&$('battleTransition').classList.contains('skippable'))hideTransitions();});
+$('battleTransition').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&$('battleTransition').classList.contains('skippable')){e.preventDefault();hideTransitions();}});
+document.addEventListener('keydown',e=>{if(e.ctrlKey||e.altKey||e.metaKey||e.repeat||e.target.closest('button,input,textarea,select'))return;if(mode!=='battle'||!state||state.end||busy)return;const i=Number(e.key)-1;if(i>=0&&i<state.deck.length){useCard(state.deck[i].key);e.preventDefault();}if(e.code==='Space'){endTurn();e.preventDefault();}});
 window.phase3Debug=Object.freeze({effectSummary,heal,hit,playCard,renderDraftCardDetails,snapshot:()=>({mode,era,draftIndex,draftKind,draftCards:draftCards.map(clone),inherited:inherited&&clone(inherited),previousHeroDeck:previousHeroDeck&&previousHeroDeck.map(clone),state:state&&{...state,played:[...state.played],playerOneShots:[...state.playerOneShots],bossOneShots:[...state.bossOneShots],bossPlan:'非公開'}}),reset:resetGame,goNext});
 resetGame();

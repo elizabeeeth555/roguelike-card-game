@@ -18,6 +18,7 @@
     const blocked = ignoreGuard ? 0 : Math.min(guard, effectiveGuard);
     return { damage: raw - blocked, blocked, nextGuard: guard - blocked };
   }
+  function bossTurnMana(round) {return Math.max(0, round+(round===1?1:0));}
   function applyPoison(previous, perStackDamage, turns) {
     const stacks = Math.min(4, (previous.stacks || 0) + 1);
     return { stacks, dmg: stacks * perStackDamage, turns };
@@ -28,5 +29,5 @@
     if (card.id === 'venombloom' && battleState[`${target}Poison`].turns <= 0) return false;
     return card.id !== 'return' || battleState[`${side}BlockedPrev`] > 0 || card.trait;
   }
-  return Object.freeze({ resolveHeal, resolveDamage, applyPoison, canPlayCard });
+  return Object.freeze({ resolveHeal, resolveDamage, applyPoison, canPlayCard, bossTurnMana });
 });

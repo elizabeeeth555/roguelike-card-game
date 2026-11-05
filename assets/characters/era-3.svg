@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="246" viewBox="0 0 240 246">
+  <defs>
+    <linearGradient id="mantle" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#544075"/><stop offset=".55" stop-color="#302548"/><stop offset="1" stop-color="#171729"/>
+    </linearGradient>
+    <linearGradient id="light" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f0d6fa"/><stop offset="1" stop-color="#a57ac9"/>
+    </linearGradient>
+    <radialGradient id="glow"><stop stop-color="#a790f8" stop-opacity=".34"/><stop offset="1" stop-color="#3c2c61" stop-opacity="0"/></radialGradient>
+  </defs>
+  <circle cx="122" cy="115" r="110" fill="url(#glow)"/>
+  <circle cx="118" cy="108" r="89" fill="none" stroke="#b39cf1" stroke-opacity=".32" stroke-dasharray="4 10" stroke-width="2"/>
+  <path d="M44 227Q48 157 83 127L164 125Q197 159 199 226Z" fill="url(#mantle)" stroke="#8b70b0" stroke-width="4"/>
+  <path d="M75 143L45 226 95 213 115 153Z" fill="#6a548d" opacity=".65"/>
+  <path d="M165 143L199 227 153 215 126 154Z" fill="#6a548d" opacity=".7"/>
+  <path d="M87 76Q80 39 118 27Q151 39 158 80L163 128Q139 149 116 149Q88 136 81 119Z" fill="#221b35" stroke="#ab8fcb" stroke-width="4"/>
+  <path d="M96 87Q111 70 141 88L137 119Q125 136 112 120L98 105Z" fill="#c2a6cc"/>
+  <path d="M96 88Q114 53 145 89L157 111Q156 48 120 34Q82 43 84 113Z" fill="#362846"/>
+  <path d="M96 94L117 96" stroke="#e4c6f9" stroke-width="4"/>
+  <path d="M124 96L144 94" stroke="#e4c6f9" stroke-width="4"/>
+  <path d="M105 112Q120 116 132 111" fill="none" stroke="#73567f" stroke-width="2"/>
+  <path d="M103 146L120 162 140 143" fill="none" stroke="#bdb0d4" stroke-width="6"/>
+  <path d="M119 174L106 197 121 209 136 196Z" fill="#876eac" stroke="#d5b9f3" stroke-width="2"/>
+  <path d="M175 48L191 222" stroke="#9e8daf" stroke-width="8" stroke-linecap="round"/>
+  <path d="M176 42L185 25 202 39 191 57Z" fill="url(#light)" stroke="#8c6bb5" stroke-width="3"/>
+  <circle cx="189" cy="39" r="24" fill="none" stroke="#d2b9f7" stroke-opacity=".45" stroke-width="2"/>
+  <circle cx="189" cy="39" r="12" fill="none" stroke="#efd8fb" stroke-opacity=".62" stroke-width="2"/>
+  <path d="M170 39L207 39M189 19L189 59" stroke="#e1c8fa" stroke-opacity=".65" stroke-width="2"/>
+  <ellipse cx="120" cy="232" rx="79" ry="8" fill="#9b7cc9" opacity=".30"/>
+</svg>
