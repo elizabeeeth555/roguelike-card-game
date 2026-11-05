@@ -2,9 +2,11 @@
   "name": "roguelike-card-game",
   "private": true,
   "version": "0.9.5",
-  "description": "継世の戦闘 — 第三紀・ボス固有能力版",
+  "description": "First-era combat trial",
   "scripts": {
     "test": "node --test tests/*.test.cjs",
-    "check": "node scripts/check.cjs"
+    "check": "node scripts/check.cjs",
+    "test:browser": "node scripts/browser-smoke.cjs",
+    "simulate": "node scripts/simulate.cjs"
   }
 }

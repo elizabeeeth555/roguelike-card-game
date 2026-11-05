@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "generated_for": "継世の戦闘 第一紀戦闘ルール全面改修UI仮素材",
+  "notes": "正式配置された仮素材4キャラ×3ポーズ。統一シートからの切り出しであり、個別高精細原画ではない。元画像から変更なし。",
+  "characters": [
+    {
+      "id": "01_black_swordsman",
+      "name": "夜刃の剣士",
+      "short_label": "黒剣士",
+      "images": {
+        "boss": {
+          "path": "assets/characters/01_black_swordsman_boss.png",
+          "width": 768,
+          "height": 1024,
+          "sha256": "99253c53aff8cc5bac7f39a24958980b5f5567b1fc83a34685441c21d474c4fe"
+        },
+        "face": {
+          "path": "assets/characters/01_black_swordsman_face.png",
+          "width": 512,
+          "height": 512,
+          "sha256": "d3cc9fd95813262df3a7d5087b20508de9df65ddfef697150edb7eb8e0f5b4e0"
+        },
+        "back": {
+          "path": "assets/characters/01_black_swordsman_back.png",
+          "width": 768,
+          "height": 1024,
+          "sha256": "85b19910df3f2103bc5f6379f1587b8e3b3b88279e3e89bd43ee4b6c0c807c99"
+        }
+      }
+    },
+    {
+      "id": "02_heavy_knight",
+      "name": "蒼鋼の守護騎士",
+      "short_label": "重装騎士",
+      "images": {
+        "boss": {
+          "path": "assets/characters/02_heavy_knight_boss.png",
+          "width": 768,
+          "height": 1024,
+          "sha256": "ae96eedf6e99e99ba0c78db30adf6a2bee7dcf34bdb62cbe7ffd70f6819eafa5"
+        },
+        "face": {
+          "path": "assets/characters/02_heavy_knight_face.png",
+          "width": 512,
+          "height": 512,
+          "sha256": "3ca75efc23a2c841b2bcb16dff6ce52a88271adde4206b6fcd94b933d91f614d"
+        },
+        "back": {
+          "path": "assets/characters/02_heavy_knight_back.png",
+          "width": 768,
+          "height": 1024,
+          "sha256": "be3feced9bc1eacefbf481b133c84cb3b7bdafcebb84bce8928743c1268832d8"
+        }
+      }
+    },
+    {
+      "id": "03_witch",
+      "name": "紫苑の魔女",
+      "short_label": "魔女",
+      "images": {
+        "boss": {
+          "path": "assets/characters/03_witch_boss.png",
+          "width": 768,
+          "height": 1024,
+          "sha256": "4a5fc5f72905c01830788f1739e5b360a5aad22099e6e0e42c0ef99f686695e3"
+        },
+        "face": {
+          "path": "assets/characters/03_witch_face.png",
+          "width": 512,
+          "height": 512,
+          "sha256": "2926d1dffcce08b8e61bcaa458609ccf33ebef71a9e0e873350405d36dbc43c9"
+        },
+        "back": {
+          "path": "assets/characters/03_witch_back.png",
+          "width": 768,
+          "height": 1024,
+          "sha256": "9edd112706f5d92189ce522eaf2c80c73ba79208e8f89daa1c58f05daa6c0666"
+        }
+      }
+    },
+    {
+      "id": "06_sage",
+      "name": "暁の賢者",
+      "short_label": "老魔導士",
+      "images": {
+        "boss": {
+          "path": "assets/characters/06_sage_boss.png",
+          "width": 768,
+          "height": 1024,
+          "sha256": "48c005bc2dd760e2a5f148f89f815350d22ebc9cdc474c9e9e8e1500bbebfb84"
+        },
+        "face": {
+          "path": "assets/characters/06_sage_face.png",
+          "width": 512,
+          "height": 512,
+          "sha256": "17db62895fd289a0b51158101f59762659975a6301861d9bfa3e94d7404598e5"
+        },
+        "back": {
+          "path": "assets/characters/06_sage_back.png",
+          "width": 768,
+          "height": 1024,
+          "sha256": "7625154c1b0a6ad54c7b8d604d61761538aa43a8b1b929d0dc8081df23e8e354"
+        }
+      }
+    }
+  ],
+  "excludedCharacters": [
+    {
+      "id": "04_giant_warrior",
+      "reason": "頭部などの欠けがあるためユーザー指示で不使用。ボスのデッキ構成は維持。"
+    },
+    {
+      "id": "05_scout",
+      "reason": "頭部などの欠けがあるためユーザー指示で不使用。ボスのデッキ構成は維持。"
+    }
+  ]
+}

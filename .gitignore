@@ -1,5 +1,6 @@
 # ローカル開発のみ。BGMや画像はゲームの配布物なので除外しない。
 node_modules/
+.test-artifacts/
 .DS_Store
 Thumbs.db
 .vscode/.history/

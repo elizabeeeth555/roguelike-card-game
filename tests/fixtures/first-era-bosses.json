@@ -1,0 +1,61 @@
+{
+  "description": "5枚固定の5つのボスプリセット。ユーザーより選出を委任された。初回デモのキャラ割当は仮置き。",
+  "selection": "uniform_random_one_preset_at_battle_start",
+  "presets": [
+    {
+      "id": "boss_knight_defense",
+      "character_id": "02_heavy_knight",
+      "card_ids": [
+        "slash",
+        "heavy_slash",
+        "barrier",
+        "fortress",
+        "feint"
+      ]
+    },
+    {
+      "id": "boss_witch_poison",
+      "character_id": "03_witch",
+      "card_ids": [
+        "corrosion",
+        "plague",
+        "venom_blade",
+        "heart_corrosion",
+        "curse"
+      ]
+    },
+    {
+      "id": "boss_giant_power",
+      "character_id": "04_giant_warrior",
+      "card_ids": [
+        "heavy_slash",
+        "great_swing",
+        "charge",
+        "barrier",
+        "first_aid"
+      ]
+    },
+    {
+      "id": "boss_scout_rush",
+      "character_id": "05_scout",
+      "card_ids": [
+        "dash_slash",
+        "follow_up",
+        "finisher_slash",
+        "barrier",
+        "first_aid"
+      ]
+    },
+    {
+      "id": "boss_sage_tempo",
+      "character_id": "06_sage",
+      "card_ids": [
+        "battle_spirit",
+        "mana_bind",
+        "setup",
+        "curse",
+        "slash"
+      ]
+    }
+  ]
+}

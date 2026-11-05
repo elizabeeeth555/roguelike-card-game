@@ -1,183 +1,48 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0c111c">
-  <title>継世の戦闘 — Phase 3 Ver.0.9.5 / 第三紀・ボス固有能力</title>
-<link rel="stylesheet" href="src/styles.css">
-
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1017"><title>継世の戦闘 — 第一紀 戦闘検証版</title>
+  <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
-  <div class="app-shell">
-    <header class="topbar">
-      <div class="identity">
-        <div class="crest" aria-hidden="true">✦</div>
-        <div>
-          <div class="eyebrow">LEGACY / BATTLE PROTOTYPE</div>
-          <h1>継世の戦闘 <span class="title-muted">— <span id="generationName">第一紀</span></span></h1>
-        </div>
-      </div>
-      <div class="top-right">
-        <div class="phase-pill"><span class="pulse"></span> PHASE 03 <span class="pill-dim" id="phaseLabel">第一紀・固定デッキ</span></div>
-        <button class="icon-button" type="button" id="speedButton" aria-label="敵の演出速度を変更" title="敵の演出速度（通常・高速）">演出 <span id="speedLabel">通常</span></button>
-        <button class="icon-button" type="button" id="soundButton" aria-label="音量設定を開く" aria-controls="audioPanel" aria-expanded="false" title="BGM・SEの設定">♫ <span id="soundLabel">音声</span></button>
-        <button class="top-button" type="button" id="resetButton">↺ <span>最初から</span></button>
-      </div>
-    </header>
-
-    <section id="audioPanel" class="audio-panel" aria-label="BGM・SE設定" hidden>
-      <div class="audio-header"><strong>♪ サウンド設定</strong><button type="button" id="audioClose" class="top-button">閉じる ×</button></div>
-      <label class="audio-row"><span><input id="bgmEnabled" type="checkbox" checked> BGM</span><input id="bgmVolume" type="range" min="0" max="100" value="20" aria-label="BGM音量"><output id="bgmVolumeText">20%</output></label>
-      <label class="audio-row"><span><input id="seEnabled" type="checkbox" checked> 効果音</span><input id="seVolume" type="range" min="0" max="100" value="47" aria-label="効果音の音量"><output id="seVolumeText">47%</output></label>
-      <div class="audio-test"><button type="button" data-test-se="attack">⚔ 攻撃音</button><button type="button" data-test-se="heal">✦ 回復音</button><button type="button" data-test-se="win">◆ 勝利音</button></div>
-      <p>初回操作後から再生。道中：Whispers in the Fog／戦闘：Determined Pursuit。音源は素材フォルダから差し替え可能。</p>
+<div class="app-shell">
+  <header class="topbar">
+    <div class="identity"><span class="crest" aria-hidden="true">✦</span><div><p class="eyebrow">LEGACY / FIRST ERA</p><h1>継世の戦闘 <small>第一紀</small></h1></div></div>
+    <nav aria-label="ゲーム設定"><button id="speedButton" type="button">演出 <span id="speedLabel">通常</span></button><button id="soundButton" type="button" aria-controls="audioPanel" aria-expanded="false">♫ 音量</button><button id="resetButton" type="button">最初から</button></nav>
+  </header>
+  <section id="audioPanel" class="audio-panel" aria-label="音量設定" hidden>
+    <div class="panel-heading"><strong>サウンド設定</strong><button id="audioClose" type="button">閉じる</button></div>
+    <label><span><input id="bgmEnabled" type="checkbox" checked> BGM</span><input id="bgmVolume" type="range" min="0" max="100" value="20" aria-label="BGM音量"><output id="bgmVolumeText">20%</output></label>
+    <label><span><input id="seEnabled" type="checkbox" checked> 効果音</span><input id="seVolume" type="range" min="0" max="100" value="47" aria-label="効果音音量"><output id="seVolumeText">47%</output></label>
+    <p>道中：Whispers in the Fog ／ 戦闘：Determined Pursuit</p>
+  </section>
+  <section id="draftStage" class="draft-stage" aria-label="デッキ構築">
+    <div class="draft-heading"><div><p class="eyebrow">THE FIRST TRIAL / 英雄の旅立ち</p><h2 id="draftTitle">英雄の戦い方を選ぶ</h2><p id="draftDescription"></p></div><span id="draftStep" class="badge"></span></div>
+    <div id="draftOptions" class="draft-options"></div>
+    <section class="draft-deck-panel"><div class="panel-heading"><h3>現在のビルド</h3><span id="draftDeckCount">0 / 5</span></div><div id="draftDeck" class="draft-deck"></div><p>カードを選んで詳細を確認。獲得3回でボス戦へ進みます。</p></section>
+  </section>
+  <main id="gameLayout" hidden>
+    <section id="arena" class="arena" aria-label="戦場">
+      <div class="arena-topline"><span>忘却の聖堂 / FIRST TRIAL</span><b>ROUND <span id="roundValue">01</span></b></div>
+      <div id="turnBanner" class="turn-banner">YOUR TURN</div>
+      <section class="boss-hud" aria-label="敵の状態"><p class="eyebrow">BOSS</p><div class="panel-heading"><h2 id="bossName"></h2><button class="info-trigger reserve-icon" type="button" aria-disabled="true" data-info="ボス固有能力：この第一紀デモでは能力未設定。発動する効果はありません。">◆ 固有</button></div><div class="vitals"><b>HP <span id="bossHpValue">20 / 20</span></b><b>MP <span id="bossManaValue">3 / 3</span></b></div><div class="hp-track" id="bossHpTrack" role="progressbar" aria-label="敵HP" aria-valuemin="0" aria-valuemax="20" aria-valuenow="20"><div id="bossHpBar" class="hp-fill boss-fill"></div></div><button id="bossStatus" type="button" class="status-line info-trigger status-help"></button><p id="bossBuffs" class="buff-line"></p></section>
+      <div id="enemyShadow" class="character boss-figure"><img id="bossPortrait" alt="ボスの正面姿" hidden><span class="portrait-fallback" role="img" aria-label="ボスの代替表示">♜</span></div>
+      <div id="heroFigure" class="character hero-figure"><img id="heroPortrait" alt="黒剣士の後ろ姿" hidden><span class="portrait-fallback" role="img" aria-label="英雄の代替表示">⚔</span></div>
+      <section class="player-status" aria-label="自分の状態"><div class="hero-name"><span class="face-frame"><img id="heroFace" alt="黒剣士の顔" hidden><span class="portrait-fallback">✦</span></span><div><p class="eyebrow">YOUR HERO</p><h2>夜刃の剣士</h2></div><button class="info-trigger reserve-icon" type="button" aria-disabled="true" data-info="プレイヤーパッシブ：未取得／今回未実装。発動する効果はありません。">◇ パッシブ</button></div><div class="vitals"><b>HP <span id="playerHpValue">20 / 20</span></b><b>MP <span id="playerManaValue">2 / 3</span></b></div><div class="hp-track" id="playerHpTrack" role="progressbar" aria-label="自分HP" aria-valuemin="0" aria-valuemax="20" aria-valuenow="20"><div id="playerHpBar" class="hp-fill player-fill"></div></div><button id="playerStatus" type="button" class="status-line info-trigger status-help"></button><p id="playerBuffs" class="buff-line"></p></section>
+      <div id="attackFx" class="attack-fx" aria-hidden="true"></div><span id="bossHit" class="hit-number boss-hit" aria-hidden="true"></span><span id="playerHit" class="hit-number player-hit" aria-hidden="true"></span>
+      <div id="enemyActionToast" class="enemy-action-toast" role="status" hidden></div><p id="arenaMessage" class="arena-message" aria-live="polite"></p>
     </section>
-    <section id="draftStage" class="draft-stage" aria-label="道中のビルド構築">
-  <div class="draft-head"><div><div class="overline" id="draftEra">第一紀 / BEGINNING</div><h2 id="draftTitle">英雄の素質</h2><p id="draftDescription">道中のイベントを進めてビルドを作ろう。</p></div><div class="draft-step" id="draftStep">START</div></div>
-  <div id="draftOptions" class="draft-options" role="group" aria-label="今回の選択肢"></div>
-  <div class="draft-deck-panel"><div class="draft-deck-heading"><strong>現在のデッキ</strong><span id="draftDeckCount">0 / 5 枚</span></div><div id="draftDeck" class="draft-deck" aria-live="polite"></div><div class="draft-card-details" id="draftCardDetails" aria-live="polite">カードの詳細を表示</div><p class="draft-hint" id="draftHint"></p></div>
-</section>
-<main class="game-layout" id="gameLayout" hidden>
-      <div class="battle-top">
-        <section class="arena" aria-label="敵ボスの戦場">
-          <div class="arena-grain" aria-hidden="true"></div>
-          <div class="arena-topline">
-            <span class="region-label"><span class="tiny-diamond"></span> <span id="regionLabel">忘却の聖堂</span> <span class="region-en">/ THE HALL OF LEGACY</span></span>
-            <span class="round-marker">ROUND <b id="roundValue">01</b></span>
-          </div>
-          <div class="turn-banner" id="turnBanner">あなたのターン</div>
-          <div class="boss-strip">
-            <div class="boss-title"><span class="boss-seal">◆</span><div><small>守護者 / BOSS</small><strong id="bossName">灰の騎士</strong></div></div>
-            <div class="boss-health">
-              <div class="health-topline"><span>敵 HP</span><b id="bossHpValue">40 <i>/ 40</i></b></div>
-              <div class="hp-track" role="progressbar" aria-label="ボスHP" aria-valuemin="0" aria-valuemax="40" aria-valuenow="40" id="bossHpTrack"><div id="bossHpBar" class="hp-fill boss-fill"></div></div>
-            </div>
-            <div class="boss-badges"><span id="bossPowerBadge">ATK +0</span><span id="bossGuardBadge">防壁 0</span></div>
-          </div>
-          <div class="arena-center">
-            <div class="enemy-shadow" id="enemyShadow" aria-hidden="true">
-              <img class="hero-sprite" id="bossPortrait" src="assets/characters/guardian.svg" alt="" onerror="this.style.display='none';this.parentElement.classList.remove('has-sprite')">
-              <div class="halo"></div>
-              <div class="enemy-figure">
-                <div class="enemy-crown"></div>
-                <div class="enemy-head"><span class="eyes"></span></div>
-                <div class="enemy-body"></div>
-                <div class="enemy-blade"></div>
-              </div>
-              <div class="ground-glow"></div>
-            </div>
-            <div class="hit-number" id="bossHit" aria-hidden="true"></div>
-            <div class="player-hit-number" id="playerHit" aria-hidden="true"></div>
-            <div class="arena-message" id="arenaMessage" aria-live="polite">あなたの行動を選択してください</div>
-          </div>
-          <div id="attackFx" class="attack-fx" aria-hidden="true"></div>
-          <div class="enemy-action-toast" id="enemyActionToast" role="status" aria-live="polite" hidden></div>
-          <div class="enemy-hand-dock" aria-label="敵の手札一覧">
-            <div class="enemy-hand-label">敵の手札 <span>使用中のカードが光ります</span></div>
-            <div class="enemy-deck" id="enemyDeck"></div>
-          </div>
-          <div class="vignette" aria-hidden="true"></div>
-        </section>
-
-        <aside class="enemy-sidebar" aria-label="追加情報と戦闘ログ">
-          <section class="sidebar-card intel-panel compact-intel">
-            <div class="sidebar-heading"><span class="side-kicker">BOSS STATUS</span><span class="info-dot">i</span></div>
-            <div class="ability-icon-row">
-              <button id="bossAbility" class="ability-icon info-trigger pending" type="button" data-info="固有能力|第一紀の灰の騎士には固有能力がありません。" aria-label="敵固有能力">♜<small>固有</small></button>
-              <button class="ability-icon info-trigger pending" type="button" data-info="ボスのパッシブ|パッシブ能力の引き継ぎは後続バージョンで実装予定。現バージョンでは効果はありません。" aria-label="ボスのパッシブ（未実装）">✦<small>能力</small></button>
-              <button class="ability-icon info-trigger pending" type="button" data-info="ボスの枷|枷の引き継ぎは後続バージョンで実装予定。現バージョンでは効果はありません。" aria-label="ボスの枷（未実装）">⛓<small>枷</small></button>
-            </div>
-            <div id="enemyDeckHeading" class="enemy-count-hint">敵デッキ 4枚 / 行動は非公開</div>
-          </section>
-          <section class="sidebar-card log-panel collapsed" id="logPanel">
-            <div class="sidebar-heading"><span class="side-kicker">BATTLE LOG</span><button type="button" class="log-toggle" id="logToggle" aria-controls="combatLog" aria-expanded="false">ログを開く ＋</button></div>
-            <div class="log-peek" id="logPeek" aria-live="polite">戦闘開始</div>
-            <div class="log-list" id="combatLog" tabindex="0" aria-label="戦闘ログ" aria-live="polite" aria-relevant="additions"></div>
-          </section>
-        </aside>
-      </div>
-
-      <section class="player-zone" aria-label="あなたの状態と手札">
-        <div class="player-status">
-          <div class="player-identity"><img id="playerPortrait" class="hero-thumb" src="assets/characters/era-1.svg" alt="" onerror="this.style.display='none'"><span><small>HERO / あなた</small><strong id="heroName">名もなき継承者</strong></span></div>
-          <div class="player-health">
-            <div class="health-topline"><span>自分 HP</span><b id="playerHpValue">40 <i>/ 40</i></b></div>
-            <div class="hp-track" role="progressbar" aria-label="プレイヤーHP" aria-valuemin="0" aria-valuemax="40" aria-valuenow="40" id="playerHpTrack"><div id="playerHpBar" class="hp-fill player-fill"></div></div>
-          </div>
-          <div class="player-metrics">
-            <div class="metric"><span>攻撃力</span><b id="attackValue">5</b></div>
-            <div class="metric mana-metric"><span>使用可能マナ</span><b id="manaValue">1 <small>/ 1</small></b></div>
-          </div>
-          <div class="player-conditions"><span class="condition" id="guardValue">結界 0</span><span class="condition" id="blockedValue">前ターン軽減 0</span>
-            <div class="player-ability-row" aria-label="特殊能力の表示枠">
-              <button type="button" class="ability-icon info-trigger pending" data-info="必殺技|戦闘中1回の必殺技は後続バージョンで実装予定。Ver.0.9.1では使用できません。" aria-label="必殺技（未実装）">✹<small>必殺</small></button>
-              <button type="button" class="ability-icon info-trigger pending" data-info="パッシブ|パッシブ能力の獲得は後続バージョンで実装予定。" aria-label="パッシブ（未実装）">✧<small>能力</small></button>
-              <button type="button" class="ability-icon info-trigger pending" data-info="枷|枷イベントは後続バージョンで実装予定。" aria-label="枷（未実装）">⛓<small>枷</small></button>
-              <button type="button" class="ability-icon info-trigger" id="legacyInfo" data-info="継承枠|第一紀の勝利後に選んだ1枚。通常デッキとは別枠で保持されます。" aria-label="継承カードの情報">◇<small>継承</small></button>
-            </div></div>
-        </div>
-
-        <div class="hand-panel">
-          <div class="hand-heading">
-            <div class="hand-heading-left"><span class="heading-mark">▰</span><h2>手札</h2><span class="heading-desc">カードをクリックして使用 <span class="keyhint">1</span> <span class="keyhint">2</span> <span class="keyhint">3</span> <span class="keyhint">4</span> <span class="keyhint">5</span> <span class="keyhint">6</span></span></div>
-            <div class="hand-count">ビルド＋継承 <strong id="handCount">4枚</strong></div>
-          </div>
-          <div class="hand-row" id="hand" role="group" aria-label="使用できるカード"></div>
-          <div class="hand-footer">
-            <span class="assist-line" id="handTip">カードの使用順がコンボに影響します。</span>
-            <button id="endTurn" class="end-turn" type="button"><span>ターン終了</span><span class="turn-arrow">→</span><span class="button-sub">SPACE</span></button>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <div class="bottom-caption"><span>PHASE 3 / VER.0.9.5</span><span>第三紀・敵固有能力・1枚1回強化</span><span class="caption-right">オフライン可 / 仮素材は差し替え対応</span></div>
-  </div>
-  <div id="infoTooltip" class="info-tooltip" role="tooltip" hidden></div>
-  <div id="swapOverlay" class="swap-overlay" hidden>
-    <div class="swap-dialog" role="dialog" aria-modal="true" aria-labelledby="swapTitle">
-      <span class="end-ornament">◇ NEW CARD ◇</span>
-      <h2 id="swapTitle">デッキ上限：入れ替えますか？</h2>
-      <p id="swapDescription">新しいカードと、現在の通常カードを1枚入れ替えられます。</p>
-      <div class="swap-options" id="swapOptions"></div>
-      <button id="swapDiscard" type="button" class="swap-discard">新しいカードを破棄して進む</button>
-    </div>
-  </div>
-  <div id="battleTransition" class="battle-transition" role="button" tabindex="0" aria-label="ターン演出。クリックまたはEnterでスキップ" aria-live="polite" hidden><div class="transition-text" id="transitionText">YOUR TURN</div></div>
-  <div id="infoTooltipDummy" hidden></div>
-  <div class="end-overlay" id="resultOverlay" hidden>
-    <div class="end-dialog" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
-      <span class="end-ornament">✦ ◇ ✦</span>
-      <div class="end-kicker" id="resultKicker">BATTLE COMPLETE</div>
-      <h2 id="resultTitle">勝利</h2>
-      <p id="resultText">灰の騎士を倒した。</p>
-      <div class="summary-line"><span id="resultRound">ROUND 4</span><span id="resultHp">残りHP 20</span></div>
-      <div id="inheritChoices" class="inherit-choices" hidden></div>
-      <button type="button" class="restart-button legacy-next" id="nextGenerationButton" hidden disabled>このカードを継承して第二紀へ →</button>
-      <button type="button" class="restart-button" id="restartButton">もう一度戦う　↺</button>
-      <span class="result-note" id="resultNote">※ 道中や強化は未実装</span>
-    </div>
-  </div>
-<script src="assets/asset-map.js"></script>
-<script src="assets/audio-engine.js"></script>
-<script src="src/game/card-data.js"></script>
-<script src="src/game/combat-math.js"></script>
-<script src="src/game/boss-planner.js"></script>
-<script src="src/game/card-effects.js"></script>
-<script src="src/game/battle-engine.js"></script>
-<script src="src/game/progression.js"></script>
-<script src="src/app/task-scope.js"></script>
-<script src="src/ui/dom.js"></script>
-<script src="src/app-state.js"></script>
-<script src="src/app/draft-controller.js"></script>
-<script src="src/app/battle-controller.js"></script>
-<script src="src/ui/effects.js"></script>
-<script src="src/ui/render.js"></script>
-<script src="src/ui/controls.js"></script>
-<script src="src/ui/battle-events.js"></script>
-<script src="src/ui/draft-render.js"></script>
-<script src="src/ui/result.js"></script>
-<script src="src/main.js"></script>
-</body>
-</html>
+    <section class="battle-intel" aria-label="敵デッキとログ"><details class="enemy-deck-panel"><summary>敵デッキを見る <span>5枚 / 行動順は非公開</span></summary><div id="enemyDeck" class="enemy-deck"></div></details><div id="logPanel" class="log-panel"><div class="panel-heading"><span id="logPeek">戦闘開始</span><button id="logToggle" type="button" aria-expanded="false" aria-controls="combatLog">戦闘ログ</button></div><div id="combatLog" class="log-list" tabindex="0" aria-label="戦闘ログ" aria-live="polite" aria-relevant="additions"></div></div></section>
+    <section class="hand-panel" aria-label="手札と操作"><div class="actionbar"><div><span class="eyebrow">AVAILABLE MANA</span><b id="manaValue">2 / 3</b></div><button id="accelerateButton" type="button">✧ マナ加速 <span>2マナ</span><small id="accelerateReason"></small></button><button id="endTurn" type="button">ターン終了 → <small>SPACE</small></button></div><div class="hand-heading"><strong id="handCount">通常 5 / 5</strong><span>カードを選ぶと詳細 ／ 数字キー1〜5</span></div><div class="hand-and-legacy"><div id="hand" class="hand-row"></div><button type="button" class="legacy-slot info-trigger" aria-disabled="true" data-info="継承専用カード枠：0/1 未解放。第二紀以降の実装時に解放予定。通常5枚には含まれません。">◇<strong>継承専用</strong><span>🔒 0/1 未解放</span></button></div><p class="card-legend"><span class="attack">攻撃</span><span class="defense">防御</span><span class="heal">回復</span><span class="buff">補助</span><span class="poison">毒付与</span> 複合カードも攻撃タグを明記</p></section>
+  </main>
+  <footer>第一紀・戦闘ルール検証版 <span>固定手札 / カード19種 / HP20 / マナ3→5</span></footer>
+</div>
+<div id="infoTooltip" class="info-tooltip" role="tooltip" hidden></div>
+<div id="battleTransition" class="battle-transition" role="button" tabindex="0" aria-label="ターン演出。クリック、Enter、Spaceでスキップ" hidden><span id="transitionText"></span></div>
+<div id="cardDetailOverlay" class="modal-overlay" hidden><section class="card-dialog" role="dialog" aria-modal="true" aria-labelledby="cardDetailTitle"><button id="closeCardDetail" class="dialog-close" type="button">閉じる ×</button><p class="eyebrow">CARD DETAILS</p><h2 id="cardDetailTitle"></h2><p id="cardDetailMeta"></p><p id="cardDetailText"></p><p id="cardDetailStatus" role="status"></p><button id="confirmCard" type="button">使用する</button></section></div>
+<div id="resultOverlay" class="modal-overlay" hidden><section class="end-dialog" role="dialog" aria-modal="true" aria-labelledby="resultTitle"><p id="resultKicker" class="eyebrow"></p><h2 id="resultTitle"></h2><p id="resultStats"></p><p id="resultText"></p><button id="retryButton" type="button">同じ条件で再戦</button><button id="restartButton" type="button">最初から</button><small>第一紀の検証はここまで。強化・継承・次代の進行は未実装。</small></section></div>
+<script src="assets/asset-map.js"></script><script src="assets/audio-engine.js"></script>
+<script src="src/game/card-data.js"></script><script src="src/game/combat-math.js"></script><script src="src/game/card-effects.js"></script><script src="src/game/battle-engine.js"></script><script src="src/game/boss-planner.js"></script><script src="src/game/progression.js"></script>
+<script src="src/app/task-scope.js"></script><script src="src/ui/dom.js"></script><script src="src/app-state.js"></script><script src="src/app/draft-controller.js"></script><script src="src/app/battle-controller.js"></script><script src="src/ui/effects.js"></script><script src="src/ui/render.js"></script><script src="src/ui/controls.js"></script><script src="src/ui/battle-events.js"></script><script src="src/ui/draft-render.js"></script><script src="src/ui/result.js"></script><script src="src/main.js"></script>
+</body></html>

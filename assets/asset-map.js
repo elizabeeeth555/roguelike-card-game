@@ -29,3 +29,59 @@ window.GAME_ASSETS={
     win:'assets/sounds/sfx/win.mp3',lose:'assets/sounds/sfx/lose.mp3'
   }
 };
+
+// Trial character poses. Incomplete giant/scout images are deliberately unused.
+window.GAME_ASSETS.characterSets={
+  "01_black_swordsman": {
+    "name": "夜刃の剣士",
+    "label": "黒剣士",
+    "enabled": true,
+    "images": {
+      "boss": "assets/characters/01_black_swordsman_boss.png",
+      "face": "assets/characters/01_black_swordsman_face.png",
+      "back": "assets/characters/01_black_swordsman_back.png"
+    }
+  },
+  "02_heavy_knight": {
+    "name": "蒼鋼の守護騎士",
+    "label": "重装騎士",
+    "enabled": true,
+    "images": {
+      "boss": "assets/characters/02_heavy_knight_boss.png",
+      "face": "assets/characters/02_heavy_knight_face.png",
+      "back": "assets/characters/02_heavy_knight_back.png"
+    }
+  },
+  "03_witch": {
+    "name": "紫苑の魔女",
+    "label": "魔女",
+    "enabled": true,
+    "images": {
+      "boss": "assets/characters/03_witch_boss.png",
+      "face": "assets/characters/03_witch_face.png",
+      "back": "assets/characters/03_witch_back.png"
+    }
+  },
+  "04_giant_warrior": {
+    "name": "鉄拳の巨漢",
+    "label": "大男",
+    "enabled": false,
+    "images": {}
+  },
+  "05_scout": {
+    "name": "翡翠の双刃",
+    "label": "斥候",
+    "enabled": false,
+    "images": {}
+  },
+  "06_sage": {
+    "name": "暁の賢者",
+    "label": "老魔導士",
+    "enabled": true,
+    "images": {
+      "boss": "assets/characters/06_sage_boss.png",
+      "face": "assets/characters/06_sage_face.png",
+      "back": "assets/characters/06_sage_back.png"
+    }
+  }
+};

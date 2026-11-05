@@ -1,154 +1,71 @@
-const vm=require('vm'),fs=require('fs'),path=require('path'),assert=require('node:assert/strict');
-const {test}=require('node:test');
-const root=path.join(__dirname,'..');
-class Classes {constructor(){this.set=new Set()} add(...xs){xs.forEach(x=>this.set.add(x))}remove(...xs){xs.forEach(x=>this.set.delete(x))} toggle(x,on){if(on===undefined)on=!this.set.has(x);if(on)this.set.add(x);else this.set.delete(x);return on;} contains(x){return this.set.has(x)}}
-class El{
- constructor(id=''){this.id=id;this.children=[];this.dataset={};this.className='';this.classList=new Classes;this.style={setProperty:()=>{}};this.hidden=false;this.textContent='';this.innerHTML='';this.disabled=false;this.parentElement={classList:new Classes};this.listeners={};this.scrollHeight=0;this.clientHeight=100;this.scrollTop=0;this.offsetWidth=100;}
- append(...xs){this.children.push(...xs);for(const x of xs)x.parentElement=this;}
- appendChild(x){this.append(x);return x;}
- replaceChildren(...xs){this.children=[...xs];for(const x of xs)x.parentElement=this;}
- addEventListener(key,cb){this.listeners[key]=cb}
- setAttribute(k,v){this[k]=v}
- getAttribute(k){return this[k]}
- querySelector(k){return new El(k)}
- closest(){return this}
- querySelectorAll(k){return []}
- getBoundingClientRect(){return {left:0,width:50,top:20,bottom:30}}
-}
-let all=new Map;
-const get=id=>{if(!all.has(id))all.set(id,new El(id));return all.get(id)};
-const doc={getElementById:get,createElement:tag=>new El(tag),querySelector:sel=>get(sel),querySelectorAll:sel=>sel==='.enemy-mini-card'?get('enemyDeck').children:[],addEventListener:()=>{}};
-const timerMap=new Map;let timerNext=0;
-const sandbox={document:doc,window:{scrollTo(){},innerWidth:1366,innerHeight:768},console,Math,Set,Promise,
- setTimeout:(cb,ms)=>{const id=++timerNext;timerMap.set(id,{cb,ms});return id},clearTimeout:id=>{timerMap.delete(id)},
-};
-sandbox.window.GAME_ASSETS={characters:{guardian:'g',era1:'1',era2:'2',era3:'3'},cards:{},background:'bg'};
-sandbox.GameAudio={setScene(){},stop(){},se(){}};
-sandbox.GameMath=require(path.join(root,'src/game/combat-math.js'));
-sandbox.GamePlanner=require(path.join(root,'src/game/boss-planner.js'));
-vm.createContext(sandbox);
-function run(file){vm.runInContext(fs.readFileSync(path.join(root,file),'utf8'),sandbox,{filename:file});}
-['src/game/card-data.js','src/game/card-effects.js','src/game/battle-engine.js','src/game/progression.js','src/app/task-scope.js','src/ui/dom.js','src/app-state.js','src/app/draft-controller.js','src/app/battle-controller.js','src/ui/effects.js','src/ui/render.js','src/ui/battle-events.js','src/ui/draft-render.js','src/ui/result.js'].forEach(run);
-const e=expression=>vm.runInContext(expression,sandbox);
-const openDraft=()=>{
- for(let i=0;i<14&&e('mode')==='draft';i++){
-  const kind=e('draftKind'),arr=e('draftCards');
-  if(kind==='starter'){e('applyStarter(STARTERS[era][0].cards)')}
-  else if(kind==='upgrade'||kind==='special'||kind==='upgradeFork') {
-   const has=e('draftCards.find(c=>!hasUpgraded(c))');
-   if(has)e(`upgradeCard('${has.key}',${kind==='special'})`);else e('moveNext()')
-  }else if(kind==='fork'||kind==='add'||kind==='trump'){
-   const id=kind==='trump'?e("era===1?'laststand':era===2?'venombloom':'laststand'"):e('getOptions()[0]');
-   if(id){if(e('draftCards.length')>=5)e(`draftCards.splice(0,1,newCard('${id}'));moveNext()`);else e(`addCard('${id}')`)}
-   else e('moveNext()');
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+function browser(){
+  const elements=new Map(),timers=new Map();let nextTimer=0;let doc;
+  class El{
+    constructor(tag='div'){this.tagName=tag;this.children=[];this.dataset={};this.style={setProperty(){}};this.hidden=false;this.disabled=false;this.textContent='';this.className='';this.listeners={};this.attributes={};this.isConnected=true;this.scrollHeight=100;this.offsetWidth=100;this.offsetHeight=100;this.parentElement=this;
+      this.classList={add:(...names)=>{this.className=[...new Set([...this.className.split(' '),...names])].join(' ');},remove:(...names)=>{this.className=this.className.split(' ').filter(n=>!names.includes(n)).join(' ');},contains:name=>this.className.split(' ').includes(name),toggle:(name,on)=>{if(on===undefined)on=!this.classList.contains(name);on?this.classList.add(name):this.classList.remove(name);return on;}};
+    }
+    append(...nodes){for(const node of nodes){node.parentElement=this;this.children.push(node);}}
+    replaceChildren(...nodes){this.children=[];this.append(...nodes);}
+    addEventListener(name,fn){(this.listeners[name]??=[]).push(fn);}
+    click(){if(!this.disabled)for(const fn of this.listeners.click||[])fn({target:this});}
+    focus(){doc.activeElement=this;}
+    setAttribute(name,value){this.attributes[name]=String(value);}
+    removeAttribute(name){delete this.attributes[name];if(name==='src')delete this.src;}
+    getBoundingClientRect(){return {left:0,right:100,top:0,bottom:100,width:100,height:100};}
+    matches(selector){return selector.startsWith('.')?this.classList.contains(selector.slice(1)):this.tagName===selector.split(':')[0];}
+    querySelectorAll(selector){return this.children.flatMap(c=>[...(c.matches(selector)?[c]:[]),...c.querySelectorAll(selector)]);}
+    querySelector(selector){return this.querySelectorAll(selector)[0]||null;}
+    closest(){return this;}
   }
- }
- assert.equal(e('mode'),'battle');e('hideTransitions()');
+  const get=id=>{if(!elements.has(id))elements.set(id,new El());return elements.get(id);};
+  const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
+  for(const match of html.matchAll(/<[^>]+id="([^"]+)"[^>]*>/g)){const el=get(match[1]);el.hidden=/\shidden(?:[\s>])/.test(match[0]);const cls=match[0].match(/class="([^"]+)"/);if(cls)el.className=cls[1];}
+  doc={getElementById:get,createElement:tag=>new El(tag),addEventListener(){},activeElement:null};
+  for(const id of ['bossPortrait','heroPortrait','heroFace']){const parent=new El(),fallback=new El();fallback.className='portrait-fallback';parent.append(get(id),fallback);}
+  class Audio{constructor(){this.paused=true;}play(){this.paused=false;return Promise.resolve();}pause(){this.paused=true;}canPlayType(){return 'probably';}}
+  const scope={document:doc,Audio,console,Math,Set,Promise,innerWidth:390,innerHeight:844,addEventListener(){},
+    setTimeout:(fn,ms)=>{timers.set(++nextTimer,{fn,ms});return nextTimer;},clearTimeout:id=>timers.delete(id),setInterval:()=>0,clearInterval(){}};
+  scope.window=scope;vm.createContext(scope);
+  for(const [,file] of html.matchAll(/<script src="([^"]+)"><\/script>/g))vm.runInContext(fs.readFileSync(path.join(__dirname,'..',file),'utf8'),scope,{filename:file});
+  const evaluate=code=>vm.runInContext(code,scope);
+  async function settle(promise){let done=false;promise.then(()=>done=true);for(let i=0;i<100&&!done;i++){await new Promise(setImmediate);const item=[...timers.entries()].sort((a,b)=>a[1].ms-b[1].ms)[0];if(item){timers.delete(item[0]);item[1].fn();}}assert(done,'all waits must settle');await promise;}
+  async function build(){get('draftOptions').children[0].click();for(let i=0;i<3;i++)get('draftOptions').children[0].querySelector('.card-pick').click();evaluate('hideTransitions()');await new Promise(setImmediate);}
+  return {get,evaluate,settle,build,timers};
 }
-async function allEras(){
- e('resetGame()');assert.equal(e('era'),1);
- openDraft();await Promise.resolve();
-
- assert(!e('state.deck.some(c=>hasUpgraded(c))'));
- e('state.bossHp=1;state.bossGuard=0;state.bossBarrier=0;hit("player",100,"smoke",true);showResult(true)');
- assert.equal(e('state.end'),'win');assert.equal(e('previousHeroDeck.length'),5);
- e('inherited={...clone(state.deck[0]),inherited:true,key:"legacy"};goNext()');assert.equal(e('era'),2);
- openDraft();await Promise.resolve();
-
- assert.equal(e('state.bossBarrier'),7);
- assert(e('state.deck.some(c=>c.lv===1)'));
- e('state.bossHp=20;hit("player",5,"shield check");');assert.equal(e('state.bossHp'),20);assert.equal(e('state.bossBarrier'),2);
- e('expireBossBarrier()');assert.equal(e('state.bossBarrier'),0);
- e('state.bossHp=1;hit("player",100,"smoke",true);showResult(true)');
- assert.equal(e('state.end'),'win');
- assert.equal(e('previousHeroDeck.some(c=>c.lv===1)'),true);
- e('inherited={...clone(state.deck.find(c=>!c.inherited)),inherited:true,key:"legacy"};goNext()');assert.equal(e('era'),3);
- openDraft();await Promise.resolve();
-
- assert.equal(e('state.deck.some(c=>c.lv===2)'),true);
- assert.equal(e('state.enemyDeck.some(c=>c.lv===1)'),true);
- assert.equal(e('state.bossBarrier'),0);
- e('state.round=2;triggerThirdBossAbility()');assert.equal(e('state.bossAtk'),6);
- e('state.bossHp=1;hit("player",100,"smoke",true);showResult(true)');
- assert.equal(e('state.end'),'win');
- assert.equal(get('resultKicker').textContent,'PHASE 3 COMPLETE');
-
-}
-test('統合：第一紀→第二紀→第三紀、強化・固有バリア・継承・勝利',allEras);
-
-test('操作統合：上限時の入れ替え／破棄と継承ボタン',async()=>{
- e('resetGame();applyStarter(STARTERS[1][0].cards);draftCards=["slash","boost","guard","rally","rush"].map(id=>newCard(id))');
- const before=e('draftIndex');
- e('addCard("pierce")');
- assert.equal(get('swapOverlay').hidden,false);assert.equal(e('draftIndex'),before);
- get('swapOptions').children[0].listeners.click();
- assert.equal(e('draftCards.length'),5);assert.equal(e('draftCards[0].id'),'pierce');
- assert.equal(get('swapOverlay').hidden,true);assert.equal(e('draftIndex'),before+1);
- e('addCard("siphon");discardPending()');
- assert.equal(e('draftCards.some(c=>c.id==="siphon")'),false);
- e('initBattle();hideTransitions()');await Promise.resolve();
- e('state.bossHp=1;hit("player",100,"test",true);showResult(true)');
- assert.equal(get('nextGenerationButton').disabled,true);
- get('inheritChoices').children[0].listeners.click();
- assert.equal(get('nextGenerationButton').disabled,false);
- assert.equal(e('inherited.id'),'pierce');
- assert.equal(e('inherited.key'),'legacy');
- assert.equal(e('previousHeroDeck.some(c=>c.inherited)'),false);
+test('classic scriptの実読み込み順で起動、初期2枚→獲得3回→5枚→第一紀1戦',async()=>{
+  const b=browser();assert.equal(b.evaluate('app.mode'),'draft');assert.equal(b.get('draftOptions').children.length,3);
+  await b.build();assert.equal(b.evaluate('app.mode'),'battle');assert.equal(b.evaluate('app.draftStep'),3);assert.equal(b.get('hand').children.length,5);assert.equal(b.evaluate('app.battle.actors.player.mana'),2);assert.equal(b.evaluate('app.busy'),false);
+  b.get('hand').children[0].querySelector('.card-open').click();assert.equal(b.get('cardDetailOverlay').hidden,false);
+  b.get('confirmCard').click();assert.equal(b.get('cardDetailOverlay').hidden,true);assert.equal(b.evaluate('app.battle.actors.player.used.length'),1);
 });
-
-test('非同期統合：敵行動待機中のリセットで古い戦闘が再開しない',async()=>{
- e('resetGame();draftCards=[newCard("slash")];initBattle();hideTransitions()');
- await Promise.resolve();
- const turn=e('endTurn()');
- e('hideTransitions()');await Promise.resolve();
- assert.equal(e('enemyTurnActive'),true);
- e('resetGame()');
- await turn;
- assert.equal(e('mode'),'draft');assert.equal(e('state'),null);
- assert.equal(e('busy'),false);assert.equal(get('enemyActionToast').hidden,true);
- const remaining=[...timerMap.values()];timerMap.clear();
- for(const timer of remaining)timer.cb();
- await Promise.resolve();
- assert.equal(e('mode'),'draft');assert.equal(get('resultOverlay').hidden,true);
+test('実ターン進行、CD表示、加速、演出の重複入力防止',async()=>{
+  const b=browser();await b.build();b.get('accelerateButton').click();assert.equal(b.evaluate('app.battle.actors.player.mana'),0);
+  const turn=b.evaluate('endTurn()');b.get('accelerateButton').click();assert.equal(b.evaluate('app.battle.actors.player.accelerationPending'),true);
+  await b.settle(turn);assert.equal(b.evaluate('app.battle.round'),2);assert.equal(b.evaluate('app.battle.actors.player.manaCap'),4);assert.equal(b.evaluate('app.busy'),false);
 });
-
-test('起動統合：index.htmlの全スクリプトを実際の順番で読み込む',()=>{
- class AudioStub{
-  constructor(){this.paused=true;this.volume=1;this.currentTime=0;}
-  canPlayType(){return 'probably';}
-  play(){this.paused=false;return Promise.resolve();}
-  pause(){this.paused=true;}
- }
- const browser={document:doc,console,Math,Set,Promise,Audio:AudioStub,
-  scrollTo(){},innerWidth:390,innerHeight:844,
-  setTimeout:sandbox.setTimeout,clearTimeout:sandbox.clearTimeout,
-  setInterval:()=>0,clearInterval(){}};
- browser.window=browser;
- vm.createContext(browser);
- const scripts=[...fs.readFileSync(path.join(root,'index.html'),'utf8').matchAll(/<script src="([^"]+)"><\/script>/g)];
- for(const [,file] of scripts)vm.runInContext(fs.readFileSync(path.join(root,file),'utf8'),browser,{filename:file});
- assert.equal(vm.runInContext('mode',browser),'draft');
- assert.equal(vm.runInContext('era',browser),1);
- assert.equal(vm.runInContext('GameAudio.getState().scene',browser),'event');
- assert.equal(vm.runInContext('typeof phase3Debug.snapshot',browser),'function');
- assert.equal(get('draftOptions').children.length,3);
+test('演出中のリセットと勝敗待機中のリセットは古い処理を残さない',async()=>{
+  const b=browser();await b.build();const turn=b.evaluate('endTurn()');b.evaluate('resetGame()');await turn;
+  assert.equal(b.evaluate('app.mode'),'draft');assert.equal(b.evaluate('app.battle'),null);
+  await b.build();b.evaluate('app.battle.actors.boss.hp=1;useCard("slash");resetGame()');
+  for(const timer of [...b.timers.values()])timer.fn();await Promise.resolve();assert.equal(b.get('resultOverlay').hidden,true);assert.equal(b.evaluate('app.mode'),'draft');
 });
-
-test('ターン統合：演出タイマーを進めて敵行動から次の入力受付まで確認',async()=>{
- e('resetGame();era=2;previousHeroDeck=[newCard("slash")];draftCards=[newCard("guard")];initBattle();hideTransitions()');
- await Promise.resolve();
- e('useCard(state.deck[0].key)');
- let done=false;const turn=e('endTurn()');turn.then(()=>done=true);
- for(let i=0;i<100&&!done;i++){
-  await Promise.resolve();await Promise.resolve();
-  const next=[...timerMap.entries()].sort((a,b)=>a[1].ms-b[1].ms)[0];
-  if(next){timerMap.delete(next[0]);next[1].cb();}
- }
- assert.equal(done,true,'turn must finish without leaving an unresolved wait');
- await turn;
- assert.equal(e('state.round'),2);assert.equal(e('state.mana'),2);
- assert.equal(e('state.playerHp'),52);assert.equal(e('state.playerBlockedPrev'),5);
- assert.equal(e('state.playerGuard'),0);assert.equal(e('state.bossBarrier'),7);
- assert.equal(e('state.played.size'),0);assert.equal(e('busy'),false);
- assert.equal(e('enemyTurnActive'),false);assert.equal(get('enemyActionToast').hidden,true);
+test('勝利・敗北とも同条件再戦と最初からを提供し、全戦闘状態を初期化',async()=>{
+  for(const winner of ['player','boss']){
+    const b=browser();await b.build();const preset=b.evaluate('app.retryPreset'),deck=b.evaluate('JSON.stringify(app.draftCards)');
+    b.evaluate(`app.battle.end='${winner}';renderResult('${winner}')`);assert.equal(b.get('resultOverlay').hidden,false);
+    b.get('retryButton').click();b.evaluate('hideTransitions()');await Promise.resolve();
+    assert.equal(b.evaluate('app.retryPreset'),preset);assert.equal(b.evaluate('JSON.stringify(app.draftCards)'),deck);
+    assert.equal(b.evaluate('app.battle.actors.player.hp'),20);assert.equal(b.evaluate('app.battle.actors.player.mana'),2);assert.equal(b.evaluate('Object.keys(app.battle.actors.player.readyOn).length'),0);
+    b.get('restartButton').click();assert.equal(b.evaluate('app.mode'),'draft');assert.equal(b.evaluate('app.draftCards.length'),0);
+  }
+});
+test('大男・斥候は画像を参照せず代替表示、他画像の失敗も安全',async()=>{
+  const b=browser();await b.build();
+  for(const id of ['04_giant_warrior','05_scout']){
+    b.evaluate(`setCharacterImage($('bossPortrait'),'${id}','boss')`);assert.equal(b.get('bossPortrait').hidden,true);assert.equal(b.get('bossPortrait').src,undefined);
+    assert.equal(b.evaluate(`Object.keys(characterInfo('${id}').images).length`),0);
+  }
+  b.evaluate(`setCharacterImage($('bossPortrait'),'03_witch','boss');$('bossPortrait').onerror()`);assert.equal(b.get('bossPortrait').hidden,true);assert.equal(b.evaluate('app.mode'),'battle');
 });

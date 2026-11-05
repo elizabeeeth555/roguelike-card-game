@@ -1,173 +1,139 @@
 'use strict';
-const {test}=require('node:test');
-const assert=require('node:assert/strict');
-const {createHash}=require('node:crypto');
-const Battle=require('../src/game/battle-engine.js');
-const Data=require('../src/game/card-data.js');
-const Progression=require('../src/game/progression.js');
-const Planner=require('../src/game/boss-planner.js');
-const baseline=require('./fixtures/card-behavior-v0.9.5.json');
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const Battle=require('../src/game/battle-engine.js'),Data=require('../src/game/card-data.js');
+const Planner=require('../src/game/boss-planner.js'),Progression=require('../src/game/progression.js');
+const source=require('./fixtures/first-era-cards.json');
+function state(deck=['slash'],extra={}){return Battle.createState({playerDeck:deck,bossPresetId:Data.BOSSES[0].id,...extra});}
+function play(s,id,side=s.active){return Battle.execute(s,{type:'card',side,id});}
+function end(s){return Battle.execute(s,{type:'endTurn',side:s.active});}
+function roundTrip(s){end(s);end(s);}
 
-function card(id,extra={}){return {...Data.newCard(id,false,()=>0.5),...extra};}
-function state(era=2,deck=[]){
-  return Battle.createState({era,draftCards:deck,previousHeroDeck:[]});
+test('19枚のコスト・CD・タグ・説明がパッケージと一致、5ボスで全種を網羅',()=>{
+  assert.equal(Object.keys(Data.CARDS).length,19);assert.deepEqual(Data.BOSSES,require('./fixtures/first-era-bosses.json').presets);
+  for(const card of source.cards){const current=Data.CARDS[card.id];assert.equal(current.cost,card.cost);assert.equal(current.cd,card.cooldown_own_turns);assert.deepEqual(current.tags,card.tags);assert.equal(current.description,card.effect_text);}
+  for(const boss of Data.BOSSES){assert.equal(boss.card_ids.length,5);assert.equal(new Set(boss.card_ids).size,5);assert(boss.card_ids.every(id=>Data.CARDS[id]));}
+  assert.equal(new Set(Data.BOSSES.flatMap(b=>b.card_ids)).size,19);
+});
+test('HP20、先攻者2/3・後攻3/3、後攻ボスの自ターン基準と逆先攻も共通',()=>{
+  const s=state();assert.equal(s.actors.player.hp,20);assert.equal(s.actors.boss.hp,20);
+  assert.equal(s.actors.player.mana,2);assert.equal(s.actors.boss.mana,3);
+  end(s);assert.equal(s.actors.boss.ownTurn,1);assert.equal(s.actors.boss.mana,3);
+  end(s);assert.equal(s.actors.player.mana,3);assert.equal(s.round,2);
+  const reverse=state(['slash'],{firstSide:'boss'});assert.equal(reverse.active,'boss');assert.equal(reverse.actors.boss.mana,2);
+  end(reverse);assert.equal(reverse.actors.player.mana,3);
+});
+test('加速：その場で上限は増えず、次自ターンの補充前に反映・最大5・1回制限',()=>{
+  const s=state(),a=s.actors.player;
+  assert(Battle.execute(s,{type:'accelerate'}).ok);assert.equal(a.mana,0);assert.equal(a.manaCap,3);
+  a.mana=5;assert.equal(Battle.accelerationStatus(s,'player').code,'used');a.mana=0;
+  roundTrip(s);assert.equal(a.manaCap,4);assert.equal(a.mana,4);
+  Battle.execute(s,{type:'accelerate'});assert.equal(a.mana,2);roundTrip(s);
+  assert.equal(a.manaCap,5);assert.equal(a.mana,5);assert.equal(Battle.accelerationStatus(s,'player').code,'cap');
+  a.mana=1;roundTrip(s);assert.equal(a.mana,5);
+});
+test('マナ妨害：重複、最低2、加速後の上限から減算し一度で消費',()=>{
+  const s=state(),a=s.actors.player;Battle.execute(s,{type:'accelerate'});a.manaPenalty=1;
+  roundTrip(s);assert.equal(a.manaCap,4);assert.equal(a.mana,3);assert.equal(a.manaPenalty,0);
+  a.manaPenalty=10;roundTrip(s);assert.equal(a.mana,2);assert.equal(a.manaCap,4);
+  roundTrip(s);assert.equal(a.mana,4);
+});
+for(const [id,damage] of Object.entries({slash:2,heavy_slash:4,great_swing:6,dash_slash:3,follow_up:1,finisher_slash:2,charge:5,feint:1,mana_bind:1,setup:3,curse:1})){
+  test(`${id}：固定ダメージとマナ消費`,()=>{const s=state([id]);s.actors.player.mana=5;assert(play(s,id).ok);assert.equal(s.actors.boss.hp,20-damage);assert.equal(s.actors.player.mana,5-Data.CARDS[id].cost);});
 }
-function execute(s,command,...args){return Battle.execute(s,2,command,...args);}
-
-test('全26カード：強化・刻印・双方の使用・致死時を変更前624ケースと比較',()=>{
-  for(const sample of baseline){
-    const s=state();
-    Object.assign(s,{
-      playerHp:sample.lethal?1:31,bossHp:sample.lethal?1:37,
-      playerGuard:4,bossGuard:6,bossBarrier:7,playerThorns:3,bossThorns:2,
-      playerWeak:1,bossWeak:2,playerBlockedPrev:8,bossBlockedPrev:9,
-      playerPoison:{turns:2,dmg:6,stacks:2},bossPoison:{turns:2,dmg:6,stacks:2}
-    });
-    execute(s,'playCard',sample.side,{...sample,key:'test',inherited:false});
-    const json=JSON.stringify(s,(key,value)=>['deck','enemyDeck','bossPlan'].includes(key)
-      ?undefined:value instanceof Set?[...value]:value);
-    assert.equal(createHash('sha256').update(json).digest('hex'),sample.hash,JSON.stringify(sample));
+test('結界3・堅守5：合算・吸収・相手ターン終了時に消滅（無攻撃でも）',()=>{
+  const s=state(['barrier','fortress']);s.actors.player.mana=5;
+  play(s,'barrier');play(s,'fortress');assert.equal(s.actors.player.barrier,8);
+  end(s);play(s,'heavy_slash');assert.equal(s.actors.player.hp,20);assert.equal(s.actors.player.barrier,4);
+  end(s);assert.equal(s.actors.player.barrier,0);
+  const t=state(['barrier']);play(t,'barrier');roundTrip(t);assert.equal(t.actors.player.barrier,0);
+  const u=state(['charge']);u.actors.boss.barrier=3;play(u,'charge');assert.equal(u.actors.boss.hp,18);assert.equal(u.actors.boss.barrier,0);
+});
+test('手当：2回復、最大HP20、満タン使用もCDを設定',()=>{
+  const s=state(['first_aid']);s.actors.player.hp=19;play(s,'first_aid');assert.equal(s.actors.player.hp,20);
+  const t=state(['first_aid']);play(t,'first_aid');assert.equal(t.actors.player.hp,20);assert(t.actors.player.used.includes('first_aid'));
+});
+for(const id of ['slash','first_aid','battle_spirit']){
+  test(`${id}：CD${Data.CARDS[id].cd}は自ターンのみで進み、同ターン再使用不可`,()=>{
+    const s=state([id]);play(s,id);const cd=Data.CARDS[id].cd;
+    assert.equal(Battle.availability(s,'player',id).code,'used');end(s);
+    assert.equal(s.actors.player.ownTurn,1);end(s);
+    for(let i=0;i<cd;i++){assert.equal(Battle.availability(s,'player',id).code,'cooldown');roundTrip(s);}
+    assert(Battle.availability(s,'player',id).allowed);
+  });
+}
+test('攻撃順：疾走斬→追撃、補助は攻撃に数えず、0ダメージも攻撃に数える',()=>{
+  const s=state(['dash_slash','follow_up']);play(s,'dash_slash');play(s,'follow_up');assert.equal(s.actors.boss.hp,14);
+  const t=state(['feint','dash_slash','follow_up']);t.actors.player.mana=5;t.actors.player.weak=10;
+  play(t,'feint');play(t,'dash_slash');play(t,'follow_up');assert.equal(t.actors.boss.hp,16);assert.equal(t.actors.player.attacks.length,3);
+  const u=state(['corrosion','dash_slash']);play(u,'corrosion');play(u,'dash_slash');assert.equal(u.actors.boss.hp,17);
+});
+test('切り込み：使用前の敵HP11なら2、HP10なら4',()=>{
+  for(const [hp,damage] of [[11,2],[10,4]]){const s=state(['finisher_slash']);s.actors.boss.hp=hp;play(s,'finisher_slash');assert.equal(s.actors.boss.hp,hp-damage);}
+});
+test('毒付与は即時ダメージなし・上限4、本人終了時3→2→1、バリアを無視',()=>{
+  const s=state(['corrosion','plague']);s.actors.player.mana=5;play(s,'corrosion');assert.equal(s.actors.boss.hp,20);play(s,'plague');assert.equal(s.actors.boss.poison,4);
+  const t=state();t.actors.player.poison=3;t.actors.player.barrier=10;
+  end(t);assert.equal(t.actors.player.hp,17);assert.equal(t.actors.player.poison,2);assert.equal(t.actors.player.barrier,10);
+  end(t);end(t);assert.equal(t.actors.player.hp,15);end(t);end(t);assert.equal(t.actors.player.hp,14);assert.equal(t.actors.player.poison,0);
+});
+for(const [id,damage] of [['venom_blade',6],['heart_corrosion',2]]){
+  test(`${id}：毒条件、使用前参照、毒消費、バリアで防御`,()=>{
+    const s=state([id]);const before=Battle.snapshot(s);assert(!play(s,id).ok);assert.deepEqual(s,before);
+    s.actors.boss.poison=2;s.actors.boss.barrier=1;play(s,id);
+    assert.equal(s.actors.boss.hp,21-damage);assert.equal(s.actors.boss.poison,1);
+  });
+}
+test('同ターン腐蝕→毒刃が合法、毒0の呪詛は弱体を付けず、毒ありなら付与',()=>{
+  const s=state(['corrosion','venom_blade']);s.actors.player.mana=3;play(s,'corrosion');assert(play(s,'venom_blade').ok);assert.equal(s.actors.boss.hp,14);
+  const t=state(['curse']);play(t,'curse');assert.equal(t.actors.boss.weak,0);
+  const u=state(['curse']);u.actors.boss.poison=1;play(u,'curse');assert.equal(u.actors.boss.weak,2);
+});
+test('弱体重複・攻撃まで持越し・0ダメージでも一括消費、戦意＋布石＋弱体の計算順',()=>{
+  const s=state(['feint','curse']);s.actors.boss.poison=1;play(s,'feint');play(s,'curse');assert.equal(s.actors.boss.weak,4);
+  end(s);end(s);end(s);assert.equal(s.actors.boss.weak,4);play(s,'slash','boss');assert.equal(s.actors.boss.weak,0);assert.equal(s.actors.player.hp,20);
+  const t=state(['battle_spirit','slash']);t.actors.player.attackBonus=2;t.actors.player.weak=4;t.actors.boss.barrier=1;
+  play(t,'battle_spirit');play(t,'slash');assert.equal(t.actors.boss.hp,18);assert.equal(t.actors.player.attackBonus,0);
+});
+test('布石は次自ターンのみ＋2、戦意は当ターンのみ、未使用で終了すると失効',()=>{
+  const s=state(['setup','slash']);s.actors.player.mana=5;play(s,'setup');assert.equal(s.actors.player.setupBonus,2);play(s,'slash');assert.equal(s.actors.boss.hp,15);
+  roundTrip(s);assert.equal(s.actors.player.attackBonus,2);roundTrip(s);assert.equal(s.actors.player.attackBonus,0);
+  const t=state(['battle_spirit']);play(t,'battle_spirit');assert.equal(t.actors.player.attackBonus,3);roundTrip(t);assert.equal(t.actors.player.attackBonus,0);
+});
+test('直接攻撃・終了毒で即決着、後続効果・ターン・二重入力を停止',()=>{
+  const s=state(['feint']);s.actors.boss.hp=1;const out=play(s,'feint');assert.equal(s.end,'player');assert.equal(s.actors.boss.weak,0);assert.equal(out.events.at(-1).type,'finish');
+  const before=Battle.snapshot(s);assert(!end(s).ok);assert.deepEqual(s,before);
+  const t=state();t.actors.player.poison=3;t.actors.player.hp=3;t.actors.boss.barrier=5;end(t);assert.equal(t.end,'boss');assert.equal(t.active,'player');assert.equal(t.actors.boss.barrier,5);
+});
+test('不変更新・JSON往復はCD/予約/状態を保持、旧スナップショット拒否',()=>{
+  const s=state(['battle_spirit']);const next=Battle.transition(s,{type:'card',id:'battle_spirit'});assert.equal(s.actors.player.attackBonus,0);assert.equal(next.state.actors.player.attackBonus,3);
+  assert.deepEqual(Battle.restore(JSON.parse(JSON.stringify(next.state))),next.state);assert.throws(()=>Battle.restore({schemaVersion:1}),TypeError);
+});
+test('3回獲得で5枚、全19種のみ、候補内・所持・直接追加・継承IDの重複を拒否',()=>{
+  const deck=Progression.starter('rush');for(let i=0;i<3;i++){const options=Progression.options(deck,()=>.5);assert.equal(new Set(options).size,3);assert(!options.some(id=>deck.includes(id)));assert(Progression.acquire(deck,options[0]));}
+  assert.equal(deck.length,5);assert(!Progression.acquire(deck,'slash'));assert(!Progression.acquire([], 'unknown'));assert(!Progression.acquire([], 'slash','slash'));
+});
+test('ボスAI：合法な順序付きコンボで撃破、再現可能で入力を変更しない',()=>{
+  const s=state();end(s);Object.assign(s.actors.boss,{deck:['dash_slash','follow_up','barrier','first_aid','slash'],mana:3});s.actors.player.hp=6;
+  const before=Battle.snapshot(s),plan=Planner.plan(s);assert.deepEqual(s,before);assert.deepEqual(Planner.plan(s),plan);
+  const copy=Battle.restore(s);for(const action of plan.actions)assert(Battle.execute(copy,action).ok);assert.equal(copy.end,'boss');
+});
+test('ボスAI：毒付与→毒刃と戦意→攻撃、加速する状態としない状態',()=>{
+  for(const deck of [['corrosion','venom_blade'],['battle_spirit','charge']]){
+    const s=state();end(s);s.actors.boss.deck=deck;s.actors.player.hp=6;s.actors.boss.mana=3;
+    const plan=Planner.plan(s),copy=Battle.restore(s);for(const a of plan.actions)Battle.execute(copy,a);assert.equal(copy.end,'boss');
   }
+  const s=state();end(s);s.actors.boss.deck=['great_swing'];s.actors.player.deck=['first_aid'];
+  s.actors.boss.readyOn.great_swing=2;
+  assert(Planner.plan(s).actions.some(a=>a.type==='accelerate'));
+  delete s.actors.boss.readyOn.great_swing;
+  s.actors.player.hp=6;assert(!Planner.plan(s).actions.some(a=>a.type==='accelerate'));
 });
-
-test('カード使用：マナ消費、同一ターンの再使用禁止、次ターンの回復',()=>{
-  const c=card('slash');const s=state(2,[c]);
-  assert.equal(execute(s,'useCard',c.key).result,true);
-  assert.equal(s.mana,0);assert.equal(s.bossHp,54);
-  assert.equal(execute(s,'useCard',c.key).result,false);
-  execute(s,'beginPlayer');
-  assert.equal(s.round,2);assert.equal(s.mana,2);assert.equal(s.bossBarrier,7);
-  assert.equal(execute(s,'useCard',c.key).result,true);
-  assert.equal(s.bossHp,54);assert.equal(s.bossBarrier,2);
-});
-
-test('毒コンボ：準備前は使用不可、消費・切り札再使用禁止・再戦リセット',()=>{
-  const poison=card('poison'),trump=card('venombloom');
-  const s=state(2,[poison,trump]);s.mana=10;
-  assert.equal(execute(s,'useCard',trump.key).result,false);
-  assert.equal(s.mana,10);
-  execute(s,'useCard',poison.key);
-  assert.equal(s.bossPoison.stacks,1);
-  execute(s,'useCard',trump.key);
-  assert.deepEqual(s.bossPoison,{turns:0,dmg:0,stacks:0});
-  assert.equal(s.bossHp,37);assert.equal(s.mana,7);
-  execute(s,'beginPlayer');
-  execute(s,'playCard','player',poison);
-  assert.equal(execute(s,'useCard',trump.key).result,false);
-  assert.equal(state(2,[trump]).playerOneShots.size,0);
-});
-
-test('ボス能力：バリア非蓄積と期限、第三紀の初回不発と累積',()=>{
-  const s=state();
-  execute(s,'grantBossAbility');execute(s,'grantBossAbility');
-  assert.equal(s.bossBarrier,7);
-  execute(s,'hit','player',5,'test');assert.equal(s.bossBarrier,2);
-  execute(s,'expireBossBarrier');assert.equal(s.bossBarrier,0);
-  const third=state(3);
-  Battle.execute(third,3,'triggerThirdBossAbility');assert.equal(third.bossAtk,5);
-  third.round=2;
-  Battle.execute(third,3,'triggerThirdBossAbility');
-  third.round=3;Battle.execute(third,3,'triggerThirdBossAbility');
-  assert.equal(third.bossAtk,7);
-});
-
-test('ターン更新：妨害下限、軽減・弱体の期限、毒の自然消滅',()=>{
-  const s=state();
-  Object.assign(s,{playerManaPenalty:9,bossManaPenalty:9,playerGuard:8,bossGuard:9,
-    playerThorns:3,bossThorns:3,playerWeak:4,bossWeak:4,playerBlockedNow:6,bossBlockedNow:7,
-    playerPoison:{turns:1,dmg:3,stacks:1},bossPoison:{turns:1,dmg:4,stacks:1}});
-  s.enemyDeck=[card('slash')];s.bossPlan=[s.enemyDeck[0].key];
-  assert.deepEqual(execute(s,'prepareEnemy').result,[]);
-  assert.equal(s.bossHp,55);assert.equal(s.bossGuard,0);assert.equal(s.bossThorns,0);
-  assert.equal(s.playerWeak,0);assert.equal(s.bossBlockedPrev,7);
-  execute(s,'beginPlayer');
-  assert.equal(s.mana,1);assert.equal(s.playerHp,49);
-  assert.equal(s.playerBlockedPrev,6);assert.equal(s.playerGuard,0);
-  assert.equal(s.bossWeak,0);assert.equal(s.playerThorns,0);
-  assert.equal(s.playerManaPenalty,0);assert.equal(s.bossManaPenalty,0);
-  assert.deepEqual(s.playerPoison,{turns:0,dmg:0,stacks:0});
-  assert.deepEqual(s.bossPoison,{turns:0,dmg:0,stacks:0});
-});
-
-test('致死・反射：結果イベントは1回、勝敗後のコマンドは状態を変更しない',()=>{
-  const s=state();s.bossHp=1;
-  const out=execute(s,'hit','player',10,'test');
-  assert.equal(s.end,'win');
-  assert.deepEqual(out.events.filter(e=>e.type==='finish'),[{type:'finish',won:true}]);
-  const ended=Battle.snapshot(s);
-  assert.deepEqual(execute(s,'beginPlayer').events,[]);
-  assert.deepEqual(Battle.snapshot(s),ended);
-  const reflect=state();reflect.playerHp=1;reflect.bossGuard=9;reflect.bossThorns=3;
-  execute(reflect,'hit','player',5,'test');assert.equal(reflect.end,'lose');
-});
-
-test('状態境界：JSON往復で使用回数保持、不変更新と別戦闘の参照分離',()=>{
-  const c=card('laststand');const s=state(2,[c]);s.mana=4;
-  execute(s,'useCard',c.key);
-  const encoded=JSON.parse(JSON.stringify(Battle.snapshot(s)));
-  const restored=Battle.restore(encoded);
-  assert(restored.played instanceof Set);assert(restored.playerOneShots.has(c.key));
-  assert.deepEqual(execute(restored,'useCard',c.key).result,false);
-  const before=Battle.snapshot(s);
-  const next=Battle.transition(s,2,'beginPlayer');
-  assert.deepEqual(Battle.snapshot(s),before);assert.equal(next.state.round,2);
-  next.state.deck[0].lv=2;next.state.playerPoison.turns=3;
-  assert.equal(s.deck[0].lv,0);assert.equal(s.playerPoison.turns,0);
-  c.lv=1;assert.equal(s.deck[0].lv,0);
-  assert.throws(()=>Battle.createState({era:4}),RangeError);
-  assert.throws(()=>execute(s,'unknown'),RangeError);
-});
-
-test('強化：第一紀拒否、通常／刻印の重複拒否、継承除外、第三紀グレード',()=>{
-  const c=card('slash');const deck=[c];
-  assert.equal(Progression.upgrade(deck,c.key,1),false);
-  assert.equal(Progression.upgrade(deck,c.key,2),true);
-  assert.equal(c.lv,1);assert.equal(Progression.upgrade(deck,c.key,2,true),false);
-  const marked=card('guard');deck.push(marked);
-  assert.equal(Progression.upgrade(deck,marked.key,3,true),true);
-  assert.equal(marked.lv,2);assert.equal(marked.trait,true);
-  assert.equal(Progression.upgrade(deck,marked.key,3),false);
-  const legacy=Progression.inheritCard(deck,c.key);
-  assert.equal(Progression.upgrade([legacy],legacy.key,3),false);
-  assert.equal(Progression.upgrade(deck,'missing',2),false);
-});
-
-test('継承：通常デッキと刻印を保持、継承枠・参照共有・再継承を除外',()=>{
-  const c=card('poison',{lv:1,trait:true,upgraded:true});
-  const legacy=card('slash',{key:'legacy',inherited:true});
-  const deck=[c,legacy];const normal=Progression.normalDeck(deck);
-  assert.deepEqual(normal,[c]);assert.notEqual(normal[0],c);
-  assert.equal(Progression.inheritCard(deck,'legacy'),null);
-  const inherited=Progression.inheritCard(deck,c.key);
-  assert.equal(inherited.lv,1);assert.equal(inherited.trait,true);
-  const next=Battle.createState({era:3,draftCards:[card('spark')],inherited,previousHeroDeck:normal});
-  assert.equal(next.deck.length,2);assert.deepEqual(next.enemyDeck,normal);
-  next.enemyDeck[0].lv=2;assert.equal(normal[0].lv,1);assert.equal(c.lv,1);
-  assert.deepEqual(Progression.options(1,[],legacy,()=>0).includes('slash'),false);
-});
-
-test('獲得上限と入れ替え：5枚を超えず、継承カードを置換しない',()=>{
-  const deck=['slash','guard','boost','rally'].map(id=>card(id));
-  const gained=card('rush');assert.equal(Progression.acquire(deck,gained),true);
-  assert.equal(Progression.acquire(deck,card('pierce')),false);assert.equal(deck.length,5);
-  assert.equal(Progression.replace(deck,gained.key,card('pierce')),true);
-  assert.equal(deck.length,5);assert.equal(deck[4].id,'pierce');
-  assert.equal(Progression.replace(deck,'missing',card('rush')),false);
-  const legacy=card('slash',{inherited:true,key:'legacy'});
-  assert.equal(Progression.replace([legacy],'legacy',card('rush')),false);
-});
-
-test('AIの既存評価と計画タイミングを維持し、初期化の乱数を注入できる',()=>{
-  const s=state();s.round=2;
-  assert.equal(Planner.scoreCard(card('guard'),s),14);
-  assert.equal(Planner.scoreCard(card('return'),s),-100);
-  s.bossHp-=20;assert.equal(Planner.scoreCard(card('laststand'),s),25);
-  s.enemyDeck=[card('return')];s.bossBlockedNow=5;
-  execute(s,'commitBossPlan');assert.deepEqual(s.bossPlan,[]);
-  assert.deepEqual(execute(s,'prepareEnemy').result,[]);
-  assert.equal(s.bossBlockedPrev,5);
-  execute(s,'commitBossPlan');assert.deepEqual(s.bossPlan,[s.enemyDeck[0].key]);
-  const first=Battle.createState({era:1,random:()=>0.5});
-  const repeat=Battle.createState({era:1,random:()=>0.5});
-  assert.deepEqual(first.enemyDeck,repeat.enemyDeck);
+test('ボスAI：目前の敗北をバリアで回避、全5プリセットで合法な対戦を継続',()=>{
+  const s=state(['great_swing']);end(s);s.actors.boss.deck=['barrier','fortress','first_aid','slash','heavy_slash'];s.actors.boss.hp=4;
+  const plan=Planner.plan(s),copy=Battle.restore(s);for(const a of plan.actions)Battle.execute(copy,a);end(copy);
+  play(copy,'great_swing');assert.notEqual(copy.end,'player');
+  for(const preset of Data.BOSSES){const t=state(['corrosion','venom_blade','slash','barrier','first_aid'],{bossPresetId:preset.id});
+    for(let i=0;i<16&&!t.end;i++){const p=Planner.plan(t,{lookahead:false});for(const a of p.actions)assert(Battle.execute(t,a).ok);if(!t.end)end(t);}
+    for(const actor of Object.values(t.actors)){assert(actor.hp>=0&&actor.hp<=20);assert(actor.mana>=0&&actor.mana<=actor.manaCap);assert(actor.poison>=0&&actor.poison<=4);}
+  }
 });

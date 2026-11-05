@@ -1,36 +1,59 @@
-/* Deterministic portion of enemy card selection, independent of the screen. */
-(function (root, factory) {
+/* Deterministic legal action-sequence search using the same reducer as the UI. */
+(function(root,factory){
   'use strict';
-  const api = factory();
-  if (typeof module !== 'undefined' && module.exports) module.exports = api;
-  else root.GamePlanner = api;
-})(typeof globalThis === 'object' ? globalThis : this, function () {
+  if(typeof module!=='undefined'&&module.exports)module.exports=factory(require('./battle-engine.js'));
+  else root.GamePlanner=factory(root.GameBattle);
+})(typeof globalThis==='object'?globalThis:this,function(Battle){
   'use strict';
-  function chooseCards(cards, manaBudget, score, cost, canPlay, manaRefund = () => 0) {
-    let mana = manaBudget;
-    const sorted = [...cards].sort((a, b) => score(b) - score(a) || cost(a) - cost(b));
-    const chosen = [];
-    for (const card of sorted) {
-      if (cost(card) <= mana && canPlay(card)) {
-        chosen.push(card.key);
-        mana -= cost(card);
-        mana += manaRefund(card);
+  const poisonValue=n=>n*(n+1)/2;
+  function evaluate(state,side){
+    if(state.end)return state.end===side?100000:-100000;
+    const a=state.actors[side],b=state.actors[Battle.other(side)];
+    return (a.hp-b.hp)*5+(poisonValue(b.poison)-poisonValue(a.poison))*2+
+      (a.manaCap-b.manaCap)*3+(a.barrier-b.barrier)*1.2+(b.weak-a.weak)*1.2+
+      (b.manaPenalty-a.manaPenalty)+(a.setupBonus+a.attackBonus-b.setupBonus-b.attackBonus)*1.5;
+  }
+  const key=actions=>actions.map(a=>a.type==='card'?a.id:'~accelerate').join('/');
+  function enumerate(state,side){
+    const results=[];let nodes=0;
+    function walk(current,actions){
+      nodes++;
+      if(current.end){results.push({state:current,actions,score:evaluate(current,side)});return;}
+      for(const action of Battle.legalActions(current)){
+        const next=Battle.transition(current,action);if(!next.ok)continue;
+        if(action.type==='endTurn')results.push({state:next.state,actions,score:evaluate(next.state,side)});
+        else walk(next.state,[...actions,action]);
       }
     }
-    return chosen;
+    walk(state,[]);
+    results.sort((a,b)=>b.score-a.score||a.actions.length-b.actions.length||key(a.actions).localeCompare(key(b.actions),'en'));
+    return {results,nodes};
   }
-  const BASE_SCORES={slash:14,boost:18,guard:9,return:18,pierce:13,rally:15,rush:17,
-    siphon:13,flurry:17,seal:15,poison:18,thorns:10,leech:13,burst:16,fortify:15,
-    hex:13,spark:14,sunder:18,ember:16,pulse:22,repose:9,duel:17,storm:17,dusk:13};
-  function scoreCard(card,state){
-    let score=BASE_SCORES[card.id]||10;
-    if(card.id==='boost'&&state.round>=5)score-=6;
-    if(['guard','thorns'].includes(card.id)&&state.round%2===0)score+=5;
-    if(card.id==='return'&&state.bossBlockedPrev===0&&!card.trait)score=-100;
-    if(card.id==='seal'&&state.round>=5)score-=5;
-    if(card.id==='laststand')score=16+Math.max(0,state.maxBossHp-state.bossHp)*.45;
-    if(card.id==='venombloom')score=state.playerPoison.turns>0?28:0;
-    return score+(card.lv||0)*.6+(card.trait?2:0);
+  function plan(state,{lookahead=true}={}){
+    if(state.end)return {actions:[],score:0,nodes:0};
+    const side=state.active,search=enumerate(state,side);
+    const win=search.results.find(result=>result.state.end===side);
+    if(win)return {actions:win.actions,score:win.score,nodes:search.nodes};
+    if(!lookahead)return {actions:search.results[0].actions,score:search.results[0].score,nodes:search.nodes};
+    // Evaluate best replies for top candidates. If all lose, search the remainder
+    // until a safe line is found; a defense is never omitted solely by this cutoff.
+    let best=null,nodes=search.nodes;
+    for(let i=0;i<search.results.length;i++){
+      if(i>=8&&best&&best.score>-50000)break;
+      const candidate=search.results[i];let replyScore=candidate.score,futureScore=candidate.score;
+      if(!candidate.state.end){
+        const replies=enumerate(candidate.state,Battle.other(side));nodes+=replies.nodes;
+        replyScore=-replies.results[0].score;
+        const response=replies.results[0].state;
+        // A short third-ply view values delayed acceleration and setup against
+        // actual next-turn card availability, rather than rewarding cap alone.
+        if(!response.end){const future=enumerate(response,side);nodes+=future.nodes;futureScore=future.results[0].score;}
+        else futureScore=replyScore;
+      }
+      const score=replyScore<=-100000?-100000:candidate.score*.15+replyScore*.5+futureScore*.35;
+      if(!best||score>best.score)best={actions:candidate.actions,score};
+    }
+    return {...best,nodes};
   }
-  return Object.freeze({ chooseCards, scoreCard });
+  return Object.freeze({plan,evaluate});
 });

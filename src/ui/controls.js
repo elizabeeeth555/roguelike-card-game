@@ -1,20 +1,85 @@
 'use strict';
-// Ver.0.9.4: extracted unchanged from Ver.0.9.3.
-function setupLogToggle(){const btn=$('logToggle');btn.addEventListener('click',()=>{sound(logOpen?'ui_close':'ui_open');logOpen=!logOpen;$('logPanel').classList.toggle('expanded',logOpen);$('logPanel').classList.toggle('collapsed',!logOpen);btn.setAttribute('aria-expanded',String(logOpen));btn.textContent=logOpen?'ログを閉じる −':'ログを開く ＋';if(logOpen)$('combatLog').scrollTop=$('combatLog').scrollHeight;});}
-
-function setupInfoTooltips(){const tooltip=$('infoTooltip');let pinned=null;function show(button){if(!button?.dataset?.info)return;const [heading,...text]=button.dataset.info.split('|');tooltip.replaceChildren();const h=document.createElement('strong');h.textContent=heading;const d=document.createElement('div');d.textContent=text.join('|');tooltip.append(h,d);tooltip.hidden=false;const rect=button.getBoundingClientRect(),w=tooltip.offsetWidth,hgt=tooltip.offsetHeight;tooltip.style.left=Math.max(10,Math.min(window.innerWidth-w-10,rect.left+rect.width/2-w/2))+'px';tooltip.style.top=(rect.top-hgt-10>=8?rect.top-hgt-8:Math.min(window.innerHeight-hgt-8,rect.bottom+8))+'px';}function hide(){tooltip.hidden=true;}
- document.addEventListener('pointerover',e=>{const b=e.target.closest('.info-trigger');if(b&&e.pointerType!=='touch'&&!pinned)show(b);});document.addEventListener('pointerout',e=>{const b=e.target.closest('.info-trigger');if(b&&!b.contains(e.relatedTarget)&&!pinned)hide();});document.addEventListener('focusin',e=>{const b=e.target.closest('.info-trigger');if(b&&!pinned)show(b);});document.addEventListener('focusout',e=>{if(e.target.closest('.info-trigger')&&!pinned)hide();});document.addEventListener('click',e=>{const b=e.target.closest('.info-trigger');if(b){if(pinned===b){pinned=null;hide();}else{pinned=b;show(b);}return;}if(pinned){pinned=null;hide();}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){pinned=null;hide();}});
+let dialogReturnFocus=null;
+function activateDialog(overlay){
+  dialogReturnFocus=document.activeElement;
+  const target=overlay.querySelector('button:not([disabled])');if(target)target.focus();
 }
-
+function closeCardDetail(){
+  $('cardDetailOverlay').hidden=true;app.selectedCard=null;
+  if(dialogReturnFocus&&dialogReturnFocus.isConnected)dialogReturnFocus.focus();dialogReturnFocus=null;
+}
+function openCardDetail(id,side){
+  app.selectedCard=id;app.selectedSide=side;$('cardDetailOverlay').hidden=false;updateCardDetail();activateDialog($('cardDetailOverlay'));
+}
+function updateCardDetail(){
+  const id=app.selectedCard;if(!id)return;
+  const spec=GameData.CARDS[id],side=app.selectedSide;
+  $('cardDetailTitle').textContent=spec.name;
+  $('cardDetailMeta').textContent=`コスト ${spec.cost} ／ ${spec.tags.map(tag=>GameData.TAG_LABELS[tag]).join('＋')} ／ ${spec.cd?'CD'+spec.cd:'CDなし'}`;
+  $('cardDetailText').textContent=cardDescription(id);
+  let status=cardStatusText(id,side);
+  if(app.battle&&['boss','player'].includes(side)){
+    const actor=app.battle.actors[side],ready=actor.readyOn[id]||0;
+    if(ready>actor.ownTurn)status+=` ／ 自ターン${ready}から再使用可能`;
+    if(spec.tags.includes('attack')){
+      const target=app.battle.actors[GameBattle.other(side)];
+      const raw=GameCardEffects.plan(id,actor,target).find(effect=>effect.kind==='damage');
+      const actual=GameMath.damage(raw.amount,actor.attackBonus,actor.weak,target.barrier);
+      status+=` ／ 現在のHPダメージ ${actual.damage}（バリア吸収 ${actual.blocked}）`;
+    }
+  }
+  $('cardDetailStatus').textContent=app.busy&&side==='player'?'演出中 ／ '+status:status;
+  const confirm=$('confirmCard');confirm.hidden=!['draft','player'].includes(side);
+  confirm.textContent=side==='draft'?'この技を獲得':'使用する';
+  confirm.disabled=side==='draft'?app.mode!=='draft'||!app.draftOptions.includes(id):app.busy||!app.battle||!GameBattle.availability(app.battle,'player',id).allowed;
+}
+function setupDialogs(){
+  $('closeCardDetail').addEventListener('click',closeCardDetail);
+  $('confirmCard').addEventListener('click',()=>{const id=app.selectedCard,side=app.selectedSide;closeCardDetail();if(side==='draft')acquireDraft(id);else useCard(id);});
+  $('cardDetailOverlay').addEventListener('click',event=>{if(event.target===$('cardDetailOverlay'))closeCardDetail();});
+  document.addEventListener('keydown',event=>{
+    const overlay=!$('resultOverlay').hidden?$('resultOverlay'):!$('cardDetailOverlay').hidden?$('cardDetailOverlay'):null;
+    if(!overlay)return;
+    if(event.key==='Escape'&&overlay===$('cardDetailOverlay')){event.preventDefault();closeCardDetail();}
+    if(event.key==='Tab'){
+      const buttons=[...overlay.querySelectorAll('button:not([disabled]):not([hidden])')];
+      const first=buttons[0],last=buttons[buttons.length-1];
+      if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+      else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+    }
+  });
+}
+function setupLogToggle(){
+  $('logToggle').addEventListener('click',()=>{
+    app.logOpen=!app.logOpen;$('logPanel').classList.toggle('expanded',app.logOpen);
+    $('logToggle').setAttribute('aria-expanded',String(app.logOpen));sound(app.logOpen?'ui_open':'ui_close');
+  });
+}
+function setupInfoTooltips(){
+  const tooltip=$('infoTooltip');let pinned=null;
+  function hide(){tooltip.hidden=true;pinned=null;}
+  function show(button){
+    tooltip.textContent=button.dataset.info;tooltip.hidden=false;
+    const rect=button.getBoundingClientRect();
+    tooltip.style.left=Math.max(10,Math.min(window.innerWidth-tooltip.offsetWidth-10,rect.left))+'px';
+    tooltip.style.top=Math.max(8,Math.min(window.innerHeight-tooltip.offsetHeight-8,rect.bottom+8))+'px';
+  }
+  document.addEventListener('pointerover',event=>{const b=event.target.closest('.info-trigger');if(b&&event.pointerType!=='touch'&&!pinned)show(b);});
+  document.addEventListener('pointerout',event=>{if(event.target.closest('.info-trigger')&&!pinned)tooltip.hidden=true;});
+  document.addEventListener('focusin',event=>{const b=event.target.closest('.info-trigger');if(b)show(b);});
+  document.addEventListener('focusout',()=>{if(!pinned)tooltip.hidden=true;});
+  document.addEventListener('click',event=>{const b=event.target.closest('.info-trigger');if(!b){hide();return;}if(pinned===b)hide();else{pinned=b;show(b);}});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')hide();});
+  window.addEventListener('resize',hide);document.addEventListener('scroll',hide,true);
+}
 function setupAudioMenu(){
- const panel=$('audioPanel'),btn=$('soundButton');
- function toggle(open){panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));}
- btn.addEventListener('click',()=>{toggle(panel.hidden);sound('ui_open');});
- $('audioClose').addEventListener('click',()=>{toggle(false);sound('ui_close');});
- $('bgmEnabled').addEventListener('change',e=>GameAudio.toggle('bgm',e.target.checked));
- $('seEnabled').addEventListener('change',e=>{GameAudio.toggle('se',e.target.checked);sound('ui_confirm');});
- $('bgmVolume').addEventListener('input',e=>{GameAudio.volume('bgm',e.target.value/100);$('bgmVolumeText').textContent=e.target.value+'%';});
- $('seVolume').addEventListener('input',e=>{GameAudio.volume('se',e.target.value/100);$('seVolumeText').textContent=e.target.value+'%';});
- panel.querySelectorAll('[data-test-se]').forEach(b=>b.addEventListener('click',()=>sound(b.dataset.testSe)));
- document.addEventListener('keydown',e=>{if(e.key==='Escape')toggle(false);});
+  const panel=$('audioPanel');
+  const toggle=open=>{panel.hidden=!open;$('soundButton').setAttribute('aria-expanded',String(open));};
+  $('soundButton').addEventListener('click',()=>{toggle(panel.hidden);sound('ui_open');});
+  $('audioClose').addEventListener('click',()=>toggle(false));
+  for(const kind of ['bgm','se']){
+    $(kind+'Enabled').addEventListener('change',event=>GameAudio.toggle(kind,event.target.checked));
+    $(kind+'Volume').addEventListener('input',event=>{GameAudio.volume(kind,event.target.value/100);$(kind+'VolumeText').textContent=event.target.value+'%';});
+  }
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')toggle(false);});
 }

@@ -5,13 +5,13 @@ const { readFileSync } = require('node:fs');
 const { join } = require('node:path');
 const vm = require('node:vm');
 
-const GameMath = require('../src/game/combat-math.js');
-const GamePlanner = require('../src/game/boss-planner.js');
+const GameMath = require('../src/game/legacy/combat-math.js');
+const GamePlanner = require('../src/game/legacy/boss-planner.js');
 
 function cardData() {
   // Card data is a classic script to keep index.html directly openable in file://.
   const sandbox = {};
-  vm.runInNewContext(readFileSync(join(__dirname, '../src/game/card-data.js'), 'utf8') +
+  vm.runInNewContext(readFileSync(join(__dirname, '../src/game/legacy/card-data.js'), 'utf8') +
     '\n globalThis.__cards = { RULES, LIB, POOLS, STARTERS, ROUTE, ROUTES, routeForEra, upgradeGrade, hasUpgraded, effectSummary, upgradePreview };', sandbox);
   return sandbox.__cards;
 }

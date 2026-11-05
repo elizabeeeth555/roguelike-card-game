@@ -1,0 +1,221 @@
+{
+  "description": "第一紀で実装するA〜D19種。効果の正式な処理境界はdocs/02-combat-rules.mdと03-card-pool-A-D.md。ID・タグは実装用提案で現行ブランチと調整可。",
+  "draft_tags": true,
+  "cards": [
+    {
+      "group": "A",
+      "id": "slash",
+      "name": "斬撃",
+      "cost": 1,
+      "cooldown_own_turns": 0,
+      "tags": [
+        "attack"
+      ],
+      "effect_text": "敵に2ダメージ"
+    },
+    {
+      "group": "A",
+      "id": "heavy_slash",
+      "name": "重斬",
+      "cost": 2,
+      "cooldown_own_turns": 0,
+      "tags": [
+        "attack"
+      ],
+      "effect_text": "敵に4ダメージ"
+    },
+    {
+      "group": "A",
+      "id": "great_swing",
+      "name": "大振り",
+      "cost": 3,
+      "cooldown_own_turns": 0,
+      "tags": [
+        "attack"
+      ],
+      "effect_text": "敵に6ダメージ"
+    },
+    {
+      "group": "A",
+      "id": "barrier",
+      "name": "結界",
+      "cost": 1,
+      "cooldown_own_turns": 0,
+      "tags": [
+        "defense"
+      ],
+      "effect_text": "バリア3。次の相手ターン終了時に残量消滅"
+    },
+    {
+      "group": "A",
+      "id": "fortress",
+      "name": "堅守",
+      "cost": 2,
+      "cooldown_own_turns": 0,
+      "tags": [
+        "defense"
+      ],
+      "effect_text": "バリア5。次の相手ターン終了時に残量消滅"
+    },
+    {
+      "group": "A",
+      "id": "first_aid",
+      "name": "手当",
+      "cost": 1,
+      "cooldown_own_turns": 1,
+      "tags": [
+        "heal"
+      ],
+      "effect_text": "HP2回復"
+    },
+    {
+      "group": "B",
+      "id": "dash_slash",
+      "name": "疾走斬",
+      "cost": 1,
+      "cooldown_own_turns": 1,
+      "tags": [
+        "attack"
+      ],
+      "effect_text": "1ダメージ。最初の攻撃カードなら合計3ダメージ"
+    },
+    {
+      "group": "B",
+      "id": "follow_up",
+      "name": "追撃",
+      "cost": 1,
+      "cooldown_own_turns": 1,
+      "tags": [
+        "attack"
+      ],
+      "effect_text": "1ダメージ。別の攻撃カードを先に使っていれば合計3ダメージ"
+    },
+    {
+      "group": "B",
+      "id": "finisher_slash",
+      "name": "切り込み",
+      "cost": 1,
+      "cooldown_own_turns": 1,
+      "tags": [
+        "attack"
+      ],
+      "effect_text": "2ダメージ。対象HPが最大HPの半分以下なら合計4ダメージ"
+    },
+    {
+      "group": "B",
+      "id": "charge",
+      "name": "猛進",
+      "cost": 2,
+      "cooldown_own_turns": 1,
+      "tags": [
+        "attack"
+      ],
+      "effect_text": "5ダメージ"
+    },
+    {
+      "group": "C",
+      "id": "battle_spirit",
+      "name": "戦意",
+      "cost": 1,
+      "cooldown_own_turns": 2,
+      "tags": [
+        "buff"
+      ],
+      "effect_text": "この自ターンの次の攻撃カードのダメージ+3"
+    },
+    {
+      "group": "C",
+      "id": "feint",
+      "name": "牽制",
+      "cost": 1,
+      "cooldown_own_turns": 1,
+      "tags": [
+        "attack",
+        "debuff"
+      ],
+      "effect_text": "1ダメージ。対象の次の攻撃ダメージ−2"
+    },
+    {
+      "group": "C",
+      "id": "mana_bind",
+      "name": "封脈",
+      "cost": 2,
+      "cooldown_own_turns": 1,
+      "tags": [
+        "attack",
+        "debuff"
+      ],
+      "effect_text": "1ダメージ。対象の次の自ターンの使用可能マナ−1（最低2）"
+    },
+    {
+      "group": "C",
+      "id": "setup",
+      "name": "布石",
+      "cost": 2,
+      "cooldown_own_turns": 1,
+      "tags": [
+        "attack",
+        "buff"
+      ],
+      "effect_text": "3ダメージ。次の自ターンの初回攻撃ダメージ+2"
+    },
+    {
+      "group": "D",
+      "id": "corrosion",
+      "name": "腐蝕",
+      "cost": 1,
+      "cooldown_own_turns": 1,
+      "tags": [
+        "poison"
+      ],
+      "effect_text": "毒2を付与（上限4）"
+    },
+    {
+      "group": "D",
+      "id": "plague",
+      "name": "疫病",
+      "cost": 2,
+      "cooldown_own_turns": 1,
+      "tags": [
+        "poison"
+      ],
+      "effect_text": "毒3を付与（上限4）"
+    },
+    {
+      "group": "D",
+      "id": "venom_blade",
+      "name": "毒刃",
+      "cost": 2,
+      "cooldown_own_turns": 1,
+      "tags": [
+        "attack",
+        "poison_reference"
+      ],
+      "effect_text": "敵が毒状態のときのみ使用可。2+min(4,毒数×2)ダメージ。その後毒−1"
+    },
+    {
+      "group": "D",
+      "id": "heart_corrosion",
+      "name": "蝕心",
+      "cost": 1,
+      "cooldown_own_turns": 1,
+      "tags": [
+        "attack",
+        "poison_reference"
+      ],
+      "effect_text": "敵が毒状態のときのみ使用可。毒数と同量のダメージ。その後毒−1"
+    },
+    {
+      "group": "D",
+      "id": "curse",
+      "name": "呪詛",
+      "cost": 1,
+      "cooldown_own_turns": 1,
+      "tags": [
+        "attack",
+        "debuff"
+      ],
+      "effect_text": "1ダメージ。対象が毒状態なら次の攻撃ダメージ−2"
+    }
+  ]
+}

@@ -1,33 +1,18 @@
-/* Pure battle calculations, shared by browser gameplay and Node.js tests.
-   No DOM, audio, timers or mutable global state. */
-(function (root, factory) {
+/* Side-effect-free first-era calculations. */
+(function(root,factory){
+  'use strict';const api=factory();
+  if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.GameMath=api;
+})(typeof globalThis==='object'?globalThis:this,function(){
   'use strict';
-  const api = factory();
-  if (typeof module !== 'undefined' && module.exports) module.exports = api;
-  else root.GameMath = api;
-})(typeof globalThis === 'object' ? globalThis : this, function () {
-  'use strict';
-  function resolveHeal(currentHp, maximumHp, amount) {
-    const missing = Math.max(0, maximumHp - currentHp);
-    const healed = Math.max(0, Math.min(amount, missing));
-    return { healed, nextHp: Math.min(maximumHp, currentHp + healed) };
+  function damage(base,bonus=0,weak=0,barrier=0){
+    const raw=Math.max(0,base+bonus-weak),blocked=Math.min(raw,barrier);
+    return {damage:raw-blocked,blocked,barrier:barrier-blocked};
   }
-  function resolveDamage({ base, weak = 0, guard = 0, ignoreGuard = false, ignoreWeak = false, guardPierce = 0 }) {
-    const raw = Math.max(0, base - (ignoreWeak ? 0 : weak));
-    const effectiveGuard = Math.floor(raw * (1 - guardPierce));
-    const blocked = ignoreGuard ? 0 : Math.min(guard, effectiveGuard);
-    return { damage: raw - blocked, blocked, nextGuard: guard - blocked };
+  function heal(hp,maxHp,amount){return Math.min(maxHp,hp+amount);}
+  function poison(current,added){return Math.min(4,current+added);}
+  function refill(cap,pending,penalty,firstTurn){
+    const nextCap=Math.min(5,cap+(pending?1:0));
+    return {manaCap:nextCap,mana:Math.max(2,(firstTurn?2:nextCap)-penalty)};
   }
-  function bossTurnMana(round) {return Math.max(0, round+(round===1?1:0));}
-  function applyPoison(previous, perStackDamage, turns) {
-    const stacks = Math.min(4, (previous.stacks || 0) + 1);
-    return { stacks, dmg: stacks * perStackDamage, turns };
-  }
-  function canPlayCard(card, side, battleState, cardLibrary) {
-    if (cardLibrary[card.id].oneShot && battleState[`${side}OneShots`].has(card.key)) return false;
-    const target = side === 'player' ? 'boss' : 'player';
-    if (card.id === 'venombloom' && battleState[`${target}Poison`].turns <= 0) return false;
-    return card.id !== 'return' || battleState[`${side}BlockedPrev`] > 0 || card.trait;
-  }
-  return Object.freeze({ resolveHeal, resolveDamage, applyPoison, canPlayCard, bossTurnMana });
+  return Object.freeze({damage,heal,poison,refill});
 });
