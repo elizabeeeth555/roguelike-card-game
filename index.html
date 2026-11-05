@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c111c">
+  <title>継世の戦闘 — Phase 3 Ver.0.8 / PC・スマホ対応</title>
+<style>
+:root{color-scheme:dark;--bg:#0a101b;--bg2:#111927;--panel:#141d2b;--panel2:#182332;--line:#2a3647;--softline:#263043;--cream:#eef0ed;--muted:#8795a7;--gold:#dcb47a;--gold2:#a77e49;--red:#dd807a;--green:#78bba5;--blue:#80b9c7;--shadow:0 12px 40px #0003}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 62% -10%,#24334b 0%,transparent 38%),linear-gradient(140deg,#0c1420 0%,#0b111b 45%,#090d15 100%);font-family:system-ui,-apple-system,"Yu Gothic UI","Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--cream)}button{font:inherit}button:focus-visible{outline:2px solid #f0c687;outline-offset:3px}button:disabled{cursor:not-allowed}.app-shell{width:min(100% - 56px,1536px);margin:0 auto;display:flex;flex-direction:column;min-height:100vh}.topbar{display:flex;justify-content:space-between;align-items:center;min-height:84px;gap:20px;border-bottom:1px solid #ffffff14}.identity{display:flex;align-items:center;gap:15px}.crest{font-size:25px;width:48px;height:48px;display:grid;place-items:center;border:1px solid #9e835a80;background:linear-gradient(135deg,#423c36,#151a25);transform:rotate(45deg);border-radius:7px;color:#f2c27f}.crest::first-letter{transform:rotate(-45deg)}.eyebrow{font-size:10px;letter-spacing:.25em;color:#b6a18a;font-weight:750}.identity h1{font-size:23px;letter-spacing:.08em;font-weight:800;margin:4px 0 0}.title-muted{color:#9aa2a6;font-size:15px;font-weight:500;letter-spacing:.03em}.top-right{display:flex;align-items:center;gap:10px}.phase-pill,.top-button,.icon-button{border:1px solid var(--line);background:#151e2d;color:#d6e0e7;min-height:37px;border-radius:8px;padding:0 13px;font-size:12px;font-weight:700;white-space:nowrap}.phase-pill{display:flex;align-items:center;gap:9px;letter-spacing:.08em;color:#e2c18e}.pill-dim{font-weight:500;color:#9baaba;letter-spacing:0}.pulse{width:6px;height:6px;border-radius:50%;background:#8dd2aa;box-shadow:0 0 10px #87dcb3}.top-button,.icon-button{cursor:pointer;transition:background .15s,border-color .15s}.top-button:hover,.icon-button:hover{background:#273348;border-color:#718098}.icon-button{color:#b8c9d5}.icon-button span{font-size:10px;margin-left:6px;color:#8fa4b8}.game-layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:16px;flex:1;min-height:0;padding:17px 0 12px}.main-column{display:flex;flex-direction:column;gap:16px;min-width:0;min-height:0}.arena{min-height:370px;position:relative;flex:1;border:1px solid #405065;border-radius:12px;overflow:hidden;background:radial-gradient(ellipse 45% 55% at 53% 56%,#344350 0%,#202c3b 37%,transparent 70%),linear-gradient(180deg,#1b283b,#101824 74%,#172235)}.arena::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0,transparent 90px,#ffffff04 91px,transparent 92px),linear-gradient(180deg,transparent 0 72%,#05080e66 98%);pointer-events:none}.arena::after{content:"";position:absolute;inset:auto 0 68px;height:1px;background:linear-gradient(90deg,transparent,#5b708160,transparent)}.arena-grain{position:absolute;inset:0;background-image:radial-gradient(#ffffff0c 1px,transparent 1px);background-size:23px 23px;opacity:.45}.arena-topline{position:absolute;z-index:2;left:25px;right:25px;top:19px;display:flex;justify-content:space-between;align-items:center}.region-label{font-size:12px;color:#afbec4;letter-spacing:.12em;font-weight:700}.region-en{font-size:10px;color:#788b9e;letter-spacing:.05em;margin-left:3px}.tiny-diamond{display:inline-block;width:6px;height:6px;background:#d6aa6c;transform:rotate(45deg);margin-right:9px}.round-marker{color:#d7bd94;font-size:11px;font-weight:700;letter-spacing:.18em;padding:8px 11px;border:1px solid #bca27677;background:#211f26ad;border-radius:6px}.round-marker b{font-size:19px;margin-left:7px}.arena-center{position:absolute;inset:42px 0 75px;display:flex;flex-direction:column;align-items:center;justify-content:center}.enemy-shadow{position:relative;width:240px;height:225px;filter:drop-shadow(0 16px 26px #03050dbb);transform-origin:50% 75%;transition:transform .16s}.halo{position:absolute;left:50%;top:8px;width:174px;height:174px;transform:translateX(-50%);border:1px solid #b9a67e35;border-radius:50%;box-shadow:inset 0 0 0 16px #ad99750c,inset 0 0 0 18px #afa3852b,0 0 70px #dbc18f14}.halo:before,.halo:after{content:"";position:absolute;inset:-18px;border-radius:50%;border:1px dotted #958d8152}.halo:after{inset:22px;border-color:#afa58d24;transform:rotate(15deg)}.enemy-figure{position:absolute;width:175px;height:197px;bottom:7px;left:50%;transform:translateX(-50%)}.enemy-head{position:absolute;z-index:3;width:59px;height:62px;left:58px;top:22px;background:linear-gradient(160deg,#374353,#101724 65%);border:3px solid #566270;clip-path:polygon(16% 0,84% 0,100% 27%,89% 91%,50% 100%,11% 91%,0 27%);filter:drop-shadow(0 8px 3px #0008)}.enemy-crown{z-index:4;position:absolute;left:53px;top:5px;width:70px;height:32px;background:linear-gradient(170deg,#bc9e6e,#5c5144);clip-path:polygon(0 100%,0 34%,20% 53%,30% 0,50% 44%,70% 0,80% 53%,100% 34%,100% 100%)}.eyes{position:absolute;left:15px;top:35px;width:27px;height:4px;background:#f4ae86;box-shadow:0 0 8px #ff8366}.enemy-body{position:absolute;bottom:0;left:7px;width:160px;height:138px;background:linear-gradient(90deg,#090e19,#334454 35%,#162231 60%,#090e19);border:3px solid #647180aa;clip-path:polygon(25% 0,75% 0,99% 28%,84% 100%,16% 100%,1% 28%);box-shadow:inset 0 -25px 24px #03060c99}.enemy-body:after{content:"";position:absolute;width:18px;height:115px;left:68px;top:0;background:linear-gradient(90deg,#4e5866,#1a2634,#455363);opacity:.65}.enemy-blade{position:absolute;z-index:1;width:9px;height:166px;right:0;top:4px;transform:rotate(30deg);background:linear-gradient(90deg,#9cb6c4,#dce5dc,#7d96a5);clip-path:polygon(50% 0,100% 16%,100% 100%,0 100%,0 16%);box-shadow:0 0 11px #92bbd855}.ground-glow{position:absolute;width:220px;height:24px;background:radial-gradient(ellipse,#b88c5773,transparent 73%);left:50%;bottom:4px;transform:translateX(-50%)}.arena-message{position:absolute;bottom:0;color:#c4c8c9;font-size:12px;letter-spacing:.07em;background:#101925a3;padding:6px 15px;border-radius:100px;border:1px solid #68778736;white-space:nowrap;max-width:92%;overflow:hidden;text-overflow:ellipsis}.hit-number{position:absolute;z-index:4;left:59%;top:36%;color:#ffd5b0;font-size:40px;font-weight:900;text-shadow:0 3px #782e28,0 0 17px #e49b5077;opacity:0;pointer-events:none}.hit-number.active{animation:damageFloat .72s cubic-bezier(.15,.75,.25,1) forwards}@keyframes damageFloat{0%{transform:translateY(25px) scale(.65);opacity:0}15%{transform:translateY(0) scale(1.12);opacity:1}65%{opacity:1}100%{transform:translateY(-47px) scale(.94);opacity:0}}.enemy-shadow.shake{animation:shake .24s linear}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(6px)}65%{transform:translateX(-5px)}85%{transform:translateX(3px)}}.arena.player-hurt{animation:arenaHurt .38s ease}@keyframes arenaHurt{0%,100%{box-shadow:none}40%{box-shadow:inset 0 0 85px #bf4c4773}}.boss-strip{position:absolute;z-index:2;left:0;right:0;bottom:0;height:79px;background:linear-gradient(90deg,#111924eb,#1b2835ed);border-top:1px solid #54647563;display:flex;gap:20px;padding:11px 23px;align-items:center}.boss-title{width:175px;display:flex;gap:9px;align-items:center;flex-shrink:0}.boss-title small{display:block;color:#c5a77d;font-size:9px;letter-spacing:.08em;margin-bottom:2px}.boss-title strong{display:block;font-size:17px}.boss-seal{display:grid;place-items:center;width:31px;height:35px;color:#d8b079;border:1px solid #a88d6799;background:#44372933;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}.boss-health{min-width:100px;flex:1}.health-topline{display:flex;justify-content:space-between;align-items:baseline;color:#a6b4be;font-size:10px;font-weight:700}.health-topline b{color:#f9e7db;font-size:16px}.health-topline i,.side-health i{font-style:normal;color:#90a0b1;font-size:12px;font-weight:500}.hp-track{height:11px;background:#0b131e;border-radius:5px;overflow:hidden;border:1px solid #55637766;margin-top:6px}.hp-fill{height:100%;width:100%;transition:width .28s ease}.boss-fill{background:linear-gradient(90deg,#913c41,#e27e76);box-shadow:inset 0 1px #ffb6a566}.player-fill{background:linear-gradient(90deg,#378777,#7dd3b3);box-shadow:inset 0 1px #c4ffdf66}.boss-badges{width:136px;display:flex;flex-direction:column;gap:5px;font-size:11px;color:#e1c7a8}.boss-badges span{background:#2933448c;border:1px solid #57637556;padding:3px 8px;border-radius:5px}.vignette{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 70px #03060c78}
+.hand-panel{border:1px solid #344254;background:linear-gradient(180deg,#172231,#121a27);border-radius:12px;padding:16px 18px 13px;min-height:274px;box-shadow:var(--shadow)}.hand-heading,.hand-heading-left{display:flex;align-items:center;gap:10px}.hand-heading{justify-content:space-between;margin-bottom:11px}.hand-heading h2{font-size:15px;letter-spacing:.08em;margin:0}.heading-mark{color:var(--gold);font-size:10px}.heading-desc,.hand-count{color:#8395a8;font-size:11px}.hand-count strong{color:#bfc9d3;margin-left:6px}.keyhint{display:inline-grid;place-items:center;font-size:10px;border:1px solid #526073;border-radius:3px;width:15px;height:17px;margin-left:5px;color:#c1d0dd}.hand-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.game-card{position:relative;min-width:0;min-height:172px;padding:13px 14px;text-align:left;display:flex;flex-direction:column;color:#e7eff2;border:1px solid #637992;background:linear-gradient(155deg,#253448,#172437);border-radius:9px;cursor:pointer;overflow:hidden;isolation:isolate;transition:transform .13s ease,border-color .13s ease,filter .13s}.game-card:before{content:"";position:absolute;inset:0;border:1px solid #ffffff0a;border-radius:8px;pointer-events:none}.game-card::after{content:"";position:absolute;width:100px;height:100px;border-radius:50%;top:-61px;right:-45px;background:#96bcff13;pointer-events:none}.game-card:hover:not(:disabled){transform:translateY(-5px);border-color:#d1b686;box-shadow:0 12px 18px #0005}.game-card:active:not(:disabled){transform:translateY(-1px) scale(.98)}.game-card.off{filter:brightness(.57) saturate(.65);opacity:.73}.game-card.used{filter:brightness(.48) saturate(.55);opacity:.64}.game-card.attack{border-color:#735c61}.game-card.attack:hover:not(:disabled){border-color:#d9a099}.game-card.buff{border-color:#7f7357}.game-card.guard{border-color:#517782}.game-card.counter{border-color:#74657f}.game-card .card-top{display:flex;align-items:center;justify-content:space-between;min-height:30px;gap:5px}.card-symbol{width:38px;height:38px;border:1px solid #abb2bc43;border-radius:8px;display:grid;place-items:center;font-size:25px;color:#e8cfb5;background:#243343}.attack .card-symbol{color:#ec9890;background:#603a3f52}.buff .card-symbol{color:#f0ce89;background:#66513852}.guard .card-symbol{color:#98d1d7;background:#3757655e}.counter .card-symbol{color:#d4b0e0;background:#55445e59}.mana-cost{display:grid;place-items:center;width:27px;height:27px;font-size:14px;font-weight:900;border-radius:50%;background:#1f4663;border:1px solid #598aae;color:#cceafa;box-shadow:0 0 0 3px #1c2c3e}.card-name{font-weight:800;font-size:16px;letter-spacing:.05em;margin-top:7px}.card-type{font-size:10px;color:#c2ab88;margin-top:2px}.card-desc{color:#c6d0dc;font-size:12px;line-height:1.5;margin-top:9px;flex:1;max-width:28ch}.card-status{position:absolute;z-index:2;inset:0;display:none;align-items:center;justify-content:center;background:#10141caf;transform:none;color:#e8e3d7;font-size:16px;font-weight:800;letter-spacing:.14em}.game-card.used .card-status{display:flex}.game-card.off .card-status{display:flex;font-size:13px;color:#ced9e6}.hand-footer{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:11px}.assist-line{font-size:11px;color:#93a6b8}.end-turn{height:40px;min-width:210px;border:1px solid #e7c488;cursor:pointer;border-radius:7px;background:linear-gradient(115deg,#edc58a,#b68b51);color:#1d2229;font-weight:850;padding:0 14px;display:flex;align-items:center;justify-content:center;gap:14px;letter-spacing:.07em;box-shadow:0 3px 0 #715b3a;transition:filter .14s,transform .14s}.end-turn:hover:not(:disabled){filter:brightness(1.12)}.end-turn:active:not(:disabled){transform:translateY(2px);box-shadow:0 1px 0 #715b3a}.end-turn:disabled{opacity:.45;box-shadow:none}.turn-arrow{font-size:22px}.button-sub{font-size:9px;background:#e6d1a988;border:1px solid #99825655;padding:3px 5px;border-radius:3px;color:#443622}
+.sidebar{display:flex;flex-direction:column;gap:13px;min-height:0}.sidebar-card{border-radius:10px;background:#121b29;border:1px solid #2f3e51;padding:16px 17px;box-shadow:var(--shadow)}.sidebar-heading{display:flex;justify-content:space-between;align-items:center}.side-kicker{font-size:10px;font-weight:800;letter-spacing:.18em;color:#c3a985}.hero-motif{font-size:22px;color:#aeac86}.sidebar-card h2{margin:5px 0 11px;font-size:17px;letter-spacing:.025em}.side-health{display:flex;justify-content:space-between;align-items:baseline;font-size:11px;color:#97abbd;font-weight:750}.side-health b{color:#dcf6e9;font-size:18px}.resource-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:13px 0}.resource{border-radius:6px;background:#1d2a3a;padding:10px 11px;border:1px solid #304155}.resource span{display:block;font-size:10px;color:#9fb2c2}.resource b{display:block;font-size:23px;margin-top:3px;line-height:1.1}.resource small{font-size:12px;color:#8fa3b5;font-weight:550}.mana-resource b{color:#9acbe3}.condition-title{font-size:10px;color:#8499ad;margin-bottom:7px}.conditions{display:flex;gap:6px;flex-wrap:wrap}.condition{font-size:11px;color:#c7dde6;padding:6px 8px;border:1px solid #3d5263;border-radius:5px;background:#1c2938}.intel-panel{padding-bottom:12px}.info-dot{width:16px;height:16px;border:1px solid #657688;border-radius:50%;display:grid;place-items:center;color:#9cadb8;font-size:11px}.deck-num{font-size:10px;color:#94a1b0;margin-left:8px;font-weight:500}.enemy-deck{display:grid;gap:1px}.deck-entry{display:grid;grid-template-columns:22px 1fr auto;align-items:center;gap:9px;min-height:28px;border-bottom:1px solid #2a3a4938;font-size:12px}.deck-cost{width:21px;height:21px;display:grid;place-items:center;border:1px solid #4d6d88;background:#203e57;border-radius:50%;color:#bee1f6;font-size:12px;font-weight:750}.deck-class{font-size:10px;color:#8fa0ae}.intel-note{font-size:10px;color:#a0adbb;line-height:1.55;margin:11px 0 0}.intel-lock{color:#c0a378;margin-right:4px}.log-panel{display:flex;flex-direction:column;min-height:130px;flex:1}.log-live{font-size:9px;color:#7da5a8;letter-spacing:.05em}.log-list{margin-top:12px;overflow-y:auto;overscroll-behavior:contain;flex:1;min-height:90px;max-height:320px;scrollbar-width:thin;scrollbar-color:#53606e transparent}.log-item{padding:6px 0;border-bottom:1px solid #27344450;color:#adbac9;font-size:11px;line-height:1.5}.log-item strong{color:#d9e5e9}.log-item.turn{color:#eac591;font-weight:800;letter-spacing:.02em}.log-item.hero{color:#9dd5bb}.log-item.enemy{color:#e6a29e}.log-item.info{color:#aec4d6}.bottom-caption{display:flex;align-items:center;justify-content:space-between;color:#677b8e;font-size:10px;gap:10px;letter-spacing:.03em;min-height:33px}.bottom-caption>span:first-child{color:#b4a085;letter-spacing:.1em;font-weight:750}.caption-right{text-align:right}
+.end-overlay[hidden]{display:none}.end-overlay{z-index:100;position:fixed;inset:0;background:#03070cc9;display:grid;place-items:center;backdrop-filter:blur(5px);padding:18px}.end-dialog{width:min(94vw,410px);background:linear-gradient(180deg,#233247,#131e2b);border:1px solid #9b8868;border-radius:13px;text-align:center;padding:34px 30px;box-shadow:0 28px 100px #000a}.end-ornament{color:#b99b6e;letter-spacing:1.2em;margin-left:1em}.end-kicker{font-size:10px;color:#c8b08a;letter-spacing:.18em;margin-top:18px}.end-dialog h2{margin:8px 0;color:#f6deb4;font-size:36px;letter-spacing:.13em}.end-dialog.lose h2{color:#e99c94}.end-dialog p{color:#afbece;font-size:13px;line-height:1.7}.summary-line{display:flex;justify-content:center;gap:30px;font-size:12px;color:#e4cda7;margin:22px auto}.restart-button{cursor:pointer;border:0;background:#dfb779;color:#22292e;border-radius:6px;padding:12px 18px;width:100%;font-size:14px;font-weight:850}.result-note{display:block;margin-top:12px;color:#73899e;font-size:10px}
+@media(min-width:1100px) and (min-height:900px){.arena{min-height:425px}.hand-panel{min-height:292px}.game-card{min-height:190px}}@media(max-width:1160px){.app-shell{width:calc(100% - 28px)}.game-layout{grid-template-columns:minmax(0,1fr) 290px;gap:10px}.sidebar-card{padding:13px}.arena{min-height:315px}.game-card{padding:10px;min-height:155px}.card-name{font-size:14px}.card-desc{font-size:11px}.hand-panel{min-height:250px;padding:13px}.boss-strip{padding:9px 15px;gap:10px}.boss-title{width:142px}.boss-badges{width:102px}.boss-title strong{font-size:14px}.region-en{display:none}}
+@media(max-width:880px){.app-shell{width:calc(100% - 20px)}.game-layout{grid-template-columns:1fr}.arena{min-height:330px}.sidebar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.log-panel{grid-column:1/-1;min-height:150px}.log-list{max-height:160px}.bottom-caption{flex-wrap:wrap;padding:8px 0}.phase-pill{display:none}}
+@media(max-width:520px){.topbar{min-height:74px}.identity h1{font-size:17px}.title-muted{font-size:11px}.crest{width:35px;height:35px}.eyebrow{font-size:8px}.top-right{gap:5px}.top-button,.icon-button{padding:0 7px}.top-button span{display:none}.region-label{font-size:10px}.arena-topline{left:12px;right:12px}.arena{min-height:310px}.enemy-shadow{transform:scale(.8);margin-top:-25px}.arena-message{font-size:10px}.boss-strip{gap:8px}.boss-title{width:103px}.boss-title strong{font-size:12px}.boss-seal{display:none}.boss-badges{width:75px;font-size:9px}.hand-row{grid-template-columns:repeat(2,minmax(0,1fr))}.hand-heading{align-items:flex-start}.heading-desc{display:none}.game-card{min-height:150px}.hand-footer{flex-direction:column;align-items:stretch}.end-turn{width:100%}.sidebar{display:flex}.bottom-caption{display:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+@media (min-width:881px) and (max-height:810px){.topbar{min-height:65px}.game-layout{padding-top:10px;padding-bottom:7px;gap:10px}.main-column{gap:10px}.arena{min-height:300px}.arena-center{inset:34px 0 73px}.enemy-shadow{transform:scale(.86)}.hand-panel{min-height:242px;padding:11px 14px}.hand-heading{margin-bottom:8px}.game-card{min-height:148px;padding:9px 11px}.card-desc{font-size:11px;margin-top:6px}.hand-footer{margin-top:8px}.bottom-caption{min-height:25px}.sidebar{gap:9px}.sidebar-card{padding:11px 14px}.sidebar-card h2{margin:4px 0 8px}.resource-grid{margin:8px 0}.resource{padding:7px 9px}.intel-note{margin-top:5px}.log-panel{min-height:100px}}
+
+
+/* v0.3: 敵は画面上部、自分のHP/マナは画面下部の手札のすぐ上に集約 */
+.game-layout {display:flex; flex-direction:column; gap:12px; flex:1; min-height:0; padding:12px 0 7px;}
+.battle-top {display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:12px; min-height:0; flex:1;}
+.arena {min-height:315px; flex:1;}
+.arena-topline {top:13px;}
+.boss-strip {top:51px; bottom:auto; height:68px; border-top:0; border-bottom:1px solid #54647563; padding:9px 20px; z-index:3; background:linear-gradient(90deg,#111924ed,#233143ed);}
+.boss-health {flex:1;}
+.boss-title {width:165px;}
+.arena-center {inset:104px 0 5px; overflow:visible;}
+.enemy-shadow {transform:scale(.74);margin-top:-25px;margin-bottom:-36px;}
+.arena-message {position:relative; font-size:12px;}
+.enemy-sidebar {min-width:0; display:flex; flex-direction:column; gap:9px; min-height:0;}
+.enemy-sidebar .sidebar-card {padding:11px 14px;}
+.enemy-sidebar .sidebar-card h2 {margin:5px 0 7px;font-size:15px;}
+.enemy-sidebar .intel-panel {flex:0 0 auto;}
+.enemy-sidebar .log-panel {flex:1;min-height:95px;}
+.enemy-sidebar .log-list {min-height:55px;max-height:none; margin-top:7px;}
+.enemy-sidebar .deck-entry {padding-top:4px;padding-bottom:4px;}
+.player-zone {display:flex;flex-direction:column;gap:8px;min-width:0;}
+.player-status {border:1px solid #385369;background:linear-gradient(100deg,#132233,#192b38);border-radius:10px;padding:10px 16px;display:grid;grid-template-columns:170px minmax(160px,1fr) 190px minmax(168px,auto);gap:15px;align-items:center;box-shadow:0 8px 28px #0002;}
+.player-identity {display:flex;align-items:center;gap:10px;min-width:0;}
+.player-identity small {display:block;color:#c3ad87;font-size:9px;letter-spacing:.08em;margin-bottom:3px;}
+.player-identity strong {display:block;font-size:14px;white-space:nowrap;}
+.hero-emblem {font-size:27px;color:#a3ceb9;}
+.player-health .health-topline b {color:#bdf5db;}
+.player-metrics {display:flex;gap:7px;}
+.metric {flex:1;min-width:76px;border-radius:6px;background:#223344;padding:6px 9px;border:1px solid #40576b;}
+.metric span {display:block;color:#a8b9c8;font-size:9px;white-space:nowrap;}
+.metric b {display:block;font-size:21px;line-height:1.25;color:#f3f5ed;}
+.metric b small {font-size:11px;color:#9eb5c7;font-weight:500;}
+.mana-metric b {color:#a6def3;}
+.player-conditions {display:flex;align-items:center;justify-content:flex-end;gap:6px;flex-wrap:wrap;}
+.player-conditions .condition {font-size:10px;white-space:nowrap;}
+.hand-panel {min-height:0;padding:11px 16px 9px;}
+.hand-heading {margin-bottom:8px;}
+.hand-row {gap:12px;}
+.game-card {min-height:149px;padding:10px 12px;}
+.card-desc {font-size:11px;margin-top:6px;}
+.hand-footer {margin-top:8px;}
+.game-card.counter.ready {border-color:#a2cbea;box-shadow:inset 0 0 0 1px #7199b5,0 0 16px #78b8ed22;}
+.game-card .card-status.ready-hint {color:#a4d8e6;opacity:1;}
+.bottom-caption {min-height:24px;}
+@media (min-width:881px) and (max-height:810px) {
+ .topbar{min-height:60px;}
+ .game-layout{padding-top:8px;gap:8px;}
+ .arena{min-height:288px;}
+ .battle-top{gap:10px;}
+ .player-status{padding:7px 13px;}
+ .hand-panel{padding:8px 13px;}
+ .game-card{min-height:141px;}
+ .hand-footer{margin-top:6px;}
+ .enemy-shadow{transform:scale(.66);margin-top:-37px;margin-bottom:-48px;}
+}
+@media(max-width:1160px){
+ .battle-top{grid-template-columns:minmax(0,1fr) 265px;}
+ .player-status{grid-template-columns:145px minmax(100px,1fr) 172px 164px;gap:9px;padding:8px 11px;}
+ .player-identity strong{font-size:12px;}
+ .player-conditions .condition{font-size:9px;}
+}
+@media(max-width:880px){
+ .game-layout{display:flex;}
+ .battle-top{grid-template-columns:1fr;}
+ .arena{min-height:310px;}
+ .enemy-sidebar{display:grid;grid-template-columns:1fr 1fr;}
+ .enemy-sidebar .log-panel{min-height:190px;}
+ .player-status{grid-template-columns:1fr 1fr;}
+ .player-conditions{justify-content:flex-start;}
+}
+@media(max-width:520px){
+ .boss-strip{top:45px;padding:8px 11px;}
+ .arena-center{inset:95px 0 0;}
+ .enemy-sidebar{grid-template-columns:1fr;}
+ .enemy-sidebar .log-panel{min-height:130px;}
+ .player-status{grid-template-columns:1fr 1fr;gap:9px;}
+ .player-identity strong{font-size:11px;}
+ .player-metrics{gap:4px;}
+ .metric{min-width:70px;padding:5px 7px;}
+ .player-conditions{grid-column:1/-1;}
+ .hand-row{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+
+/* Disabled cards remain legible so the player can understand why they cannot use them. */
+.game-card.off {filter:none;opacity:.68;}
+.game-card.off .card-status {position:absolute;inset:auto 8px 8px auto;display:block;background:#111b2af0;border:1px solid #53677f;border-radius:4px;padding:4px 6px;font-size:10px;color:#e4edf5;letter-spacing:0;transform:none;}
+
+/* Keep the lower HUD fixed while battle log fills up. Scroll log only. */
+@media (min-width:881px) {
+ .battle-top {flex:1 1 0;min-height:0;overflow:hidden;}
+ .enemy-sidebar {height:100%;min-height:0;overflow:hidden;}
+ .enemy-sidebar .log-panel {min-height:0;flex:1 1 0;overflow:hidden;}
+ .enemy-sidebar .log-list {min-height:0;max-height:none;flex:1 1 0;overflow-y:auto;}
+}
+
+/* Phase 2: Always constrain the log internally. No battle-log-driven page growth. */
+@media (min-width:881px) {
+  html,body {height:100%;overflow:hidden;}
+  .app-shell {height:100dvh;min-height:0;overflow:hidden;}
+  .topbar,.bottom-caption {flex-shrink:0;}
+  .game-layout {flex:1 1 0;min-height:0;overflow:hidden;}
+  .battle-top {flex:1 1 0;min-height:0;overflow:hidden;}
+  .arena {min-height:0;}
+  .enemy-sidebar {height:100%;min-height:0;overflow:hidden;}
+  .enemy-sidebar .intel-panel {flex:0 0 auto;}
+  .enemy-sidebar .log-panel {flex:1 1 0;min-height:0;max-height:none;overflow:hidden;display:flex;flex-direction:column;}
+  .enemy-sidebar .log-list {flex:1 1 0;min-height:0;max-height:none;overflow-y:auto;overscroll-behavior:contain;}
+  .player-zone {flex:0 0 auto;min-height:0;}
+}
+@media (max-width:880px) {
+  .enemy-sidebar .log-panel{height:170px;min-height:0;max-height:170px;overflow:hidden;display:flex;flex-direction:column;}
+  .enemy-sidebar .log-list{min-height:0;max-height:none;flex:1 1 0;overflow-y:auto;}
+}
+/* Inheritance UI. */
+.game-card.inherited {border-color:#d8b376;box-shadow:inset 0 0 0 1px #bc8d474d;background:linear-gradient(155deg,#3b3440,#28293a);}
+.legacy-mark {display:inline-block;margin-left:3px;font-size:10px;color:#f0cb8f;border:1px solid #d6a96488;padding:1px 3px;border-radius:3px;vertical-align:middle;}
+.inherit-choices[hidden],.legacy-next[hidden] {display:none;}
+.inherit-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:14px 0;}
+.inherit-option{cursor:pointer;text-align:left;min-width:0;background:#182638;border:1px solid #667990;border-radius:8px;color:#e5eef6;padding:12px;font-size:12px;font-weight:650;}
+.inherit-option:hover,.inherit-option.chosen{border-color:#e8bb79;background:#3b3441;color:#ffdfaa;}
+.legacy-next{margin-bottom:8px;}
+.legacy-next:disabled{opacity:.4;cursor:not-allowed;}
+.end-dialog {max-height:94dvh;overflow:auto;}
+@media (min-width:881px) and (max-height:720px){
+ .arena{min-height:0;}.battle-top{min-height:0;}
+ .enemy-sidebar .intel-panel{padding:5px 11px;}
+ .enemy-sidebar .deck-entry{min-height:22px;padding:1px 0;}
+ .player-status{padding:5px 11px;}
+ .hand-panel{padding:7px 12px 6px;}
+ .game-card{min-height:125px;padding:6px 9px;}
+ .card-desc{font-size:10px;}
+ .hand-footer{margin-top:4px;}
+ .topbar{min-height:50px;}
+}
+
+/* On very short laptop viewports, allow the page to scroll rather than collapsing the log. */
+@media (min-width:881px) and (max-height:680px){
+ html,body{height:auto;overflow:auto;}
+ .app-shell{height:auto;min-height:690px;overflow:visible;}
+ .game-layout{height:605px;flex:none;overflow:visible;}
+ .battle-top{flex:1 1 0;min-height:220px;}
+ .enemy-sidebar .log-panel{min-height:112px;}
+}
+@media (min-width:881px) {
+ .hand-row:has(> .game-card:nth-child(5)) .game-card{padding:9px 10px;}
+ .hand-row:has(> .game-card:nth-child(5)) .card-desc{font-size:10px;line-height:1.4;}
+}
+
+/* Stage 2 poison card uses a distinctive green visual treatment. */
+.game-card.dot{border-color:#588d73;}
+.game-card.dot .card-symbol{color:#a0e0ac;background:#385c474f;}
+
+
+/* Phase 3 draft UI. Offline CSS-only placeholders; image assets can be substituted later. */
+.game-layout[hidden],.draft-stage[hidden]{display:none!important}
+.draft-stage{flex:1;min-height:0;display:flex;flex-direction:column;padding:18px 0 12px;gap:13px;overflow:auto}
+.draft-head{border:1px solid #506078;border-radius:12px;background:radial-gradient(ellipse at 10% 10%,#33425c 0,transparent 42%),linear-gradient(120deg,#19283d,#111c2b);padding:21px 27px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.draft-head .overline{font-size:11px;color:#e4be83;font-weight:800;letter-spacing:.2em}
+.draft-head h2{margin:8px 0 5px;font-size:26px;letter-spacing:.04em}
+.draft-head p{margin:0;color:#a8bac9;line-height:1.7;font-size:13px}
+.draft-step{white-space:nowrap;color:#eacb9c;border:1px solid #887653;background:#262634;padding:10px 14px;border-radius:6px;font-size:12px;font-weight:800}
+.draft-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:13px;min-height:210px;max-height:48vh;overflow:auto;align-content:start}
+.draft-choice{display:flex;flex-direction:column;text-align:left;gap:12px;min-height:174px;cursor:pointer;padding:18px 19px;color:#f2f2ea;border-radius:11px;background:linear-gradient(155deg,#23354c,#152233);border:1px solid #566c84;transition:transform .12s,border-color .12s,background .12s}
+.draft-choice:hover{transform:translateY(-2px);border-color:#ebc08b;background:linear-gradient(155deg,#32455d,#1b2c43)}
+.draft-choice .draft-label{align-self:start;padding:3px 7px;border:1px solid #8a866680;border-radius:4px;color:#eac28d;background:#5e47262a;font-size:10px;font-weight:800;letter-spacing:.05em}
+.draft-choice strong{font-size:21px}.draft-desc{color:#b8c7d7;font-size:12px;white-space:pre-line;line-height:1.7;flex:1}.draft-cta{font-size:11px;font-weight:800;color:#e7c392;align-self:flex-end}
+.draft-choice.inherit-branch{border-color:#b28a51}.draft-choice.upgrade-branch{border-color:#6f9e93}
+.draft-deck-panel{margin-top:auto;border:1px solid #39485b;border-radius:11px;background:#121e2d;padding:14px 17px;display:flex;flex-direction:column;gap:12px}
+.draft-deck-heading{display:flex;justify-content:space-between;gap:12px;align-items:center}.draft-deck-heading strong{font-size:14px}.draft-deck-heading span{font-size:12px;color:#90a8bb}
+.draft-deck{display:flex;flex-wrap:wrap;gap:9px;min-height:32px}.draft-deck-chip{border:1px solid #55718b;border-radius:6px;padding:9px 12px;background:#1f3448;color:#e1edec;font-size:12px;font-weight:800}.draft-deck-chip.legacy-chip{background:#383243;border-color:#b28f5a;color:#edd2a6}
+.draft-hint{font-size:11px;color:#8ea2b5;margin:0}
+/* The previous Phase 2 desktop log-lock remains in force at 1366×768. */
+@media(min-width:881px){.draft-stage{overflow:hidden}.draft-options{flex:1;max-height:none;min-height:0;overflow-y:auto}.draft-head{flex:0 0 auto}.draft-deck-panel{flex:0 0 auto}}
+@media(min-width:881px) and (max-height:800px){.draft-stage{padding:9px 0;gap:8px}.draft-head{padding:12px 19px}.draft-head h2{font-size:21px;margin:3px 0}.draft-options{gap:10px}.draft-choice{min-height:148px;padding:12px 14px;gap:7px}.draft-choice strong{font-size:17px}.draft-deck-panel{padding:10px 14px;gap:8px}.draft-deck-chip{padding:6px 9px}}
+@media(max-width:880px){.draft-head{padding:15px;align-items:start}.draft-head h2{font-size:21px}.draft-stage{overflow:visible}.draft-options{max-height:none}.draft-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:530px){.draft-options{grid-template-columns:1fr}.draft-step{font-size:10px}}
+
+
+/* Ver.0.7: clickable deck details and readable before/after upgrades. */
+.draft-deck-chip{cursor:pointer;font:inherit;transition:border-color .12s,background .12s}
+.draft-deck-chip:hover,.draft-deck-chip.selected{outline:none;border-color:#f5cb8b;background:#354358}
+.draft-deck-chip:focus-visible{outline:2px solid #e7c58a;outline-offset:2px}
+.draft-card-details{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px 14px;padding:9px 12px;border-radius:7px;background:#263448;border:1px solid #5b7189;font-size:12px;line-height:1.45}
+.draft-card-details strong{color:#f5debb;white-space:nowrap}
+.draft-card-details span{color:#e2eef6}
+.draft-card-details .draft-special-info{color:#f3c68b}
+.draft-card-details small{color:#a8bdd0}
+.draft-choice .draft-desc{white-space:pre-line;overflow-wrap:anywhere;font-size:12px;line-height:1.55}
+.draft-choice{gap:8px}
+.game-card .card-trait{font-size:10px;line-height:1.3;color:#f8d096;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:3px}
+@media(min-width:881px) and (max-height:800px){.draft-card-details{padding:5px 9px;font-size:11px;gap:3px 10px}.draft-choice .draft-desc{font-size:11px;line-height:1.4}}
+
+
+/* Ver.0.8: responsive mobile play. Core battle logic remains Ver.0.7. */
+@media (max-width: 760px) {
+  html,body {height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto;}
+  .app-shell {width:calc(100% - 20px);max-width:none;min-height:100dvh;height:auto;overflow:visible;}
+  .topbar {min-height:62px;padding:7px 0;gap:8px;}
+  .identity {gap:9px;min-width:0;}
+  .crest {width:32px;height:32px;font-size:18px;flex-shrink:0;}
+  .identity h1 {font-size:clamp(14px,4vw,19px);letter-spacing:0;white-space:nowrap;}
+  .title-muted {font-size:11px;}
+  .eyebrow {font-size:7px;letter-spacing:.11em;}
+  .top-right {gap:6px;flex-shrink:0;}
+  .phase-pill {display:none;}
+  .icon-button,.top-button {min-height:36px;padding:0 9px;font-size:12px;touch-action:manipulation;}
+  .top-button span {display:none;}
+
+  /* Flatten desktop battle columns, so arena -> player -> optional intel/log. */
+  .game-layout {display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:'arena' 'player' 'intel';gap:10px;overflow:visible;height:auto;min-height:0;padding:10px 0;}
+  .battle-top {display:contents;}
+  .arena {grid-area:arena;min-height:220px;height:220px;max-height:220px;}
+  .arena-topline {left:10px;right:10px;top:8px;}
+  .region-label {font-size:9px;letter-spacing:.03em;}
+  .region-en {display:none;}
+  .round-marker {padding:5px 7px;letter-spacing:.05em;font-size:9px;}
+  .round-marker b {font-size:13px;margin-left:3px;}
+  .boss-strip {top:37px;bottom:auto;height:60px;gap:7px;padding:7px 10px;}
+  .boss-title {width:96px;min-width:0;gap:3px;}
+  .boss-seal {display:none;}
+  .boss-title strong {font-size:12px;line-height:1.2;}
+  .boss-title small {font-size:8px;}
+  .boss-health {min-width:0;}
+  .health-topline {font-size:9px;}
+  .health-topline b {font-size:13px;white-space:nowrap;}
+  .health-topline i {font-size:10px;}
+  .hp-track {height:8px;margin-top:4px;}
+  .boss-badges {width:77px;gap:3px;font-size:9px;flex-shrink:0;}
+  .boss-badges span {padding:3px 4px;white-space:nowrap;}
+  .arena-center {inset:95px 0 2px;justify-content:center;}
+  .enemy-shadow {transform:scale(.53);margin-top:-48px;margin-bottom:-60px;}
+  .arena-message {font-size:10px;padding:4px 9px;max-width:94%;}
+  .hit-number {top:43%;left:57%;font-size:30px;}
+
+  .player-zone {grid-area:player;gap:7px;}
+  .player-status {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:7px;padding:9px 10px;}
+  .player-identity {display:none;}
+  .player-health {min-width:0;align-self:center;}
+  .player-health .health-topline {display:flex;gap:4px;flex-wrap:wrap;}
+  .player-metrics {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;min-width:0;}
+  .metric {min-width:0;padding:5px 6px;}
+  .metric span {font-size:8px;white-space:normal;}
+  .metric b {font-size:18px;}
+  .metric b small {font-size:9px;}
+  .player-conditions {grid-column:1/-1;justify-content:flex-start;gap:5px;}
+  .player-conditions .condition {font-size:9px;padding:4px 6px;}
+  .hand-panel {min-height:0;padding:10px 9px;}
+  .hand-heading {margin-bottom:8px;}
+  .hand-heading h2 {font-size:14px;}
+  .hand-heading-left {gap:5px;}
+  .heading-desc {display:none;}
+  .hand-count {font-size:10px;white-space:nowrap;}
+  .hand-row {display:flex;grid-template-columns:none;flex-wrap:nowrap;gap:9px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scroll-padding-left:2px;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain;padding:1px 1px 10px;touch-action:pan-x pan-y;}
+  .hand-row .game-card {flex:0 0 clamp(156px,45vw,190px);min-width:0;min-height:154px;scroll-snap-align:start;padding:10px 11px;}
+  .game-card:hover:not(:disabled) {transform:none;}
+  .card-name {font-size:14px;}
+  .card-desc {font-size:11px;line-height:1.4;overflow-wrap:anywhere;}
+  .hand-footer {display:flex;flex-direction:row;gap:8px;align-items:center;justify-content:space-between;}
+  .hand-footer .assist-line {font-size:10px;flex:1;min-width:0;}
+  .end-turn {width:auto;min-height:42px;flex:0 0 auto;padding:8px 13px;touch-action:manipulation;}
+  .button-sub {display:none;}
+  .enemy-sidebar {grid-area:intel;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;min-width:0;}
+  .enemy-sidebar .sidebar-card {padding:10px 11px;box-shadow:none;}
+  .enemy-sidebar .intel-panel {min-width:0;overflow:hidden;}
+  .enemy-sidebar .sidebar-card h2 {font-size:13px;}
+  .enemy-sidebar .deck-entry {grid-template-columns:20px minmax(0,1fr);gap:5px;font-size:11px;}
+  .enemy-sidebar .deck-class {grid-column:2;justify-self:start;font-size:9px;}
+  .enemy-sidebar .log-panel {min-height:0;height:176px;max-height:176px;overflow:hidden;display:flex;flex-direction:column;}
+  .enemy-sidebar .log-list {flex:1 1 0;min-height:0;max-height:none;overflow-y:auto;overscroll-behavior:contain;}
+  .intel-note {font-size:9px;}
+  .bottom-caption {display:none;}
+
+  /* Choice screen: large, legible tap targets and visible deck inspection. */
+  .draft-stage {flex:1;min-height:0;padding:10px 0 16px;gap:10px;overflow:visible;}
+  .draft-head {padding:13px 14px;display:flex;align-items:flex-start;gap:9px;}
+  .draft-head .overline {font-size:9px;}
+  .draft-head h2 {font-size:18px;margin:4px 0;}
+  .draft-head p {font-size:11px;line-height:1.45;}
+  .draft-step {padding:5px 7px;font-size:9px;white-space:normal;text-align:center;flex:0 0 auto;}
+  .draft-options {grid-template-columns:1fr;gap:8px;min-height:0;max-height:none;overflow:visible;}
+  .draft-choice {min-height:0;padding:12px 13px;gap:6px;touch-action:manipulation;}
+  .draft-choice strong {font-size:17px;}
+  .draft-choice .draft-desc {font-size:12px;line-height:1.5;}
+  .draft-cta {font-size:10px;}
+  .draft-deck-panel {margin-top:0;padding:11px 12px;gap:9px;}
+  .draft-deck-heading strong {font-size:12px;}
+  .draft-deck-heading span {font-size:11px;}
+  .draft-deck {gap:6px;}
+  .draft-deck-chip {min-height:39px;padding:8px 9px;font-size:11px;touch-action:manipulation;}
+  .draft-card-details {font-size:11px;gap:4px 10px;overflow-wrap:anywhere;}
+  .draft-hint {font-size:10px;line-height:1.4;}
+  .end-overlay {padding:10px;align-items:center;}
+  .end-dialog {padding:22px 15px;width:min(100%,410px);max-height:92dvh;overflow:auto;}
+  .end-dialog h2 {font-size:27px;}
+  .inherit-choices {grid-template-columns:1fr;}
+  .inherit-option {min-height:48px;touch-action:manipulation;}
+}
+@media (max-width: 360px) {
+  .app-shell {width:calc(100% - 12px);}
+  .boss-title {width:83px;}
+  .boss-badges {width:66px;font-size:8px;}
+  .hand-row .game-card {flex-basis:148px;}
+  .top-button,.icon-button {padding:0 7px;}
+}
+@media (min-width:761px) and (max-width:880px) {
+  .game-layout{display:flex;flex-direction:column;overflow:visible;height:auto;}
+  .battle-top{display:grid;grid-template-columns:1fr;}
+  .player-status{grid-template-columns:1fr 1fr;gap:10px;}
+  .player-conditions{grid-column:1/-1;}
+  .hand-row{grid-template-columns:repeat(4,minmax(0,1fr));}
+}
+
+</style>
+
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="identity">
+        <div class="crest" aria-hidden="true">✦</div>
+        <div>
+          <div class="eyebrow">LEGACY / BATTLE PROTOTYPE</div>
+          <h1>継世の戦闘 <span class="title-muted">— <span id="generationName">第一紀</span></span></h1>
+        </div>
+      </div>
+      <div class="top-right">
+        <div class="phase-pill"><span class="pulse"></span> PHASE 03 <span class="pill-dim" id="phaseLabel">第一紀・固定デッキ</span></div>
+        <button class="icon-button" type="button" id="soundButton" aria-label="効果音をオンにする" title="効果音 オン / オフ">♪ <span id="soundLabel">OFF</span></button>
+        <button class="top-button" type="button" id="resetButton">↺ <span>最初から</span></button>
+      </div>
+    </header>
+
+    <section id="draftStage" class="draft-stage" aria-label="道中のビルド構築">
+  <div class="draft-head"><div><div class="overline" id="draftEra">第一紀 / BEGINNING</div><h2 id="draftTitle">英雄の素質</h2><p id="draftDescription">道中のイベントを進めてビルドを作ろう。</p></div><div class="draft-step" id="draftStep">START</div></div>
+  <div id="draftOptions" class="draft-options" role="group" aria-label="今回の選択肢"></div>
+  <div class="draft-deck-panel"><div class="draft-deck-heading"><strong>現在のデッキ</strong><span id="draftDeckCount">0 / 5 枚</span></div><div id="draftDeck" class="draft-deck" aria-live="polite"></div><div class="draft-card-details" id="draftCardDetails" aria-live="polite">カードの詳細を表示</div><p class="draft-hint" id="draftHint"></p></div>
+</section>
+<main class="game-layout" id="gameLayout" hidden>
+      <div class="battle-top">
+        <section class="arena" aria-label="敵ボスの戦場">
+          <div class="arena-grain" aria-hidden="true"></div>
+          <div class="arena-topline">
+            <span class="region-label"><span class="tiny-diamond"></span> <span id="regionLabel">忘却の聖堂</span> <span class="region-en">/ THE HALL OF LEGACY</span></span>
+            <span class="round-marker">ROUND <b id="roundValue">01</b></span>
+          </div>
+          <div class="boss-strip">
+            <div class="boss-title"><span class="boss-seal">◆</span><div><small>守護者 / BOSS</small><strong id="bossName">灰の騎士</strong></div></div>
+            <div class="boss-health">
+              <div class="health-topline"><span>敵 HP</span><b id="bossHpValue">40 <i>/ 40</i></b></div>
+              <div class="hp-track" role="progressbar" aria-label="ボスHP" aria-valuemin="0" aria-valuemax="40" aria-valuenow="40" id="bossHpTrack"><div id="bossHpBar" class="hp-fill boss-fill"></div></div>
+            </div>
+            <div class="boss-badges"><span id="bossPowerBadge">ATK +0</span><span id="bossGuardBadge">防壁 0</span></div>
+          </div>
+          <div class="arena-center">
+            <div class="enemy-shadow" id="enemyShadow" aria-hidden="true">
+              <div class="halo"></div>
+              <div class="enemy-figure">
+                <div class="enemy-crown"></div>
+                <div class="enemy-head"><span class="eyes"></span></div>
+                <div class="enemy-body"></div>
+                <div class="enemy-blade"></div>
+              </div>
+              <div class="ground-glow"></div>
+            </div>
+            <div class="hit-number" id="bossHit" aria-hidden="true"></div>
+            <div class="arena-message" id="arenaMessage" aria-live="polite">あなたの行動を選択してください</div>
+          </div>
+          <div class="vignette" aria-hidden="true"></div>
+        </section>
+
+        <aside class="enemy-sidebar" aria-label="敵の情報と戦闘ログ">
+          <section class="sidebar-card intel-panel">
+            <div class="sidebar-heading"><span class="side-kicker">ENEMY INTEL / 敵情報</span><span class="info-dot" title="敵のカードは公開。行動は隠されています。">i</span></div>
+            <h2 id="enemyDeckHeading">敵のデッキ 4枚</h2>
+            <div class="enemy-deck" id="enemyDeck"></div>
+          </section>
+          <section class="sidebar-card log-panel">
+            <div class="sidebar-heading"><span class="side-kicker">BATTLE LOG / 戦闘ログ</span><span class="log-live">● LIVE</span></div>
+            <div class="log-list" id="combatLog" tabindex="0" aria-label="戦闘ログ" aria-live="polite" aria-relevant="additions"></div>
+          </section>
+        </aside>
+      </div>
+
+      <section class="player-zone" aria-label="あなたの状態と手札">
+        <div class="player-status">
+          <div class="player-identity"><span class="hero-emblem">✧</span><span><small>HERO / あなた</small><strong id="heroName">名もなき継承者</strong></span></div>
+          <div class="player-health">
+            <div class="health-topline"><span>自分 HP</span><b id="playerHpValue">40 <i>/ 40</i></b></div>
+            <div class="hp-track" role="progressbar" aria-label="プレイヤーHP" aria-valuemin="0" aria-valuemax="40" aria-valuenow="40" id="playerHpTrack"><div id="playerHpBar" class="hp-fill player-fill"></div></div>
+          </div>
+          <div class="player-metrics">
+            <div class="metric"><span>攻撃力</span><b id="attackValue">5</b></div>
+            <div class="metric mana-metric"><span>使用可能マナ</span><b id="manaValue">1 <small>/ 1</small></b></div>
+          </div>
+          <div class="player-conditions"><span class="condition" id="guardValue">結界 0</span><span class="condition" id="blockedValue">前ターン軽減 0</span></div>
+        </div>
+
+        <div class="hand-panel">
+          <div class="hand-heading">
+            <div class="hand-heading-left"><span class="heading-mark">▰</span><h2>手札</h2><span class="heading-desc">カードをクリックして使用 <span class="keyhint">1</span> <span class="keyhint">2</span> <span class="keyhint">3</span> <span class="keyhint">4</span> <span class="keyhint">5</span> <span class="keyhint">6</span></span></div>
+            <div class="hand-count">ビルド＋継承 <strong id="handCount">4枚</strong></div>
+          </div>
+          <div class="hand-row" id="hand" role="group" aria-label="使用できるカード"></div>
+          <div class="hand-footer">
+            <span class="assist-line" id="handTip">カードの使用順がコンボに影響します。</span>
+            <button id="endTurn" class="end-turn" type="button"><span>ターン終了</span><span class="turn-arrow">→</span><span class="button-sub">SPACE</span></button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="bottom-caption"><span>PHASE 3 / VER.0.8</span><span>効果詳細・強化比較を表示 / 継承は別枠（仮） / 返礼のバランス暫定調整</span><span class="caption-right">画像・外部APIなし / オフライン可</span></div>
+  </div>
+  <div class="end-overlay" id="resultOverlay" hidden>
+    <div class="end-dialog" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+      <span class="end-ornament">✦ ◇ ✦</span>
+      <div class="end-kicker" id="resultKicker">BATTLE COMPLETE</div>
+      <h2 id="resultTitle">勝利</h2>
+      <p id="resultText">灰の騎士を倒した。</p>
+      <div class="summary-line"><span id="resultRound">ROUND 4</span><span id="resultHp">残りHP 20</span></div>
+      <div id="inheritChoices" class="inherit-choices" hidden></div>
+      <button type="button" class="restart-button legacy-next" id="nextGenerationButton" hidden disabled>このカードを継承して第二紀へ →</button>
+      <button type="button" class="restart-button" id="restartButton">もう一度戦う　↺</button>
+      <span class="result-note" id="resultNote">※ 道中や強化は未実装</span>
+    </div>
+  </div>
+<script>
+'use strict';
+// Phase 3 Ver.0.8: responsive layout, based on Ver.0.7 card inspection, deterministic upgrade previews, healing fix and counter-mirror test tuning.
+// All balance values and the 5-card cap are experimental, not final rules.
+const RULES={firstHp:42,secondHp:52,firstBossHp:45,secondBossHp:59,cap:5};
+const LIB={
+ slash:{name:'斬撃',family:'attack',type:'攻撃',icon:'⚔',cost:1,desc:'攻撃力+強化×2のダメージ。',mark:'追撃：半分の威力でもう1回攻撃'},
+ boost:{name:'闘志',family:'buff',type:'強化',icon:'✦',cost:1,desc:'この戦闘中、攻撃力+2（強化ごとに+1）。',mark:'強化時に軽減4も獲得'},
+ guard:{name:'結界',family:'guard',type:'防御',icon:'⬡',cost:1,desc:'次の敵ターンのダメージを合計6軽減。',mark:'軽減が発生した時に敵へ3反射'},
+ return:{name:'返礼',family:'counter',type:'反撃',icon:'↗',cost:2,desc:'攻撃力+直前の軽減量（最大12）×2。ダメージの半分が防御を無視。',mark:'軽減0でも使用可。反撃倍率+1・固定威力+2'},
+ pierce:{name:'穿撃',family:'attack',type:'貫通',icon:'➶',cost:2,desc:'攻撃力+2の防御無視攻撃。',mark:'威力をさらに+5'},
+ rally:{name:'奮起',family:'buff',type:'攻防',icon:'✺',cost:1,desc:'この戦闘中の攻撃力+1、HPを2回復。',mark:'さらに軽減4を獲得'},
+ rush:{name:'速攻',family:'attack',type:'速攻',icon:'➤',cost:0,desc:'2ダメージ。マナを使わずに攻撃。',mark:'使用時のダメージ+5'},
+ siphon:{name:'吸命',family:'attack',type:'回復',icon:'♥',cost:2,desc:'攻撃力分のダメージ、HPを3回復。',mark:'回復量を大きく上昇'},
+ flurry:{name:'連牙',family:'attack',type:'多段攻撃',icon:'⚔',cost:2,desc:'攻撃力分のダメージを2回。',mark:'攻撃回数+1（合計3回）'},
+ seal:{name:'封魔',family:'control',type:'妨害',icon:'◈',cost:1,desc:'この敵ターンの使用可能マナを2減らす。',mark:'さらに相手に2ダメージ'},
+ poison:{name:'腐蝕',family:'dot',type:'継続攻撃',icon:'☣',cost:1,desc:'2ダメージ。敵ターン開始時3ダメージ×2回。',mark:'毒の持続+1ターン'},
+ thorns:{name:'棘衣',family:'guard',type:'防御反撃',icon:'✥',cost:1,desc:'次の敵ターンに6軽減、軽減した攻撃に3反撃。',mark:'反撃のダメージ+3'},
+ leech:{name:'血吸',family:'attack',type:'吸収',icon:'◉',cost:2,desc:'攻撃力分のダメージ、HPを3回復。',mark:'ダメージを追加+5'},
+ burst:{name:'破砕',family:'attack',type:'大技',icon:'✹',cost:3,desc:'攻撃力×2のダメージ。',mark:'追加ダメージ+8'},
+ fortify:{name:'堅陣',family:'buff',type:'攻防',icon:'✧',cost:1,desc:'この戦闘中の攻撃力+1、次の攻撃を4軽減。',mark:'攻撃力増加量+1'},
+ hex:{name:'萎縮',family:'control',type:'弱体',icon:'☽',cost:2,desc:'次の敵ターンの攻撃ダメージ-2。',mark:'同時に軽減4も獲得'}
+};
+const POOLS={1:['slash','boost','guard','return','pierce','rally','rush','siphon'],2:['flurry','seal','poison','thorns','leech','burst','fortify','hex']};
+const STARTERS={1:[{name:'剣の才',cards:['slash','boost'],info:'攻撃を重ねて押し切る'},{name:'守りの才',cards:['guard','return'],info:'防いだ攻撃を火力へ変える'},{name:'バランス',cards:['slash','guard'],info:'攻守の両方を備える'}],2:[{name:'連鎖の才',cards:['flurry','seal'],info:'連続攻撃とマナ妨害'},{name:'呪いの才',cards:['poison','thorns'],info:'毒と反撃で相手を削る'},{name:'攻勢の才',cards:['flurry','poison'],info:'多段攻撃と継続ダメージ'}]};
+const ROUTE=['add','upgrade','fork','special','fork'];
+const $=id=>document.getElementById(id);
+const clone=c=>({...c});
+const nameOf=c=>LIB[c.id].name+(c.lv?` +${c.lv}`:'')+(c.trait?' ✦':'');
+let era=1, mode='draft',draftIndex=-1,draftKind='starter', draftCards=[], inherited=null,previousHeroDeck=null,playedDeck=[],state=null,busy=false,soundOn=false,audio=null,version=0,selectedDraftKey=null;
+function newCard(id,legacy=false){return {id,lv:0,trait:false,inherited:legacy,key:legacy?'legacy':`${id}-${Math.random().toString(36).slice(2,7)}`};}
+function pickRandom(ids,n){const a=[...ids];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a.slice(0,n);}
+function getOptions(){return pickRandom(POOLS[era].filter(id=>!draftCards.some(c=>c.id===id)&&id!==inherited?.id),3);}
+function resetGame(){version++;era=1;inherited=null;previousHeroDeck=null;startEra();}
+function startEra(){version++;busy=false;state=null;mode='draft';draftIndex=-1;draftKind='starter';draftCards=[];selectedDraftKey=null;$('gameLayout').hidden=true;$('draftStage').hidden=false;$('resultOverlay').hidden=true;setHeader();renderDraft();}
+function setHeader(){const tag=era===1?'第一紀':'第二紀';$('generationName').textContent=tag;$('phaseLabel').textContent=`${tag}・${mode==='battle'?'戦闘':'道中構築'}`;$('heroName').textContent=tag+'の英雄';}
+function moveNext(){draftIndex++;if(draftIndex>=ROUTE.length){initBattle();return;}draftKind=ROUTE[draftIndex];renderDraft();}
+function applyStarter(cards){draftCards=cards.map(x=>newCard(x));moveNext();}
+function addCard(id){if(draftCards.length>=RULES.cap)return;draftCards.push(newCard(id));moveNext();}
+function upgradeCard(key,special=false){const c=draftCards.find(x=>x.key===key);if(!c||c.inherited)return; if(special){if(c.trait)return;c.trait=true;}else c.lv++;selectedDraftKey=c.key;moveNext();}
+function beginUpgradeFork(){draftKind='upgradeFork';renderDraft();}
+function addDraftChoice(title,subtitle,tag,onClick,cls=''){
+ const b=document.createElement('button');b.type='button';b.className='draft-choice '+cls;
+ for(const [tagName,className,value] of [['span','draft-label',tag],['strong','',title],['span','draft-desc',subtitle],['span','draft-cta','選択する →']]){
+  const el=document.createElement(tagName);if(className)el.className=className;el.textContent=value;b.appendChild(el);
+ }
+ b.addEventListener('click',onClick);$('draftOptions').appendChild(b);
+}
+// Card rules, choice previews, and the deck detail panel share the same number formulas.
+function effectSummary(c){const lv=c.lv||0,t=!!c.trait;switch(c.id){
+ case 'slash':return `攻撃力+${lv*2}ダメージ${t?'／追撃：その半分のダメージ':''}`;
+ case 'boost':return `戦闘中の攻撃力+${2+lv}${t?'／次の敵ターン軽減4':''}`;
+ case 'guard':return `次の敵ターンの合計ダメージを${6+lv*2}軽減${t?`／攻撃を防ぐたび${3+lv}反射`:''}`;
+ case 'return':return `攻撃力+前の敵ターンに防いだダメージ（最大12）×${2+lv+(t?1:0)}${t?'+2':''}。ダメージの半分が防御を無視${t?'／軽減0でも使用可':''}`;
+ case 'pierce':return `攻撃力+${2+lv*3+(t?5:0)}ダメージ／防御を無視`;
+ case 'rally':return `攻撃力+${1+lv}、HPを${2+lv}回復${t?'／次の敵ターン軽減4':''}`;
+ case 'rush':return `マナ0で${2+lv*2+(t?5:0)}ダメージ`;
+ case 'siphon':return `攻撃力+${lv*2}ダメージ／HPを${3+lv+(t?3:0)}回復`;
+ case 'flurry':return `攻撃力+${lv}ダメージ×${t?3:2}回`;
+ case 'seal':return `敵の次ターンのマナ-${2+lv}${t?'／敵に2ダメージ':''}`;
+ case 'poison':return `${2+lv}ダメージ／毒${3+lv}ダメージ×${t?3:2}ターン`;
+ case 'thorns':return `次の敵ターン${6+2*lv}軽減／防いだ攻撃に${3+lv+(t?3:0)}反射`;
+ case 'leech':return `攻撃力+${lv*2+(t?5:0)}ダメージ／HPを${3+lv}回復`;
+ case 'burst':return `攻撃力×2+${3*lv+(t?8:0)}ダメージ`;
+ case 'fortify':return `攻撃力+${1+lv+(t?1:0)}／次の敵ターン${4+2*lv}軽減`;
+ case 'hex':return `敵の次の攻撃ダメージ-${2+lv}${t?'／次の敵ターン軽減4':''}`;
+ default:return LIB[c.id].desc;
+}}
+function upgradePreview(c,special=false){const next={...c,lv:c.lv+(special?0:1),trait:special?true:c.trait};return `現在：${effectSummary(c)}\n変更後：${effectSummary(next)}${special?'\n追加効果：'+LIB[c.id].mark:''}`;}
+function renderDraftCardDetails(){const area=$('draftCardDetails');if(!area)return;const all=[...draftCards,...(era===2&&inherited?[inherited]:[])];
+ const c=all.find(x=>x.key===selectedDraftKey)||all[0];area.replaceChildren();if(!c){area.textContent='カードを選ぶと詳細が表示されます。';return;}
+ selectedDraftKey=c.key;const title=document.createElement('strong');title.textContent=`${LIB[c.id].icon} ${nameOf(c)}${c.inherited?' ［継承］':''} ／ COST ${LIB[c.id].cost}`;
+ const desc=document.createElement('span');desc.textContent=`現在の効果：${effectSummary(c)}`;
+ const trait=document.createElement('span');trait.className='draft-special-info';trait.textContent=c.trait?`✦ 刻印済：${LIB[c.id].mark}`:'刻印：なし';
+ const note=document.createElement('small');note.textContent=c.inherited?'継承枠：今回の通常強化イベントでは強化できません。':'強化候補では変更前後の性能を比較できます。';area.append(title,desc,trait,note);
+ for(const btn of $('draftDeck').children){btn.classList.toggle('selected',btn.dataset.key===c.key);btn.setAttribute('aria-pressed',String(btn.dataset.key===c.key));}
+}
+
+function renderDraft(){setHeader();$('draftStage').hidden=false;$('gameLayout').hidden=true;const titles={starter:['英雄の素質','この時代の戦い方を選ぶ。2枚から始まり、道中でビルドを育てる。'],add:['新しい技を獲得','3枚の候補から1枚を取得する。'],upgrade:['技の研鑽','カードを1段階強化する。強化内容はカードごとに異なる。'],fork:['分かれ道','新しいカードを取るか、既存カードを磨くか。'],upgradeFork:['技を磨く','代わりに通常カードを1段階強化する。継承カードは選べません。'],special:['特殊強化・刻印','カード1枚に専用の強力な効果を追加。1回限りの選択。']};
+ const [title,detail]=titles[draftKind];$('draftTitle').textContent=title;$('draftDescription').textContent=detail;
+ $('draftEra').textContent=era===1?'第一紀 / BEGINNING':'第二紀 / INHERITANCE';$('draftStep').textContent=draftIndex<0?'START':`${draftIndex+1} / ${ROUTE.length} EVENT`;
+ const deck=$('draftDeck');deck.replaceChildren();const all=[...draftCards,...(era===2&&inherited?[inherited]:[])];$('draftDeckCount').textContent=`通常 ${draftCards.length}枚${era===2&&inherited?' ＋ 継承1枚':''}　/ 仮上限5枚`;
+ for(const c of all){const s=document.createElement('button');s.type='button';s.dataset.key=c.key;s.className='draft-deck-chip'+(c.inherited?' legacy-chip':'');s.textContent=nameOf(c)+(c.inherited?'［継承］':'');s.title='カードの詳しい効果を表示';s.addEventListener('click',()=>{selectedDraftKey=c.key;renderDraftCardDetails();});deck.appendChild(s);}
+ const options=$('draftOptions');options.replaceChildren();
+ if(draftKind==='starter'){
+  for(const st of STARTERS[era])addDraftChoice(st.name,st.cards.map(id=>LIB[id].name).join(' ／ ')+'\n'+st.info,'START',()=>applyStarter(st.cards));
+ }else if(draftKind==='add'){
+  for(const id of getOptions())addDraftChoice(LIB[id].name,effectSummary(newCard(id)),`コスト ${LIB[id].cost}`,()=>addCard(id));
+ }else if(draftKind==='fork'){
+  if(draftCards.length<RULES.cap)for(const id of getOptions().slice(0,2))addDraftChoice(LIB[id].name,effectSummary(newCard(id)),`獲得 / COST ${LIB[id].cost}`,()=>addCard(id));
+  addDraftChoice('既存カードを強化','任意のカードを+1強化。新しいカードは増えない。','強化',beginUpgradeFork,'upgrade-branch');
+ }else{
+  const special=draftKind==='special';const canUpgrade=draftCards.filter(c=>!special||!c.trait);
+  for(const c of canUpgrade){addDraftChoice(nameOf(c),upgradePreview(c,special),special?'刻印を付与':'+1 強化',()=>upgradeCard(c.key,special));}
+ }
+ $('draftHint').textContent='※ 枚数・イベント数・効果は仮設定。継承カードは別枠で道中の強化対象外。候補に継承カードと同名の通常カードは出ない。';renderDraftCardDetails();
+}
+function initBattle(){version++;mode='battle';busy=false;state={round:1,deck:[...draftCards.map(clone),...(era===2&&inherited?[clone(inherited)]:[])],enemyDeck:era===1?['slash','boost','guard','pierce'].map(id=>newCard(id)):previousHeroDeck.map(clone),playerHp:era===1?RULES.firstHp:RULES.secondHp,maxPlayerHp:era===1?RULES.firstHp:RULES.secondHp,bossHp:era===1?RULES.firstBossHp:RULES.secondBossHp,maxBossHp:era===1?RULES.firstBossHp:RULES.secondBossHp,playerAtk:5,bossAtk:5,mana:1,playerManaPenalty:0,bossManaPenalty:0,playerGuard:0,bossGuard:0,playerThorns:0,bossThorns:0,playerPoison:{turns:0,dmg:0},bossPoison:{turns:0,dmg:0},playerWeak:0,bossWeak:0,playerBlockedNow:0,playerBlockedPrev:0,bossBlockedNow:0,bossBlockedPrev:0,played:new Set(),bossPlan:[],end:null};
+ $('draftStage').hidden=true;$('gameLayout').hidden=false;$('resultOverlay').hidden=true;
+ $('bossName').textContent=era===1?'灰の騎士':'先代の英雄';$('regionLabel').textContent=era===1?'忘却の聖堂':'継承の聖堂';$('combatLog').replaceChildren();
+ displayEnemyDeck();
+ commitBossPlan();addLog(`ROUND 1：使用可能マナ1。戦闘開始！`,'turn');announce('カードを使うか、ターン終了を選択');setHeader();render();
+}
+function displayEnemyDeck(){const panel=$('enemyDeck');panel.replaceChildren();$('enemyDeckHeading').textContent=`敵のデッキ ${state.enemyDeck.length}枚`;for(const c of state.enemyDeck){const d=document.createElement('div');d.className='deck-entry';const a=document.createElement('span');a.className='deck-cost';a.textContent=LIB[c.id].cost;const b=document.createElement('span');b.textContent=nameOf(c);const cc=document.createElement('span');cc.className='deck-class';cc.textContent=LIB[c.id].type;d.title=effectSummary(c)+(c.trait?' ／ 刻印：'+LIB[c.id].mark:'');d.append(a,b,cc);panel.append(d);}}
+function addLog(msg,type='info'){const list=$('combatLog'),d=document.createElement('div');d.className='log-item '+type;d.textContent=msg;const near=list.scrollHeight-list.clientHeight-list.scrollTop<45;list.appendChild(d);if(near)list.scrollTop=list.scrollHeight;}
+function announce(msg){$('arenaMessage').textContent=msg;$('handTip').textContent=msg;}
+function sound(k){if(!soundOn)return;try{audio??=new (window.AudioContext||window.webkitAudioContext)();audio.resume();const o=audio.createOscillator(),g=audio.createGain(),t=audio.currentTime;let f=k==='hit'?220:k==='win'?700:k==='block'?440:330;o.type=k==='hit'?'sawtooth':'sine';o.frequency.setValueAtTime(f,t);o.frequency.exponentialRampToValueAtTime(f*.54,t+.11);g.gain.setValueAtTime(.035,t);g.gain.exponentialRampToValueAtTime(.0001,t+.12);o.connect(g);g.connect(audio.destination);o.start(t);o.stop(t+.13);}catch(_){}}
+function animateHit(dmg,target){if(target==='boss'){$('bossHit').textContent='−'+dmg;const b=$('bossHit');b.classList.remove('active');void b.offsetWidth;b.classList.add('active');const e=$('enemyShadow');e.classList.remove('shake');void e.offsetWidth;e.classList.add('shake');}}
+function other(who){return who==='player'?'boss':'player';}
+function hpGet(who){return who==='player'?'playerHp':'bossHp';}
+function atkGet(who){return who==='player'?'playerAtk':'bossAtk';}
+function heal(who,n,label){const k=hpGet(who),limKey=who==='player'?'maxPlayerHp':'maxBossHp',missing=Math.max(0,state[limKey]-state[k]),v=Math.max(0,Math.min(n,missing));state[k]=Math.min(state[limKey],state[k]+v);addLog(`${who==='player'?'あなた':'敵'}：${label}でHP+${v}`,who==='player'?'hero':'enemy');}
+function hit(who,base,label,ignoreGuard=false,reflect=false,ignoreWeak=false,chargeReturn=true,guardPierce=0){if(state.end)return 0;const target=other(who),weak=ignoreWeak?0:state[`${who}Weak`],raw=Math.max(0,base-weak),key=`${target}Guard`,effectiveGuard=Math.floor(raw*(1-guardPierce)),block=ignoreGuard?0:Math.min(state[key],effectiveGuard),dmg=raw-block;
+ state[key]-=block;if(chargeReturn&&!reflect)state[`${target}BlockedNow`]+=block;state[hpGet(target)]=Math.max(0,state[hpGet(target)]-dmg);
+ addLog(`${who==='player'?'あなた':'敵'}の${label}：${dmg}ダメージ${block?`（${block}軽減）`:''}`,who==='player'?'hero':'enemy');if(dmg>0){animateHit(dmg,target);sound('hit');}else if(block)sound('block');
+ if(state[hpGet(target)]===0){finish(who==='player');return dmg;}
+ if(block>0&&!reflect&&state[`${target}Thorns`]>0)hit(target,state[`${target}Thorns`],'反射',false,true,false,false);
+ return dmg;
+}
+function playCard(who,c){if(state.end)return;const lib=LIB[c.id],lv=c.lv||0,t=!!c.trait,a=state[atkGet(who)],opp=other(who),prefix=who==='player'?'あなた':'敵';addLog(`${prefix}：${nameOf(c)}を使用${c.inherited?'【継承】':''}`,who==='player'?'hero':'enemy');
+ switch(c.id){
+ case 'slash':hit(who,a+lv*2,'斬撃');if(t&&!state.end)hit(who,Math.ceil((a+lv*2)/2),'追撃');break;
+ case 'boost':state[atkGet(who)]+=2+lv;if(t)state[`${who}Guard`]+=4;addLog(`${prefix}の攻撃力+${2+lv}`);break;
+ case 'guard':state[`${who}Guard`]+=6+2*lv;if(t)state[`${who}Thorns`]=3+lv;break;
+ case 'return':hit(who,a+Math.min(12,state[`${who}BlockedPrev`])*(2+lv+(t?1:0))+(t?2:0),'返礼',false,false,false,false,.5);break;
+ case 'pierce':hit(who,a+2+lv*3+(t?5:0),'穿撃',true);break;
+ case 'rally':state[atkGet(who)]+=1+lv;heal(who,2+lv,'奮起');if(t)state[`${who}Guard`]+=4;break;
+ case 'rush':hit(who,2+lv*2+(t?5:0),'速攻');break;
+ case 'siphon':hit(who,a+lv*2,'吸命');if(!state.end)heal(who,3+lv+(t?3:0),'吸命');break;
+ case 'flurry':for(let i=0;i<(t?3:2)&&!state.end;i++)hit(who,a+lv,`連牙 ${i+1}撃目`);break;
+ case 'seal':state[`${opp}ManaPenalty`]+=2+lv; if(t)hit(who,2,'封魔の余波');break;
+ case 'poison':hit(who,2+lv,'腐蝕');if(!state.end)state[`${opp}Poison`]={turns:t?3:2,dmg:3+lv};break;
+ case 'thorns':state[`${who}Guard`]+=6+2*lv;state[`${who}Thorns`]=3+lv+(t?3:0);break;
+ case 'leech':hit(who,a+lv*2+(t?5:0),'血吸');if(!state.end)heal(who,3+lv,'血吸');break;
+ case 'burst':hit(who,2*a+3*lv+(t?8:0),'破砕');break;
+ case 'fortify':state[atkGet(who)]+=1+(t?1:0)+lv;state[`${who}Guard`]+=4+lv*2;break;
+ case 'hex':state[`${opp}Weak`]=Math.max(state[`${opp}Weak`],2+lv);if(t)state[`${who}Guard`]+=4;break;
+ }
+}
+function canPlay(c,who){return c.id!=='return'||state[`${who}BlockedPrev`]>0||c.trait;}
+function useCard(key){if(mode!=='battle'||!state||busy||state.end)return;const c=state.deck.find(x=>x.key===key);if(!c||state.played.has(key)||LIB[c.id].cost>state.mana||!canPlay(c,'player'))return;state.mana-=LIB[c.id].cost;state.played.add(key);playCard('player',c);render();}
+function aiScore(c){let s={slash:14,boost:18,guard:9,return:18,pierce:13,rally:15,rush:17,siphon:13,flurry:17,seal:15,poison:18,thorns:10,leech:13,burst:16,fortify:15,hex:13}[c.id]||10;
+ if(c.id==='boost'&&state.round>=5)s-=6;if(['guard','thorns'].includes(c.id)&&state.round%2===0)s+=5;if(c.id==='return'&&state.bossBlockedPrev===0&&!c.trait)s=-100;
+ if(c.id==='seal'&&state.round>=5)s-=5;
+ return s+(c.lv||0)*.6+(c.trait?2:0);
+}
+function commitBossPlan(){const budget=state.round;let mana=budget;const available=[...state.enemyDeck].sort((a,b)=>aiScore(b)-aiScore(a)||LIB[a.id].cost-LIB[b.id].cost);state.bossPlan=[];
+ for(const c of available){if(LIB[c.id].cost<=mana&&canPlay(c,'boss')){state.bossPlan.push(c.key);mana-=LIB[c.id].cost;}}
+}
+const sleep=t=>new Promise(r=>setTimeout(r,t));
+async function endTurn(){if(mode!=='battle'||!state||state.end||busy)return;busy=true;const myVersion=version;render();
+ // Existing boss guard was prepared on its last turn and protects against the player's turn only.
+ state.playerWeak=0;state.bossBlockedPrev=state.bossBlockedNow;state.bossBlockedNow=0;state.bossGuard=0;state.bossThorns=0;
+ let mana=Math.max(0,state.round-state.bossManaPenalty);const actions=[];for(const key of state.bossPlan){const c=state.enemyDeck.find(x=>x.key===key);if(c&&LIB[c.id].cost<=mana&&canPlay(c,'boss')){actions.push(c);mana-=LIB[c.id].cost;}}
+ addLog(`敵のターン：${actions.length}枚使用${state.bossManaPenalty?`（封魔 −${state.bossManaPenalty}マナ）`:''}`,'turn');
+ if(state.bossPoison.turns>0){state.bossPoison.turns--;hit('player',state.bossPoison.dmg,'毒',false,false,true);render();}if(state.end){busy=false;render();return;}
+ for(const c of actions){await sleep(170);if(version!==myVersion)return;playCard('boss',c);render();if(state.end)break;}
+ if(version!==myVersion||state.end){busy=false;render();return;}
+ state.bossWeak=0;state.playerBlockedPrev=state.playerBlockedNow;state.playerBlockedNow=0;state.playerGuard=0;state.playerThorns=0;
+ state.round++;state.mana=Math.max(1,state.round-state.playerManaPenalty);state.playerManaPenalty=0;state.bossManaPenalty=0;state.played.clear();if(state.playerPoison.turns>0){state.playerPoison.turns--;hit('boss',state.playerPoison.dmg,'毒',false,false,true);if(state.end){busy=false;render();return;}}commitBossPlan();busy=false;addLog(`ROUND ${state.round}：マナ${state.mana}で開始`,'turn');announce('次の行動を選択してください');render();
+}
+function render(){if(!state||mode!=='battle')return;const s=state;$('roundValue').textContent=String(s.round).padStart(2,'0');$('bossHpValue').innerHTML=`${s.bossHp} <i>/ ${s.maxBossHp}</i>`;$('playerHpValue').innerHTML=`${s.playerHp} <i>/ ${s.maxPlayerHp}</i>`;
+ $('bossHpBar').style.width=100*s.bossHp/s.maxBossHp+'%';$('playerHpBar').style.width=100*s.playerHp/s.maxPlayerHp+'%';$('bossHpTrack').setAttribute('aria-valuemax',s.maxBossHp);$('bossHpTrack').setAttribute('aria-valuenow',s.bossHp);$('playerHpTrack').setAttribute('aria-valuemax',s.maxPlayerHp);$('playerHpTrack').setAttribute('aria-valuenow',s.playerHp);
+ $('attackValue').textContent=s.playerAtk;$('manaValue').innerHTML=`${s.mana} <small>/ ${s.round}</small>`;$('guardValue').textContent=`軽減 ${s.playerGuard}${s.playerThorns?'・反射':''}`;$('blockedValue').textContent=`前回軽減 ${s.playerBlockedPrev} / 毒 ${s.playerPoison.turns}T`;
+ $('bossPowerBadge').textContent=`攻撃力 ${s.bossAtk}`;$('bossGuardBadge').textContent=`軽減 ${s.bossGuard} / 毒 ${s.bossPoison.turns}T`;$('endTurn').disabled=busy||!!s.end;
+ $('handCount').textContent=`通常${s.deck.filter(c=>!c.inherited).length}枚${s.deck.some(c=>c.inherited)?' ＋ 継承1枚':''}`;
+ const hand=$('hand');hand.style.gridTemplateColumns=`repeat(${s.deck.length},minmax(0,1fr))`;hand.replaceChildren();
+ for(let i=0;i<s.deck.length;i++){const c=s.deck[i],lib=LIB[c.id],used=s.played.has(c.key),unusable=!canPlay(c,'player'),tooMuch=lib.cost>s.mana,locked=used||unusable||tooMuch||busy||!!s.end;const b=document.createElement('button');b.type='button';b.className=`game-card ${lib.family}${c.inherited?' inherited':''}${used?' used':''}${locked?' off':''}${c.id==='return'&&!unusable?' ready':''}`;b.disabled=locked;
+ let desc=effectSummary(c);if(c.id==='return'&&!unusable)desc=`今は${s.playerAtk+Math.min(12,s.playerBlockedPrev)*(2+c.lv+(c.trait?1:0))+(c.trait?2:0)}ダメージ（半分貫通）`; b.setAttribute('aria-label',`${i+1}番 ${nameOf(c)} コスト${lib.cost} ${desc}`);b.innerHTML=`<div class="card-top"><span class="card-symbol">${lib.icon}</span><span class="mana-cost">${lib.cost}</span></div><span class="card-name">${nameOf(c)}${c.inherited?' <small class="legacy-mark">継承</small>':''}</span><span class="card-type">${lib.type} / CARD ${i+1}</span><span class="card-desc">${desc}</span>${c.trait?`<span class="card-trait">✦ ${lib.mark}</span>`:''}<span class="card-status">${used?'使用済み':unusable?'軽減が必要':tooMuch?'マナ不足':c.trait?'特殊強化済':''}</span>`;
+ b.addEventListener('click',()=>useCard(c.key));hand.appendChild(b);
+ }
+}
+function finish(won){if(!state||state.end)return;state.end=won?'win':'lose';busy=false;const panel=$('resultOverlay'),dlg=panel.querySelector('.end-dialog');dlg.classList.toggle('lose',!won);panel.hidden=false;$('resultKicker').textContent=won?'VICTORY / 時代の継承':'DEFEAT / 挑戦は続く';$('resultTitle').textContent=won?'勝利':'敗北';$('resultRound').textContent=`ROUND ${state.round}`;$('resultHp').textContent=`残りHP ${state.playerHp}`;$('resultNote').textContent='Phase 3試作：道中の強化・カード数・性能は仮ルール。';$('inheritChoices').hidden=true;$('nextGenerationButton').hidden=true;$('restartButton').hidden=false;
+ if(won&&era===1){$('resultTitle').textContent='第一紀を突破';$('resultText').textContent='いま組んだデッキから、次の英雄に託す1枚を選ぼう。';$('inheritChoices').hidden=false;$('nextGenerationButton').hidden=false;$('nextGenerationButton').disabled=true;$('restartButton').hidden=true;const choices=$('inheritChoices');choices.replaceChildren();const snapshot=state.deck.filter(c=>!c.inherited).map(clone);previousHeroDeck=snapshot.map(clone);for(const c of snapshot){const b=document.createElement('button');b.className='inherit-option';b.type='button';b.textContent=`${LIB[c.id].icon} ${nameOf(c)}（コスト${LIB[c.id].cost}）`;b.addEventListener('click',()=>{inherited={...clone(c),inherited:true,key:'legacy'};for(const x of choices.children)x.classList.remove('chosen');b.classList.add('chosen');$('nextGenerationButton').disabled=false;$('resultText').textContent=`${nameOf(c)}を次の英雄へ。前の英雄は今回の通常デッキ全体を使用する。`;});choices.append(b);}$('nextGenerationButton').textContent='継承して第二紀の道中へ →';
+ }else if(won){$('resultText').textContent='自分が育てた先代の英雄を乗り越えた！ 2世代のテストはここまで。';$('resultKicker').textContent='PHASE 3 COMPLETE';$('restartButton').textContent='第一紀からもう一度';}else{$('resultText').textContent='このデッキのまま再戦できる。道中から組み直す場合は右上の「最初から」。';$('restartButton').textContent='この戦闘を再戦';}
+ addLog(won?'敵を倒した！':'英雄は倒れた……',won?'hero':'enemy');sound(won?'win':'hit');
+}
+function goNext(){if(era!==1||!inherited||!state||state.end!=='win')return;era=2;startEra();}
+$('endTurn').addEventListener('click',endTurn);$('resetButton').addEventListener('click',resetGame);$('restartButton').addEventListener('click',()=>{if(state&&state.end==='lose')initBattle();else resetGame();});$('nextGenerationButton').addEventListener('click',goNext);
+$('soundButton').addEventListener('click',()=>{soundOn=!soundOn;$('soundLabel').textContent=soundOn?'ON':'OFF';sound('boost');});
+document.addEventListener('keydown',e=>{if(e.ctrlKey||e.altKey||e.metaKey||e.repeat||e.target.closest('button,input,textarea,select'))return;if(mode!=='battle'||!state||state.end)return;const i=Number(e.key)-1;if(i>=0&&i<state.deck.length){useCard(state.deck[i].key);e.preventDefault();}if(e.code==='Space'){endTurn();e.preventDefault();}});
+window.phase3Debug=Object.freeze({effectSummary,heal,hit,playCard,renderDraftCardDetails,snapshot:()=>({mode,era,draftIndex,draftKind,draftCards:draftCards.map(clone),inherited:inherited&&clone(inherited),previousHeroDeck:previousHeroDeck&&previousHeroDeck.map(clone),state:state&&{...state,played:[...state.played],bossPlan:'非公開'}}),reset:resetGame,goNext});
+resetGame();
+
+</script>
+</body>
+</html>
