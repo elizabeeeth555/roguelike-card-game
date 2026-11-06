@@ -1,5 +1,6 @@
 'use strict';
 function renderDraft(){
+  setSceneArtwork('draft');
   const starting=app.draftCards.length===0;
   $('draftTitle').textContent=starting?'英雄の戦い方を選ぶ':'新たな技をひとつ';
   $('draftDescription').textContent=starting?'2枚から始め、3回の選択で5枚のビルドを完成させる。':'未所持の3枚から1枚を獲得。強化・継承のない第一紀限定の試練。';

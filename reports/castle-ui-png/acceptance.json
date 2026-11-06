@@ -1,0 +1,526 @@
+{
+  "checks": [
+    {
+      "name": "portrait-1366-01_black_swordsman",
+      "passed": true,
+      "w": 1366,
+      "h": 768,
+      "portraitHeight": 904.234375,
+      "portraitWidth": 900,
+      "portraitTop": 182,
+      "enemyWidth": 145.59375,
+      "enemyHeight": 44
+    },
+    {
+      "name": "portrait-1366-02_heavy_knight",
+      "passed": true,
+      "w": 1366,
+      "h": 768,
+      "portraitHeight": 873.75,
+      "portraitWidth": 900,
+      "portraitTop": 182,
+      "enemyWidth": 145.59375,
+      "enemyHeight": 44
+    },
+    {
+      "name": "portrait-1366-03_witch",
+      "passed": true,
+      "w": 1366,
+      "h": 768,
+      "portraitHeight": 873.75,
+      "portraitWidth": 900,
+      "portraitTop": 182,
+      "enemyWidth": 145.59375,
+      "enemyHeight": 44
+    },
+    {
+      "name": "portrait-1366-04_giant_warrior",
+      "passed": true,
+      "w": 1366,
+      "h": 768,
+      "portraitHeight": 833.109375,
+      "portraitWidth": 900,
+      "portraitTop": 182,
+      "enemyWidth": 145.59375,
+      "enemyHeight": 44
+    },
+    {
+      "name": "portrait-1366-05_scout",
+      "passed": true,
+      "w": 1366,
+      "h": 768,
+      "portraitHeight": 914.390625,
+      "portraitWidth": 900,
+      "portraitTop": 182,
+      "enemyWidth": 145.59375,
+      "enemyHeight": 44
+    },
+    {
+      "name": "portrait-1366-06_sage",
+      "passed": true,
+      "w": 1366,
+      "h": 768,
+      "portraitHeight": 889,
+      "portraitWidth": 900,
+      "portraitTop": 182,
+      "enemyWidth": 145.59375,
+      "enemyHeight": 44
+    },
+    {
+      "name": "compact-content-1366",
+      "passed": true
+    },
+    {
+      "name": "cd-visible-1366",
+      "passed": true
+    },
+    {
+      "name": "used-visible-1366",
+      "passed": true
+    },
+    {
+      "name": "used-priority-1366",
+      "passed": true
+    },
+    {
+      "name": "enemy-lock-1366",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1366-boss-0",
+      "passed": true
+    },
+    {
+      "name": "single-1366-boss-0",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1366-boss-1",
+      "passed": true
+    },
+    {
+      "name": "single-1366-boss-1",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1366-boss-2",
+      "passed": true
+    },
+    {
+      "name": "single-1366-boss-2",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1366-boss-3",
+      "passed": true
+    },
+    {
+      "name": "single-1366-boss-3",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1366-boss-4",
+      "passed": true
+    },
+    {
+      "name": "single-1366-boss-4",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1366-player-0",
+      "passed": true
+    },
+    {
+      "name": "single-1366-player-0",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1366-player-1",
+      "passed": true
+    },
+    {
+      "name": "single-1366-player-1",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1366-player-2",
+      "passed": true
+    },
+    {
+      "name": "single-1366-player-2",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1366-player-3",
+      "passed": true
+    },
+    {
+      "name": "single-1366-player-3",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1366-player-4",
+      "passed": true
+    },
+    {
+      "name": "single-1366-player-4",
+      "passed": true
+    },
+    {
+      "name": "enemy-full-description-1366",
+      "passed": true
+    },
+    {
+      "name": "portrait-1280-01_black_swordsman",
+      "passed": true,
+      "w": 1280,
+      "h": 720,
+      "portraitHeight": 818.796875,
+      "portraitWidth": 900,
+      "portraitTop": 178,
+      "enemyWidth": 145.59375,
+      "enemyHeight": 44
+    },
+    {
+      "name": "portrait-1280-02_heavy_knight",
+      "passed": true,
+      "w": 1280,
+      "h": 720,
+      "portraitHeight": 791.1875,
+      "portraitWidth": 900,
+      "portraitTop": 178,
+      "enemyWidth": 145.59375,
+      "enemyHeight": 44
+    },
+    {
+      "name": "portrait-1280-03_witch",
+      "passed": true,
+      "w": 1280,
+      "h": 720,
+      "portraitHeight": 791.1875,
+      "portraitWidth": 900,
+      "portraitTop": 178,
+      "enemyWidth": 145.59375,
+      "enemyHeight": 44
+    },
+    {
+      "name": "portrait-1280-04_giant_warrior",
+      "passed": true,
+      "w": 1280,
+      "h": 720,
+      "portraitHeight": 754.390625,
+      "portraitWidth": 900,
+      "portraitTop": 178,
+      "enemyWidth": 145.59375,
+      "enemyHeight": 44
+    },
+    {
+      "name": "portrait-1280-05_scout",
+      "passed": true,
+      "w": 1280,
+      "h": 720,
+      "portraitHeight": 828,
+      "portraitWidth": 900,
+      "portraitTop": 178,
+      "enemyWidth": 145.59375,
+      "enemyHeight": 44
+    },
+    {
+      "name": "portrait-1280-06_sage",
+      "passed": true,
+      "w": 1280,
+      "h": 720,
+      "portraitHeight": 805,
+      "portraitWidth": 900,
+      "portraitTop": 178,
+      "enemyWidth": 145.59375,
+      "enemyHeight": 44
+    },
+    {
+      "name": "compact-content-1280",
+      "passed": true
+    },
+    {
+      "name": "cd-visible-1280",
+      "passed": true
+    },
+    {
+      "name": "used-visible-1280",
+      "passed": true
+    },
+    {
+      "name": "used-priority-1280",
+      "passed": true
+    },
+    {
+      "name": "enemy-lock-1280",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1280-boss-0",
+      "passed": true
+    },
+    {
+      "name": "single-1280-boss-0",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1280-boss-1",
+      "passed": true
+    },
+    {
+      "name": "single-1280-boss-1",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1280-boss-2",
+      "passed": true
+    },
+    {
+      "name": "single-1280-boss-2",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1280-boss-3",
+      "passed": true
+    },
+    {
+      "name": "single-1280-boss-3",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1280-boss-4",
+      "passed": true
+    },
+    {
+      "name": "single-1280-boss-4",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1280-player-0",
+      "passed": true
+    },
+    {
+      "name": "single-1280-player-0",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1280-player-1",
+      "passed": true
+    },
+    {
+      "name": "single-1280-player-1",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1280-player-2",
+      "passed": true
+    },
+    {
+      "name": "single-1280-player-2",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1280-player-3",
+      "passed": true
+    },
+    {
+      "name": "single-1280-player-3",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-1280-player-4",
+      "passed": true
+    },
+    {
+      "name": "single-1280-player-4",
+      "passed": true
+    },
+    {
+      "name": "enemy-full-description-1280",
+      "passed": true
+    },
+    {
+      "name": "portrait-390-01_black_swordsman",
+      "passed": true,
+      "w": 390,
+      "h": 844,
+      "portraitHeight": 511.640625,
+      "portraitWidth": 366,
+      "portraitTop": 232,
+      "enemyWidth": 70,
+      "enemyHeight": 43
+    },
+    {
+      "name": "portrait-390-02_heavy_knight",
+      "passed": true,
+      "w": 390,
+      "h": 844,
+      "portraitHeight": 511.640625,
+      "portraitWidth": 366,
+      "portraitTop": 232,
+      "enemyWidth": 70,
+      "enemyHeight": 43
+    },
+    {
+      "name": "portrait-390-03_witch",
+      "passed": true,
+      "w": 390,
+      "h": 844,
+      "portraitHeight": 511.640625,
+      "portraitWidth": 366,
+      "portraitTop": 232,
+      "enemyWidth": 70,
+      "enemyHeight": 43
+    },
+    {
+      "name": "portrait-390-04_giant_warrior",
+      "passed": true,
+      "w": 390,
+      "h": 844,
+      "portraitHeight": 511.640625,
+      "portraitWidth": 366,
+      "portraitTop": 232,
+      "enemyWidth": 70,
+      "enemyHeight": 43
+    },
+    {
+      "name": "portrait-390-05_scout",
+      "passed": true,
+      "w": 390,
+      "h": 844,
+      "portraitHeight": 511.640625,
+      "portraitWidth": 366,
+      "portraitTop": 232,
+      "enemyWidth": 70,
+      "enemyHeight": 43
+    },
+    {
+      "name": "portrait-390-06_sage",
+      "passed": true,
+      "w": 390,
+      "h": 844,
+      "portraitHeight": 511.640625,
+      "portraitWidth": 366,
+      "portraitTop": 232,
+      "enemyWidth": 70,
+      "enemyHeight": 43
+    },
+    {
+      "name": "compact-content-390",
+      "passed": true
+    },
+    {
+      "name": "cd-visible-390",
+      "passed": true
+    },
+    {
+      "name": "used-visible-390",
+      "passed": true
+    },
+    {
+      "name": "used-priority-390",
+      "passed": true
+    },
+    {
+      "name": "enemy-lock-390",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-390-boss-0",
+      "passed": true
+    },
+    {
+      "name": "single-390-boss-0",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-390-boss-1",
+      "passed": true
+    },
+    {
+      "name": "single-390-boss-1",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-390-boss-2",
+      "passed": true
+    },
+    {
+      "name": "single-390-boss-2",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-390-boss-3",
+      "passed": true
+    },
+    {
+      "name": "single-390-boss-3",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-390-boss-4",
+      "passed": true
+    },
+    {
+      "name": "single-390-boss-4",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-390-player-0",
+      "passed": true
+    },
+    {
+      "name": "single-390-player-0",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-390-player-1",
+      "passed": true
+    },
+    {
+      "name": "single-390-player-1",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-390-player-2",
+      "passed": true
+    },
+    {
+      "name": "single-390-player-2",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-390-player-3",
+      "passed": true
+    },
+    {
+      "name": "single-390-player-3",
+      "passed": true
+    },
+    {
+      "name": "expanded-bounds-390-player-4",
+      "passed": true
+    },
+    {
+      "name": "single-390-player-4",
+      "passed": true
+    },
+    {
+      "name": "enemy-full-description-390",
+      "passed": true
+    },
+    {
+      "name": "no-js-errors",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "no-missing-resources",
+      "passed": true,
+      "missing": []
+    }
+  ],
+  "errors": [],
+  "missing": []
+}

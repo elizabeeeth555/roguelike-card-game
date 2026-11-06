@@ -45,6 +45,7 @@ function createCardView(id,side){
  view.className=`game-card ${GameData.category(spec)}${side==='boss'?' enemy-mini-card':''}${selected?' selected':''}${d.used?' spent':''}${d.remaining?' cooling':''}`;
  if((side==='boss'&&app.enemyActiveKey===id)||(side==='player'&&app.playerActiveKey===id))view.classList.add('active');
  view.dataset.cardId=id;view.dataset.side=side;
+ if(d.manaShort)view.classList.add('mana-unavailable');if(d.conditionMissing)view.classList.add('condition-unavailable');
  const open=document.createElement('button');open.type='button';open.className='card-open';
  open.disabled=['player','boss'].includes(side)&&!canInspectBattle();open.setAttribute('aria-expanded',String(selected));
  const cost=document.createElement('span');cost.className='card-cost'+(d.manaShort?' mana-short':'');cost.textContent=spec.cost;
@@ -56,10 +57,16 @@ function createCardView(id,side){
  const badge=document.createElement('span');badge.className='remaining-cd';badge.hidden=!d.remaining;badge.textContent=`残${d.remaining}`;
  const condition=document.createElement('span');condition.className='condition-mark';condition.textContent='⚠';condition.hidden=!d.conditionMissing;condition.setAttribute('aria-label','条件未達：対象の毒が必要');
  open.append(cost,name,tags,desc,cd,status,badge,condition);
+ if(side==='boss'){
+  const kind=document.createElement('span');kind.className='card-kind';
+  kind.textContent={attack:'⚔︎',defense:'⬡',heal:'♥',buff:'✦',poison:'☣︎'}[GameData.category(spec)]||'✦';
+  kind.setAttribute('aria-label',spec.tags.map(t=>GameData.TAG_LABELS[t]).join('＋'));open.append(kind);
+ }
  open.setAttribute('aria-label',`${spec.name}、${spec.cost}MP、基本CD${spec.cd}。${cardStatusText(id,side)}。詳細を開く`);view.append(open);
  if(selected){
   const detail=document.createElement('div');detail.className='inline-card-details';
   const full=document.createElement('p');full.textContent=cardDescription(id);
+  if(side==='boss'){const meta=document.createElement('p');meta.className='enemy-detail-meta';meta.textContent=`${spec.cost}MP ／ 基本CD${spec.cd} ／ ${spec.tags.map(t=>GameData.TAG_LABELS[t]).join('＋')}`;detail.append(meta);}
   const why=document.createElement('p');why.className='inline-card-reason';why.textContent=cardDetailStatus(id,side);detail.append(full,why);view.append(detail);
  }
  if(side==='player'){
@@ -92,7 +99,7 @@ function render(){
  for(const side of ['player','boss']){
   const a=s.actors[side];$(side+'HpValue').textContent=`${a.hp} / ${a.maxHp}`;$(side+'HpBar').style.width=a.hp/a.maxHp*100+'%';
   $(side+'HpTrack').setAttribute('aria-valuenow',a.hp);$(side+'HpTrack').classList.toggle('critical',a.hp<=a.maxHp*.25);
-  $(side+'ManaValue').textContent=`${a.mana} / ${a.manaCap}`;renderStatusIcons(side);
+  $(side+'ManaValue').textContent='♦'.repeat(a.mana)+'♢'.repeat(Math.max(0,a.manaCap-a.mana));$(side+'ManaValue').setAttribute('aria-label',`マナ ${a.mana} / ${a.manaCap}`);renderStatusIcons(side);
  }
  $('manaValue').textContent=`${s.actors.player.mana} / ${s.actors.player.manaCap}`;$('handCount').textContent=`通常 ${s.actors.player.deck.length} / 5`;
  for(const [side,container]of [['player','hand'],['boss','enemyDeck']])$(container).replaceChildren(...s.actors[side].deck.map(id=>{

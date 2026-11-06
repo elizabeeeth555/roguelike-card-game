@@ -15,7 +15,7 @@
 | `progression.js` | 初期2枚・重複除外・3回の獲得 |
 | `src/app/` | ブラウザの進行、演出待機と中断、再戦 |
 | `src/ui/` | DOM、詳細・確認ダイアログ、ポップアップ、ログ、イベント演出 |
-| `assets/asset-map.js` | 背景・音源・キャラIDとポーズ画像。大男・斥候は無効 |
+| `assets/asset-map.js` | 背景・音源・6キャラIDと加工画像。新素材では大男・斥候も有効 |
 
 旧ルールの6モジュールは`src/game/legacy/`に隔離。旧カード・強化・継承と624ケースの回帰テストを保持している。
 旧画面のソースは`archive/v0.9.5/`に参考保存した。これは独立して起動する旧デモではない。
@@ -94,3 +94,5 @@ CDはreadyOnとownTurnから表示する。残CDは今後の使用不可自タ�
 ターン終了確認はlegalActionsにカードまたは加速がある場合のみ。MPが余っていても何も実行できなければ確認しない。
 Nodeの既存テスト・UI回帰は71件。実ブラウザ追加確認は`python3 scripts/ui-pc-smoke.py URL`（Python PlaywrightとChromiumが必要）。
 詳細は[検証記録](../reports/pc-ui-rework/REPORT.md)。過去節のPC斜め配置・背面立ち絵の検証結果は旧UIの履歴。
+
+最新の古城UI表示仕様は [09-castle-ui-request.md](specs/first-era/09-castle-ui-request.md)。敵味方通算1枚拡大、回廊／玉座背景、6人の提供素材へ更新。`src/castle-ui.css`が旧スタイルを上書きする。

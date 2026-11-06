@@ -8,7 +8,7 @@ async function main(){
   fs.mkdirSync(out,{recursive:true});
   const child=spawn(process.env.CHROME_PATH||'C:/Program Files/Google/Chrome/Application/chrome.exe',
     [...(process.env.CHROME_NO_SANDBOX==='1'?['--no-sandbox','--disable-dev-shm-usage','--mute-audio']:[]),'--headless=new','--no-first-run','--disable-background-networking','--remote-debugging-port=0',
-      '--user-data-dir='+path.join(out,'chrome-profile'),'about:blank'],{windowsHide:true,stdio:['ignore','ignore','pipe']});
+      '--user-data-dir='+fs.mkdtempSync(path.join(out,'chrome-profile-')),'about:blank'],{windowsHide:true,stdio:['ignore','ignore','pipe']});
   let ws;
   try{
     const endpoint=await new Promise((resolve,reject)=>{
@@ -66,8 +66,8 @@ async function main(){
       document.getElementById('retryButton').click();hideTransitions();await Promise.resolve();
       const replay=app.retryPreset===preset&&JSON.stringify(app.draftCards)===deck&&app.battle.actors.player.hp===20&&app.battle.actors.player.mana===2;
       setCharacterImage(document.getElementById('bossPortrait'),'04_giant_warrior','boss');
-      const fallback=document.getElementById('bossPortrait').hidden&&!document.getElementById('bossPortrait').hasAttribute('src');
-      const noExcludedPaths=['04_giant_warrior','05_scout'].every(id=>!characterInfo(id).enabled&&Object.keys(characterInfo(id).images).length===0);
+      document.getElementById('bossPortrait').onerror();const fallback=document.getElementById('bossPortrait').hidden;
+      const allCharactersEnabled=Object.values(GAME_ASSETS.characterSets).every(c=>c.enabled&&c.images.boss&&c.images.face&&c.images.bust);
       const reserve=document.querySelector('.legacy-slot');reserve.focus();
       const focusTooltip=!document.getElementById('infoTooltip').hidden;
       reserve.click();const tapTooltip=!document.getElementById('infoTooltip').hidden;
@@ -75,8 +75,8 @@ async function main(){
       for(const kind of ['bgm','se']){const input=document.getElementById(kind+'Enabled');input.checked=false;input.dispatchEvent(new Event('change',{bubbles:true}));}
       const volume=document.getElementById('bgmVolume');volume.value=30;volume.dispatchEvent(new Event('input',{bubbles:true}));
       const audioSettings=!GameAudio.getState().bgm&&!GameAudio.getState().se&&GameAudio.getState().bgmVolume===.3;
-      document.getElementById('resetButton').click();
-      return {resetSafe,resultShown,replay,fallback,noExcludedPaths,focusTooltip,tapTooltip,audioSettings,newRun:app.mode==='draft'&&app.draftCards.length===0};
+      resetGame();
+      return {resetSafe,resultShown,replay,fallback,allCharactersEnabled,focusTooltip,tapTooltip,audioSettings,newRun:app.mode==='draft'&&app.draftCards.length===0};
     })()`);
     const result={reports,integration,errors};fs.writeFileSync(path.join(out,'browser-report.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
     if(errors.length||reports.some(r=>r.mode!=='battle'||r.cards!==5||r.outside||r.overflow||!r.detail||(r.width>760&&(!r.controlsVisible||!r.legacyVisible))||!r.loadedImage)||Object.values(integration).some(v=>v!==true))process.exitCode=1;

@@ -24,15 +24,24 @@ test('BGM・SE・英雄素材の参照が有効', () => {
   for(const path of paths) assert.ok(existsSync(join(root,path)),`${path} がありません`);
 });
 
-test('使用する4キャラの3ポーズは存在、大男・斥候の画像は設定から除外',()=>{
+test('提供された6キャラの立ち絵・顔・バストアップ参照とハッシュが一致',()=>{
   const sandbox={window:{}};vm.runInNewContext(readFileSync(join(root,'assets/asset-map.js'),'utf8'),sandbox);
   const characters=sandbox.window.GAME_ASSETS.characterSets;
-  for(const [id,character] of Object.entries(characters)){
-    if(['04_giant_warrior','05_scout'].includes(id)){assert.equal(character.enabled,false);assert.equal(Object.keys(character.images).length,0);}
-    else for(const pose of ['boss','face','back'])assert(existsSync(join(root,character.images[pose])));
+  for(const character of Object.values(characters)){
+    assert.equal(character.enabled,true);
+    for(const pose of ['boss','face','bust'])assert(existsSync(join(root,character.images[pose])));
   }
   const manifest=JSON.parse(readFileSync(join(root,'assets/characters/manifest.json'),'utf8'));
-  assert.equal(manifest.characters.length,4);
+  assert.equal(manifest.characters.length,6);
+  for(const character of manifest.characters){
+    const master=readFileSync(join(root,character.master));
+    assert.equal(createHash('sha256').update(master).digest('hex'),character.master_sha256);
+    assert.equal(master.readUInt32BE(16),1024);assert.equal(master.readUInt32BE(20),1536);
+    if(character.id!=='03_witch'){
+      assert.equal(character.originalAlphaPreserved,true);
+      assert.deepEqual(readFileSync(join(root,character.images.boss.path)),master,'透過済み5枚は原本と完全一致');
+    }else assert.equal(master[25],2,'魔女原本はRGBのまま保存');
+  }
   for(const character of manifest.characters)for(const [pose,info] of Object.entries(character.images)){
     assert.equal(characters[character.id].images[pose],info.path);
     const bytes=readFileSync(join(root,info.path));

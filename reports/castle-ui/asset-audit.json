@@ -1,0 +1,116 @@
+[
+  {
+    "id": "01_black_swordsman",
+    "source": "2-写真2.jpg",
+    "originalSize": [
+      853,
+      1280
+    ],
+    "sourceFormat": "JPEG RGB, opaque white background",
+    "outputSize": [
+      827,
+      1268
+    ],
+    "transparentPixels": 528117,
+    "opaquePixels": 518342,
+    "antialiasedPixels": 2177
+  },
+  {
+    "id": "02_heavy_knight",
+    "source": "3-写真3.jpg",
+    "originalSize": [
+      853,
+      1280
+    ],
+    "sourceFormat": "JPEG RGB, opaque white background",
+    "outputSize": [
+      839,
+      1270
+    ],
+    "transparentPixels": 373760,
+    "opaquePixels": 689660,
+    "antialiasedPixels": 2110
+  },
+  {
+    "id": "03_witch",
+    "source": "4-写真4.jpg",
+    "originalSize": [
+      853,
+      1280
+    ],
+    "sourceFormat": "JPEG RGB, opaque white background",
+    "outputSize": [
+      778,
+      1275
+    ],
+    "transparentPixels": 352038,
+    "opaquePixels": 634338,
+    "antialiasedPixels": 5574
+  },
+  {
+    "id": "04_giant_warrior",
+    "source": "5-写真5.jpg",
+    "originalSize": [
+      853,
+      1280
+    ],
+    "sourceFormat": "JPEG RGB, opaque white background",
+    "outputSize": [
+      851,
+      1278
+    ],
+    "transparentPixels": 301773,
+    "opaquePixels": 783407,
+    "antialiasedPixels": 2398
+  },
+  {
+    "id": "05_scout",
+    "source": "6-写真6.jpg",
+    "originalSize": [
+      853,
+      1280
+    ],
+    "sourceFormat": "JPEG RGB, opaque white background",
+    "outputSize": [
+      825,
+      1268
+    ],
+    "transparentPixels": 567084,
+    "opaquePixels": 475496,
+    "antialiasedPixels": 3520
+  },
+  {
+    "id": "06_sage",
+    "source": "7-写真7.jpg",
+    "originalSize": [
+      853,
+      1280
+    ],
+    "sourceFormat": "JPEG RGB, opaque white background",
+    "outputSize": [
+      810,
+      1269
+    ],
+    "transparentPixels": 276284,
+    "opaquePixels": 748997,
+    "antialiasedPixels": 2609
+  },
+  {
+    "background": "castle_corridor.png",
+    "originalUnchanged": true,
+    "size": [
+      1672,
+      941
+    ],
+    "webpBytes": 255222
+  },
+  {
+    "background": "castle_throne_room.png",
+    "originalUnchanged": true,
+    "size": [
+      1672,
+      941
+    ],
+    "webpBytes": 217146
+  }
+]

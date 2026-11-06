@@ -23,14 +23,16 @@ GitHub Pagesでも同じ構成で動きます。`src/`と`assets/`を同じ階�
 
 カードは攻撃＝赤、防御＝青、回復＝緑、補助＝金、毒付与＝紫。複合カードには文字タグも表示します。
 PC・スマホともカードを選んでその場で詳細を拡大し、選択カード直下の「使用する」で確定します。敵カードは効果確認専用です。自分の演出中は次の選択のみ可能で、追加使用・加速・ターン終了は待機します。
-数字キー1〜5はカード詳細、Spaceはターン終了。ターン演出はクリック・タップ・Enter/Spaceでスキップできます。
+数字キー1〜5はカード詳細、Spaceはターン終了。拡大は敵味方を通じて1枚だけ。
+右上の設定から演出速度・最初から（確認あり）、音量からBGM/SEを変更。ログは右端中央の独立タブで開閉。ターン演出はクリック・タップ・Enter/Spaceでスキップできます。
 
 ## 画像・音声
 
 PCは中央にボス、左下に顔付きプレイヤーHUD。敵5枚を常時公開し、下部に手札と操作を配置。ログは右ドロワー。スマホは敵が上、自分が下。
 通常5枚とは別の継承枠、ボス固有、プレイヤーパッシブは説明付きの予約表示のみです。
-大男・斥候の画像はユーザー指示で使用せず、代替表示にしています。5ボスのカード構成は維持。
-他4キャラの12PNGは仮素材で、読み込み失敗時も代替表示で進行できます。
+ユーザー提供の6人の立ち絵を採用。正式PNG原本は`assets/characters/masters/`、透過した立ち絵・顔・バストアップは`assets/characters/castle/`に保存しています。
+大男・斥候も新素材を使用し、5ボスのカード構成は維持。読み込み失敗時は代替表示で進行できます。
+道中は古城の回廊、戦闘は玉座の間の背景。原本PNGと配信用WebPを`assets/backgrounds/`に保存しています。
 
 画像・背景・音源は`assets/asset-map.js`で管理。既存SVGと音源は保持しています。
 BGMは道中Whispers in the Fog、戦闘Determined Pursuit。BGM/SEのON/OFFと音量変更に対応。
@@ -68,3 +70,16 @@ npm run simulate -- 10
 旧ルールは`src/game/legacy/`、旧画面ソースは`archive/v0.9.5/`に保持しています。
 
 PC UIの承認仕様は[08-pc-battle-ui.md](docs/specs/first-era/08-pc-battle-ui.md)。実装・テスト・スクリーンショットの記録は[PC UI改修報告](reports/pc-ui-rework/REPORT.md)を参照。
+
+## 古城UI・素材組み込み
+
+最新のUI指示は[古城UI依頼書](docs/specs/first-era/09-castle-ui-request.md)。旧UI資料と矛盾する表示仕様はこちらを優先。
+検証結果・素材対応表・スクリーンショットは[作業報告](reports/castle-ui/REPORT.md)を参照。
+ローカルHTTPサーバー起動後、`python scripts/castle-ui-smoke.py http://127.0.0.1:18080/`で画面検証できます。
+Python PlaywrightとChromiumが必要です。素材加工の再現は`prepare-castle-assets.py`を使用（Pillow・NumPy・SciPy）。
+
+### 正式PNG・ボス拡大・敵カード小型化
+
+最新6人の1024×1536 PNGへ差し替え。透過済み5枚の戦闘用画像は原本と完全一致、魔女だけ修正後RGB原本から背景除去。旧JPEG由来の派生物は差し替え済み。
+PCのボスは大幅に拡大し、倍率・位置は`assets/asset-map.js`の各キャラの`framing`で調整。敵カードはアイコン・名前・CD/使用済のみの横長44px表示で、効果は拡大詳細で確認。
+今回の[確認結果とスクリーンショット](reports/castle-ui-png/REPORT.md)を参照。

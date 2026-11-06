@@ -1,0 +1,107 @@
+{
+  "baseCommit": "a046e4cf7fad3bd6081ba874f43018fb3fc10564",
+  "checkedFiles": 20,
+  "unchanged": true,
+  "files": [
+    {
+      "path": "scripts/simulate.cjs",
+      "unchanged": true,
+      "sha256": "a186f993d606df6eac55085462422bbcda6af27d4c746474f8341052816dbd66"
+    },
+    {
+      "path": "src/app-state.js",
+      "unchanged": true,
+      "sha256": "ee65c60043947728496e1d24b3aa58b950f57f0746592ecb16ea59538547fc5f"
+    },
+    {
+      "path": "src/app/battle-controller.js",
+      "unchanged": true,
+      "sha256": "0b3f56933b66d6047407e414764eb9bdcdf9e2bda5b665e64a5faaebe2397f83"
+    },
+    {
+      "path": "src/app/draft-controller.js",
+      "unchanged": true,
+      "sha256": "1bb57d5bbf4cf797cdaca21d4d55c2db25373eb81a43b55d99dca934f751b724"
+    },
+    {
+      "path": "src/app/task-scope.js",
+      "unchanged": true,
+      "sha256": "fa69c6c0437281ad8c6dd0711b34c0b69e95c8783a1f3c4e2838678b9ba4dbf0"
+    },
+    {
+      "path": "src/game/battle-engine.js",
+      "unchanged": true,
+      "sha256": "10487fdf8087c7ad7171f82f94ea346d3200635003f49429bb030b3a31178767"
+    },
+    {
+      "path": "src/game/boss-planner.js",
+      "unchanged": true,
+      "sha256": "ec4de23177206beb3da7a6ee02d1eb60f50eba99af51c4c580b907049e330819"
+    },
+    {
+      "path": "src/game/card-data.js",
+      "unchanged": true,
+      "sha256": "bca424393b0b5e62f424bdfe6a1e90c763f8ceffe0091deee1f182aceda3b1a2"
+    },
+    {
+      "path": "src/game/card-effects.js",
+      "unchanged": true,
+      "sha256": "f0d4865768863085b72fc2551ca5da4f017caa2ac862da62deb79dab4ca53130"
+    },
+    {
+      "path": "src/game/combat-math.js",
+      "unchanged": true,
+      "sha256": "2b3098d6366d1434660bcfee3757dde7477b0d8c71b512fd2a4399915924f41f"
+    },
+    {
+      "path": "src/game/legacy/battle-engine.js",
+      "unchanged": true,
+      "sha256": "6be6d949af958b64e98623fe0408f3fa2d16452604d492742b1ad3910acd0a32"
+    },
+    {
+      "path": "src/game/legacy/boss-planner.js",
+      "unchanged": true,
+      "sha256": "8f23e34c42a2fbb9ba566cf3ddd35fb8d87d8ec1124e6b47bea82ffe5716c5e2"
+    },
+    {
+      "path": "src/game/legacy/card-data.js",
+      "unchanged": true,
+      "sha256": "7aa69844eb6f22e361f046e1d6fcb33a4c225261307d59e2f140ea7df6f0ea1a"
+    },
+    {
+      "path": "src/game/legacy/card-effects.js",
+      "unchanged": true,
+      "sha256": "36bacdfc7ec538e52e84ff357a839b490716ce12e9f4e9bb39c5453a5327f74d"
+    },
+    {
+      "path": "src/game/legacy/combat-math.js",
+      "unchanged": true,
+      "sha256": "558bd115648aa489166ed00c5704a1b516eaa3e22e3ebf49f8f6693c6ff23260"
+    },
+    {
+      "path": "src/game/legacy/progression.js",
+      "unchanged": true,
+      "sha256": "6a753d7319be0e2efbddcad84e05bab4a3b76dd1bb4710926ba2bb95dd93db83"
+    },
+    {
+      "path": "src/game/progression.js",
+      "unchanged": true,
+      "sha256": "a6f61b07c5106db1c3b3f66bc2693dafcd869ea67fa4c83e6ad68817bc78b8f0"
+    },
+    {
+      "path": "tests/fixtures/card-behavior-v0.9.5.json",
+      "unchanged": true,
+      "sha256": "8b27b7755d4c56162fd6c33c8c581c886afb1dcdb253d2f0bd44930b30cbae80"
+    },
+    {
+      "path": "tests/fixtures/first-era-bosses.json",
+      "unchanged": true,
+      "sha256": "11e528ba675450d48f83db2691927f9ebbbd3d0fbefc289a472336b5211dbe6a"
+    },
+    {
+      "path": "tests/fixtures/first-era-cards.json",
+      "unchanged": true,
+      "sha256": "f2f2a5973040b48f591ac11d119476f51dfdb549b7c0af955d61710c013daf8d"
+    }
+  ]
+}

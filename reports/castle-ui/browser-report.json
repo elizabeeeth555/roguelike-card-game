@@ -1,0 +1,76 @@
+{
+  "reports": [
+    {
+      "width": 1366,
+      "height": 768,
+      "mode": "battle",
+      "cards": 5,
+      "outside": 0,
+      "detail": true,
+      "controlsVisible": true,
+      "legacyVisible": true,
+      "loadedImage": true,
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "mode": "battle",
+      "cards": 5,
+      "outside": 0,
+      "detail": true,
+      "controlsVisible": true,
+      "legacyVisible": true,
+      "loadedImage": true,
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "mode": "battle",
+      "cards": 5,
+      "outside": 0,
+      "detail": true,
+      "controlsVisible": true,
+      "legacyVisible": true,
+      "loadedImage": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "mode": "battle",
+      "cards": 5,
+      "outside": 0,
+      "detail": true,
+      "controlsVisible": true,
+      "legacyVisible": true,
+      "loadedImage": true,
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "mode": "battle",
+      "cards": 5,
+      "outside": 0,
+      "detail": true,
+      "controlsVisible": true,
+      "legacyVisible": true,
+      "loadedImage": true,
+      "overflow": false
+    }
+  ],
+  "integration": {
+    "resetSafe": true,
+    "resultShown": true,
+    "replay": true,
+    "fallback": true,
+    "allCharactersEnabled": true,
+    "focusTooltip": true,
+    "tapTooltip": true,
+    "audioSettings": true,
+    "newRun": true
+  },
+  "errors": []
+}

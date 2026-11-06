@@ -20,6 +20,10 @@ function setCharacterImage(image,id,pose){
   const path=info&&info.enabled?info.images[pose]:null;
   if(!path){image.removeAttribute('src');showFallback();return;}
   image.onload=()=>{image.hidden=false;if(fallback)fallback.hidden=true;};
+  if(pose==='boss'){
+    const framing=info.framing||{};
+    for(const [key,value] of Object.entries(framing))image.parentElement.style.setProperty('--boss-'+key,String(value));
+  }
   showFallback();image.src=path;
 }
 function applyVisualAssets(){
@@ -28,8 +32,7 @@ function applyVisualAssets(){
   setCharacterImage($('bossPortrait'),state.bossCharacterId,'boss');
   $('heroPortrait').removeAttribute('src');$('heroPortrait').hidden=true;
   setCharacterImage($('heroFace'),state.playerCharacterId,'face');
-  const bg=GAME_ASSETS.background;
-  $('arena').style.setProperty('--battle-art',bg?`url("${bg}")`:'none');
+  setSceneArtwork('battle');
 }
 function effectVisual(kind,side){
   const figure=$(side==='boss'?'enemyShadow':'playerHpTrack');figure.classList.remove('casting');void figure.offsetWidth;figure.classList.add('casting');
@@ -51,4 +54,11 @@ function turnMessage(label,kind,ms){
   $('transitionText').textContent=label;overlay.style.setProperty('--banner-time',ms+'ms');
   sound(kind==='player'?'player_turn':kind==='enemy'?'enemy_turn':kind==='victory'?'win':'lose');
   return new Promise(resolve=>{app.transitionResolve=resolve;app.transitionTimer=setTimeout(hideTransitions,ms);});
+}
+
+function setSceneArtwork(scene){
+ const shell=$('sceneShell');shell.classList.toggle('battle-scene',scene==='battle');
+ const bg=GAME_ASSETS.backgrounds[scene];shell.style.setProperty('--scene-art',`url("${typeof URL==='function'?new URL(bg,document.baseURI).href:bg}")`);
+ $('settingsPanel').hidden=true;$('audioPanel').hidden=true;
+ $('settingsButton').setAttribute('aria-expanded','false');$('soundButton').setAttribute('aria-expanded','false');
 }

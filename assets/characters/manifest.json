@@ -1,117 +1,173 @@
 {
-  "schema_version": 1,
-  "generated_for": "継世の戦闘 第一紀戦闘ルール全面改修UI仮素材",
-  "notes": "正式配置された仮素材4キャラ×3ポーズ。統一シートからの切り出しであり、個別高精細原画ではない。元画像から変更なし。",
+  "source": "Approved 1024x1536 PNG masters, 2026-11-06; five original alphas preserved; latest witch RGB segmented",
   "characters": [
     {
       "id": "01_black_swordsman",
-      "name": "夜刃の剣士",
-      "short_label": "黒剣士",
+      "source": "1-01_black_swordsman.png",
+      "master": "assets/characters/masters/01_black_swordsman.png",
+      "master_sha256": "57cc182b1f389040163519e39329628bd737a1edcc2d650395ef74cfabbb28ab",
+      "originalMode": "RGBA",
+      "originalAlphaPreserved": true,
       "images": {
         "boss": {
-          "path": "assets/characters/01_black_swordsman_boss.png",
-          "width": 768,
-          "height": 1024,
-          "sha256": "99253c53aff8cc5bac7f39a24958980b5f5567b1fc83a34685441c21d474c4fe"
+          "path": "assets/characters/castle/01_black_swordsman_boss.png",
+          "width": 1024,
+          "height": 1536,
+          "sha256": "57cc182b1f389040163519e39329628bd737a1edcc2d650395ef74cfabbb28ab"
         },
         "face": {
-          "path": "assets/characters/01_black_swordsman_face.png",
-          "width": 512,
-          "height": 512,
-          "sha256": "d3cc9fd95813262df3a7d5087b20508de9df65ddfef697150edb7eb8e0f5b4e0"
+          "path": "assets/characters/castle/01_black_swordsman_face.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "07425928f92dbf213f2ce0f27a35cf419dd232b431587d5bc2ca9f169b29a8ec"
         },
-        "back": {
-          "path": "assets/characters/01_black_swordsman_back.png",
+        "bust": {
+          "path": "assets/characters/castle/01_black_swordsman_bust.png",
           "width": 768,
-          "height": 1024,
-          "sha256": "85b19910df3f2103bc5f6379f1587b8e3b3b88279e3e89bd43ee4b6c0c807c99"
+          "height": 705,
+          "sha256": "6a1aa8f07c4197ecbd929443f4e1809b0a3d4c1cd56d2baac0254b7064ed244f"
         }
       }
     },
     {
       "id": "02_heavy_knight",
-      "name": "蒼鋼の守護騎士",
-      "short_label": "重装騎士",
+      "source": "3-02_heavy_knight.png",
+      "master": "assets/characters/masters/02_heavy_knight.png",
+      "master_sha256": "d1ababb415c939d06924501ddda48bd239877a76be57cd5e1319f617292ffd11",
+      "originalMode": "RGBA",
+      "originalAlphaPreserved": true,
       "images": {
         "boss": {
-          "path": "assets/characters/02_heavy_knight_boss.png",
-          "width": 768,
-          "height": 1024,
-          "sha256": "ae96eedf6e99e99ba0c78db30adf6a2bee7dcf34bdb62cbe7ffd70f6819eafa5"
+          "path": "assets/characters/castle/02_heavy_knight_boss.png",
+          "width": 1024,
+          "height": 1536,
+          "sha256": "d1ababb415c939d06924501ddda48bd239877a76be57cd5e1319f617292ffd11"
         },
         "face": {
-          "path": "assets/characters/02_heavy_knight_face.png",
-          "width": 512,
-          "height": 512,
-          "sha256": "3ca75efc23a2c841b2bcb16dff6ce52a88271adde4206b6fcd94b933d91f614d"
+          "path": "assets/characters/castle/02_heavy_knight_face.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "c63c70d2faa24933620920cda4fc9bc166c567c0b588579eb5ff247da5bf8acb"
         },
-        "back": {
-          "path": "assets/characters/02_heavy_knight_back.png",
+        "bust": {
+          "path": "assets/characters/castle/02_heavy_knight_bust.png",
           "width": 768,
-          "height": 1024,
-          "sha256": "be3feced9bc1eacefbf481b133c84cb3b7bdafcebb84bce8928743c1268832d8"
+          "height": 705,
+          "sha256": "16eacec7233110f5cf4028c2cd2fdc5bbcdd5b463890052eee9096a2c2d6076f"
         }
       }
     },
     {
       "id": "03_witch",
-      "name": "紫苑の魔女",
-      "short_label": "魔女",
+      "source": "4-03_witch.png",
+      "master": "assets/characters/masters/03_witch.png",
+      "master_sha256": "a8a9914ae5d63c76e5baa3d663ac53343ebced3e5fbfc633b78fc5341f9b84b4",
+      "originalMode": "RGB",
+      "originalAlphaPreserved": false,
       "images": {
         "boss": {
-          "path": "assets/characters/03_witch_boss.png",
-          "width": 768,
-          "height": 1024,
-          "sha256": "4a5fc5f72905c01830788f1739e5b360a5aad22099e6e0e42c0ef99f686695e3"
+          "path": "assets/characters/castle/03_witch_boss.png",
+          "width": 1024,
+          "height": 1536,
+          "sha256": "8b13d0bac75b6c21b3a7070d099c77ece65ab756bc0c90d57f38743e89af54aa"
         },
         "face": {
-          "path": "assets/characters/03_witch_face.png",
-          "width": 512,
-          "height": 512,
-          "sha256": "2926d1dffcce08b8e61bcaa458609ccf33ebef71a9e0e873350405d36dbc43c9"
+          "path": "assets/characters/castle/03_witch_face.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "fc8bf19544f7beb19b651c9a4df0c17ec5049fa2f75eddfc06c0d4c4cdab31b6"
         },
-        "back": {
-          "path": "assets/characters/03_witch_back.png",
+        "bust": {
+          "path": "assets/characters/castle/03_witch_bust.png",
           "width": 768,
-          "height": 1024,
-          "sha256": "9edd112706f5d92189ce522eaf2c80c73ba79208e8f89daa1c58f05daa6c0666"
+          "height": 705,
+          "sha256": "34477673fa325775021787eaa4e35fbd3498ae87550b67e6843da1c9b11809b5"
+        }
+      }
+    },
+    {
+      "id": "04_giant_warrior",
+      "source": "5-04_big_man.png",
+      "master": "assets/characters/masters/04_big_man.png",
+      "master_sha256": "eed30a948db14291b342c1b0ecc9e8d63b839ca27270325f5645835217c39c8b",
+      "originalMode": "RGBA",
+      "originalAlphaPreserved": true,
+      "images": {
+        "boss": {
+          "path": "assets/characters/castle/04_big_man_boss.png",
+          "width": 1024,
+          "height": 1536,
+          "sha256": "eed30a948db14291b342c1b0ecc9e8d63b839ca27270325f5645835217c39c8b"
+        },
+        "face": {
+          "path": "assets/characters/castle/04_big_man_face.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "ac6beaf5ed0bac8cd1a5c6a2da9a34f13c5e025204cdb6d765152bbe09e3f7ba"
+        },
+        "bust": {
+          "path": "assets/characters/castle/04_big_man_bust.png",
+          "width": 768,
+          "height": 705,
+          "sha256": "42a94a7e465e99282495d04ab8c373b66b1378dee6dd21491d30a4fc6c8197c0"
+        }
+      }
+    },
+    {
+      "id": "05_scout",
+      "source": "2-05_scout.png",
+      "master": "assets/characters/masters/05_scout.png",
+      "master_sha256": "594a5d3e3356256d1aac8338ff99a2d780ce222f10ca494f7028ab4632cbb53a",
+      "originalMode": "RGBA",
+      "originalAlphaPreserved": true,
+      "images": {
+        "boss": {
+          "path": "assets/characters/castle/05_scout_boss.png",
+          "width": 1024,
+          "height": 1536,
+          "sha256": "594a5d3e3356256d1aac8338ff99a2d780ce222f10ca494f7028ab4632cbb53a"
+        },
+        "face": {
+          "path": "assets/characters/castle/05_scout_face.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "e6bbac44fb0f60b52d7730bc74ef25e200cc9e967dd80792db1364f418eb7c02"
+        },
+        "bust": {
+          "path": "assets/characters/castle/05_scout_bust.png",
+          "width": 768,
+          "height": 705,
+          "sha256": "d679c87432ef64e8bae14c9af0c62c5ae80f4d6c653ff87b52449a2783792906"
         }
       }
     },
     {
       "id": "06_sage",
-      "name": "暁の賢者",
-      "short_label": "老魔導士",
+      "source": "6-06_sage.png",
+      "master": "assets/characters/masters/06_sage.png",
+      "master_sha256": "5f714876dfb97d29549de37e82e3908c71e7502c135965ea1881c400dcc2f5ac",
+      "originalMode": "RGBA",
+      "originalAlphaPreserved": true,
       "images": {
         "boss": {
-          "path": "assets/characters/06_sage_boss.png",
-          "width": 768,
-          "height": 1024,
-          "sha256": "48c005bc2dd760e2a5f148f89f815350d22ebc9cdc474c9e9e8e1500bbebfb84"
+          "path": "assets/characters/castle/06_sage_boss.png",
+          "width": 1024,
+          "height": 1536,
+          "sha256": "5f714876dfb97d29549de37e82e3908c71e7502c135965ea1881c400dcc2f5ac"
         },
         "face": {
-          "path": "assets/characters/06_sage_face.png",
-          "width": 512,
-          "height": 512,
-          "sha256": "17db62895fd289a0b51158101f59762659975a6301861d9bfa3e94d7404598e5"
+          "path": "assets/characters/castle/06_sage_face.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "d90e9500c95d242b47a7962886df482d3d60e87489d1f53a659f18e11f6a9712"
         },
-        "back": {
-          "path": "assets/characters/06_sage_back.png",
+        "bust": {
+          "path": "assets/characters/castle/06_sage_bust.png",
           "width": 768,
-          "height": 1024,
-          "sha256": "7625154c1b0a6ad54c7b8d604d61761538aa43a8b1b929d0dc8081df23e8e354"
+          "height": 705,
+          "sha256": "99346ca80841005258d5190f0cd1ae72d2286e9dea6f1fb5baef3ec49357b39e"
         }
       }
-    }
-  ],
-  "excludedCharacters": [
-    {
-      "id": "04_giant_warrior",
-      "reason": "頭部などの欠けがあるためユーザー指示で不使用。ボスのデッキ構成は維持。"
-    },
-    {
-      "id": "05_scout",
-      "reason": "頭部などの欠けがあるためユーザー指示で不使用。ボスのデッキ構成は維持。"
     }
   ]
 }

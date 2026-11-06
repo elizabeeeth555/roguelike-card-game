@@ -16,8 +16,8 @@ function openCardDetail(id,side){
  if(!GameData.CARDS[id])return;
  if(['player','boss'].includes(side)){
   if(!canInspectBattle()||!app.battle.actors[side].deck.includes(id))return;
-  if(side==='player')app.selectedPlayer=app.selectedPlayer===id?null:id;
-  else app.selectedBoss=app.selectedBoss===id?null:id;
+  if(side==='player'){app.selectedPlayer=app.selectedPlayer===id?null:id;app.selectedBoss=null;}
+  else{app.selectedBoss=app.selectedBoss===id?null:id;app.selectedPlayer=null;}
   app.selectedCard=id;app.selectedSide=side;render();return;
  }
  if(app.mode!=='draft')return;
@@ -85,51 +85,29 @@ function setupInfoTooltips(){
 function setupAudioMenu(){
   const panel=$('audioPanel');
   const toggle=open=>{panel.hidden=!open;$('soundButton').setAttribute('aria-expanded',String(open));};
-  $('soundButton').addEventListener('click',()=>{toggle(panel.hidden);sound('ui_open');});
+  const settings=open=>{$('settingsPanel').hidden=!open;$('settingsButton').setAttribute('aria-expanded',String(open));};
+  $('settingsButton').addEventListener('click',()=>{const open=$('settingsPanel').hidden;toggle(false);settings(open);});
+  $('settingsClose').addEventListener('click',()=>settings(false));
+  $('soundButton').addEventListener('click',()=>{const open=panel.hidden;settings(false);toggle(open);sound('ui_open');});
   $('audioClose').addEventListener('click',()=>toggle(false));
   for(const kind of ['bgm','se']){
     $(kind+'Enabled').addEventListener('change',event=>GameAudio.toggle(kind,event.target.checked));
     $(kind+'Volume').addEventListener('input',event=>{GameAudio.volume(kind,event.target.value/100);$(kind+'VolumeText').textContent=event.target.value+'%';});
   }
-  document.addEventListener('keydown',event=>{if(event.key==='Escape')toggle(false);});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'){toggle(false);settings(false);}});
+  document.addEventListener('click',event=>{if(!event.target.closest('#audioPanel,#settingsPanel,#settingsButton,#soundButton')){toggle(false);settings(false);}});
 }
 
-// Clamp expanded descriptions, then separate the two panels without moving the card row.
+// Single expanded card: clamp the transformed card and its detail/use controls as one group.
 function positionCardDetails(){
  if(!document.querySelectorAll)return;
- const panels=[...document.querySelectorAll('.inline-card-details')];
- const shift=(el,x,y=0)=>{const parent=el.parentElement,scale=parent.getBoundingClientRect().width/parent.offsetWidth||1;el.style.setProperty('--detail-x',x/scale+'px');el.style.setProperty('--detail-y',y/scale+'px');};
- for(const panel of panels){const r=panel.getBoundingClientRect();shift(panel,Math.max(8-r.left,Math.min(0,innerWidth-8-r.right)));}
- // On PC keep the permanently visible HP/MP HUDs clear as well.
- if(innerWidth>760&&panels.length){
-  const obstacles=[...document.querySelectorAll('.player-status,.boss-hud')].map(n=>n.getBoundingClientRect());
-  const intersects=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
-  const options=panels.map(panel=>{const r=panel.getBoundingClientRect();return {panel,r,candidates:[r.left,8,innerWidth-r.width-8,...obstacles.map(h=>h.right+10)]};});
-  let best=null;
-  for(const x of options[0].candidates)for(const y of (options[1]?options[1].candidates:[0])){
-   const lefts=[x,y],rs=options.map((o,i)=>({...o.r,left:lefts[i],right:lefts[i]+o.r.width,top:o.r.top,bottom:o.r.bottom}));
-   if(rs.some(r=>r.left<8||r.right>innerWidth-8||obstacles.some(h=>intersects(r,h)))||(rs[1]&&intersects(rs[0],rs[1])))continue;
-   const cost=options.reduce((sum,o,i)=>sum+Math.abs(lefts[i]-o.r.left),0);
-   if(!best||cost<best.cost)best={lefts,cost};
-  }
-  if(best){options.forEach((o,i)=>{const scale=o.panel.parentElement.getBoundingClientRect().width/o.panel.parentElement.offsetWidth||1;
-   shift(o.panel,(parseFloat(o.panel.style.getPropertyValue('--detail-x'))||0)*scale+best.lefts[i]-o.r.left);});return;}
- }
- if(panels.length<2)return;
- const own=panels.find(p=>p.parentElement.dataset.side==='player'),enemy=panels.find(p=>p.parentElement.dataset.side==='boss');
- if(!own||!enemy)return;
- let a=own.getBoundingClientRect(),b=enemy.getBoundingClientRect();
- if(a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top){
-  const desired=b.left>a.width+16?8:innerWidth-a.width-8;
-  const original=parseFloat(own.style.getPropertyValue('--detail-x'))||0,scale=own.parentElement.getBoundingClientRect().width/own.parentElement.offsetWidth||1;
-  shift(own,original*scale+desired-a.left);
-  a=own.getBoundingClientRect();
-  if(a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top){
-   const next=Math.min(innerHeight-a.height-8,b.bottom+8);
-   shift(own,(parseFloat(own.style.getPropertyValue('--detail-x'))||0)*scale,next-a.top);
-   a=own.getBoundingClientRect();
-   if(a.top<b.bottom){const es=enemy.parentElement.getBoundingClientRect().width/enemy.parentElement.offsetWidth||1;
-    shift(enemy,(parseFloat(enemy.style.getPropertyValue('--detail-x'))||0)*es,Math.max(8-b.top,a.top-b.height-8-b.top));}
-  }
+ for(const card of document.querySelectorAll('.game-card.selected')){
+  card.style.setProperty('--card-shift-x','0px');card.style.setProperty('--card-shift-y','0px');
+  const rects=[card,...card.querySelectorAll('.inline-card-details,.card-use:not([hidden])')].map(n=>n.getBoundingClientRect());
+  const left=Math.min(...rects.map(r=>r.left)),right=Math.max(...rects.map(r=>r.right));
+  const top=Math.min(...rects.map(r=>r.top)),bottom=Math.max(...rects.map(r=>r.bottom));
+  card.style.setProperty('--card-shift-x',Math.max(8-left,Math.min(0,innerWidth-8-right))+'px');
+  card.style.setProperty('--card-shift-y',Math.max(8-top,Math.min(0,innerHeight-8-bottom))+'px');
  }
 }
+window.addEventListener('resize',()=>{if(app.mode==='battle')positionCardDetails();});

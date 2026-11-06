@@ -11,6 +11,8 @@
 | [戦闘ルール](specs/first-era/02-combat-rules.md) | マナ・CD・バリア・毒・妨害・終了順 |
 | [19カード表](specs/first-era/03-card-pool-A-D.md) | コスト、効果、CD、タグ |
 | [進行とボス](specs/first-era/04-progress-and-boss-presets.md) | 初期ビルド、獲得、固定5組、AI、再戦 |
+| [正式PNG・敵デッキ小型化](specs/first-era/10-png-compact-enemy-ui.md) | 最新差分：PNG原本・個別倍率・敵カード44px |
+| [最新の古城UI指示](specs/first-era/09-castle-ui-request.md) | UI・背景・6キャラの最新指示。旧UIの同時拡大・画像除外を置換 |
 | [UI仕様](specs/first-era/05-battle-ui-spec.md) | PC／スマホ、予約UI、色と文字、操作 |
 | [素材仕様](specs/first-era/06-assets-and-characters.md) | 採用12PNG、除外画像、フォールバック |
 | [受け入れ項目](specs/first-era/07-acceptance-tests.md) | 自動・実機テストとバランス観察 |

@@ -1,0 +1,649 @@
+{
+  "checks": [
+    {
+      "name": "corridor-1366",
+      "passed": true
+    },
+    {
+      "name": "draft-flow-1366",
+      "passed": true
+    },
+    {
+      "name": "layout-1366x768",
+      "passed": true,
+      "width": 1366,
+      "height": 768,
+      "own": 5,
+      "enemy": 5,
+      "controls": true,
+      "legacy": true,
+      "hud": true,
+      "bottomAligned": true,
+      "legacyRatio": 0.7778006802019993,
+      "legacyHeight": true,
+      "logMiddle": true,
+      "background": "linear-gradient(rgba(8, 12, 22, 0.65) 0%, rgba(8, 13, 21, 0.125) 40%, rgba(8, 13, 21, 0.467) 74%, rgba(7, 11, 20, 0.91) 100%), url(\"http://127.0.0.1:18080/assets/backgrounds/castle_throne_room.webp\")",
+      "loaded": true
+    },
+    {
+      "name": "throne-1366",
+      "passed": true
+    },
+    {
+      "name": "detail-1366-player-0",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1366-player-0",
+      "passed": true
+    },
+    {
+      "name": "detail-1366-player-1",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1366-player-1",
+      "passed": true
+    },
+    {
+      "name": "detail-1366-player-2",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1366-player-2",
+      "passed": true
+    },
+    {
+      "name": "detail-1366-player-3",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1366-player-3",
+      "passed": true
+    },
+    {
+      "name": "detail-1366-player-4",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1366-player-4",
+      "passed": true
+    },
+    {
+      "name": "detail-1366-boss-0",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1366-boss-0",
+      "passed": true
+    },
+    {
+      "name": "detail-1366-boss-1",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1366-boss-1",
+      "passed": true
+    },
+    {
+      "name": "detail-1366-boss-2",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1366-boss-2",
+      "passed": true
+    },
+    {
+      "name": "detail-1366-boss-3",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1366-boss-3",
+      "passed": true
+    },
+    {
+      "name": "detail-1366-boss-4",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1366-boss-4",
+      "passed": true
+    },
+    {
+      "name": "settings-open-1366",
+      "passed": true
+    },
+    {
+      "name": "exclusive-menus-1366",
+      "passed": true
+    },
+    {
+      "name": "corridor-1280",
+      "passed": true
+    },
+    {
+      "name": "draft-flow-1280",
+      "passed": true
+    },
+    {
+      "name": "layout-1280x720",
+      "passed": true,
+      "width": 1280,
+      "height": 720,
+      "own": 5,
+      "enemy": 5,
+      "controls": true,
+      "legacy": true,
+      "hud": true,
+      "bottomAligned": true,
+      "legacyRatio": 0.7806997484564372,
+      "legacyHeight": true,
+      "logMiddle": true,
+      "background": "linear-gradient(rgba(8, 12, 22, 0.65) 0%, rgba(8, 13, 21, 0.125) 40%, rgba(8, 13, 21, 0.467) 74%, rgba(7, 11, 20, 0.91) 100%), url(\"http://127.0.0.1:18080/assets/backgrounds/castle_throne_room.webp\")",
+      "loaded": true
+    },
+    {
+      "name": "throne-1280",
+      "passed": true
+    },
+    {
+      "name": "detail-1280-player-0",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1280-player-0",
+      "passed": true
+    },
+    {
+      "name": "detail-1280-player-1",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1280-player-1",
+      "passed": true
+    },
+    {
+      "name": "detail-1280-player-2",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1280-player-2",
+      "passed": true
+    },
+    {
+      "name": "detail-1280-player-3",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1280-player-3",
+      "passed": true
+    },
+    {
+      "name": "detail-1280-player-4",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1280-player-4",
+      "passed": true
+    },
+    {
+      "name": "detail-1280-boss-0",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1280-boss-0",
+      "passed": true
+    },
+    {
+      "name": "detail-1280-boss-1",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1280-boss-1",
+      "passed": true
+    },
+    {
+      "name": "detail-1280-boss-2",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1280-boss-2",
+      "passed": true
+    },
+    {
+      "name": "detail-1280-boss-3",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1280-boss-3",
+      "passed": true
+    },
+    {
+      "name": "detail-1280-boss-4",
+      "passed": true
+    },
+    {
+      "name": "single-selection-1280-boss-4",
+      "passed": true
+    },
+    {
+      "name": "settings-open-1280",
+      "passed": true
+    },
+    {
+      "name": "exclusive-menus-1280",
+      "passed": true
+    },
+    {
+      "name": "corridor-360",
+      "passed": true
+    },
+    {
+      "name": "draft-flow-360",
+      "passed": true
+    },
+    {
+      "name": "layout-360x800",
+      "passed": true,
+      "width": 360,
+      "height": 800,
+      "own": 5,
+      "enemy": 5,
+      "controls": true,
+      "legacy": true,
+      "hud": true,
+      "bottomAligned": false,
+      "legacyRatio": 0.7941937338315608,
+      "legacyHeight": true,
+      "logMiddle": true,
+      "background": "linear-gradient(rgba(8, 12, 22, 0.65) 0%, rgba(8, 13, 21, 0.125) 40%, rgba(8, 13, 21, 0.467) 74%, rgba(7, 11, 20, 0.91) 100%), url(\"http://127.0.0.1:18080/assets/backgrounds/castle_throne_room.webp\")",
+      "loaded": true
+    },
+    {
+      "name": "throne-360",
+      "passed": true
+    },
+    {
+      "name": "detail-360-player-0",
+      "passed": true
+    },
+    {
+      "name": "single-selection-360-player-0",
+      "passed": true
+    },
+    {
+      "name": "detail-360-player-1",
+      "passed": true
+    },
+    {
+      "name": "single-selection-360-player-1",
+      "passed": true
+    },
+    {
+      "name": "detail-360-player-2",
+      "passed": true
+    },
+    {
+      "name": "single-selection-360-player-2",
+      "passed": true
+    },
+    {
+      "name": "detail-360-player-3",
+      "passed": true
+    },
+    {
+      "name": "single-selection-360-player-3",
+      "passed": true
+    },
+    {
+      "name": "detail-360-player-4",
+      "passed": true
+    },
+    {
+      "name": "single-selection-360-player-4",
+      "passed": true
+    },
+    {
+      "name": "detail-360-boss-0",
+      "passed": true
+    },
+    {
+      "name": "single-selection-360-boss-0",
+      "passed": true
+    },
+    {
+      "name": "detail-360-boss-1",
+      "passed": true
+    },
+    {
+      "name": "single-selection-360-boss-1",
+      "passed": true
+    },
+    {
+      "name": "detail-360-boss-2",
+      "passed": true
+    },
+    {
+      "name": "single-selection-360-boss-2",
+      "passed": true
+    },
+    {
+      "name": "detail-360-boss-3",
+      "passed": true
+    },
+    {
+      "name": "single-selection-360-boss-3",
+      "passed": true
+    },
+    {
+      "name": "detail-360-boss-4",
+      "passed": true
+    },
+    {
+      "name": "single-selection-360-boss-4",
+      "passed": true
+    },
+    {
+      "name": "settings-open-360",
+      "passed": true
+    },
+    {
+      "name": "exclusive-menus-360",
+      "passed": true
+    },
+    {
+      "name": "corridor-390",
+      "passed": true
+    },
+    {
+      "name": "draft-flow-390",
+      "passed": true
+    },
+    {
+      "name": "layout-390x844",
+      "passed": true,
+      "width": 390,
+      "height": 844,
+      "own": 5,
+      "enemy": 5,
+      "controls": true,
+      "legacy": true,
+      "hud": true,
+      "bottomAligned": false,
+      "legacyRatio": 0.7901914503015998,
+      "legacyHeight": true,
+      "logMiddle": true,
+      "background": "linear-gradient(rgba(8, 12, 22, 0.65) 0%, rgba(8, 13, 21, 0.125) 40%, rgba(8, 13, 21, 0.467) 74%, rgba(7, 11, 20, 0.91) 100%), url(\"http://127.0.0.1:18080/assets/backgrounds/castle_throne_room.webp\")",
+      "loaded": true
+    },
+    {
+      "name": "throne-390",
+      "passed": true
+    },
+    {
+      "name": "detail-390-player-0",
+      "passed": true
+    },
+    {
+      "name": "single-selection-390-player-0",
+      "passed": true
+    },
+    {
+      "name": "detail-390-player-1",
+      "passed": true
+    },
+    {
+      "name": "single-selection-390-player-1",
+      "passed": true
+    },
+    {
+      "name": "detail-390-player-2",
+      "passed": true
+    },
+    {
+      "name": "single-selection-390-player-2",
+      "passed": true
+    },
+    {
+      "name": "detail-390-player-3",
+      "passed": true
+    },
+    {
+      "name": "single-selection-390-player-3",
+      "passed": true
+    },
+    {
+      "name": "detail-390-player-4",
+      "passed": true
+    },
+    {
+      "name": "single-selection-390-player-4",
+      "passed": true
+    },
+    {
+      "name": "detail-390-boss-0",
+      "passed": true
+    },
+    {
+      "name": "single-selection-390-boss-0",
+      "passed": true
+    },
+    {
+      "name": "detail-390-boss-1",
+      "passed": true
+    },
+    {
+      "name": "single-selection-390-boss-1",
+      "passed": true
+    },
+    {
+      "name": "detail-390-boss-2",
+      "passed": true
+    },
+    {
+      "name": "single-selection-390-boss-2",
+      "passed": true
+    },
+    {
+      "name": "detail-390-boss-3",
+      "passed": true
+    },
+    {
+      "name": "single-selection-390-boss-3",
+      "passed": true
+    },
+    {
+      "name": "detail-390-boss-4",
+      "passed": true
+    },
+    {
+      "name": "single-selection-390-boss-4",
+      "passed": true
+    },
+    {
+      "name": "settings-open-390",
+      "passed": true
+    },
+    {
+      "name": "exclusive-menus-390",
+      "passed": true
+    },
+    {
+      "name": "corridor-430",
+      "passed": true
+    },
+    {
+      "name": "draft-flow-430",
+      "passed": true
+    },
+    {
+      "name": "layout-430x932",
+      "passed": true,
+      "width": 430,
+      "height": 932,
+      "own": 5,
+      "enemy": 5,
+      "controls": true,
+      "legacy": true,
+      "hud": true,
+      "bottomAligned": false,
+      "legacyRatio": 0.7860497886331611,
+      "legacyHeight": true,
+      "logMiddle": true,
+      "background": "linear-gradient(rgba(8, 12, 22, 0.65) 0%, rgba(8, 13, 21, 0.125) 40%, rgba(8, 13, 21, 0.467) 74%, rgba(7, 11, 20, 0.91) 100%), url(\"http://127.0.0.1:18080/assets/backgrounds/castle_throne_room.webp\")",
+      "loaded": true
+    },
+    {
+      "name": "throne-430",
+      "passed": true
+    },
+    {
+      "name": "detail-430-player-0",
+      "passed": true
+    },
+    {
+      "name": "single-selection-430-player-0",
+      "passed": true
+    },
+    {
+      "name": "detail-430-player-1",
+      "passed": true
+    },
+    {
+      "name": "single-selection-430-player-1",
+      "passed": true
+    },
+    {
+      "name": "detail-430-player-2",
+      "passed": true
+    },
+    {
+      "name": "single-selection-430-player-2",
+      "passed": true
+    },
+    {
+      "name": "detail-430-player-3",
+      "passed": true
+    },
+    {
+      "name": "single-selection-430-player-3",
+      "passed": true
+    },
+    {
+      "name": "detail-430-player-4",
+      "passed": true
+    },
+    {
+      "name": "single-selection-430-player-4",
+      "passed": true
+    },
+    {
+      "name": "detail-430-boss-0",
+      "passed": true
+    },
+    {
+      "name": "single-selection-430-boss-0",
+      "passed": true
+    },
+    {
+      "name": "detail-430-boss-1",
+      "passed": true
+    },
+    {
+      "name": "single-selection-430-boss-1",
+      "passed": true
+    },
+    {
+      "name": "detail-430-boss-2",
+      "passed": true
+    },
+    {
+      "name": "single-selection-430-boss-2",
+      "passed": true
+    },
+    {
+      "name": "detail-430-boss-3",
+      "passed": true
+    },
+    {
+      "name": "single-selection-430-boss-3",
+      "passed": true
+    },
+    {
+      "name": "detail-430-boss-4",
+      "passed": true
+    },
+    {
+      "name": "single-selection-430-boss-4",
+      "passed": true
+    },
+    {
+      "name": "settings-open-430",
+      "passed": true
+    },
+    {
+      "name": "exclusive-menus-430",
+      "passed": true
+    },
+    {
+      "name": "portrait-01_black_swordsman",
+      "passed": true
+    },
+    {
+      "name": "portrait-02_heavy_knight",
+      "passed": true
+    },
+    {
+      "name": "portrait-03_witch",
+      "passed": true
+    },
+    {
+      "name": "portrait-04_giant_warrior",
+      "passed": true
+    },
+    {
+      "name": "portrait-05_scout",
+      "passed": true
+    },
+    {
+      "name": "portrait-06_sage",
+      "passed": true
+    },
+    {
+      "name": "log-does-not-pause",
+      "passed": true
+    },
+    {
+      "name": "enemy-inspection-locked",
+      "passed": true
+    },
+    {
+      "name": "enemy-turn-completes",
+      "passed": true
+    },
+    {
+      "name": "simultaneous-hit",
+      "passed": true
+    },
+    {
+      "name": "reset-cancel",
+      "passed": true
+    },
+    {
+      "name": "reset-confirm",
+      "passed": true
+    },
+    {
+      "name": "no-js-errors",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "no-missing-resources",
+      "passed": true,
+      "requests": []
+    }
+  ],
+  "errors": [],
+  "failedRequests": []
+}

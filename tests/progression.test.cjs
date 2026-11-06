@@ -61,11 +61,11 @@ test('勝利・敗北とも同条件再戦と最初からを提供し、全戦�
     b.get('restartButton').click();assert.equal(b.evaluate('app.mode'),'draft');assert.equal(b.evaluate('app.draftCards.length'),0);
   }
 });
-test('大男・斥候は画像を参照せず代替表示、他画像の失敗も安全',async()=>{
+test('大男・斥候の新素材を参照し、画像読み込み失敗時は安全に代替表示',async()=>{
   const b=browser();await b.build();
   for(const id of ['04_giant_warrior','05_scout']){
-    b.evaluate(`setCharacterImage($('bossPortrait'),'${id}','boss')`);assert.equal(b.get('bossPortrait').hidden,true);assert.equal(b.get('bossPortrait').src,undefined);
-    assert.equal(b.evaluate(`Object.keys(characterInfo('${id}').images).length`),0);
+    b.evaluate(`setCharacterImage($('bossPortrait'),'${id}','boss')`);assert.equal(b.get('bossPortrait').hidden,true);assert.match(b.get('bossPortrait').src,/assets\/characters\/castle\//);
+    assert.equal(b.evaluate(`Object.keys(characterInfo('${id}').images).length`),3);
   }
   b.evaluate(`setCharacterImage($('bossPortrait'),'03_witch','boss');$('bossPortrait').onerror()`);assert.equal(b.get('bossPortrait').hidden,true);assert.equal(b.evaluate('app.mode'),'battle');
 });
@@ -96,10 +96,11 @@ test('自カード演出中に次を選べるが使用・加速・ターン終�
  assert.equal(b.evaluate('app.battle.actors.player.accelerationPending'),false);assert.equal(b.evaluate('app.battle.active'),'player');
  await b.settle(animation);assert.equal(b.evaluate('app.busy'),false);
 });
-test('敵味方各1枚の選択と敵ターン禁止、予測はバリアとHPを分け不変',async()=>{
+test('敵味方を通じて拡大1枚のみ、敵ターン禁止、予測はバリアとHPを分け不変',async()=>{
  const b=browser();await b.build();
  b.evaluate("app.battle.actors.boss.barrier=1;openCardDetail('slash','player');openCardDetail(app.battle.actors.boss.deck[0],'boss')");
- assert.equal(b.evaluate('app.selectedPlayer'),'slash');assert(b.evaluate('app.selectedBoss'));
+ assert.equal(b.evaluate('app.selectedPlayer'),null);assert(b.evaluate('app.selectedBoss'));
+ b.evaluate("openCardDetail('slash','player')");assert.equal(b.evaluate('app.selectedPlayer'),'slash');assert.equal(b.evaluate('app.selectedBoss'),null);
  const before=b.evaluate('JSON.stringify(app.battle)');assert.equal(b.evaluate("cardDamagePreview('slash').damage"),1);assert.equal(b.evaluate("cardDamagePreview('slash').blocked"),1);assert.equal(b.evaluate('JSON.stringify(app.battle)'),before);
  const turn=b.evaluate('endTurn(true)');b.evaluate("openCardDetail('slash','player')");assert.equal(b.evaluate('app.selectedPlayer'),null);assert.equal(b.evaluate('app.selectedBoss'),null);
  b.evaluate('resetGame()');await turn;

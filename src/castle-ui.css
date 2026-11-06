@@ -1,0 +1,179 @@
+/* Castle presentation. Rules, card definitions and AI remain in the shared core. */
+body{background:#0d121b}
+.app-shell{max-width:none;padding:0 24px;min-height:100svh;position:relative;isolation:isolate;background:linear-gradient(180deg,#080c16a6 0%,#080d1520 40%,#080d1577 74%,#070b14e8 100%),var(--scene-art) center/cover fixed no-repeat}
+.topbar{height:90px;position:relative;z-index:40}
+.topbar nav{margin-left:auto;align-self:flex-start;margin-top:18px;gap:8px}
+.topbar nav button{width:36px;height:36px;padding:0;background:#10182399;border-color:#c0a87860;font-size:22px}
+.battle-scene .identity{display:none}
+.battle-scene .topbar{height:0}
+.battle-scene .topbar nav{position:fixed;top:0;right:24px}
+.settings-panel,.audio-panel{position:fixed;top:62px;right:24px;width:min(330px,calc(100vw - 32px));z-index:100;background:#111925f5;border:1px solid #b69a67;border-radius:8px;padding:16px;box-shadow:0 10px 35px #0009}
+.settings-panel{display:grid;gap:12px}
+.audio-panel p{font-size:10px}
+footer{height:22px;position:relative;z-index:2}
+#gameLayout{height:calc(100svh - 22px);min-height:650px;display:block;position:relative}
+.arena{position:absolute;inset:0;border:0;border-radius:0;background:none;isolation:auto;overflow:visible}
+.arena:after{display:none}
+.arena-topline{top:22px;left:0;right:auto;display:flex;flex-direction:column;gap:5px;text-shadow:0 2px 8px #000}
+.arena-topline span{font-size:9px;color:#cbb88d;letter-spacing:.16em}
+.arena-topline b{font-size:29px;font-weight:500;letter-spacing:.08em;color:#f8edda}
+.boss-hud{top:22px;left:50%;right:auto;width:min(620px,49vw);transform:translateX(-50%);padding:0;min-height:0;background:none;border:0;border-radius:0;display:block;z-index:6;text-shadow:0 2px 6px #000}
+.hud-heading{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:7px}
+.hud-heading h2{font-size:19px;line-height:1.2;white-space:nowrap}
+.hp-label{font-size:10px;white-space:nowrap;color:#d1c9bd}
+.hp-label b{font-size:12px;color:#fff5e3;margin-left:5px}
+.hp-track{height:9px;background:#050911b8;border-color:#c6a8796b;box-shadow:0 2px 8px #0005}
+.hud-under{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;min-height:36px;margin-top:6px}
+.mana-gems{color:#92cdef;font-size:24px;line-height:24px;letter-spacing:3px;text-shadow:0 0 9px #5db5ef75;white-space:nowrap}
+.hud-effects{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:4px;max-width:70%}
+.boss-hud .status-line,.boss-hud .buff-line,.player-status .status-line,.player-status .buff-line{position:static;display:flex;gap:3px;margin:0;grid-area:auto}
+.status-icon{width:25px;height:25px;background:#101c29b0;border-color:#7c8d9c80}
+.status-symbol{font-size:23px}.status-icon b{font-size:11px}
+.reserve-icon{width:23px;height:23px;padding:0;font-size:11px;background:#10172288;border-color:#9d8b6d44}
+.damage-preview{top:100%;left:0;font-size:11px;max-width:100%;background:#131b29eb}
+.enemy-deck-panel{top:116px;width:min(720px,62vw);z-index:8}
+.enemy-deck-heading{font-size:8px;letter-spacing:.06em;margin-bottom:5px;text-shadow:0 2px 6px #000}
+.enemy-deck{gap:8px}
+.enemy-deck .game-card{height:118px}
+.enemy-mini-card .card-open{min-height:0;padding:8px;gap:3px}
+.enemy-mini-card .card-name{font-size:13px}
+.enemy-mini-card .card-description{font-size:10px}
+.boss-figure{top:255px;bottom:65px;width:min(580px,50vw);z-index:1}
+.boss-figure img{object-fit:contain;object-position:center bottom;filter:drop-shadow(0 12px 12px #0008)}
+.player-status{position:absolute;bottom:20px;left:0;width:230px;padding:0;border:0;border-radius:0;background:none;backdrop-filter:none;display:flex;align-items:flex-start;gap:9px;z-index:12;text-shadow:0 2px 6px #000}
+.player-status .face-frame{width:42px;height:42px;flex-shrink:0;margin-top:0;background:#141f2b99;border-color:#c1a77a88}
+.player-status .hud-body{flex:1;min-width:0}
+.player-status .hud-heading{gap:4px;margin-bottom:7px;align-items:flex-start;flex-wrap:wrap}
+.player-status h2{font-size:13px}
+.player-status .hp-label{font-size:9px}.player-status .hp-label b{font-size:10px;margin-left:2px}
+.player-status .hud-under{min-height:28px;flex-wrap:wrap;margin-bottom:0}
+.player-status .hud-effects{max-width:100%}
+.player-status .mana-gems{font-size:21px;letter-spacing:2px}
+.hand-panel{position:absolute;bottom:20px;left:250px;right:0;height:170px;display:grid;grid-template-columns:minmax(0,1fr) 140px;grid-template-rows:1fr;gap:14px;padding:0;border:0;border-radius:0;background:none;z-index:10;pointer-events:none}
+.hand-panel:before{content:'';position:absolute;inset:-55px -24px -20px -274px;background:linear-gradient(0deg,#080e17e8,#080e1760 65%,transparent);z-index:-1;pointer-events:none}
+.hand-and-legacy{grid-row:1;grid-column:1;grid-template-columns:minmax(0,1fr) minmax(68px,.75fr);gap:10px;pointer-events:auto}
+.hand-row{grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+/* Six proportional columns: the locked slot is three quarters of one card. */
+.hand-and-legacy{grid-template-columns:minmax(0,5fr) minmax(0,.75fr)}
+.hand-heading,.card-legend{display:none}
+.actionbar{grid-column:2;grid-row:1;justify-content:flex-end;gap:8px;pointer-events:auto}
+.actionbar #accelerateButton{min-height:55px;font-size:12px;padding:7px 5px;background:#192938e6;border-color:#8dabc073}
+.actionbar #endTurn{min-height:77px;font-size:16px;background:linear-gradient(130deg,#806541ed,#443523f5);border-color:#d0ac70}
+.actionbar small{font-size:9px;margin-top:3px}
+.legacy-slot{height:100%;width:100%;padding:4px;gap:8px;border:1px solid #7e6e5477;background:linear-gradient(150deg,#171b24d9,#0b101be8);font-size:22px;color:#ab9672}
+.legacy-slot strong{font-size:11px}.legacy-slot span{font-size:9px}
+.hand-row .card-open{padding:9px 8px;gap:5px}
+.hand-row .card-name{font-size:14px}.hand-row .card-description{font-size:11px}
+.hand-row .card-tags{font-size:9px}.hand-row .card-cd{font-size:10px}
+.card-cost{width:20px;height:20px;line-height:19px;font-size:12px;right:6px;top:7px}
+.remaining-cd{top:-10px;right:0;font-size:10px;z-index:3}
+.condition-mark{color:#f3c970}.condition-unavailable{border-style:dashed}
+.mana-unavailable:not(.spent):not(.cooling){border-color:#8d5967}
+.spent .card-open,.cooling .card-open{background:#070b13d4}.spent .card-description,.cooling .card-description{opacity:.6}
+.card-status{font-size:10px}.spent .card-status{font-size:12px;padding:3px 7px}
+.game-card{transition:border-color .16s;isolation:auto}
+.game-card.selected,.enemy-deck .game-card.selected{z-index:35;transform:translate(var(--card-shift-x,0px),var(--card-shift-y,0px)) scale(1.5);transform-origin:center bottom;box-shadow:0 0 0 1px #d7bc84,0 0 30px 15px #060b16bc;transition:none}
+.enemy-deck .game-card.selected{transform-origin:center top}
+.hand-panel:has(.selected),.enemy-deck-panel:has(.selected){z-index:36}
+.inline-card-details{position:absolute;left:0;bottom:calc(100% + 5px);width:100%;max-height:146px;padding:8px;font-size:9px;line-height:1.45;transform:none;border-color:#99805a;background:#111a27fa;box-shadow:0 0 25px 8px #070c16bb}
+.inline-card-reason{font-size:8px;line-height:1.4;margin-top:6px}
+.enemy-deck .inline-card-details{top:calc(100% + 5px);bottom:auto;max-height:160px}
+.card-use{top:calc(100% + 4px);font-size:10px;min-height:27px;padding:4px}
+.game-card.active{animation:castle-cast .7s ease-in-out infinite alternate}
+@keyframes castle-cast{from{transform:translateY(-5px);box-shadow:0 0 12px var(--accent)}to{transform:translateY(-11px);box-shadow:0 0 28px var(--accent),0 0 6px #fff}}
+.log-tab{position:fixed;top:46%;right:0;z-index:85;display:flex;flex-direction:column;align-items:center;gap:6px;border-radius:6px 0 0 6px;border-color:#ae956577;background:#121a26d9;padding:10px 5px;font-size:18px;box-shadow:0 3px 18px #0006}
+.log-tab span{writing-mode:vertical-rl;font-size:10px;letter-spacing:.2em}
+.app-shell:not(.battle-scene) .log-tab{display:none}
+.log-panel{top:90px;bottom:24px;z-index:90;width:min(350px,90vw);background:#101722f2}
+.turn-banner{bottom:214px;right:2px;font-size:10px;text-shadow:0 2px 8px #000}
+.arena-message{bottom:240px;right:0;font-size:10px;max-width:230px}
+.boss-hit{top:47%;left:50%;z-index:15}.player-hit{bottom:200px;left:12px;z-index:15}
+.draft-stage{min-height:calc(100svh - 112px);background:none;border:0;padding:15px 40px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;text-shadow:0 2px 6px #000}
+.draft-heading{max-width:960px;width:100%;margin:0 auto}.draft-heading h2{font-size:28px}
+.draft-options{width:min(900px,100%);margin:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.draft-options .game-card{min-height:260px;background:linear-gradient(155deg,#1c2535f5,#0e1725f2)}
+.draft-options .card-description{font-size:15px;line-height:1.7}
+.starter-option{min-height:180px;background:linear-gradient(160deg,#202c3be8,#0d1625e8);box-shadow:0 10px 40px #0007}
+.draft-deck-panel{background:#0e1723b8;border-color:#99836560;max-width:900px;width:100%;margin:0 auto}
+@media(min-width:761px) and (max-height:740px){
+ .hand-panel{height:158px}.boss-figure{top:245px;bottom:65px}.enemy-deck-panel{top:111px}.enemy-deck .game-card{height:112px}.enemy-mini-card .card-description{font-size:9px}.enemy-mini-card .card-tags{font-size:8px}.enemy-mini-card .card-open{gap:2px}
+}
+@media(max-width:1000px) and (min-width:761px){
+ .player-status{width:185px}.hand-panel{left:200px;grid-template-columns:minmax(0,1fr) 112px;gap:10px}.hand-row .card-description{font-size:9px}.hand-row .card-name{font-size:12px}.hand-row .card-open{padding:6px}.arena-topline span{font-size:7px}
+}
+@media(max-width:760px){
+ .app-shell{padding:0 12px;background-position:center;background-attachment:fixed}
+ .topbar{height:76px}.identity h1{font-size:18px}.crest{font-size:20px}.identity .eyebrow{font-size:8px}.topbar nav{margin-top:14px}
+ .battle-scene .topbar nav{right:12px;margin-top:10px}.topbar nav button{width:30px;height:30px;font-size:19px}
+ #gameLayout{height:calc(100svh - 22px);min-height:750px}
+ .arena-topline{top:13px;gap:2px}.arena-topline span{font-size:7px;max-width:140px}.arena-topline b{font-size:22px}
+ .boss-hud{top:79px;width:100%;left:0;transform:none}.hud-heading h2{font-size:16px}.boss-hud .hud-under{min-height:30px}.mana-gems{font-size:22px}
+ .enemy-deck-panel{top:174px;width:100%;left:0;transform:none}.enemy-deck-heading{font-size:7px}.enemy-deck{gap:4px}
+ .enemy-deck .game-card{height:93px}.enemy-mini-card .card-open{padding:5px 4px;gap:3px}.enemy-mini-card .card-description{display:none}.enemy-mini-card .card-name{font-size:10px;padding-right:0;padding-top:15px}.enemy-mini-card .card-cost{top:3px;right:3px;width:15px;height:15px;line-height:14px;font-size:9px}.enemy-mini-card .card-tags{font-size:7px;line-height:1.2}.enemy-mini-card .card-cd{font-size:7px}.enemy-mini-card .card-cd span{display:block}
+ .boss-figure{top:280px;bottom:260px;width:100%;left:0;transform:none}
+ .player-status{bottom:220px;width:100%;max-width:100%;left:0;gap:10px;align-items:center}.player-status .face-frame{width:37px;height:37px}.player-status .hud-heading{flex-wrap:nowrap}.player-status .hud-heading h2{font-size:13px}.player-status .hud-under{min-height:26px;flex-wrap:nowrap}.player-status .hud-effects{max-width:70%}.player-status .hp-label{font-size:10px}
+ .hand-panel{bottom:0;left:0;right:0;height:208px;grid-template-columns:1fr;grid-template-rows:143px 57px;gap:8px;min-height:0;padding:0}
+ .hand-panel:before{inset:-100px -12px -12px;background:linear-gradient(0deg,#080d16f5,#080d1680 70%,transparent)}
+ .hand-and-legacy{grid-row:1;gap:5px;grid-template-columns:minmax(0,5fr) minmax(0,.75fr)}.hand-row{gap:4px;overflow:visible}.hand-row .card-open{padding:5px 4px;gap:4px}.hand-row .card-name{font-size:10px;padding-top:20px;padding-right:0}.hand-row .card-cost{top:4px;right:4px;width:16px;height:16px;line-height:15px;font-size:9px}.hand-row .card-tags{font-size:7px;line-height:1.15}.hand-row .card-description{font-size:9px;line-height:1.35}.hand-row .card-cd{font-size:7px}.hand-row .card-cd span{display:block}.remaining-cd{font-size:8px;padding:0 3px}.spent .card-status{font-size:9px;padding:2px 4px}
+ .legacy-slot{min-height:0;font-size:18px;gap:6px;padding:2px}.legacy-slot strong{font-size:8px;writing-mode:vertical-rl;letter-spacing:.1em}.legacy-slot span{font-size:7px;overflow-wrap:anywhere}
+ .actionbar{grid-row:2;grid-column:1;flex-direction:row;gap:8px;align-items:stretch}.actionbar #accelerateButton{min-height:0;flex:1;font-size:11px;padding:4px}.actionbar #endTurn{min-height:0;flex:1.3;font-size:14px;padding:4px}.actionbar small{font-size:8px}
+ .inline-card-details{width:140px;left:50%;margin-left:-70px;font-size:9px;max-height:175px}.enemy-deck .inline-card-details{max-height:175px}.card-use{font-size:9px}.game-card.selected,.enemy-deck .game-card.selected{transform:translate(var(--card-shift-x,0px),var(--card-shift-y,0px)) scale(1.5)}
+ .turn-banner{bottom:309px;right:0;font-size:9px}.arena-message{bottom:326px;font-size:9px;max-width:160px}.log-tab{padding:8px 3px;top:43%}.log-tab span{font-size:9px}.log-panel{top:58px;bottom:15px;padding:12px}.status-icon{width:22px;height:22px}.status-symbol{font-size:20px}
+ .draft-stage{padding:14px 0;min-height:calc(100svh - 100px);gap:22px}.draft-heading h2{font-size:23px}.draft-heading{align-items:flex-start}.draft-heading p:not(.eyebrow){font-size:11px}.draft-options{gap:7px}.draft-options .game-card{min-height:235px}.draft-options .card-open{padding:9px 6px}.draft-options .card-name{font-size:13px;padding-top:25px;padding-right:0}.draft-options .card-description{font-size:12px}.draft-options .card-tags{font-size:9px}.draft-options .card-cd{font-size:9px}.draft-options .card-pick{font-size:11px;padding:8px 4px}.starter-option{min-height:180px;padding:12px 7px}.starter-option strong{font-size:17px}.starter-option span{font-size:11px}.draft-deck-panel{padding:12px}
+ footer{font-size:8px}footer span{display:none}.boss-hit{top:44%;left:30%}.player-hit{bottom:280px;left:0}
+}
+@media(prefers-reduced-motion:reduce){.game-card.active{animation:none;box-shadow:0 0 18px var(--accent)}}
+
+.arena-topline #roundValue{font-size:inherit;color:inherit;letter-spacing:inherit}
+/* Reset dimensions inherited from the previous mobile arena/card layout. */
+.boss-figure{align-items:flex-end;overflow:visible}
+.boss-figure img{height:100%;max-height:100%;flex:0 1 auto}
+.damage-preview{position:absolute}
+@media(max-width:760px){
+ .arena{height:auto}
+ .hand-and-legacy{display:grid}
+ .legacy-slot{flex-direction:column}
+ .actionbar{display:flex}
+ .hand-row .card-open,.enemy-mini-card .card-open{min-height:0;height:100%}
+ .enemy-mini-card .card-cd{white-space:normal;line-height:10px}
+ .hand-row .card-cost{transform:none}
+ .hand-row .card-description{display:block;-webkit-line-clamp:unset;overflow:hidden}
+ .log-panel{height:auto;max-height:none}
+ footer{height:22px;min-height:0}
+}
+@media(max-width:760px){
+ .hand-row{min-height:0}.hand-row .game-card{height:143px;min-height:0}
+ .hand-row .card-open{gap:3px;overflow:hidden}
+ .hand-row .card-description{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;min-height:0;overflow:hidden;flex:1}
+ .hand-row .card-cd{flex-shrink:0;line-height:10px}.hand-row .card-tags{flex-shrink:0}
+}
+/* Compact public deck and per-character portrait framing (approved PNG revision). */
+.enemy-deck-panel{top:112px;width:min(760px,64vw)}
+.enemy-deck .game-card{height:44px}
+.enemy-deck .card-open{height:100%;min-height:0;padding:0;overflow:visible}
+.enemy-deck .card-cost,.enemy-deck .card-tags,.enemy-deck .card-description,.enemy-deck .card-cd,.enemy-deck .condition-mark{display:none}
+.enemy-deck .card-kind{position:absolute;left:9px;top:8px;font-size:20px;line-height:24px;color:var(--accent)}
+.enemy-deck .card-name{position:absolute;left:36px;right:5px;top:5px;padding:0;font-size:12px;line-height:17px;white-space:nowrap}
+.enemy-deck .remaining-cd{top:auto;bottom:3px;right:5px;font-size:8px;line-height:12px;padding:0 4px}
+.enemy-deck .card-status,.enemy-deck .spent .card-status{position:absolute;top:auto;left:auto;right:5px;bottom:3px;transform:none;padding:0 4px;font-size:8px;line-height:12px;border:0;background:#0a111c}
+.enemy-deck .spent .remaining-cd{display:none}
+.enemy-deck .inline-card-details{top:calc(100% + 6px);bottom:auto;width:100%;min-width:155px;max-height:240px;font-size:10px;line-height:1.6}
+.enemy-detail-meta{font-size:9px;color:var(--gold);margin-bottom:7px}
+.boss-figure{top:182px;bottom:0;left:calc(50% + var(--boss-x,0px));height:auto;width:900px;max-width:100%;transform:translate(-50%,var(--boss-y,0px));overflow:hidden;pointer-events:none}
+.boss-figure img{position:absolute;top:0;left:0;width:100%;height:calc((100svh - 260px)*var(--boss-scale,1.7));max-height:none;object-position:center top}
+@media(min-width:761px) and (max-height:740px){
+ .enemy-deck-panel{top:108px}.enemy-deck .game-card{height:44px}.boss-figure{top:178px}
+}
+@media(max-width:760px){
+ .enemy-deck-panel{top:169px;width:100%}
+ .enemy-deck .game-card{height:43px}.enemy-deck .card-open{height:43px;min-height:0}
+ .enemy-deck .card-kind{left:4px;top:4px;font-size:13px;line-height:14px}
+ .enemy-deck .card-name{left:18px;right:2px;top:4px;font-size:9px;line-height:14px;letter-spacing:-.04em}
+ .enemy-deck .remaining-cd{bottom:4px;right:3px;font-size:7px;line-height:11px}
+ .enemy-deck .card-status,.enemy-deck .spent .card-status{right:3px;bottom:4px;font-size:7px;line-height:11px;padding:0 2px}
+ .enemy-deck .spent .remaining-cd{right:34px}
+ .enemy-deck .inline-card-details{min-width:155px;width:155px;margin-left:-77.5px;font-size:10px;max-height:230px}
+ .boss-figure{top:232px;left:calc(50% + var(--boss-mobile-x,0px));width:100%;max-width:none;height:auto;bottom:0;transform:translate(-50%,var(--boss-mobile-y,0px))}
+}
+
+@media(max-width:760px){.boss-figure img{height:calc((100svh - 465px)*var(--boss-mobile-scale,1.35))}}

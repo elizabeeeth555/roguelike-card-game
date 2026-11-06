@@ -1,0 +1,104 @@
+[
+  {
+    "id": "01_black_swordsman",
+    "source": "1-01_black_swordsman.png",
+    "masterIdenticalToAttachment": true,
+    "masterSha256": "57cc182b1f389040163519e39329628bd737a1edcc2d650395ef74cfabbb28ab",
+    "mode": "RGBA",
+    "size": [
+      1024,
+      1536
+    ],
+    "transparentPixels": 774748,
+    "alphaRange": [
+      0,
+      254
+    ],
+    "bossIdenticalToMaster": true
+  },
+  {
+    "id": "02_heavy_knight",
+    "source": "3-02_heavy_knight.png",
+    "masterIdenticalToAttachment": true,
+    "masterSha256": "d1ababb415c939d06924501ddda48bd239877a76be57cd5e1319f617292ffd11",
+    "mode": "RGBA",
+    "size": [
+      1024,
+      1536
+    ],
+    "transparentPixels": 542758,
+    "alphaRange": [
+      0,
+      254
+    ],
+    "bossIdenticalToMaster": true
+  },
+  {
+    "id": "03_witch",
+    "source": "4-03_witch.png",
+    "masterIdenticalToAttachment": true,
+    "masterSha256": "a8a9914ae5d63c76e5baa3d663ac53343ebced3e5fbfc633b78fc5341f9b84b4",
+    "mode": "RGB",
+    "size": [
+      1024,
+      1536
+    ],
+    "transparentPixels": 664362,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "latestRGBUnchanged": true
+  },
+  {
+    "id": "04_giant_warrior",
+    "source": "5-04_big_man.png",
+    "masterIdenticalToAttachment": true,
+    "masterSha256": "eed30a948db14291b342c1b0ecc9e8d63b839ca27270325f5645835217c39c8b",
+    "mode": "RGBA",
+    "size": [
+      1024,
+      1536
+    ],
+    "transparentPixels": 396192,
+    "alphaRange": [
+      0,
+      254
+    ],
+    "bossIdenticalToMaster": true
+  },
+  {
+    "id": "05_scout",
+    "source": "2-05_scout.png",
+    "masterIdenticalToAttachment": true,
+    "masterSha256": "594a5d3e3356256d1aac8338ff99a2d780ce222f10ca494f7028ab4632cbb53a",
+    "mode": "RGBA",
+    "size": [
+      1024,
+      1536
+    ],
+    "transparentPixels": 813336,
+    "alphaRange": [
+      0,
+      254
+    ],
+    "bossIdenticalToMaster": true
+  },
+  {
+    "id": "06_sage",
+    "source": "6-06_sage.png",
+    "masterIdenticalToAttachment": true,
+    "masterSha256": "5f714876dfb97d29549de37e82e3908c71e7502c135965ea1881c400dcc2f5ac",
+    "mode": "RGBA",
+    "size": [
+      1024,
+      1536
+    ],
+    "transparentPixels": 439424,
+    "alphaRange": [
+      0,
+      254
+    ],
+    "bossIdenticalToMaster": true
+  }
+]

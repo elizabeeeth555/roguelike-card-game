@@ -1,7 +1,8 @@
 // All artwork, BGM and SE paths are configured here. Swap the referenced files at any time.
 window.GAME_ASSETS={
   characters:{guardian:'assets/characters/guardian.svg',era1:'assets/characters/era-1.svg',era2:'assets/characters/era-2.svg',era3:'assets/characters/era-3.svg'},
-  background:'assets/backgrounds/arena.svg',
+  background:'assets/backgrounds/castle_throne_room.webp',
+  backgrounds:{draft:'assets/backgrounds/castle_corridor.webp',battle:'assets/backgrounds/castle_throne_room.webp'},
   cards:{},
   // Selected tracks: use OGG for seamless loops; fall back to MP3 on unsupported browsers.
   bgm:{event:'assets/sounds/bgm/whispers_in_the_fog.ogg',battle:'assets/sounds/bgm/determined_pursuit_loop.ogg'},
@@ -30,16 +31,24 @@ window.GAME_ASSETS={
   }
 };
 
-// Trial character poses. Incomplete giant/scout images are deliberately unused.
+// User supplied masters and derived transparent portraits; game IDs are preserved.
 window.GAME_ASSETS.characterSets={
   "01_black_swordsman": {
     "name": "夜刃の剣士",
     "label": "黒剣士",
     "enabled": true,
     "images": {
-      "boss": "assets/characters/01_black_swordsman_boss.png",
-      "face": "assets/characters/01_black_swordsman_face.png",
-      "back": "assets/characters/01_black_swordsman_back.png"
+      "boss": "assets/characters/castle/01_black_swordsman_boss.png",
+      "face": "assets/characters/castle/01_black_swordsman_face.png",
+      "bust": "assets/characters/castle/01_black_swordsman_bust.png"
+    },
+    "framing": {
+      "scale": 1.78,
+      "x": "0px",
+      "y": "0px",
+      "mobile-scale": 1.35,
+      "mobile-x": "0px",
+      "mobile-y": "0px"
     }
   },
   "02_heavy_knight": {
@@ -47,9 +56,17 @@ window.GAME_ASSETS.characterSets={
     "label": "重装騎士",
     "enabled": true,
     "images": {
-      "boss": "assets/characters/02_heavy_knight_boss.png",
-      "face": "assets/characters/02_heavy_knight_face.png",
-      "back": "assets/characters/02_heavy_knight_back.png"
+      "boss": "assets/characters/castle/02_heavy_knight_boss.png",
+      "face": "assets/characters/castle/02_heavy_knight_face.png",
+      "bust": "assets/characters/castle/02_heavy_knight_bust.png"
+    },
+    "framing": {
+      "scale": 1.72,
+      "x": "0px",
+      "y": "0px",
+      "mobile-scale": 1.35,
+      "mobile-x": "0px",
+      "mobile-y": "0px"
     }
   },
   "03_witch": {
@@ -57,31 +74,71 @@ window.GAME_ASSETS.characterSets={
     "label": "魔女",
     "enabled": true,
     "images": {
-      "boss": "assets/characters/03_witch_boss.png",
-      "face": "assets/characters/03_witch_face.png",
-      "back": "assets/characters/03_witch_back.png"
+      "boss": "assets/characters/castle/03_witch_boss.png",
+      "face": "assets/characters/castle/03_witch_face.png",
+      "bust": "assets/characters/castle/03_witch_bust.png"
+    },
+    "framing": {
+      "scale": 1.72,
+      "x": "0px",
+      "y": "0px",
+      "mobile-scale": 1.35,
+      "mobile-x": "0px",
+      "mobile-y": "0px"
     }
   },
   "04_giant_warrior": {
     "name": "鉄拳の巨漢",
     "label": "大男",
-    "enabled": false,
-    "images": {}
+    "enabled": true,
+    "images": {
+      "boss": "assets/characters/castle/04_big_man_boss.png",
+      "face": "assets/characters/castle/04_big_man_face.png",
+      "bust": "assets/characters/castle/04_big_man_bust.png"
+    },
+    "framing": {
+      "scale": 1.64,
+      "x": "0px",
+      "y": "0px",
+      "mobile-scale": 1.35,
+      "mobile-x": "0px",
+      "mobile-y": "0px"
+    }
   },
   "05_scout": {
     "name": "翡翠の双刃",
     "label": "斥候",
-    "enabled": false,
-    "images": {}
+    "enabled": true,
+    "images": {
+      "boss": "assets/characters/castle/05_scout_boss.png",
+      "face": "assets/characters/castle/05_scout_face.png",
+      "bust": "assets/characters/castle/05_scout_bust.png"
+    },
+    "framing": {
+      "scale": 1.8,
+      "x": "0px",
+      "y": "0px",
+      "mobile-scale": 1.35,
+      "mobile-x": "0px",
+      "mobile-y": "0px"
+    }
   },
   "06_sage": {
     "name": "暁の賢者",
-    "label": "老魔導士",
+    "label": "賢者",
     "enabled": true,
     "images": {
-      "boss": "assets/characters/06_sage_boss.png",
-      "face": "assets/characters/06_sage_face.png",
-      "back": "assets/characters/06_sage_back.png"
+      "boss": "assets/characters/castle/06_sage_boss.png",
+      "face": "assets/characters/castle/06_sage_face.png",
+      "bust": "assets/characters/castle/06_sage_bust.png"
+    },
+    "framing": {
+      "scale": 1.75,
+      "x": "0px",
+      "y": "0px",
+      "mobile-scale": 1.35,
+      "mobile-x": "0px",
+      "mobile-y": "0px"
     }
   }
 };
