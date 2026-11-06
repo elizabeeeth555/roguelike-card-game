@@ -1,0 +1,206 @@
+{
+  "checks": [
+    {
+      "name": "layout-1366x768",
+      "passed": true,
+      "scrollWidth": 1366,
+      "scrollHeight": 768,
+      "controls": true,
+      "enemy": 5,
+      "cards": 5,
+      "heroHidden": true,
+      "basics": true
+    },
+    {
+      "name": "dual-selection-25-1366",
+      "passed": true,
+      "bad": 0
+    },
+    {
+      "name": "layout-1280x720",
+      "passed": true,
+      "scrollWidth": 1280,
+      "scrollHeight": 720,
+      "controls": true,
+      "enemy": 5,
+      "cards": 5,
+      "heroHidden": true,
+      "basics": true
+    },
+    {
+      "name": "dual-selection-25-1280",
+      "passed": true,
+      "bad": 0
+    },
+    {
+      "name": "layout-360x800",
+      "passed": true,
+      "scrollWidth": 360,
+      "scrollHeight": 829,
+      "controls": true,
+      "enemy": 5,
+      "cards": 5,
+      "heroHidden": true,
+      "basics": true
+    },
+    {
+      "name": "layout-390x844",
+      "passed": true,
+      "scrollWidth": 390,
+      "scrollHeight": 844,
+      "controls": true,
+      "enemy": 5,
+      "cards": 5,
+      "heroHidden": true,
+      "basics": true
+    },
+    {
+      "name": "layout-430x932",
+      "passed": true,
+      "scrollWidth": 430,
+      "scrollHeight": 932,
+      "controls": true,
+      "enemy": 5,
+      "cards": 5,
+      "heroHidden": true,
+      "basics": true
+    },
+    {
+      "name": "preview-immutable",
+      "passed": true
+    },
+    {
+      "name": "outside-deselect",
+      "passed": true
+    },
+    {
+      "name": "animation-selection-and-lock",
+      "passed": true
+    },
+    {
+      "name": "animation-use-disabled",
+      "passed": true
+    },
+    {
+      "name": "keyboard-end-confirm",
+      "passed": true
+    },
+    {
+      "name": "mouse-end-confirm",
+      "passed": true
+    },
+    {
+      "name": "enemy-selection-disabled",
+      "passed": true
+    },
+    {
+      "name": "enemy-sequential-plan",
+      "passed": true,
+      "actions": [
+        {
+          "a": {
+            "type": "card",
+            "side": "boss",
+            "id": "plague"
+          },
+          "time": 6078
+        },
+        {
+          "a": {
+            "type": "card",
+            "side": "boss",
+            "id": "curse"
+          },
+          "time": 6784.20000000298
+        }
+      ]
+    },
+    {
+      "name": "enemy-used-and-cd",
+      "passed": true
+    },
+    {
+      "name": "enemy-used-cleared-on-player-turn",
+      "passed": true
+    },
+    {
+      "name": "log-keeps-history-position",
+      "passed": true
+    },
+    {
+      "name": "log-open-does-not-pause",
+      "passed": true
+    },
+    {
+      "name": "drawer-live-enemy-turn",
+      "passed": true
+    },
+    {
+      "name": "preview-split",
+      "passed": true
+    },
+    {
+      "name": "damage-split",
+      "passed": true
+    },
+    {
+      "name": "result-on-battlefield",
+      "passed": true
+    },
+    {
+      "name": "retry-same-conditions",
+      "passed": true
+    },
+    {
+      "name": "defeat-result",
+      "passed": true
+    },
+    {
+      "name": "draft-requires-confirm",
+      "passed": true
+    },
+    {
+      "name": "draft-confirms-once",
+      "passed": true
+    },
+    {
+      "name": "active-status-icons",
+      "passed": true,
+      "boss": 7,
+      "player": 7,
+      "contained": true,
+      "beforeDeck": true,
+      "critical": 2
+    },
+    {
+      "name": "cast-category-attack",
+      "passed": true
+    },
+    {
+      "name": "cast-category-defense",
+      "passed": true
+    },
+    {
+      "name": "cast-category-poison",
+      "passed": true
+    },
+    {
+      "name": "cast-category-heal",
+      "passed": true
+    },
+    {
+      "name": "cast-category-buff",
+      "passed": true
+    },
+    {
+      "name": "reset-cancels-player-animation",
+      "passed": true
+    },
+    {
+      "name": "no-js-errors",
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "errors": []
+}

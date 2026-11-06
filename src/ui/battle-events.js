@@ -13,10 +13,11 @@ function presentBattleEvents(events){
         }
         break;
       }
-      case 'damage':
-        addLog(`${event.target==='boss'?'敵':'あなた'}：${event.kind==='poison'?'毒で':''}${event.amount}ダメージ${event.blocked?`（バリア${event.blocked}消費）`:''}`,event.target==='boss'?'hero':'enemy');
-        if(event.amount>0){animateHit(event.amount,event.target);sound(event.kind==='poison'?'poison_tick':'hit');}else sound('block');
-        break;
+      case 'damage':{
+        const damage=event.actualAmount===undefined?event.amount:event.actualAmount;
+        addLog(`${event.target==='boss'?'敵':'あなた'}：${event.kind==='poison'?'毒で':''}${damage}ダメージ${event.blocked?`（バリア${event.blocked}消費）`:''}`,event.target==='boss'?'hero':'enemy');
+        if(damage>0||event.blocked){animateHit(damage,event.target,event.blocked);sound(event.kind==='poison'?'poison_tick':damage>0?'hit':'block');}else sound('block');
+        break;}
       case 'heal':addLog(`${label}：HPを${event.amount}回復`);sound('heal');break;
       case 'accelerate':
         addLog(`${label}：マナ加速。次の自ターンから上限${event.nextCap}`);sound('mana');

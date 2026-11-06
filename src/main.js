@@ -9,8 +9,8 @@ document.addEventListener('keydown',event=>{
   if(!$('battleTransition').hidden&&$('battleTransition').classList.contains('skippable')&&['Enter',' '].includes(event.key)){
     event.preventDefault();hideTransitions();return;
   }
-  if(event.ctrlKey||event.metaKey||event.altKey||event.repeat||event.target.closest('button,input,textarea,select')||!$('cardDetailOverlay').hidden||!$('resultOverlay').hidden)return;
-  if(app.mode!=='battle'||app.busy||app.battle.end)return;
+  if(event.ctrlKey||event.metaKey||event.altKey||event.repeat||event.target.closest('button,input,textarea,select')||!$('cardDetailOverlay').hidden||!$('resultOverlay').hidden||!$('endTurnOverlay').hidden)return;
+  if(!canInspectBattle())return;
   const index=Number(event.key)-1;
   if(index>=0&&index<5){openCardDetail(app.battle.actors.player.deck[index],'player');event.preventDefault();}
   if(event.code==='Space'){endTurn();event.preventDefault();}

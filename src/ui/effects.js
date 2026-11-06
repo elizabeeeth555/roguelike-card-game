@@ -2,13 +2,13 @@
 function sound(key){GameAudio.se(key);}
 function addLog(message,kind='info'){
   const list=$('combatLog'),row=document.createElement('div');row.className='log-item '+kind;row.textContent=message;
-  list.append(row);$('logPeek').textContent=message;list.scrollTop=list.scrollHeight;
+  const follow=list.clientHeight>0?list.scrollHeight-list.scrollTop-list.clientHeight<36:app.logFollow!==false;list.append(row);$('logPeek').textContent=message;if(follow)list.scrollTop=list.scrollHeight;
 }
 function announce(message){$('arenaMessage').textContent=message;}
 function clearEnemyAction(){app.enemyActiveKey=null;$('enemyActionToast').hidden=true;}
 function clearBattleVisuals(){
   app.enemyUsedKeys.clear();clearEnemyAction();
-  for(const id of ['enemyShadow','heroFigure'])$(id).classList.remove('hurt','casting');
+  for(const id of ['enemyShadow','heroFigure','playerHpTrack'])$(id).classList.remove('hurt','casting');
   for(const id of ['bossHit','playerHit']){$(id).textContent='';$(id).classList.remove('active');}
   $('attackFx').className='attack-fx';
 }
@@ -26,19 +26,19 @@ function applyVisualAssets(){
   const state=app.battle;
   $('bossName').textContent=characterInfo(state.bossCharacterId).name;
   setCharacterImage($('bossPortrait'),state.bossCharacterId,'boss');
-  setCharacterImage($('heroPortrait'),state.playerCharacterId,'back');
+  $('heroPortrait').removeAttribute('src');$('heroPortrait').hidden=true;
   setCharacterImage($('heroFace'),state.playerCharacterId,'face');
   const bg=GAME_ASSETS.background;
   $('arena').style.setProperty('--battle-art',bg?`url("${bg}")`:'none');
 }
 function effectVisual(kind,side){
-  const figure=$(side==='boss'?'enemyShadow':'heroFigure');figure.classList.remove('casting');void figure.offsetWidth;figure.classList.add('casting');
+  const figure=$(side==='boss'?'enemyShadow':'playerHpTrack');figure.classList.remove('casting');void figure.offsetWidth;figure.classList.add('casting');
   const fx=$('attackFx');fx.className='attack-fx';void fx.offsetWidth;fx.classList.add(kind);
-  sound(kind==='defense'?'block':kind==='poison'?'poison':kind==='buff'?'boost':'attack');
+  sound(kind==='defense'?'block':kind==='poison'?'poison':kind==='buff'?'boost':kind==='heal'?'heal':'attack');
 }
-function animateHit(amount,side){
-  const number=$(side+'Hit');number.textContent='−'+amount;number.classList.remove('active');void number.offsetWidth;number.classList.add('active');
-  const figure=$(side==='boss'?'enemyShadow':'heroFigure');figure.classList.remove('hurt');void figure.offsetWidth;figure.classList.add('hurt');
+function animateHit(amount,side,blocked=0){
+  const number=$(side+'Hit');number.textContent=[blocked?'⬡ −'+blocked:'',amount?'♥ −'+amount:''].filter(Boolean).join(' ／ ');number.classList.remove('active');void number.offsetWidth;number.classList.add('active');
+  const figure=$(side==='boss'?'enemyShadow':'playerHpTrack');figure.classList.remove('hurt');void figure.offsetWidth;figure.classList.add('hurt');
 }
 function hideTransitions(){
   if(app.transitionTimer!==null){clearTimeout(app.transitionTimer);app.transitionTimer=null;}

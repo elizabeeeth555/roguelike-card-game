@@ -1,6 +1,6 @@
 'use strict';
 function cancelPresentation(){
-  app.version++;battleTasks.cancel();hideTransitions();clearBattleVisuals();closeCardDetail();app.busy=false;
+  app.version++;battleTasks.cancel();hideTransitions();clearBattleVisuals();closeCardDetail();app.busy=false;app.playerAnimating=false;app.playerActiveKey=null;$('endTurnOverlay').hidden=true;
 }
 function resetGame(){
   cancelPresentation();app.mode='draft';app.battle=null;app.retryPreset=null;

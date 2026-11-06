@@ -82,3 +82,15 @@ npm run simulate -- 10
 
 AI同士・小さい固定シード標本であり、人間の勝率や正式なバランス評価ではない。
 実機タッチ・音声の聴感は未確認。数値変更は行っていない。
+
+
+## PC UI改修（2026-11-06）
+
+現行UIは[承認されたPC UI仕様](specs/first-era/08-pc-battle-ui.md)を優先する。
+中央ボス・公開敵5枚・コンパクトな顔HUD・手札右の操作列・ログドロワーを使用。
+`app.selectedPlayer`と`selectedBoss`は各1枚、`playerAnimating`は選択可と効果実行不可を分けるUI状態。
+本番GameBattle/PlannerのAPI・ルールは変更しない。予測は既存Effects/Mathの純粋計算から作り、戦闘を更新しない。
+CDはreadyOnとownTurnから表示する。残CDは今後の使用不可自ターン数（使用ターンを除く）、使用済は所有者のターン中だけ。
+ターン終了確認はlegalActionsにカードまたは加速がある場合のみ。MPが余っていても何も実行できなければ確認しない。
+Nodeの既存テスト・UI回帰は71件。実ブラウザ追加確認は`python3 scripts/ui-pc-smoke.py URL`（Python PlaywrightとChromiumが必要）。
+詳細は[検証記録](../reports/pc-ui-rework/REPORT.md)。過去節のPC斜め配置・背面立ち絵の検証結果は旧UIの履歴。

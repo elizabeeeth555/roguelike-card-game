@@ -1,0 +1,5 @@
+
+> roguelike-card-game@0.9.5 check
+> node scripts/check.cjs
+
+All JavaScript syntax checks passed.

@@ -1,0 +1,19 @@
+
+> roguelike-card-game@0.9.5 test
+> node --test tests/*.test.cjs
+
+✔ tests/assets.test.cjs (171.008966ms)
+✔ tests/battle-engine.test.cjs (189.039576ms)
+✔ tests/game-mechanics.test.cjs (122.424272ms)
+✔ tests/legacy-battle.test.cjs (128.810887ms)
+✔ tests/progression.test.cjs (201.945468ms)
+✔ tests/task-scope.test.cjs (75.956876ms)
+✔ tests/turn-boundaries.test.cjs (61.250943ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 387.197323
