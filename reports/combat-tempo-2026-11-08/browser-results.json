@@ -1,0 +1,372 @@
+{
+  "checks": [
+    {
+      "name": "draft-readable-1366",
+      "passed": true
+    },
+    {
+      "name": "draft-controls-1366",
+      "passed": true
+    },
+    {
+      "name": "opening-durations-1366",
+      "passed": true,
+      "durations": [
+        2000.5,
+        2000.7000000029802
+      ]
+    },
+    {
+      "name": "opening-order-1366",
+      "passed": true
+    },
+    {
+      "name": "no-horizontal-overflow-1366",
+      "passed": true
+    },
+    {
+      "name": "log-font-1366",
+      "passed": true
+    },
+    {
+      "name": "skill-name-size-1366",
+      "passed": true
+    },
+    {
+      "name": "anchor-#hand-0-1366",
+      "passed": true
+    },
+    {
+      "name": "use-visible-0-1366",
+      "passed": true
+    },
+    {
+      "name": "anchor-#hand-4-1366",
+      "passed": true
+    },
+    {
+      "name": "use-visible-4-1366",
+      "passed": true
+    },
+    {
+      "name": "anchor-#enemyDeck-0-1366",
+      "passed": true
+    },
+    {
+      "name": "anchor-#enemyDeck-4-1366",
+      "passed": true
+    },
+    {
+      "name": "player-input-budget-1366",
+      "passed": true
+    },
+    {
+      "name": "one-use-1366",
+      "passed": true
+    },
+    {
+      "name": "draft-readable-375",
+      "passed": true
+    },
+    {
+      "name": "draft-controls-375",
+      "passed": true
+    },
+    {
+      "name": "opening-durations-375",
+      "passed": true,
+      "durations": [
+        2000.4000000059605,
+        2000.6000000014901
+      ]
+    },
+    {
+      "name": "opening-order-375",
+      "passed": true
+    },
+    {
+      "name": "no-horizontal-overflow-375",
+      "passed": true
+    },
+    {
+      "name": "log-font-375",
+      "passed": true
+    },
+    {
+      "name": "skill-name-size-375",
+      "passed": true
+    },
+    {
+      "name": "anchor-#hand-0-375",
+      "passed": true
+    },
+    {
+      "name": "use-visible-0-375",
+      "passed": true
+    },
+    {
+      "name": "anchor-#hand-4-375",
+      "passed": true
+    },
+    {
+      "name": "use-visible-4-375",
+      "passed": true
+    },
+    {
+      "name": "anchor-#enemyDeck-0-375",
+      "passed": true
+    },
+    {
+      "name": "anchor-#enemyDeck-4-375",
+      "passed": true
+    },
+    {
+      "name": "player-input-budget-375",
+      "passed": true
+    },
+    {
+      "name": "one-use-375",
+      "passed": true
+    },
+    {
+      "name": "draft-readable-320",
+      "passed": true
+    },
+    {
+      "name": "draft-controls-320",
+      "passed": true
+    },
+    {
+      "name": "opening-durations-320",
+      "passed": true,
+      "durations": [
+        2000.5,
+        2000.7999999970198
+      ]
+    },
+    {
+      "name": "opening-order-320",
+      "passed": true
+    },
+    {
+      "name": "no-horizontal-overflow-320",
+      "passed": true
+    },
+    {
+      "name": "log-font-320",
+      "passed": true
+    },
+    {
+      "name": "skill-name-size-320",
+      "passed": true
+    },
+    {
+      "name": "anchor-#hand-0-320",
+      "passed": true
+    },
+    {
+      "name": "use-visible-0-320",
+      "passed": true
+    },
+    {
+      "name": "anchor-#hand-4-320",
+      "passed": true
+    },
+    {
+      "name": "use-visible-4-320",
+      "passed": true
+    },
+    {
+      "name": "anchor-#enemyDeck-0-320",
+      "passed": true
+    },
+    {
+      "name": "anchor-#enemyDeck-4-320",
+      "passed": true
+    },
+    {
+      "name": "player-input-budget-320",
+      "passed": true
+    },
+    {
+      "name": "one-use-320",
+      "passed": true
+    },
+    {
+      "name": "enemy-actions-False",
+      "passed": true
+    },
+    {
+      "name": "ai-order-unchanged-False",
+      "passed": true
+    },
+    {
+      "name": "enemy-lead-False",
+      "passed": true,
+      "lead": 711.6000000014901
+    },
+    {
+      "name": "enemy-gaps-False",
+      "passed": true,
+      "gaps": [
+        902.8999999985099,
+        905.1000000014901,
+        908.2999999970198
+      ]
+    },
+    {
+      "name": "enemy-actions-True",
+      "passed": true
+    },
+    {
+      "name": "ai-order-unchanged-True",
+      "passed": true
+    },
+    {
+      "name": "enemy-lead-True",
+      "passed": true,
+      "lead": 362.20000000298023
+    },
+    {
+      "name": "enemy-gaps-True",
+      "passed": true,
+      "gaps": [
+        553.1000000014901,
+        555.2999999970198,
+        558.3999999985099
+      ]
+    },
+    {
+      "name": "result-hidden-during-banner-playerFalse",
+      "passed": true
+    },
+    {
+      "name": "result-after-banner-playerFalse",
+      "passed": true
+    },
+    {
+      "name": "finish-duration-playerFalse",
+      "passed": true
+    },
+    {
+      "name": "result-fade-playerFalse",
+      "passed": true
+    },
+    {
+      "name": "result-hidden-during-banner-bossFalse",
+      "passed": true
+    },
+    {
+      "name": "result-after-banner-bossFalse",
+      "passed": true
+    },
+    {
+      "name": "finish-duration-bossFalse",
+      "passed": true
+    },
+    {
+      "name": "result-fade-bossFalse",
+      "passed": true
+    },
+    {
+      "name": "result-hidden-during-banner-playerTrue",
+      "passed": true
+    },
+    {
+      "name": "result-after-banner-playerTrue",
+      "passed": true
+    },
+    {
+      "name": "finish-duration-playerTrue",
+      "passed": true
+    },
+    {
+      "name": "result-fade-playerTrue",
+      "passed": true
+    },
+    {
+      "name": "reduced-motion-readable",
+      "passed": true
+    },
+    {
+      "name": "declaration-fades-out",
+      "passed": true
+    },
+    {
+      "name": "reset-no-residue",
+      "passed": true
+    },
+    {
+      "name": "no-js-errors",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "no-http-errors",
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "timings": [
+    {
+      "width": 1366,
+      "opening": [
+        2000.5,
+        2000.7000000029802
+      ]
+    },
+    {
+      "width": 375,
+      "opening": [
+        2000.4000000059605,
+        2000.6000000014901
+      ]
+    },
+    {
+      "width": 320,
+      "opening": [
+        2000.5,
+        2000.7999999970198
+      ]
+    },
+    {
+      "fast": false,
+      "enemyLead": 711.6000000014901,
+      "enemyGaps": [
+        902.8999999985099,
+        905.1000000014901,
+        908.2999999970198
+      ]
+    },
+    {
+      "fast": true,
+      "enemyLead": 362.20000000298023,
+      "enemyGaps": [
+        553.1000000014901,
+        555.2999999970198,
+        558.3999999985099
+      ]
+    },
+    {
+      "winner": "player",
+      "fast": false,
+      "finishPause": 704.9000000059605,
+      "declaration": 2000.2999999970198
+    },
+    {
+      "winner": "boss",
+      "fast": false,
+      "finishPause": 704.3000000044703,
+      "declaration": 2000.6000000014901
+    },
+    {
+      "winner": "player",
+      "fast": true,
+      "finishPause": 353,
+      "declaration": 1000.7000000029802
+    }
+  ],
+  "errors": [],
+  "httpErrors": [],
+  "url": "http://127.0.0.1:18088/"
+}

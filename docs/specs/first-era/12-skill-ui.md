@@ -2,7 +2,8 @@
 
 2026-11-07。今回のUI指示は過去のカード型UI仕様より優先する。
 
-最新の選択位置・演出時間・交換UIは[13-combat-presentation](13-combat-presentation.md)で更新。
+最新の宣言・敵行動テンポ・文字サイズは[14-tempo-readability](14-tempo-readability.md)。
+最新の選択位置・交換UIは[13-combat-presentation](13-combat-presentation.md)で更新。
 
 - 表示用語はスキル/スキル習得/スキルセット/継承スキル。内部のcard/deck、DOM ID、ファイル名、19種の効果データは互換性のため維持し、表示時に用語変換する。歴史資料と研究は変更しない。
 - パネル左上は名前、右上は♦とMP、中央は効果概要、右下は⌛と基本CD。CD0も表示。分類は通常表示を整理し、狭いパネルの名前は折返し、効果は省略して詳細で全文確認。

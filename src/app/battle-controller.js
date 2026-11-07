@@ -12,12 +12,12 @@ async function initBattle(presetId){
   $('draftStage').hidden=true;$('gameLayout').hidden=false;$('resultOverlay').hidden=true;
   app.logFollow=true;$('combatLog').replaceChildren();GameAudio.setScene('battle',app.battle.bossPresetId);sound('battle_start');
   applyVisualAssets();render();addLog('戦闘開始：先攻2/3、後攻3/3。','turn');
-  const version=app.version;
-  await turnMessage('BATTLE START','start',app.fastFx?300:450);
+  const version=app.version,pace=presentationTiming();
+  await turnMessage('BATTLE START','start',pace.declaration);
   if(version!==app.version||app.battle.end)return;
-  await battleTasks.wait(app.fastFx?40:60);
+  await battleTasks.wait(pace.openingGap);
   if(version!==app.version||app.battle.end)return;
-  await turnMessage('YOUR TURN','player',app.fastFx?230:350);
+  await turnMessage('YOUR TURN','player',presentationTiming().declaration);
   if(version!==app.version||app.battle.end)return;
   app.busy=false;render();
 }
@@ -55,33 +55,36 @@ async function endTurn(confirmed=false){
  }
  closeCardDetail();app.busy=true;const version=app.version;
  perform({type:'endTurn',side:'player'});if(app.battle.end)return;
- await turnMessage('ENEMY TURN','enemy',app.fastFx?230:350);
+ await turnMessage('ENEMY TURN','enemy',presentationTiming().declaration);
+ if(version!==app.version||app.battle.end)return;
+ await battleTasks.wait(presentationTiming().enemyLead);
  if(version!==app.version||app.battle.end)return;
  const plan=GamePlanner.plan(app.battle);
  for(const action of plan.actions){
   if(version!==app.version||app.battle.end)return;
   const outcome=perform(action);if(!outcome.ok)break;
-  await battleTasks.wait(skillImpactDelay(outcome.events));
+  if(app.battle.end)return;
+  await battleTasks.wait(presentationTiming().enemyAction);
   if(version!==app.version)return;
   clearEnemyAction();render();
  }
  if(version!==app.version||app.battle.end)return;
  perform({type:'endTurn',side:'boss'});if(app.battle.end)return;
  clearEnemyAction();app.enemyUsedKeys.clear();render();
- await turnMessage('YOUR TURN','player',app.fastFx?230:350);
+ await turnMessage('YOUR TURN','player',presentationTiming().declaration);
  if(version!==app.version||app.battle.end)return;
  app.busy=false;render();
 }
-function finishBattle(winner){
-  app.busy=true;app.playerAnimating=false;clearCombatFx();GameAudio.stopEffects?.();closeCardDetail();$('endTurnOverlay').hidden=true;const version=app.version;
-  battleTasks.schedule(()=>{
-    if(version!==app.version)return;
-    turnMessage(winner==='player'?'VICTORY':'DEFEAT',winner==='player'?'victory':'defeat',app.fastFx?350:500);
-    GameAudio.stop(350);
-  },app.fastFx?100:180);
-  battleTasks.schedule(()=>{
-    if(version!==app.version)return;
-    app.playerActiveKey=null;clearEnemyAction();clearCombatFx();render();hideTransitions();renderResult(winner);
-  },app.fastFx?600:850);
+async function finishBattle(winner){
+  app.busy=true;app.playerAnimating=false;clearCombatFx();GameAudio.stopEffects?.();closeCardDetail();$('endTurnOverlay').hidden=true;
+  const version=app.version,pace=presentationTiming();
+  await battleTasks.wait(pace.finishPause);
+  if(version!==app.version)return;
+  GameAudio.stop(350);
+  await turnMessage(winner==='player'?'VICTORY':'DEFEAT',winner==='player'?'victory':'defeat',pace.declaration);
+  if(version!==app.version)return;
+  app.playerActiveKey=null;clearEnemyAction();clearCombatFx();render();
+  $('resultOverlay').style.setProperty('--result-fade',pace.resultFade+'ms');
+  renderResult(winner);
 }
 function retryBattle(){if(app.battle&&app.battle.end)initBattle(app.retryPreset);}

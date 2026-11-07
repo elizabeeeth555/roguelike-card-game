@@ -1,0 +1,81 @@
+/* Current presentation/readability overrides. No rule, FX geometry or audio changes. */
+.battle-transition{animation:declaration-fade var(--banner-time,2000ms) linear both;background:linear-gradient(transparent,#030914e8 35%,#030914e8 65%,transparent)}
+.battle-transition span{font-size:clamp(32px,5.5vw,72px);line-height:1.4;letter-spacing:.12em;text-shadow:0 3px 8px #000,0 0 25px currentColor}
+@keyframes declaration-fade{0%{opacity:0}15%,80%{opacity:1}100%{opacity:0}}
+#resultOverlay:not([hidden]) .end-dialog{animation:result-enter var(--result-fade,400ms) ease-out both}
+@keyframes result-enter{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}
+body{font-size:16px;line-height:1.6}
+.log-item{font-size:16px;line-height:1.7;color:#eee8dd;padding:7px 2px}
+.log-panel{width:min(430px,94vw)}.log-panel h2,.panel-heading strong{font-size:20px}
+.settings-panel button,.audio-panel label,.audio-panel p,.audio-panel output{font-size:15px}
+.settings-panel button,.audio-panel button{min-height:44px}
+.inline-card-details,.enemy-deck .inline-card-details{font-size:16px;line-height:1.7;width:290px;max-height:300px}
+.game-card.selected .card-use{font-size:16px;min-height:44px}
+.card-dialog h2,.end-dialog h2{font-size:26px}.card-dialog p,.end-dialog p{font-size:16px;line-height:1.75}
+.card-dialog button,.end-dialog button,.end-turn-dialog button{font-size:16px;min-height:44px}
+.end-dialog small,.eyebrow{font-size:13px;line-height:1.6}
+.modal-overlay>section{max-height:calc(100svh - 32px);overflow:auto;max-width:calc(100vw - 24px)}
+.draft-heading p,.draft-summary p,.starter-option span{font-size:16px;line-height:1.7}
+.draft-heading h2{font-size:26px}.draft-step,.draft-summary strong{font-size:14px}
+.draft-actions button,.card-pick,.replace-confirm,#draftReplaceCancel,.deck-chip{font-size:16px;min-height:44px}
+.starter-option strong{font-size:20px}
+#draftReplaceOptions .card-name{font-size:17px}#draftReplaceOptions .card-description{font-size:15px;line-height:1.6}
+#draftReplaceOptions .card-open{min-height:165px}
+.turn-banner{font-size:15px}.enemy-action-toast,.arena-message,.damage-preview{font-size:14px;line-height:1.6}
+.enemy-action-toast{max-width:min(360px,90vw)}
+.hud-heading h2{font-size:22px}.hp-label{font-size:14px}.hp-label b,.player-status .hp-label b{font-size:17px}
+.player-status h2{font-size:17px}.player-status .hp-label{font-size:13px}.player-status .mana-gems{font-size:24px}
+.status-icon{width:30px;height:30px}.status-icon b{font-size:14px}.reserve-icon{width:28px;height:28px;font-size:13px}
+.enemy-deck-heading{font-size:13px}.legacy-slot strong{font-size:14px}.legacy-slot span{font-size:13px}
+.actionbar #accelerateButton{font-size:16px}.actionbar #endTurn{font-size:18px}.actionbar small{font-size:13px}
+.game-card .card-name,.hand-row .game-card .card-name{font-size:17px;line-height:21px;left:7px;right:47px;top:7px;max-height:42px;overflow:hidden}
+.game-card .card-cost,.hand-row .game-card .card-cost{font-size:15px;right:5px;top:6px;line-height:22px}
+.game-card .card-description,.hand-row .game-card .card-description{top:53px;bottom:28px;left:7px;right:7px;font-size:15px;line-height:1.5;-webkit-line-clamp:4}
+.game-card .card-cd,.hand-row .game-card .card-cd{font-size:14px;line-height:20px;right:6px;bottom:5px}
+.game-card .card-status,.enemy-deck .game-card .card-status{font-size:13px;line-height:1.4}
+.enemy-deck .game-card,.enemy-deck .game-card .card-open{height:122px}
+.enemy-deck .game-card .card-name{font-size:16px;line-height:20px;right:43px;left:6px;top:6px}
+.enemy-deck .game-card .card-cost{font-size:14px;top:6px;right:4px}
+.enemy-deck .game-card .card-description{font-size:14px;line-height:20px;top:51px;bottom:25px;-webkit-line-clamp:2}
+.enemy-deck .game-card .card-cd{font-size:13px;bottom:4px}
+.draft-options .game-card .card-name{font-size:19px;line-height:24px;right:50px;max-height:48px}
+.draft-options .game-card .card-description{font-size:16px;line-height:1.7;top:62px;bottom:32px}
+@media(min-width:761px){.enemy-deck-panel{top:126px;width:min(880px,70vw)}.boss-figure{top:264px}.hand-panel{height:195px}.player-status{top:calc(100% - 215px)}.turn-banner{bottom:235px}.arena-message{bottom:269px}}
+@media(min-width:761px) and (max-height:740px){.hand-panel{height:188px}.player-status{top:calc(100% - 208px)}}
+@media(max-width:1000px) and (min-width:761px){.hand-panel{left:210px;grid-template-columns:minmax(0,1fr) 110px;gap:8px}.player-status{width:200px}.game-card .card-name,.hand-row .game-card .card-name{font-size:14px;line-height:18px;right:35px}.game-card .card-cost,.hand-row .game-card .card-cost{font-size:12px}.game-card .card-description,.hand-row .game-card .card-description{font-size:13px}}
+@media(max-width:760px){
+ body{font-size:15px}.boss-hud .hud-heading h2{font-size:18px}.player-status .hud-heading h2{font-size:15px}
+ .hp-label b,.player-status .hp-label b{font-size:15px}.player-status .hp-label{font-size:12px}
+ .enemy-deck-heading{font-size:11px}.enemy-deck .game-card,.enemy-deck .game-card .card-open{height:96px}
+ .enemy-deck .game-card .card-name{font-size:12px;line-height:15px;right:3px;top:26px;left:4px;max-height:30px}
+ .enemy-deck .game-card .card-cost{font-size:12px;top:3px;right:4px;line-height:18px}
+ .enemy-deck .game-card .card-description{font-size:11px;line-height:14px;top:58px;bottom:20px;-webkit-line-clamp:1}
+ .enemy-deck .game-card .card-cd{font-size:11px;line-height:15px;bottom:3px}
+ .hand-row .game-card .card-name{font-size:12px;line-height:15px;left:4px;right:3px;top:28px;max-height:30px}
+ .hand-row .game-card .card-cost{font-size:12px;line-height:18px;right:4px;top:4px}
+ .hand-row .game-card .card-description{font-size:12px;line-height:16px;top:63px;bottom:24px;left:4px;right:4px;-webkit-line-clamp:3}
+ .hand-row .game-card .card-cd{font-size:11px;line-height:16px;bottom:3px;right:4px}
+ .game-card .card-status,.enemy-deck .game-card .card-status{font-size:10px;line-height:14px;padding:3px 2px}
+ .turn-banner{font-size:13px}.arena-message{font-size:12px}.legacy-slot strong{font-size:11px}.legacy-slot span{font-size:10px}
+ .draft-stage{padding:12px 4px}.draft-options{gap:7px}.draft-options .game-card{min-height:280px}
+ .draft-options .game-card .card-name{font-size:15px;line-height:20px;top:30px;right:5px;left:5px;max-height:40px}
+ .draft-options .game-card .card-cost{font-size:13px;top:4px;right:5px}
+ .draft-options .game-card .card-description{font-size:14px;line-height:20px;top:78px;left:6px;right:6px;bottom:28px;-webkit-line-clamp:7}
+ .draft-options .game-card .card-cd{font-size:12px}
+ .inline-card-details,.enemy-deck .inline-card-details{font-size:15px;max-height:240px}
+ .actionbar #accelerateButton{font-size:15px}.actionbar small{font-size:12px}
+ .status-icon{width:27px;height:27px}.reserve-icon{width:25px;height:25px}
+}
+@media(prefers-reduced-motion:reduce){#resultOverlay:not([hidden]) .end-dialog{animation-name:result-opacity}@keyframes result-opacity{from{opacity:0}to{opacity:1}}}
+@media(min-width:761px){footer{font-size:13px}}
+@media(max-width:760px){
+ .hand-panel{height:232px;grid-template-rows:143px 81px}
+ .player-status{bottom:244px}.turn-banner{bottom:325px}.arena-message{bottom:361px}
+ .actionbar #accelerateButton,.actionbar #endTurn{min-height:74px}
+ .actionbar small{line-height:1.35}
+}
+@media(prefers-reduced-motion:reduce){
+ /* The global reduced-motion rule must not fade declarations to zero instantly. */
+ .battle-transition{animation-duration:var(--banner-time,2000ms)!important}
+ #resultOverlay:not([hidden]) .end-dialog{animation-duration:var(--result-fade,400ms)!important}
+}

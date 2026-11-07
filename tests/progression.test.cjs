@@ -167,9 +167,9 @@ test('習得詳細は効果と習得のみ、数値演出はハートなしで�
  const b=browser();b.get('draftOptions').children[0].click();b.evaluate("openCardDetail(app.draftOptions[0],'draft')");assert.equal(b.get('cardDetailMeta').hidden,true);assert.equal(b.get('cardDetailStatus').hidden,true);assert.match(b.get('confirmCard').textContent,/スキル/);
  b.evaluate("animateHit(3,'boss');animateHeal(2,'player')");assert.equal(b.get('bossHit').textContent,'−3');assert.equal(b.get('playerHit').textContent,'＋2');assert(b.get('playerHit').classList.contains('healing'));b.evaluate("animateHit(1,'player')");assert(!b.get('playerHit').classList.contains('healing'));
 });
-test('開始演出はSTART→空白→YOUR、通常350ms、空白中リセットで残留しない',async()=>{
- const b=browser(),opening=b.evaluate("app.draftCards=['slash','barrier'];initBattle('boss_knight_defense')");assert.equal(b.get('transitionText').textContent,'BATTLE START');assert([...b.timers.values()].some(t=>t.ms===450));assert(b.evaluate('app.busy'));
- b.evaluate('hideTransitions()');await new Promise(setImmediate);assert(b.get('battleTransition').hidden);const gap=[...b.timers].find(([,t])=>t.ms===60);assert(gap);b.timers.delete(gap[0]);gap[1].fn();await new Promise(setImmediate);assert.equal(b.get('transitionText').textContent,'YOUR TURN');assert([...b.timers.values()].some(t=>t.ms===350));b.evaluate('hideTransitions()');await opening;assert.equal(b.evaluate('app.busy'),false);
+test('開始演出はSTART→空白→YOUR、通常2000ms、空白中リセットで残留しない',async()=>{
+ const b=browser(),opening=b.evaluate("app.draftCards=['slash','barrier'];initBattle('boss_knight_defense')");assert.equal(b.get('transitionText').textContent,'BATTLE START');assert([...b.timers.values()].some(t=>t.ms===2000));assert(b.evaluate('app.busy'));
+ b.evaluate('hideTransitions()');await new Promise(setImmediate);assert(b.get('battleTransition').hidden);const gap=[...b.timers].find(([,t])=>t.ms===180);assert(gap);b.timers.delete(gap[0]);gap[1].fn();await new Promise(setImmediate);assert.equal(b.get('transitionText').textContent,'YOUR TURN');assert([...b.timers.values()].some(t=>t.ms===2000));b.evaluate('hideTransitions()');await opening;assert.equal(b.evaluate('app.busy'),false);
  const next=b.evaluate("initBattle('boss_knight_defense')");b.evaluate('hideTransitions()');await new Promise(setImmediate);b.evaluate('resetGame()');await next;assert.equal(b.evaluate('app.mode'),'draft');assert(b.get('battleTransition').hidden);
 });
 test('交換候補は詳細と確定を分離、キャンセル時に手札・残数・進行を保持',()=>{
@@ -188,4 +188,17 @@ test('終了状態の加速理由は演出中より優先、FX上限とリセッ
 test('スキル主要演出だけ待機し、速度別・大ダメージ別に予算を限定',()=>{
  const b=browser();assert.equal(b.evaluate("skillImpactDelay([{type:'damage',amount:4}])"),420);assert.equal(b.evaluate("skillImpactDelay([{type:'damage',amount:5}])"),700);
  b.evaluate('app.fastFx=true');assert.equal(b.evaluate("skillImpactDelay([{type:'damage',amount:4}])"),280);assert.equal(b.evaluate("skillImpactDelay([{type:'damage',amount:5}])"),420);
+});
+test('宣言中と敵初動待機中は行動せず、初動後も敵行動の間隔を確保',async()=>{
+ const b=browser();await b.build();b.evaluate("app.battle.actors.boss.deck=['slash','heavy_slash'];app.battle.actors.boss.mana=5");
+ const next=b.evaluate('endTurn(true)');assert.equal(b.get('transitionText').textContent,'ENEMY TURN');assert.equal(b.evaluate('app.battle.actors.boss.used.length'),0);
+ b.evaluate('hideTransitions()');await new Promise(setImmediate);const lead=[...b.timers].find(([,t])=>t.ms===700);assert(lead);assert.equal(b.evaluate('app.battle.actors.boss.used.length'),0);
+ b.timers.delete(lead[0]);lead[1].fn();await new Promise(setImmediate);assert([...b.timers.values()].some(t=>t.ms===900));b.evaluate('resetGame()');await next;assert(b.get('battleTransition').hidden);
+});
+test('勝敗宣言を全て見せてから結果を表示し、途中リセットで結果を残さない',async()=>{
+ for(const winner of ['player','boss']){
+ const b=browser();await b.build();b.evaluate(`app.battle.end='${winner}'`);const end=b.evaluate(`finishBattle('${winner}')`);assert(b.get('resultOverlay').hidden);
+ const pause=[...b.timers].find(([,t])=>t.ms===700);assert(pause);b.timers.delete(pause[0]);pause[1].fn();await new Promise(setImmediate);assert.equal(b.get('transitionText').textContent,winner==='player'?'VICTORY':'DEFEAT');assert(b.get('resultOverlay').hidden);assert([...b.timers.values()].some(t=>t.ms===2000));b.evaluate('hideTransitions()');await end;assert.equal(b.get('resultOverlay').hidden,false);
+ const reset=b.evaluate(`finishBattle('${winner}')`);b.evaluate('resetGame()');await reset;assert(b.get('resultOverlay').hidden);
+ }
 });
