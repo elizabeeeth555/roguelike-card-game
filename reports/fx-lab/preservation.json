@@ -1,0 +1,10 @@
+{
+  "checked": 3425,
+  "allowedEdits": [
+    ".gitignore",
+    "README.md",
+    "scripts/check.cjs"
+  ],
+  "unexpectedChanges": [],
+  "protectedGameFilesUnchanged": true
+}

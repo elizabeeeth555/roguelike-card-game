@@ -4,3 +4,7 @@ node_modules/
 .DS_Store
 Thumbs.db
 .vscode/.history/
+
+# Purchased/local-only FX Lab media. Never force-add these assets.
+/private-assets/
+*.fx-lab.local.json
