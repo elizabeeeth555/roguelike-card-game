@@ -1,0 +1,357 @@
+{
+  "checks": [
+    {
+      "name": "no-game-bootstrap",
+      "passed": true
+    },
+    {
+      "name": "initial-images",
+      "passed": true
+    },
+    {
+      "name": "width-1366-768",
+      "passed": true
+    },
+    {
+      "name": "transport-visible-1366-768",
+      "passed": true
+    },
+    {
+      "name": "width-1366-900",
+      "passed": true
+    },
+    {
+      "name": "transport-visible-1366-900",
+      "passed": true
+    },
+    {
+      "name": "width-1920-1080",
+      "passed": true
+    },
+    {
+      "name": "transport-visible-1920-1080",
+      "passed": true
+    },
+    {
+      "name": "boss-02_heavy_knight",
+      "passed": true
+    },
+    {
+      "name": "boss-03_witch",
+      "passed": true
+    },
+    {
+      "name": "boss-04_giant_warrior",
+      "passed": true
+    },
+    {
+      "name": "boss-05_scout",
+      "passed": true
+    },
+    {
+      "name": "boss-06_sage",
+      "passed": true
+    },
+    {
+      "name": "production-fx",
+      "passed": true
+    },
+    {
+      "name": "stop-cleans",
+      "passed": true
+    },
+    {
+      "name": "negative-delay",
+      "passed": true
+    },
+    {
+      "name": "reference-half-speed",
+      "passed": true
+    },
+    {
+      "name": "positive-delay",
+      "passed": true
+    },
+    {
+      "name": "scheduled-audio-stopped",
+      "passed": true
+    },
+    {
+      "name": "b-selected",
+      "passed": true
+    },
+    {
+      "name": "independent-settings",
+      "passed": true
+    },
+    {
+      "name": "png-rendered",
+      "passed": true
+    },
+    {
+      "name": "decoded-apng",
+      "passed": true
+    },
+    {
+      "name": "native-timing-apng",
+      "passed": true,
+      "timing": {
+        "pattern": "B",
+        "visualOffset": 0,
+        "audioOffset": 0,
+        "duration": 1400,
+        "leadMs": 30,
+        "soundOnly": false,
+        "iteration": 1,
+        "startedAt": 2708.6999999955297
+      }
+    },
+    {
+      "name": "frame-advance-apng",
+      "passed": true
+    },
+    {
+      "name": "decoded-webp",
+      "passed": true
+    },
+    {
+      "name": "native-timing-webp",
+      "passed": true,
+      "timing": {
+        "pattern": "B",
+        "visualOffset": 0,
+        "audioOffset": 0,
+        "duration": 1400,
+        "leadMs": 30,
+        "soundOnly": false,
+        "iteration": 1,
+        "startedAt": 3308.39999999851
+      }
+    },
+    {
+      "name": "frame-advance-webp",
+      "passed": true
+    },
+    {
+      "name": "sequence-timing",
+      "passed": true
+    },
+    {
+      "name": "sequence-natural-sort",
+      "passed": true
+    },
+    {
+      "name": "sequence-advance",
+      "passed": true
+    },
+    {
+      "name": "sheet-timing",
+      "passed": true
+    },
+    {
+      "name": "sheet-advance",
+      "passed": true
+    },
+    {
+      "name": "transform-settings",
+      "passed": true
+    },
+    {
+      "name": "audio-.wav",
+      "passed": true
+    },
+    {
+      "name": "live-volume-.wav",
+      "passed": true
+    },
+    {
+      "name": "audio-.mp3",
+      "passed": true
+    },
+    {
+      "name": "live-volume-.mp3",
+      "passed": true
+    },
+    {
+      "name": "audio-.ogg",
+      "passed": true
+    },
+    {
+      "name": "live-volume-.ogg",
+      "passed": true
+    },
+    {
+      "name": "repeat-progress",
+      "passed": true
+    },
+    {
+      "name": "repeat-stop-no-residue",
+      "passed": true
+    },
+    {
+      "name": "loop-progress",
+      "passed": true
+    },
+    {
+      "name": "three-repeats-override-loop",
+      "passed": true
+    },
+    {
+      "name": "json-metadata-only",
+      "passed": true
+    },
+    {
+      "name": "json-ab-settings",
+      "passed": true
+    },
+    {
+      "name": "missing-media-guidance",
+      "passed": true
+    },
+    {
+      "name": "bad-json-safe",
+      "passed": true
+    },
+    {
+      "name": "bad-image-safe",
+      "passed": true
+    },
+    {
+      "name": "bad-audio-safe",
+      "passed": true
+    },
+    {
+      "name": "same-conditions",
+      "passed": true
+    },
+    {
+      "name": "ab-playback",
+      "passed": true
+    },
+    {
+      "name": "native-fallback-honest",
+      "passed": true
+    },
+    {
+      "name": "native-restart",
+      "passed": true
+    },
+    {
+      "name": "native-stop",
+      "passed": true
+    },
+    {
+      "name": "hosted-disabled",
+      "passed": true
+    },
+    {
+      "name": "no-external-requests",
+      "passed": true,
+      "requests": [
+        {
+          "url": "http://localhost:8000/dev/fx-lab.html",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/dev/fx-lab/reference-fx.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/dev/fx-lab/lab.css",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/assets/asset-map.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/dev/fx-lab/core.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/dev/fx-lab/media.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/src/ui/combat-fx.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/dev/fx-lab/lab.js",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/assets/backgrounds/castle_throne_room.webp",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/assets/characters/castle/01_black_swordsman_boss.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/assets/characters/castle/02_heavy_knight_boss.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/assets/effects/kenney-particle.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/assets/characters/castle/03_witch_boss.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/assets/characters/castle/04_big_man_boss.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/assets/characters/castle/05_scout_boss.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/assets/characters/castle/06_sage_boss.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/assets/characters/castle/02_heavy_knight_boss.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/assets/sounds/sfx/combat/hit_heavy.mp3",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/assets/effects/kenney-particle.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/assets/effects/kenney-particle.png",
+          "method": "GET"
+        },
+        {
+          "url": "http://localhost:8000/assets/sounds/sfx/combat/ward.mp3",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "no-upload-methods",
+      "passed": true
+    },
+    {
+      "name": "no-js-errors",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "no-http-errors",
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "httpErrors": [],
+  "browser": "Chromium headless on Linux",
+  "fixtures": "Synthetic PNG/APNG/WebP/WAV/OGG and public repository MP3. No purchased material.",
+  "fixtureDirectory": "/tmp/fx-lab-fixtures-jyfcbv6a"
+}

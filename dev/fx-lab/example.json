@@ -1,0 +1,72 @@
+{
+  "schema": "keisei.fx-lab",
+  "version": 1,
+  "name": "古城の試写",
+  "scene": {
+    "boss": "02_heavy_knight"
+  },
+  "patterns": {
+    "A": {
+      "label": "本編・重い斬撃",
+      "visual": {
+        "kind": "builtin",
+        "id": "slash",
+        "amount": 6
+      },
+      "sound": {
+        "kind": "builtin",
+        "id": "hit_heavy"
+      },
+      "playback": {
+        "speed": 1,
+        "size": 200,
+        "x": 0,
+        "y": 0,
+        "opacity": 1,
+        "rotation": 0,
+        "flipX": false,
+        "target": "boss",
+        "volume": 0.5,
+        "audioDelayMs": 0,
+        "loop": false,
+        "gapMs": 500,
+        "holdMs": 1200,
+        "columns": 4,
+        "rows": 4,
+        "frameCount": 16,
+        "fps": 24
+      }
+    },
+    "B": {
+      "label": "比較用（素材を選択）",
+      "visual": {
+        "kind": "builtin",
+        "id": "ward",
+        "amount": 6
+      },
+      "sound": {
+        "kind": "builtin",
+        "id": "ward"
+      },
+      "playback": {
+        "speed": 1,
+        "size": 200,
+        "x": 0,
+        "y": 0,
+        "opacity": 1,
+        "rotation": 0,
+        "flipX": false,
+        "target": "boss",
+        "volume": 0.5,
+        "audioDelayMs": 0,
+        "loop": false,
+        "gapMs": 500,
+        "holdMs": 1200,
+        "columns": 4,
+        "rows": 4,
+        "frameCount": 16,
+        "fps": 24
+      }
+    }
+  }
+}
