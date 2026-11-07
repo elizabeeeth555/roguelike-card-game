@@ -17,14 +17,17 @@ function renderDraft(){
     for(const id of app.draftOptions){const card=createCardView(id,'draft');card.querySelector('.card-open').addEventListener('click',()=>openCardDetail(id,'draft'));options.append(card);}
   }
   options.hidden=!!app.draftPending;
-  $('draftActions').hidden=starting;
+  $('draftActions').hidden=starting||!!app.draftPending;
   $('draftRerolls').textContent=`残り${app.draftRerolls}回`;
   $('draftReroll').disabled=app.draftRerolls===0;
   $('draftReplacement').hidden=!app.draftPending;
   const replacements=$('draftReplaceOptions');replacements.replaceChildren();
   if(app.draftPending){
     $('draftReplaceTitle').textContent=`「${GameData.CARDS[app.draftPending].name}」と入れ替えるスキルを選択`;
-    for(const id of app.draftCards){const button=document.createElement('button');button.type='button';button.textContent=GameData.CARDS[id].name;button.addEventListener('click',()=>replaceDraft(id));replacements.append(button);}
+    for(const id of app.draftCards){
+      const panel=createCardView(id,'replacement');panel.querySelector('.card-open').addEventListener('click',()=>openCardDetail(id,'owned'));
+      const button=document.createElement('button');button.type='button';button.className='replace-confirm';button.textContent='このスキルと交換';button.addEventListener('click',()=>replaceDraft(id));panel.append(button);replacements.append(panel);
+    }
   }
   $('draftDeckCount').textContent=`${app.draftCards.length} / 5`;
   const deck=$('draftDeck');deck.replaceChildren();

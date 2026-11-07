@@ -70,3 +70,5 @@ AI-L/AI-D/AI-4、幅24、探索延長、強化/特性/継承6枚目は未実装�
 ## スキル構築型RPGのUI（2026-11-07）
 
 現行の方向性はスキル構築型ローグライクRPG。最新UI仕様は `docs/specs/first-era/12-skill-ui.md`（ルート基準）。スキルのMP/基本CDを独立表示、使用済/CD中は排他、詳細は効果全文のみ。習得詳細のリロール/スキップは通常画面へ集約。BATTLE STARTとターン演出、毒・数値演出、HUDを改善。内部card/deckは互換性のため維持する。戦闘・習得ルールは前回の採用仕様から変更しない。
+
+戦闘テンポ/交換画面/FX・音声の現行表示仕様は[13-combat-presentation](specs/first-era/13-combat-presentation.md)を参照。追加BGM4曲は素材確認待ちで未収録。

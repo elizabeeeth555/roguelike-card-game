@@ -1,0 +1,1282 @@
+{
+  "checks": [
+    {
+      "name": "choose-label-320",
+      "passed": true
+    },
+    {
+      "name": "replace-info-320",
+      "passed": true
+    },
+    {
+      "name": "owned-detail-320",
+      "passed": true
+    },
+    {
+      "name": "cancel-preserves-320",
+      "passed": true
+    },
+    {
+      "name": "replaced-320",
+      "passed": true
+    },
+    {
+      "name": "anchored-320-player-0",
+      "passed": true,
+      "a": {
+        "x": 12,
+        "y": 614,
+        "width": 47.40625,
+        "height": 143
+      },
+      "z": {
+        "x": 12,
+        "y": 614,
+        "width": 47.40625,
+        "height": 143
+      },
+      "detail": {
+        "x": 8,
+        "y": 572.203125,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "use-in-view-320-0",
+      "passed": true,
+      "use": {
+        "x": 8,
+        "y": 760,
+        "width": 170,
+        "height": 40
+      }
+    },
+    {
+      "name": "anchored-320-player-4",
+      "passed": true,
+      "a": {
+        "x": 217.625,
+        "y": 614,
+        "width": 47.40625,
+        "height": 143
+      },
+      "z": {
+        "x": 217.625,
+        "y": 614,
+        "width": 47.40625,
+        "height": 143
+      },
+      "detail": {
+        "x": 82,
+        "y": 532.609375,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "use-in-view-320-4",
+      "passed": true,
+      "use": {
+        "x": 142,
+        "y": 760,
+        "width": 170,
+        "height": 40
+      }
+    },
+    {
+      "name": "anchored-320-boss-0",
+      "passed": true,
+      "a": {
+        "x": 12,
+        "y": 184.5,
+        "width": 56,
+        "height": 88
+      },
+      "z": {
+        "x": 12,
+        "y": 184.5,
+        "width": 56,
+        "height": 88
+      },
+      "detail": {
+        "x": 8,
+        "y": 277.5,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "anchored-320-boss-4",
+      "passed": true,
+      "a": {
+        "x": 252,
+        "y": 184.5,
+        "width": 56,
+        "height": 88
+      },
+      "z": {
+        "x": 252,
+        "y": 184.5,
+        "width": 56,
+        "height": 88
+      },
+      "detail": {
+        "x": 82,
+        "y": 277.5,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "one-use-320",
+      "passed": true
+    },
+    {
+      "name": "trails-nonblocking-320",
+      "passed": true
+    },
+    {
+      "name": "next-action-320",
+      "passed": true
+    },
+    {
+      "name": "cleanup-320",
+      "passed": true
+    },
+    {
+      "name": "overflow-320",
+      "passed": true
+    },
+    {
+      "name": "choose-label-360",
+      "passed": true
+    },
+    {
+      "name": "replace-info-360",
+      "passed": true
+    },
+    {
+      "name": "owned-detail-360",
+      "passed": true
+    },
+    {
+      "name": "cancel-preserves-360",
+      "passed": true
+    },
+    {
+      "name": "replaced-360",
+      "passed": true
+    },
+    {
+      "name": "anchored-360-player-0",
+      "passed": true,
+      "a": {
+        "x": 12,
+        "y": 570,
+        "width": 54.359375,
+        "height": 143
+      },
+      "z": {
+        "x": 12,
+        "y": 570,
+        "width": 54.359375,
+        "height": 143
+      },
+      "detail": {
+        "x": 8,
+        "y": 528.203125,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "use-in-view-360-0",
+      "passed": true,
+      "use": {
+        "x": 7.9921875,
+        "y": 716,
+        "width": 170,
+        "height": 40
+      }
+    },
+    {
+      "name": "anchored-360-player-4",
+      "passed": true,
+      "a": {
+        "x": 245.4375,
+        "y": 570,
+        "width": 54.359375,
+        "height": 143
+      },
+      "z": {
+        "x": 245.4375,
+        "y": 570,
+        "width": 54.359375,
+        "height": 143
+      },
+      "detail": {
+        "x": 122,
+        "y": 488.609375,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "use-in-view-360-4",
+      "passed": true,
+      "use": {
+        "x": 181.9921875,
+        "y": 716,
+        "width": 170,
+        "height": 40
+      }
+    },
+    {
+      "name": "anchored-360-boss-0",
+      "passed": true,
+      "a": {
+        "x": 12,
+        "y": 184.5,
+        "width": 64,
+        "height": 88
+      },
+      "z": {
+        "x": 12,
+        "y": 184.5,
+        "width": 64,
+        "height": 88
+      },
+      "detail": {
+        "x": 8,
+        "y": 277.5,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "anchored-360-boss-4",
+      "passed": true,
+      "a": {
+        "x": 284,
+        "y": 184.5,
+        "width": 64,
+        "height": 88
+      },
+      "z": {
+        "x": 284,
+        "y": 184.5,
+        "width": 64,
+        "height": 88
+      },
+      "detail": {
+        "x": 122,
+        "y": 277.5,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "one-use-360",
+      "passed": true
+    },
+    {
+      "name": "trails-nonblocking-360",
+      "passed": true
+    },
+    {
+      "name": "next-action-360",
+      "passed": true
+    },
+    {
+      "name": "cleanup-360",
+      "passed": true
+    },
+    {
+      "name": "overflow-360",
+      "passed": true
+    },
+    {
+      "name": "choose-label-390",
+      "passed": true
+    },
+    {
+      "name": "replace-info-390",
+      "passed": true
+    },
+    {
+      "name": "owned-detail-390",
+      "passed": true
+    },
+    {
+      "name": "cancel-preserves-390",
+      "passed": true
+    },
+    {
+      "name": "replaced-390",
+      "passed": true
+    },
+    {
+      "name": "anchored-390-player-0",
+      "passed": true,
+      "a": {
+        "x": 12,
+        "y": 614,
+        "width": 59.578125,
+        "height": 143
+      },
+      "z": {
+        "x": 12,
+        "y": 614,
+        "width": 59.578125,
+        "height": 143
+      },
+      "detail": {
+        "x": 8,
+        "y": 572.203125,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "use-in-view-390-0",
+      "passed": true,
+      "use": {
+        "x": 7.9921875,
+        "y": 760,
+        "width": 170,
+        "height": 40
+      }
+    },
+    {
+      "name": "anchored-390-player-4",
+      "passed": true,
+      "a": {
+        "x": 266.3125,
+        "y": 614,
+        "width": 59.578125,
+        "height": 143
+      },
+      "z": {
+        "x": 266.3125,
+        "y": 614,
+        "width": 59.578125,
+        "height": 143
+      },
+      "detail": {
+        "x": 152,
+        "y": 532.609375,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "use-in-view-390-4",
+      "passed": true,
+      "use": {
+        "x": 211.09375,
+        "y": 760,
+        "width": 170,
+        "height": 40
+      }
+    },
+    {
+      "name": "anchored-390-boss-0",
+      "passed": true,
+      "a": {
+        "x": 12,
+        "y": 184.5,
+        "width": 70,
+        "height": 88
+      },
+      "z": {
+        "x": 12,
+        "y": 184.5,
+        "width": 70,
+        "height": 88
+      },
+      "detail": {
+        "x": 8,
+        "y": 277.5,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "anchored-390-boss-4",
+      "passed": true,
+      "a": {
+        "x": 308,
+        "y": 184.5,
+        "width": 70,
+        "height": 88
+      },
+      "z": {
+        "x": 308,
+        "y": 184.5,
+        "width": 70,
+        "height": 88
+      },
+      "detail": {
+        "x": 152,
+        "y": 277.5,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "one-use-390",
+      "passed": true
+    },
+    {
+      "name": "trails-nonblocking-390",
+      "passed": true
+    },
+    {
+      "name": "next-action-390",
+      "passed": true
+    },
+    {
+      "name": "cleanup-390",
+      "passed": true
+    },
+    {
+      "name": "overflow-390",
+      "passed": true
+    },
+    {
+      "name": "choose-label-430",
+      "passed": true
+    },
+    {
+      "name": "replace-info-430",
+      "passed": true
+    },
+    {
+      "name": "owned-detail-430",
+      "passed": true
+    },
+    {
+      "name": "cancel-preserves-430",
+      "passed": true
+    },
+    {
+      "name": "replaced-430",
+      "passed": true
+    },
+    {
+      "name": "anchored-430-player-0",
+      "passed": true,
+      "a": {
+        "x": 12,
+        "y": 702,
+        "width": 66.53125,
+        "height": 143
+      },
+      "z": {
+        "x": 12,
+        "y": 702,
+        "width": 66.53125,
+        "height": 143
+      },
+      "detail": {
+        "x": 8,
+        "y": 660.203125,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "use-in-view-430-0",
+      "passed": true,
+      "use": {
+        "x": 8,
+        "y": 848,
+        "width": 170,
+        "height": 40
+      }
+    },
+    {
+      "name": "anchored-430-player-4",
+      "passed": true,
+      "a": {
+        "x": 294.140625,
+        "y": 702,
+        "width": 66.53125,
+        "height": 143
+      },
+      "z": {
+        "x": 294.140625,
+        "y": 702,
+        "width": 66.53125,
+        "height": 143
+      },
+      "detail": {
+        "x": 192,
+        "y": 620.609375,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "use-in-view-430-4",
+      "passed": true,
+      "use": {
+        "x": 242.40625,
+        "y": 848,
+        "width": 170,
+        "height": 40
+      }
+    },
+    {
+      "name": "anchored-430-boss-0",
+      "passed": true,
+      "a": {
+        "x": 12,
+        "y": 184.5,
+        "width": 78,
+        "height": 88
+      },
+      "z": {
+        "x": 12,
+        "y": 184.5,
+        "width": 78,
+        "height": 88
+      },
+      "detail": {
+        "x": 8,
+        "y": 277.5,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "anchored-430-boss-4",
+      "passed": true,
+      "a": {
+        "x": 340,
+        "y": 184.5,
+        "width": 78,
+        "height": 88
+      },
+      "z": {
+        "x": 340,
+        "y": 184.5,
+        "width": 78,
+        "height": 88
+      },
+      "detail": {
+        "x": 192,
+        "y": 277.5,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "one-use-430",
+      "passed": true
+    },
+    {
+      "name": "trails-nonblocking-430",
+      "passed": true
+    },
+    {
+      "name": "next-action-430",
+      "passed": true
+    },
+    {
+      "name": "cleanup-430",
+      "passed": true
+    },
+    {
+      "name": "overflow-430",
+      "passed": true
+    },
+    {
+      "name": "choose-label-768",
+      "passed": true
+    },
+    {
+      "name": "replace-info-768",
+      "passed": true
+    },
+    {
+      "name": "owned-detail-768",
+      "passed": true
+    },
+    {
+      "name": "cancel-preserves-768",
+      "passed": true
+    },
+    {
+      "name": "replaced-768",
+      "passed": true
+    },
+    {
+      "name": "anchored-768-player-0",
+      "passed": true,
+      "a": {
+        "x": 224,
+        "y": 812,
+        "width": 61.875,
+        "height": 170
+      },
+      "z": {
+        "x": 224,
+        "y": 812,
+        "width": 61.875,
+        "height": 170
+      },
+      "detail": {
+        "x": 139.9375,
+        "y": 770.203125,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "use-in-view-768-0",
+      "passed": true,
+      "use": {
+        "x": 169.9375,
+        "y": 976,
+        "width": 170,
+        "height": 40
+      }
+    },
+    {
+      "name": "anchored-768-player-4",
+      "passed": true,
+      "a": {
+        "x": 499.5,
+        "y": 812,
+        "width": 61.875,
+        "height": 170
+      },
+      "z": {
+        "x": 499.5,
+        "y": 812,
+        "width": 61.875,
+        "height": 170
+      },
+      "detail": {
+        "x": 415.4375,
+        "y": 730.609375,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "use-in-view-768-4",
+      "passed": true,
+      "use": {
+        "x": 445.4375,
+        "y": 976,
+        "width": 170,
+        "height": 40
+      }
+    },
+    {
+      "name": "anchored-768-boss-0",
+      "passed": true,
+      "a": {
+        "x": 138.2421875,
+        "y": 129,
+        "width": 91.890625,
+        "height": 88
+      },
+      "z": {
+        "x": 138.2421875,
+        "y": 129,
+        "width": 91.890625,
+        "height": 88
+      },
+      "detail": {
+        "x": 69.1796875,
+        "y": 222,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "anchored-768-boss-4",
+      "passed": true,
+      "a": {
+        "x": 537.8515625,
+        "y": 129,
+        "width": 91.890625,
+        "height": 88
+      },
+      "z": {
+        "x": 537.8515625,
+        "y": 129,
+        "width": 91.890625,
+        "height": 88
+      },
+      "detail": {
+        "x": 468.7890625,
+        "y": 222,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "one-use-768",
+      "passed": true
+    },
+    {
+      "name": "trails-nonblocking-768",
+      "passed": true
+    },
+    {
+      "name": "next-action-768",
+      "passed": true
+    },
+    {
+      "name": "cleanup-768",
+      "passed": true
+    },
+    {
+      "name": "overflow-768",
+      "passed": true
+    },
+    {
+      "name": "choose-label-1366",
+      "passed": true
+    },
+    {
+      "name": "replace-info-1366",
+      "passed": true
+    },
+    {
+      "name": "owned-detail-1366",
+      "passed": true
+    },
+    {
+      "name": "cancel-preserves-1366",
+      "passed": true
+    },
+    {
+      "name": "replaced-1366",
+      "passed": true
+    },
+    {
+      "name": "anchored-1366-player-0",
+      "passed": true,
+      "a": {
+        "x": 274,
+        "y": 556,
+        "width": 151.609375,
+        "height": 170
+      },
+      "z": {
+        "x": 274,
+        "y": 556,
+        "width": 151.609375,
+        "height": 170
+      },
+      "detail": {
+        "x": 234.796875,
+        "y": 514.203125,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "use-in-view-1366-0",
+      "passed": true,
+      "use": {
+        "x": 264.796875,
+        "y": 720,
+        "width": 170,
+        "height": 40
+      }
+    },
+    {
+      "name": "anchored-1366-player-4",
+      "passed": true,
+      "a": {
+        "x": 908.453125,
+        "y": 556,
+        "width": 151.625,
+        "height": 170
+      },
+      "z": {
+        "x": 908.453125,
+        "y": 556,
+        "width": 151.625,
+        "height": 170
+      },
+      "detail": {
+        "x": 869.265625,
+        "y": 474.609375,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "use-in-view-1366-4",
+      "passed": true,
+      "use": {
+        "x": 899.265625,
+        "y": 720,
+        "width": 170,
+        "height": 40
+      }
+    },
+    {
+      "name": "anchored-1366-boss-0",
+      "passed": true,
+      "a": {
+        "x": 303,
+        "y": 129,
+        "width": 145.59375,
+        "height": 88
+      },
+      "z": {
+        "x": 303,
+        "y": 129,
+        "width": 145.59375,
+        "height": 88
+      },
+      "detail": {
+        "x": 260.796875,
+        "y": 222,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "anchored-1366-boss-4",
+      "passed": true,
+      "a": {
+        "x": 917.390625,
+        "y": 129,
+        "width": 145.609375,
+        "height": 88
+      },
+      "z": {
+        "x": 917.390625,
+        "y": 129,
+        "width": 145.609375,
+        "height": 88
+      },
+      "detail": {
+        "x": 875.1875,
+        "y": 222,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "one-use-1366",
+      "passed": true
+    },
+    {
+      "name": "trails-nonblocking-1366",
+      "passed": true
+    },
+    {
+      "name": "next-action-1366",
+      "passed": true
+    },
+    {
+      "name": "cleanup-1366",
+      "passed": true
+    },
+    {
+      "name": "overflow-1366",
+      "passed": true
+    },
+    {
+      "name": "setting-persisted",
+      "passed": true
+    },
+    {
+      "name": "reduced-motion",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-slash",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-heavy_slash",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-great_swing",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-barrier",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-fortress",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-first_aid",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-dash_slash",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-follow_up",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-finisher_slash",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-charge",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-feint",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-mana_bind",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-setup",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-corrosion",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-plague",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-venom_blade",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-heart_corrosion",
+      "passed": true
+    },
+    {
+      "name": "reducer-player-curse",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-heavy_slash",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-great_swing",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-barrier",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-fortress",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-first_aid",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-dash_slash",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-follow_up",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-finisher_slash",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-charge",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-feint",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-mana_bind",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-corrosion",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-plague",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-venom_blade",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-heart_corrosion",
+      "passed": true
+    },
+    {
+      "name": "reducer-boss-curse",
+      "passed": true
+    },
+    {
+      "name": "ended-reason-player",
+      "passed": true
+    },
+    {
+      "name": "end-clean-player",
+      "passed": true
+    },
+    {
+      "name": "retry-player",
+      "passed": true
+    },
+    {
+      "name": "ended-reason-boss",
+      "passed": true
+    },
+    {
+      "name": "end-clean-boss",
+      "passed": true
+    },
+    {
+      "name": "retry-boss",
+      "passed": true
+    },
+    {
+      "name": "sound-decode",
+      "passed": true,
+      "media": [
+        {
+          "path": "assets/sounds/sfx/combat/poison_tick.mp3",
+          "ok": true,
+          "duration": 0.22
+        },
+        {
+          "path": "assets/sounds/sfx/combat/curse.mp3",
+          "ok": true,
+          "duration": 0.38
+        },
+        {
+          "path": "assets/sounds/sfx/combat/poison.mp3",
+          "ok": true,
+          "duration": 0.38
+        },
+        {
+          "path": "assets/sounds/sfx/combat/mana.mp3",
+          "ok": true,
+          "duration": 0.48
+        },
+        {
+          "path": "assets/sounds/sfx/combat/buff.mp3",
+          "ok": true,
+          "duration": 0.43
+        },
+        {
+          "path": "assets/sounds/sfx/combat/heal.mp3",
+          "ok": true,
+          "duration": 0.52
+        },
+        {
+          "path": "assets/sounds/sfx/combat/break.mp3",
+          "ok": true,
+          "duration": 0.32
+        },
+        {
+          "path": "assets/sounds/sfx/combat/block.mp3",
+          "ok": true,
+          "duration": 0.2
+        },
+        {
+          "path": "assets/sounds/sfx/combat/ward.mp3",
+          "ok": true,
+          "duration": 0.42
+        },
+        {
+          "path": "assets/sounds/sfx/combat/hit_heavy.mp3",
+          "ok": true,
+          "duration": 0.43
+        },
+        {
+          "path": "assets/sounds/sfx/combat/hit_medium.mp3",
+          "ok": true,
+          "duration": 0.28
+        },
+        {
+          "path": "assets/sounds/sfx/combat/hit_light.mp3",
+          "ok": true,
+          "duration": 0.19
+        }
+      ]
+    },
+    {
+      "name": "no-js-errors",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "no-unexpected-request-failures",
+      "passed": true,
+      "failed": [
+        {
+          "url": "http://127.0.0.1:18080/assets/sounds/sfx/card_gain.mp3",
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:18080/assets/sounds/sfx/combat/hit_heavy.mp3",
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:18080/assets/sounds/sfx/card_gain.mp3",
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:18080/assets/sounds/bgm/determined_pursuit_loop.ogg",
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:18080/assets/sounds/bgm/determined_pursuit_loop.ogg",
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:18080/assets/sounds/sfx/player_turn.mp3",
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:18080/assets/sounds/sfx/combat/hit_heavy.mp3",
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:18080/assets/sounds/sfx/combat/ward.mp3",
+          "failure": "net::ERR_ABORTED"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "failedRequests": [
+    {
+      "url": "http://127.0.0.1:18080/assets/sounds/sfx/card_gain.mp3",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:18080/assets/sounds/sfx/combat/hit_heavy.mp3",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:18080/assets/sounds/sfx/card_gain.mp3",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:18080/assets/sounds/bgm/determined_pursuit_loop.ogg",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:18080/assets/sounds/bgm/determined_pursuit_loop.ogg",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:18080/assets/sounds/sfx/player_turn.mp3",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:18080/assets/sounds/sfx/combat/hit_heavy.mp3",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:18080/assets/sounds/sfx/combat/ward.mp3",
+      "failure": "net::ERR_ABORTED"
+    }
+  ],
+  "media": [
+    {
+      "path": "assets/sounds/sfx/combat/poison_tick.mp3",
+      "ok": true,
+      "duration": 0.22
+    },
+    {
+      "path": "assets/sounds/sfx/combat/curse.mp3",
+      "ok": true,
+      "duration": 0.38
+    },
+    {
+      "path": "assets/sounds/sfx/combat/poison.mp3",
+      "ok": true,
+      "duration": 0.38
+    },
+    {
+      "path": "assets/sounds/sfx/combat/mana.mp3",
+      "ok": true,
+      "duration": 0.48
+    },
+    {
+      "path": "assets/sounds/sfx/combat/buff.mp3",
+      "ok": true,
+      "duration": 0.43
+    },
+    {
+      "path": "assets/sounds/sfx/combat/heal.mp3",
+      "ok": true,
+      "duration": 0.52
+    },
+    {
+      "path": "assets/sounds/sfx/combat/break.mp3",
+      "ok": true,
+      "duration": 0.32
+    },
+    {
+      "path": "assets/sounds/sfx/combat/block.mp3",
+      "ok": true,
+      "duration": 0.2
+    },
+    {
+      "path": "assets/sounds/sfx/combat/ward.mp3",
+      "ok": true,
+      "duration": 0.42
+    },
+    {
+      "path": "assets/sounds/sfx/combat/hit_heavy.mp3",
+      "ok": true,
+      "duration": 0.43
+    },
+    {
+      "path": "assets/sounds/sfx/combat/hit_medium.mp3",
+      "ok": true,
+      "duration": 0.28
+    },
+    {
+      "path": "assets/sounds/sfx/combat/hit_light.mp3",
+      "ok": true,
+      "duration": 0.19
+    }
+  ]
+}

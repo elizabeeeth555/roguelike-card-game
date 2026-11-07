@@ -167,8 +167,25 @@ test('習得詳細は効果と習得のみ、数値演出はハートなしで�
  const b=browser();b.get('draftOptions').children[0].click();b.evaluate("openCardDetail(app.draftOptions[0],'draft')");assert.equal(b.get('cardDetailMeta').hidden,true);assert.equal(b.get('cardDetailStatus').hidden,true);assert.match(b.get('confirmCard').textContent,/スキル/);
  b.evaluate("animateHit(3,'boss');animateHeal(2,'player')");assert.equal(b.get('bossHit').textContent,'−3');assert.equal(b.get('playerHit').textContent,'＋2');assert(b.get('playerHit').classList.contains('healing'));b.evaluate("animateHit(1,'player')");assert(!b.get('playerHit').classList.contains('healing'));
 });
-test('開始演出はSTART→空白→YOUR、通常2000ms、空白中リセットで残留しない',async()=>{
- const b=browser(),opening=b.evaluate("app.draftCards=['slash','barrier'];initBattle('boss_knight_defense')");assert.equal(b.get('transitionText').textContent,'BATTLE START');assert([...b.timers.values()].some(t=>t.ms===1100));assert(b.evaluate('app.busy'));
- b.evaluate('hideTransitions()');await new Promise(setImmediate);assert(b.get('battleTransition').hidden);const gap=[...b.timers].find(([,t])=>t.ms===150);assert(gap);b.timers.delete(gap[0]);gap[1].fn();await new Promise(setImmediate);assert.equal(b.get('transitionText').textContent,'YOUR TURN');assert([...b.timers.values()].some(t=>t.ms===2000));b.evaluate('hideTransitions()');await opening;assert.equal(b.evaluate('app.busy'),false);
+test('開始演出はSTART→空白→YOUR、通常350ms、空白中リセットで残留しない',async()=>{
+ const b=browser(),opening=b.evaluate("app.draftCards=['slash','barrier'];initBattle('boss_knight_defense')");assert.equal(b.get('transitionText').textContent,'BATTLE START');assert([...b.timers.values()].some(t=>t.ms===450));assert(b.evaluate('app.busy'));
+ b.evaluate('hideTransitions()');await new Promise(setImmediate);assert(b.get('battleTransition').hidden);const gap=[...b.timers].find(([,t])=>t.ms===60);assert(gap);b.timers.delete(gap[0]);gap[1].fn();await new Promise(setImmediate);assert.equal(b.get('transitionText').textContent,'YOUR TURN');assert([...b.timers.values()].some(t=>t.ms===350));b.evaluate('hideTransitions()');await opening;assert.equal(b.evaluate('app.busy'),false);
  const next=b.evaluate("initBattle('boss_knight_defense')");b.evaluate('hideTransitions()');await new Promise(setImmediate);b.evaluate('resetGame()');await next;assert.equal(b.evaluate('app.mode'),'draft');assert(b.get('battleTransition').hidden);
+});
+test('交換候補は詳細と確定を分離、キャンセル時に手札・残数・進行を保持',()=>{
+ const b=browser();b.evaluate("applyStarter(GameData.STARTERS[0].id);app.draftCards=['slash','barrier','first_aid','setup','battle_spirit'];app.draftOptions=['heavy_slash','great_swing','curse'];acquireDraft('heavy_slash')");
+ assert(b.get('draftActions').hidden);const panel=b.get('draftReplaceOptions').children[0];assert(panel.querySelector('.card-cost'));assert(panel.querySelector('.card-cd'));assert(panel.querySelector('.card-description'));
+ const before=b.evaluate('JSON.stringify([app.draftCards,app.draftStep,app.draftRerolls])');panel.querySelector('.card-open').click();assert.equal(b.get('confirmCard').hidden,true);assert.equal(b.evaluate('app.draftPending'),'heavy_slash');
+ b.evaluate('closeCardDetail();cancelDraftReplacement()');assert.equal(b.evaluate('JSON.stringify([app.draftCards,app.draftStep,app.draftRerolls])'),before);assert.equal(b.get('draftActions').hidden,false);
+ b.evaluate("acquireDraft('heavy_slash')");b.get('draftReplaceOptions').children[0].querySelector('.replace-confirm').click();assert.equal(b.evaluate("app.draftCards.includes('heavy_slash')"),true);assert.equal(b.evaluate('app.draftStep'),1);
+});
+test('終了状態の加速理由は演出中より優先、FX上限とリセット破棄',async()=>{
+ const b=browser();await b.build();b.evaluate("for(let i=0;i<40;i++)combatFx('slash','boss',6)");assert.equal(b.evaluate('combatFxNodes.size'),24);
+ b.evaluate("app.fxMode='light';for(let i=0;i<20;i++)combatFx('ward','player')");assert.equal(b.evaluate('combatFxNodes.size'),10);
+ b.evaluate("app.battle.end={winner:'player'};app.busy=true;render()");assert.equal(b.get('accelerateReason').textContent,'戦闘終了');
+ b.evaluate('resetGame()');assert.equal(b.evaluate('combatFxNodes.size'),0);
+});
+test('スキル主要演出だけ待機し、速度別・大ダメージ別に予算を限定',()=>{
+ const b=browser();assert.equal(b.evaluate("skillImpactDelay([{type:'damage',amount:4}])"),420);assert.equal(b.evaluate("skillImpactDelay([{type:'damage',amount:5}])"),700);
+ b.evaluate('app.fastFx=true');assert.equal(b.evaluate("skillImpactDelay([{type:'damage',amount:4}])"),280);assert.equal(b.evaluate("skillImpactDelay([{type:'damage',amount:5}])"),420);
 });

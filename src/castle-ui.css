@@ -251,3 +251,55 @@ footer{height:22px;position:relative;z-index:2}
 .game-card .card-cd{left:auto;width:auto;text-align:right}
 .poison-status .status-symbol{font-family:Arial,sans-serif;font-variant-emoji:text}
 .game-card .card-open:disabled{opacity:1;cursor:default}
+
+/* Anchored skill panels and independent touch-sized detail controls. */
+.game-card.selected,.enemy-deck .game-card.selected{transform:none;transform-origin:center}
+.inline-card-details,.enemy-deck .inline-card-details{left:50%;margin:0;width:230px;min-width:0;max-width:calc(100vw - 16px);transform:translate(calc(-50% + var(--detail-shift-x,0px)),var(--detail-shift-y,0px));font-size:12px;line-height:1.65;max-height:220px;overflow:auto;z-index:40}
+.game-card.selected .card-use{left:50%;right:auto;width:var(--use-width,150px);transform:translateX(calc(-50% + var(--use-shift-x,0px)));min-height:40px;font-size:12px;z-index:41;background:#244c6d;color:#fff}
+.enemy-deck .card-name{font-size:12px;color:#fff3d9}
+.enemy-deck .card-description{font-size:10px;color:#eee5d5;line-height:1.45}
+.enemy-deck .card-cost,.enemy-deck .card-cd{font-size:11px;color:#e5f2ff}
+#draftReplaceOptions{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}
+#draftReplaceOptions .game-card{height:auto;min-height:155px;width:auto;transform:none;display:flex;flex-direction:column}
+#draftReplaceOptions .card-open{position:relative;min-height:122px;width:100%;flex:1}
+#draftReplaceOptions .card-name{font-size:15px}
+#draftReplaceOptions .card-description{font-size:12px;-webkit-line-clamp:3}
+.replace-confirm{margin:6px;min-height:40px;background:#3c493d;border:1px solid #91a67a;color:#fff}
+#draftReplaceCancel{display:block;margin:22px auto 6px;min-height:44px;padding:10px 28px;background:#262833;border:1px solid #8c8990;color:#dedbe2;width:auto}
+/* Local CC0 sprite + original CSS geometry. Overlay transforms never move layout/UI. */
+.combat-fx{position:absolute;left:var(--fx-x);top:var(--fx-y);width:var(--fx-size);height:var(--fx-size);margin:calc(var(--fx-size) / -2);pointer-events:none;z-index:24;color:#e6c991;contain:layout style;animation:fx-life var(--fx-time) ease-out forwards}
+.combat-fx:before,.combat-fx:after{content:'';position:absolute;inset:22%;border-radius:50%;border:2px solid currentColor;box-shadow:0 0 18px currentColor,inset 0 0 12px currentColor;animation:fx-ring var(--fx-time) ease-out forwards}
+.combat-fx:after{inset:34%;transform:rotate(45deg);border-radius:12%}
+.combat-fx i{position:absolute;left:48%;top:48%;width:7px;height:7px;background:currentColor;-webkit-mask:url('../assets/effects/kenney-particle.png') center/contain;mask:url('../assets/effects/kenney-particle.png') center/contain;transform:rotate(var(--angle));animation:fx-particle var(--fx-time) var(--delay) ease-out forwards}
+.fx-slash:before,.fx-venom:before{inset:47% 0;border:0;border-radius:50%;background:linear-gradient(90deg,transparent,currentColor,#fff,currentColor,transparent);transform:rotate(-38deg);box-shadow:0 0 14px currentColor}
+.fx-slash:after,.fx-venom:after{inset:15% 48%;transform:rotate(34deg);border:0;background:currentColor}
+.fx-ward,.fx-block,.fx-break{color:#a1deee}.fx-ward:after,.fx-block:after,.fx-break:after{border-radius:20%;border-style:double;border-width:5px}
+.fx-break{animation:fx-shatter .5s ease-out forwards}
+.fx-heal{color:#9fd99d}.fx-buff{color:#dec276}.fx-mana{color:#8caeea}
+.fx-poison,.fx-poison-tick,.fx-venom{color:#c08ae5}.fx-curse{color:#ac729d}.fx-poison:before,.fx-poison-tick:before{background:radial-gradient(ellipse,#ac6adb77,transparent 65%);border:0;box-shadow:none}
+.combat-fx[data-tier='2']:not(.fx-light){filter:drop-shadow(2px 0 4px currentColor)}
+.combat-fx[data-tier='3']:not(.fx-light){animation:fx-impact .76s ease-out forwards}
+.fx-finish{color:#f2d6ad}.fx-light i:nth-child(n+3){display:none}.fx-light{filter:none!important}
+@keyframes fx-life{0%{opacity:0;scale:.6}14%{opacity:.9;scale:1}100%{opacity:0;scale:1.35}}
+@keyframes fx-ring{0%{opacity:0;scale:.3}18%{opacity:1;scale:1}100%{opacity:0;scale:1.6}}
+@keyframes fx-particle{0%{opacity:0;translate:0 0}15%{opacity:1}100%{opacity:0;transform:rotate(var(--angle)) translateX(100px) scale(.2)}}
+@keyframes fx-impact{0%{opacity:0;scale:.8;translate:0 0}10%,18%{opacity:1;scale:1;translate:0 0}22%{translate:-3px 1px}27%{translate:3px -1px}35%{translate:0 0}100%{opacity:0;scale:1.4}}
+@keyframes fx-shatter{0%{opacity:.9;scale:.7}100%{opacity:0;scale:1.8;rotate:18deg}}
+@media(max-width:760px){.enemy-deck .card-name{font-size:10px}.enemy-deck .card-description{font-size:9px}.enemy-deck .card-cost,.enemy-deck .card-cd{font-size:10px}.combat-fx{max-width:260px;max-height:260px}.inline-card-details{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.combat-fx,.combat-fx:before,.combat-fx:after,.combat-fx i{animation-name:fx-life!important;translate:none!important}.hurt{animation:none!important}}
+.combat-fx-layer{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:9}
+.game-card.selected .card-use{transform:translate(calc(-50% + var(--use-shift-x,0px)),var(--use-shift-y,0px))}
+.impact-small{animation:character-nudge .22s ease-out!important}.impact-medium{animation:character-impact .32s ease-out!important}.impact-heavy{animation:character-impact .42s ease-out!important}.impact-light{animation:character-flash .32s ease-out!important}
+@keyframes character-nudge{20%{translate:-1px 0}45%{translate:1px 0}100%{translate:0 0}}
+/* Initial held frame is visual hit-stop only; combat/task clocks never pause. */
+@keyframes character-impact{0%,14%{translate:0 0;opacity:.8}20%{translate:-3px 1px}35%{translate:3px -1px}55%{translate:-1px 0}100%{translate:0 0;opacity:1}}
+@keyframes character-flash{20%{opacity:.75}100%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.impact-small,.impact-medium,.impact-heavy{animation:character-flash .32s ease-out!important}}
+.fx-poison:after{border:0;background:radial-gradient(ellipse,#ac6adb55,transparent 65%);box-shadow:none;filter:blur(4px)}
+.fx-poison-tick:after{border-style:dotted;box-shadow:none}
+/* Move only background artwork, never clickable HUD/panels or document bounds. */
+.camera-medium{--camera-jolt:1px;animation:scene-impact .32s ease-out}
+.camera-heavy{--camera-jolt:3px;animation:scene-impact .42s ease-out}
+@keyframes scene-impact{0%,14%,100%{background-position:center,center}22%{background-position:center,calc(50% - var(--camera-jolt)) calc(50% + 1px)}38%{background-position:center,calc(50% + var(--camera-jolt)) calc(50% - 1px)}55%{background-position:center,calc(50% - 1px) center}}
+@media(max-width:760px){.camera-heavy{--camera-jolt:1.5px}}
+@media(prefers-reduced-motion:reduce){.camera-medium,.camera-heavy{animation:none}}

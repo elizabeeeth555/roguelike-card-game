@@ -1,0 +1,12 @@
+{
+  "environment": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "browser": "Chromium headless, desktop Linux, no CPU throttle",
+  "fxEmission": {
+    "samples": 100,
+    "meanMs": 0.5739999999850989,
+    "p95Ms": 0.7000000029802322,
+    "maxMs": 2.2999999970197678,
+    "nodes": 24
+  },
+  "limitations": "実機・聴感・GPUフレームレートは未計測"
+}

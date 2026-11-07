@@ -1,0 +1,72 @@
+{
+  "files": [
+    {
+      "path": "assets/effects/kenney-particle.png",
+      "sha256": "5d650f2299f846d2c54f32af252da5c59c54bfb1e44fb6fcef79ae17b97cc60a",
+      "bytes": 1750
+    },
+    {
+      "path": "assets/sounds/sfx/combat/poison_tick.mp3",
+      "sha256": "67f4483caba27e79d522cec8b7056dcf1d11c94ae101943c7e7ce3df64a411f5",
+      "bytes": 3492
+    },
+    {
+      "path": "assets/sounds/sfx/combat/hit_light.mp3",
+      "sha256": "3422478795465383dae34223f8b1f33191f8d5853cc6277fab116e8fd4d4029e",
+      "bytes": 3178
+    },
+    {
+      "path": "assets/sounds/sfx/combat/mana.mp3",
+      "sha256": "cadd57c1cd2f9005efda26dc7e74b88181c673e38b5e6781f6844500bafef8d2",
+      "bytes": 6626
+    },
+    {
+      "path": "assets/sounds/sfx/combat/break.mp3",
+      "sha256": "278ae65a2e7eb40d0b0b1aebfcd852a07545b162b765bd514c2495855a8c3209",
+      "bytes": 4746
+    },
+    {
+      "path": "assets/sounds/sfx/combat/ward.mp3",
+      "sha256": "14d6ff8a1a62c38546ab6ed8b42a580e28e9b2aa6afbe9a40038bf9279b528f2",
+      "bytes": 5999
+    },
+    {
+      "path": "assets/sounds/sfx/combat/hit_heavy.mp3",
+      "sha256": "fe14a6c96a2f6c0fcc8a0c7fecab7a4a7daa00922f9d9daf7aaeae01c008ddf7",
+      "bytes": 5999
+    },
+    {
+      "path": "assets/sounds/sfx/combat/block.mp3",
+      "sha256": "6b754e503cf8ccdc61a2fbc5b574f7cf43bd3a978c96b819a735a652de564677",
+      "bytes": 3178
+    },
+    {
+      "path": "assets/sounds/sfx/combat/hit_medium.mp3",
+      "sha256": "535a7b9a4ccb39067f30dd30825ea52e21d30122641550b24720f5cddc2d6188",
+      "bytes": 4119
+    },
+    {
+      "path": "assets/sounds/sfx/combat/poison.mp3",
+      "sha256": "88d114752d43533aa08c1dcb664f2fc8073d6c1d411cb182826ecd00f354229f",
+      "bytes": 5373
+    },
+    {
+      "path": "assets/sounds/sfx/combat/curse.mp3",
+      "sha256": "abcb327963af96f664109a182fe4c49cfe8d31938d86a10b84e455ab7021ef6f",
+      "bytes": 5373
+    },
+    {
+      "path": "assets/sounds/sfx/combat/buff.mp3",
+      "sha256": "ae1ff1fc68a9df5373370b448812c7175400524115af44a6d06af01231dbb936",
+      "bytes": 5999
+    },
+    {
+      "path": "assets/sounds/sfx/combat/heal.mp3",
+      "sha256": "7d84e7bf56223456155c06ac67005b4abed0751b0e33a323d0510e5de4aea4c3",
+      "bytes": 6940
+    }
+  ],
+  "newBgmTracks": 0,
+  "newSfx": 12,
+  "auditioned": false
+}

@@ -28,7 +28,7 @@ function updateCardDetail(){
  $('cardDetailTitle').textContent=spec.name;
  $('cardDetailMeta').hidden=true;$('cardDetailStatus').hidden=true;
  $('cardDetailText').textContent=cardDescription(id);
- const confirm=$('confirmCard');confirm.hidden=side!=='draft';confirm.textContent=app.draftCards.length===5?'このスキルと入れ替える':'このスキルを習得';
+ const confirm=$('confirmCard');confirm.hidden=side!=='draft';confirm.textContent='このスキルを選択';
  confirm.disabled=app.mode!=='draft'||!app.draftOptions.includes(id);
 }
 function closeEndTurn(){
@@ -98,22 +98,19 @@ function setupAudioMenu(){
   document.addEventListener('click',event=>{if(!event.target.closest('#audioPanel,#settingsPanel,#settingsButton,#soundButton')){toggle(false);settings(false);}});
 }
 
-// Single expanded card: clamp the transformed card and its detail/use controls as one group.
+// Keep the selected panel anchored; clamp only its independent detail and use controls.
 function positionCardDetails(){
  if(!document.querySelectorAll)return;
  for(const card of document.querySelectorAll('.game-card.selected')){
   card.style.setProperty('--card-shift-x','0px');card.style.setProperty('--card-shift-y','0px');
-  if(card.dataset.side==='boss'){
-   const detail=card.querySelector('.inline-card-details');if(!detail)continue;
-   detail.style.setProperty('--detail-shift-x','0px');
-   const r=detail.getBoundingClientRect(),shift=Math.max(8-r.left,Math.min(0,innerWidth-8-r.right));
-   detail.style.setProperty('--detail-shift-x',shift+'px');continue;
+  const detail=card.querySelector('.inline-card-details'),use=card.querySelector('.card-use');
+  if(detail){
+   detail.style.setProperty('--detail-shift-x','0px');detail.style.setProperty('--detail-shift-y','0px');
+   const r=detail.getBoundingClientRect(),dx=Math.max(8-r.left,Math.min(0,window.innerWidth-8-r.right)),dy=Math.max(8-r.top,Math.min(0,window.innerHeight-8-r.bottom));
+   detail.style.setProperty('--detail-shift-x',dx+'px');detail.style.setProperty('--detail-shift-y',dy+'px');
   }
-  const rects=[card,...card.querySelectorAll('.inline-card-details,.card-use:not([hidden])')].map(n=>n.getBoundingClientRect());
-  const left=Math.min(...rects.map(r=>r.left)),right=Math.max(...rects.map(r=>r.right));
-  const top=Math.min(...rects.map(r=>r.top)),bottom=Math.max(...rects.map(r=>r.bottom));
-  card.style.setProperty('--card-shift-x',Math.max(8-left,Math.min(0,innerWidth-8-right))+'px');
-  card.style.setProperty('--card-shift-y',Math.max(8-top,Math.min(0,innerHeight-8-bottom))+'px');
+  if(use){const r=card.getBoundingClientRect(),width=Math.min(170,window.innerWidth-16);use.style.setProperty('--use-width',width+'px');use.style.setProperty('--use-shift-x',Math.max(8-(r.left+r.width/2-width/2),Math.min(0,window.innerWidth-8-(r.left+r.width/2+width/2)))+'px');use.style.setProperty('--use-shift-y','0px');const u=use.getBoundingClientRect();use.style.setProperty('--use-shift-y',Math.max(8-u.top,Math.min(0,window.innerHeight-8-u.bottom))+'px');}
+
  }
 }
 window.addEventListener('resize',()=>{if(app.mode==='battle')positionCardDetails();});

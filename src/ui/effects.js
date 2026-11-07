@@ -7,6 +7,7 @@ function addLog(message,kind='info'){
 function announce(message){$('arenaMessage').textContent=message;}
 function clearEnemyAction(){app.enemyActiveKey=null;$('enemyActionToast').hidden=true;}
 function clearBattleVisuals(){
+  clearCombatFx();GameAudio.stopEffects?.();
   app.enemyUsedKeys.clear();clearEnemyAction();
   for(const id of ['enemyShadow','heroFigure','playerHpTrack'])$(id).classList.remove('hurt','casting');
   for(const id of ['bossHit','playerHit']){$(id).textContent='';$(id).classList.remove('active');}
@@ -36,8 +37,9 @@ function applyVisualAssets(){
 }
 function effectVisual(kind,side){
   const figure=$(side==='boss'?'enemyShadow':'playerHpTrack');figure.classList.remove('casting');void figure.offsetWidth;figure.classList.add('casting');
-  const fx=$('attackFx');fx.className='attack-fx';void fx.offsetWidth;fx.classList.add(kind);
-  sound(kind==='defense'?'block':kind==='poison'?'poison':kind==='buff'?'boost':kind==='heal'?'heal':'attack');
+  // Family-specific visuals are anchored to the actual recipient by combat-fx.js.
+  $('attackFx').className='attack-fx';
+
 }
 function animateHit(amount,side,blocked=0){
   const number=$(side+'Hit');number.textContent=[blocked?'⬡ −'+blocked:'',amount?'−'+amount:''].filter(Boolean).join(' ／ ');number.classList.remove('healing');number.classList.remove('active');void number.offsetWidth;number.classList.add('active');

@@ -9,7 +9,29 @@ window.GAME_ASSETS={
   bgmFallback:{event:'assets/sounds/bgm/whispers_in_the_fog.mp3',battle:'assets/sounds/bgm/determined_pursuit_loop.mp3'},
   // The boss theme was measured louder; slightly lower its playback volume.
   bgmGain:{event:1.0,battle:0.60},
+  // Explicit per-boss slots. Missing verified source uses the existing approved theme.
+  // Do not populate pending slots with music of uncertain provenance.
+  bossBgm:{
+    boss_knight_defense:{status:'pending-source',gain:0.60},
+    boss_witch_poison:{status:'pending-source',gain:0.60},
+    boss_giant_power:{status:'pending-source',gain:0.60},
+    boss_scout_rush:{ogg:'assets/sounds/bgm/determined_pursuit_loop.ogg',mp3:'assets/sounds/bgm/determined_pursuit_loop.mp3',gain:0.60,status:'available'},
+    boss_sage_tempo:{status:'pending-source',gain:0.60}
+  },
+  effects:{particle:'assets/effects/kenney-particle.png'},
   sounds:{
+    fx_poison_tick:'assets/sounds/sfx/combat/poison_tick.mp3',
+    fx_curse:'assets/sounds/sfx/combat/curse.mp3',
+    fx_poison:'assets/sounds/sfx/combat/poison.mp3',
+    fx_mana:'assets/sounds/sfx/combat/mana.mp3',
+    fx_buff:'assets/sounds/sfx/combat/buff.mp3',
+    fx_heal:'assets/sounds/sfx/combat/heal.mp3',
+    fx_break:'assets/sounds/sfx/combat/break.mp3',
+    fx_block:'assets/sounds/sfx/combat/block.mp3',
+    fx_ward:'assets/sounds/sfx/combat/ward.mp3',
+    fx_hit_heavy:'assets/sounds/sfx/combat/hit_heavy.mp3',
+    fx_hit_medium:'assets/sounds/sfx/combat/hit_medium.mp3',
+    fx_hit_light:'assets/sounds/sfx/combat/hit_light.mp3',
     ui_click:'assets/sounds/sfx/ui_click.mp3',ui_confirm:'assets/sounds/sfx/ui_confirm.mp3',
     ui_cancel:'assets/sounds/sfx/ui_cancel.mp3',ui_open:'assets/sounds/sfx/ui_open.mp3',
     ui_close:'assets/sounds/sfx/ui_close.mp3',ui_error:'assets/sounds/sfx/ui_error.mp3',

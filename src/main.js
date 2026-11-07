@@ -1,5 +1,5 @@
 'use strict';
-setupAudioMenu();setupLogToggle();setupInfoTooltips();setupDialogs();
+setupCombatFx();setupAudioMenu();setupLogToggle();setupInfoTooltips();setupDialogs();
 $('resetButton').addEventListener('click',()=>{if(window.confirm('現在の進行を終了し、最初から始めますか？'))resetGame();});$('restartButton').addEventListener('click',resetGame);
 $('retryButton').addEventListener('click',retryBattle);$('endTurn').addEventListener('click',endTurn);
 $('draftReroll').addEventListener('click',rerollDraft);$('draftSkip').addEventListener('click',skipDraft);$('draftReplaceCancel').addEventListener('click',cancelDraftReplacement);

@@ -107,7 +107,7 @@ function render(){
   const view=createCardView(id,side);view.querySelector('.card-open').addEventListener('click',()=>openCardDetail(id,side));return view;
  }));
  const accel=GameBattle.accelerationStatus(s,'player');$('accelerateButton').disabled=!canChangeBattle()||!accel.allowed;
- $('accelerateReason').textContent=app.busy?'演出中':accel.allowed?'次の自ターンから上限＋1':accel.reason;$('endTurn').disabled=!canChangeBattle();
+ $('accelerateReason').textContent=s.end?'戦闘終了':app.busy?'演出中':accel.allowed?'次の自ターンから上限＋1':accel.reason;$('endTurn').disabled=!canChangeBattle();
  const p=app.selectedPlayer&&cardDamagePreview(app.selectedPlayer);$('damagePreview').hidden=!p;$('damagePreviewBar').hidden=!p||!p.allowed;
  if(p){$('damagePreview').textContent=p.allowed?`予測 HP −${p.damage} ／ バリア −${p.blocked}`:'現在は使用不可：'+cardStatusText(app.selectedPlayer,'player');
   const boss=s.actors.boss;$('damagePreviewBar').style.left=(boss.hp-p.damage)/boss.maxHp*100+'%';$('damagePreviewBar').style.width=p.damage/boss.maxHp*100+'%';}

@@ -4,6 +4,7 @@
 
 | 文書 | 用途 |
 |---|---|
+| [戦闘テンポ・交換・FX/SE](specs/first-era/13-combat-presentation.md) | 最新表示仕様。追加BGM4曲は権利確認待ち |
 | [game-design.md](game-design.md) | 現行仕様と対象外機能の全体像 |
 | [first-era-decisions.md](first-era-decisions.md) | 実装前にユーザー確認した9項目と最新の画像指示 |
 | [first-era-architecture.md](first-era-architecture.md) | 実装構成、API、テスト、実測結果 |
