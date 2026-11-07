@@ -1,10 +1,10 @@
 """Castle presentation acceptance and review screenshots. Run with a local server URL."""
-import json, sys
+import json, sys, os
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 ROOT=Path(__file__).resolve().parents[1]
-OUT=ROOT/'reports/castle-ui'
+OUT=Path(os.environ.get('CASTLE_UI_REPORT_DIR',ROOT/'.test-artifacts/castle-ui'))
 SHOTS=OUT/'screenshots'
 SHOTS.mkdir(parents=True,exist_ok=True)
 checks=[]; errors=[]; failed_requests=[]
@@ -35,6 +35,7 @@ with sync_playwright() as p:
         # Complete the real draft through its confirmation dialog.
         for _ in range(3):
             page.locator('.card-pick').first.click();page.locator('#confirmCard').click()
+        page.locator('#draftSkip').click();page.locator('#draftSkip').click()
         page.evaluate('hideTransitions()');page.wait_for_function('!app.busy')
         check(f'draft-flow-{width}',page.evaluate("app.draftCards.length===5&&app.mode==='battle'"))
         setup()
@@ -44,11 +45,11 @@ with sync_playwright() as p:
           return {width:document.documentElement.scrollWidth,height:document.documentElement.scrollHeight,
           own:document.querySelectorAll('#hand .game-card').length,enemy:document.querySelectorAll('#enemyDeck .game-card').length,
           controls:fits('#endTurn')&&fits('#accelerateButton'),legacy:fits('.legacy-slot'),hud:fits('.player-status'),
-          bottomAligned:Math.abs(h.bottom-hud.bottom)<1,legacyRatio:l.width/c.width,legacyHeight:Math.abs(l.height-c.height)<1,
+          topAligned:Math.abs(h.top-hud.top)<1,legacyRatio:l.width/c.width,legacyHeight:Math.abs(l.height-c.height)<1,
           logMiddle:rect('#logToggle').top>innerHeight*.3&&rect('#logToggle').top<innerHeight*.6,
           background:getComputedStyle(document.getElementById('sceneShell')).backgroundImage,
           loaded:document.getElementById('bossPortrait').naturalWidth>0};}""")
-        check(f'layout-{width}x{height}',dims['width']==width and dims['height']==height and dims['controls'] and dims['legacy'] and dims['hud'] and dims['own']==5 and dims['enemy']==5 and dims['legacyHeight'] and .7<=dims['legacyRatio']<=.82 and dims['logMiddle'] and dims['loaded'] and (width<761 or dims['bottomAligned']),**dims)
+        check(f'layout-{width}x{height}',dims['width']==width and dims['height']==height and dims['controls'] and dims['legacy'] and dims['hud'] and dims['own']==5 and dims['enemy']==5 and dims['legacyHeight'] and .7<=dims['legacyRatio']<=.82 and dims['logMiddle'] and dims['loaded'] and (width<761 or dims['topAligned']),**dims)
         check(f'throne-{width}', 'castle_throne_room.webp' in dims['background'])
         shot(f'battle-{width}x{height}')
         # Every card, both sides, must fit with its explanation and use button.
@@ -86,8 +87,8 @@ with sync_playwright() as p:
     # Visible presentation fixtures cover combined HP/barrier feedback and status icons.
     page.evaluate("""()=>{Object.assign(app.battle.actors.boss,{barrier:3,poison:2,weak:1,attackBonus:2,setupBonus:1,manaPenalty:1,accelerationPending:true});render();animateHit(2,'boss',3)}""")
     shot('hp-barrier-and-status')
-    check('simultaneous-hit',page.locator('#bossHit').inner_text()=='⬡ −3 ／ ♥ −2')
-    page.evaluate("resetGame();app.fastFx=true;applyStarter('rush');for(let i=0;i<3;i++)acquireDraft(app.draftOptions[0]);hideTransitions()")
+    check('simultaneous-hit',page.locator('#bossHit').inner_text()=='⬡ −3 ／ −2')
+    page.evaluate("resetGame();app.fastFx=true;applyStarter('rush');for(let i=0;i<3;i++)acquireDraft(app.draftOptions[0]);skipDraft();skipDraft();hideTransitions()")
     page.wait_for_function('!app.busy')
     page.locator('#settingsButton').click()
     page.once('dialog',lambda d:d.dismiss());page.locator('#resetButton').click()

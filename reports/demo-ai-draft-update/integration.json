@@ -1,0 +1,983 @@
+{
+  "parityBattles": 64,
+  "scope": "Saved D+AI-2+exhaustion five-card study outcomes. Timing: same current engine for old/new planner, five real boss presets, MP3/5, cache disabled, Node only.",
+  "node": "v24.22.1",
+  "summary": {
+    "AI-0": {
+      "n": 60,
+      "mean": 20.909489383333312,
+      "median": 20.018971500000134,
+      "p95": 34.99125700000059,
+      "max": 36.666823999999906
+    },
+    "AI-2": {
+      "n": 60,
+      "mean": 22.651256533333388,
+      "median": 22.481084499999724,
+      "p95": 33.15650399999868,
+      "max": 38.41196800000034
+    }
+  },
+  "timings": [
+    {
+      "name": "AI-0",
+      "boss": "boss_knight_defense",
+      "mana": 3,
+      "round": 3,
+      "nodes": 685,
+      "ms": 9.941103000000112
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_knight_defense",
+      "mana": 3,
+      "round": 3,
+      "nodes": 944,
+      "ms": 13.680366999999933
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_knight_defense",
+      "mana": 3,
+      "round": 11,
+      "nodes": 944,
+      "ms": 14.057173999999577
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_knight_defense",
+      "mana": 3,
+      "round": 11,
+      "nodes": 685,
+      "ms": 10.920906999999715
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_knight_defense",
+      "mana": 3,
+      "round": 13,
+      "nodes": 685,
+      "ms": 10.586843999999473
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_knight_defense",
+      "mana": 3,
+      "round": 13,
+      "nodes": 944,
+      "ms": 14.37391000000025
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_knight_defense",
+      "mana": 3,
+      "round": 3,
+      "nodes": 944,
+      "ms": 14.398887999999715
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_knight_defense",
+      "mana": 3,
+      "round": 3,
+      "nodes": 685,
+      "ms": 10.493985000000066
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_knight_defense",
+      "mana": 3,
+      "round": 11,
+      "nodes": 685,
+      "ms": 10.716099000000213
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_knight_defense",
+      "mana": 3,
+      "round": 11,
+      "nodes": 944,
+      "ms": 13.56833800000004
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_knight_defense",
+      "mana": 3,
+      "round": 13,
+      "nodes": 944,
+      "ms": 14.585549000000356
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_knight_defense",
+      "mana": 3,
+      "round": 13,
+      "nodes": 685,
+      "ms": 10.312432000000626
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_knight_defense",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1910,
+      "ms": 32.93792500000018
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_knight_defense",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1910,
+      "ms": 30.940268999999716
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_knight_defense",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1910,
+      "ms": 32.45335499999965
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_knight_defense",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1910,
+      "ms": 32.327807000000575
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_knight_defense",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1910,
+      "ms": 32.746806999999535
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_knight_defense",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1910,
+      "ms": 32.44934900000044
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_knight_defense",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1910,
+      "ms": 31.012147999999797
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_knight_defense",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1910,
+      "ms": 32.176478999999745
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_knight_defense",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1910,
+      "ms": 33.4702640000005
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_knight_defense",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1910,
+      "ms": 31.148173000000497
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_knight_defense",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1910,
+      "ms": 38.41196800000034
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_knight_defense",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1910,
+      "ms": 31.461051999999654
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_witch_poison",
+      "mana": 3,
+      "round": 3,
+      "nodes": 583,
+      "ms": 9.424887000000126
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_witch_poison",
+      "mana": 3,
+      "round": 3,
+      "nodes": 760,
+      "ms": 12.314933999999994
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_witch_poison",
+      "mana": 3,
+      "round": 11,
+      "nodes": 774,
+      "ms": 11.475341000000299
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_witch_poison",
+      "mana": 3,
+      "round": 11,
+      "nodes": 589,
+      "ms": 8.741248000000269
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_witch_poison",
+      "mana": 3,
+      "round": 13,
+      "nodes": 586,
+      "ms": 8.89182399999936
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_witch_poison",
+      "mana": 3,
+      "round": 13,
+      "nodes": 788,
+      "ms": 11.793869000000086
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_witch_poison",
+      "mana": 3,
+      "round": 3,
+      "nodes": 760,
+      "ms": 12.526080999999976
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_witch_poison",
+      "mana": 3,
+      "round": 3,
+      "nodes": 583,
+      "ms": 8.016247000000476
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_witch_poison",
+      "mana": 3,
+      "round": 11,
+      "nodes": 589,
+      "ms": 8.47102199999972
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_witch_poison",
+      "mana": 3,
+      "round": 11,
+      "nodes": 774,
+      "ms": 11.33289700000023
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_witch_poison",
+      "mana": 3,
+      "round": 13,
+      "nodes": 788,
+      "ms": 11.68583800000033
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_witch_poison",
+      "mana": 3,
+      "round": 13,
+      "nodes": 586,
+      "ms": 8.797612999999728
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_witch_poison",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1747,
+      "ms": 30.126805999999306
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_witch_poison",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1747,
+      "ms": 28.31190499999957
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_witch_poison",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1790,
+      "ms": 30.793789000000288
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_witch_poison",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1790,
+      "ms": 28.92037100000016
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_witch_poison",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1801,
+      "ms": 30.172653999999966
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_witch_poison",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1801,
+      "ms": 30.18242900000041
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_witch_poison",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1747,
+      "ms": 29.418459999999868
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_witch_poison",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1747,
+      "ms": 30.70788999999968
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_witch_poison",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1790,
+      "ms": 33.977977999999894
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_witch_poison",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1790,
+      "ms": 32.40755699999954
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_witch_poison",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1801,
+      "ms": 31.869676999999683
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_witch_poison",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1801,
+      "ms": 35.54427399999986
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_giant_power",
+      "mana": 3,
+      "round": 3,
+      "nodes": 590,
+      "ms": 8.248427000000447
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_giant_power",
+      "mana": 3,
+      "round": 3,
+      "nodes": 777,
+      "ms": 14.233710000000428
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_giant_power",
+      "mana": 3,
+      "round": 11,
+      "nodes": 777,
+      "ms": 11.701751000000513
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_giant_power",
+      "mana": 3,
+      "round": 11,
+      "nodes": 590,
+      "ms": 8.901840000000448
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_giant_power",
+      "mana": 3,
+      "round": 13,
+      "nodes": 590,
+      "ms": 8.476900999999998
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_giant_power",
+      "mana": 3,
+      "round": 13,
+      "nodes": 777,
+      "ms": 11.037331999999878
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_giant_power",
+      "mana": 3,
+      "round": 3,
+      "nodes": 777,
+      "ms": 11.773979999999938
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_giant_power",
+      "mana": 3,
+      "round": 3,
+      "nodes": 590,
+      "ms": 9.299837999999909
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_giant_power",
+      "mana": 3,
+      "round": 11,
+      "nodes": 590,
+      "ms": 8.509028999999828
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_giant_power",
+      "mana": 3,
+      "round": 11,
+      "nodes": 777,
+      "ms": 11.273707999999715
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_giant_power",
+      "mana": 3,
+      "round": 13,
+      "nodes": 777,
+      "ms": 10.980205000000751
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_giant_power",
+      "mana": 3,
+      "round": 13,
+      "nodes": 590,
+      "ms": 8.452704000000267
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_giant_power",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1914,
+      "ms": 31.362544999999955
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_giant_power",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1914,
+      "ms": 30.390221999999994
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_giant_power",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1914,
+      "ms": 33.49020500000006
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_giant_power",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1914,
+      "ms": 36.24331600000005
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_giant_power",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1906,
+      "ms": 32.54131699999925
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_giant_power",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1906,
+      "ms": 31.53060699999969
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_giant_power",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1914,
+      "ms": 32.90327100000013
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_giant_power",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1914,
+      "ms": 30.009267999999793
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_giant_power",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1914,
+      "ms": 31.00590900000043
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_giant_power",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1914,
+      "ms": 31.93877099999918
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_giant_power",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1914,
+      "ms": 30.322559999999612
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_giant_power",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1914,
+      "ms": 31.152397999999266
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_scout_rush",
+      "mana": 3,
+      "round": 3,
+      "nodes": 662,
+      "ms": 9.878349000000526
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_scout_rush",
+      "mana": 3,
+      "round": 3,
+      "nodes": 1000,
+      "ms": 15.195897000000514
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_scout_rush",
+      "mana": 3,
+      "round": 11,
+      "nodes": 1000,
+      "ms": 16.340839000000415
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_scout_rush",
+      "mana": 3,
+      "round": 11,
+      "nodes": 662,
+      "ms": 10.546284000000014
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_scout_rush",
+      "mana": 3,
+      "round": 13,
+      "nodes": 662,
+      "ms": 11.11757200000011
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_scout_rush",
+      "mana": 3,
+      "round": 13,
+      "nodes": 1000,
+      "ms": 15.593676000000414
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_scout_rush",
+      "mana": 3,
+      "round": 3,
+      "nodes": 1000,
+      "ms": 15.972273999999743
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_scout_rush",
+      "mana": 3,
+      "round": 3,
+      "nodes": 662,
+      "ms": 10.100273000000016
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_scout_rush",
+      "mana": 3,
+      "round": 11,
+      "nodes": 662,
+      "ms": 10.130868000000191
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_scout_rush",
+      "mana": 3,
+      "round": 11,
+      "nodes": 1000,
+      "ms": 16.14143899999999
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_scout_rush",
+      "mana": 3,
+      "round": 13,
+      "nodes": 1000,
+      "ms": 15.771223000000646
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_scout_rush",
+      "mana": 3,
+      "round": 13,
+      "nodes": 662,
+      "ms": 10.092471000000842
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_scout_rush",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1990,
+      "ms": 34.99125700000059
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_scout_rush",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1990,
+      "ms": 31.521733999999924
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_scout_rush",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1990,
+      "ms": 32.12964800000009
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_scout_rush",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1990,
+      "ms": 31.019108000000415
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_scout_rush",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1990,
+      "ms": 32.02991800000018
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_scout_rush",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1990,
+      "ms": 31.380181000000448
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_scout_rush",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1990,
+      "ms": 31.81304199999977
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_scout_rush",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1990,
+      "ms": 31.063335000000734
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_scout_rush",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1990,
+      "ms": 32.00199599999905
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_scout_rush",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1990,
+      "ms": 31.552520000001095
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_scout_rush",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1990,
+      "ms": 32.53389699999934
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_scout_rush",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1990,
+      "ms": 33.657656000001225
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_sage_tempo",
+      "mana": 3,
+      "round": 3,
+      "nodes": 648,
+      "ms": 8.915090000000419
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_sage_tempo",
+      "mana": 3,
+      "round": 3,
+      "nodes": 907,
+      "ms": 12.755616000000373
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_sage_tempo",
+      "mana": 3,
+      "round": 11,
+      "nodes": 902,
+      "ms": 13.43796199999997
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_sage_tempo",
+      "mana": 3,
+      "round": 11,
+      "nodes": 643,
+      "ms": 9.725918999998612
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_sage_tempo",
+      "mana": 3,
+      "round": 13,
+      "nodes": 643,
+      "ms": 10.838402999999744
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_sage_tempo",
+      "mana": 3,
+      "round": 13,
+      "nodes": 902,
+      "ms": 16.65026399999988
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_sage_tempo",
+      "mana": 3,
+      "round": 3,
+      "nodes": 907,
+      "ms": 15.752705000000788
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_sage_tempo",
+      "mana": 3,
+      "round": 3,
+      "nodes": 648,
+      "ms": 9.370623999999225
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_sage_tempo",
+      "mana": 3,
+      "round": 11,
+      "nodes": 643,
+      "ms": 9.29410999999891
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_sage_tempo",
+      "mana": 3,
+      "round": 11,
+      "nodes": 902,
+      "ms": 14.588534000000436
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_sage_tempo",
+      "mana": 3,
+      "round": 13,
+      "nodes": 902,
+      "ms": 13.112944000000425
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_sage_tempo",
+      "mana": 3,
+      "round": 13,
+      "nodes": 643,
+      "ms": 8.904153999999835
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_sage_tempo",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1822,
+      "ms": 30.05105099999855
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_sage_tempo",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1822,
+      "ms": 31.544737999998688
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_sage_tempo",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1822,
+      "ms": 29.371038999999655
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_sage_tempo",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1822,
+      "ms": 34.22213600000032
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_sage_tempo",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1822,
+      "ms": 31.51086700000087
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_sage_tempo",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1822,
+      "ms": 33.15650399999868
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_sage_tempo",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1822,
+      "ms": 31.19499200000064
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_sage_tempo",
+      "mana": 5,
+      "round": 3,
+      "nodes": 1822,
+      "ms": 32.86066799999935
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_sage_tempo",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1822,
+      "ms": 31.492420000000493
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_sage_tempo",
+      "mana": 5,
+      "round": 11,
+      "nodes": 1822,
+      "ms": 33.221025000000736
+    },
+    {
+      "name": "AI-2",
+      "boss": "boss_sage_tempo",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1822,
+      "ms": 31.57411200000024
+    },
+    {
+      "name": "AI-0",
+      "boss": "boss_sage_tempo",
+      "mana": 5,
+      "round": 13,
+      "nodes": 1822,
+      "ms": 36.666823999999906
+    }
+  ]
+}

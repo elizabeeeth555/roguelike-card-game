@@ -1,0 +1,1818 @@
+{
+  "checks": [
+    {
+      "name": "modal-clean-320",
+      "passed": true
+    },
+    {
+      "name": "acquisition-320",
+      "passed": true
+    },
+    {
+      "name": "start-busy",
+      "passed": true
+    },
+    {
+      "name": "transition-order-320",
+      "passed": true,
+      "timeline": [
+        {
+          "text": "BATTLE START",
+          "hidden": false,
+          "time": 546.1999999992549
+        },
+        {
+          "text": "BATTLE START",
+          "hidden": true,
+          "time": 996.3000000007451
+        },
+        {
+          "text": "YOUR TURN",
+          "hidden": false,
+          "time": 1057.199999999255
+        },
+        {
+          "text": "YOUR TURN",
+          "hidden": true,
+          "time": 1407.5
+        }
+      ]
+    },
+    {
+      "name": "no-legacy-terms-320",
+      "passed": true
+    },
+    {
+      "name": "nav-order-320",
+      "passed": true
+    },
+    {
+      "name": "no-overflow-320",
+      "passed": true
+    },
+    {
+      "name": "panel-bounds-320",
+      "passed": true,
+      "panels": [
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 2",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 2",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 2",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 2",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        }
+      ]
+    },
+    {
+      "name": "enemy-anchor-320-0",
+      "passed": true,
+      "before": {
+        "x": 12,
+        "y": 184.5,
+        "width": 56,
+        "height": 88
+      },
+      "after": {
+        "x": 12,
+        "y": 184.5,
+        "width": 56,
+        "height": 88
+      },
+      "detail": {
+        "x": 8,
+        "y": 277.5,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "only-effect-320-0",
+      "passed": true
+    },
+    {
+      "name": "enemy-anchor-320-4",
+      "passed": true,
+      "before": {
+        "x": 252,
+        "y": 184.5,
+        "width": 56,
+        "height": 88
+      },
+      "after": {
+        "x": 252,
+        "y": 184.5,
+        "width": 56,
+        "height": 88
+      },
+      "detail": {
+        "x": 82,
+        "y": 277.5,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "only-effect-320-4",
+      "passed": true
+    },
+    {
+      "name": "player-detail-320",
+      "passed": true
+    },
+    {
+      "name": "spent-320-player-slash",
+      "passed": true
+    },
+    {
+      "name": "cooldown-320-player-slash",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-320-player-slash",
+      "passed": true
+    },
+    {
+      "name": "spent-320-player-setup",
+      "passed": true
+    },
+    {
+      "name": "cooldown-320-player-setup",
+      "passed": true
+    },
+    {
+      "name": "cd-own-320-player-setup-0",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-320-player-setup",
+      "passed": true
+    },
+    {
+      "name": "spent-320-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cooldown-320-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cd-own-320-player-battle_spirit-0",
+      "passed": true
+    },
+    {
+      "name": "cd-own-320-player-battle_spirit-1",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-320-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "spent-320-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "cooldown-320-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-320-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "spent-320-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "cooldown-320-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "cd-own-320-boss-setup-0",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-320-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "spent-320-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cooldown-320-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cd-own-320-boss-battle_spirit-0",
+      "passed": true
+    },
+    {
+      "name": "cd-own-320-boss-battle_spirit-1",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-320-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "start-busy",
+      "passed": true
+    },
+    {
+      "name": "hit-heal-320",
+      "passed": true
+    },
+    {
+      "name": "poison-320",
+      "passed": true
+    },
+    {
+      "name": "modal-clean-375",
+      "passed": true
+    },
+    {
+      "name": "acquisition-375",
+      "passed": true
+    },
+    {
+      "name": "start-busy",
+      "passed": true
+    },
+    {
+      "name": "transition-order-375",
+      "passed": true,
+      "timeline": [
+        {
+          "text": "BATTLE START",
+          "hidden": false,
+          "time": 255.19999999925494
+        },
+        {
+          "text": "BATTLE START",
+          "hidden": true,
+          "time": 705.3999999985099
+        },
+        {
+          "text": "YOUR TURN",
+          "hidden": false,
+          "time": 765.8000000007451
+        },
+        {
+          "text": "YOUR TURN",
+          "hidden": true,
+          "time": 1116.1000000014901
+        }
+      ]
+    },
+    {
+      "name": "no-legacy-terms-375",
+      "passed": true
+    },
+    {
+      "name": "nav-order-375",
+      "passed": true
+    },
+    {
+      "name": "no-overflow-375",
+      "passed": true
+    },
+    {
+      "name": "panel-bounds-375",
+      "passed": true,
+      "panels": [
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 2",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 2",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 2",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 2",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        }
+      ]
+    },
+    {
+      "name": "enemy-anchor-375-0",
+      "passed": true,
+      "before": {
+        "x": 12,
+        "y": 184.5,
+        "width": 67,
+        "height": 88
+      },
+      "after": {
+        "x": 12,
+        "y": 184.5,
+        "width": 67,
+        "height": 88
+      },
+      "detail": {
+        "x": 8,
+        "y": 277.5,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "only-effect-375-0",
+      "passed": true
+    },
+    {
+      "name": "enemy-anchor-375-4",
+      "passed": true,
+      "before": {
+        "x": 296,
+        "y": 184.5,
+        "width": 67,
+        "height": 88
+      },
+      "after": {
+        "x": 296,
+        "y": 184.5,
+        "width": 67,
+        "height": 88
+      },
+      "detail": {
+        "x": 137,
+        "y": 277.5,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "only-effect-375-4",
+      "passed": true
+    },
+    {
+      "name": "player-detail-375",
+      "passed": true
+    },
+    {
+      "name": "spent-375-player-slash",
+      "passed": true
+    },
+    {
+      "name": "cooldown-375-player-slash",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-375-player-slash",
+      "passed": true
+    },
+    {
+      "name": "spent-375-player-setup",
+      "passed": true
+    },
+    {
+      "name": "cooldown-375-player-setup",
+      "passed": true
+    },
+    {
+      "name": "cd-own-375-player-setup-0",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-375-player-setup",
+      "passed": true
+    },
+    {
+      "name": "spent-375-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cooldown-375-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cd-own-375-player-battle_spirit-0",
+      "passed": true
+    },
+    {
+      "name": "cd-own-375-player-battle_spirit-1",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-375-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "spent-375-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "cooldown-375-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-375-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "spent-375-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "cooldown-375-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "cd-own-375-boss-setup-0",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-375-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "spent-375-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cooldown-375-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cd-own-375-boss-battle_spirit-0",
+      "passed": true
+    },
+    {
+      "name": "cd-own-375-boss-battle_spirit-1",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-375-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "start-busy",
+      "passed": true
+    },
+    {
+      "name": "hit-heal-375",
+      "passed": true
+    },
+    {
+      "name": "poison-375",
+      "passed": true
+    },
+    {
+      "name": "modal-clean-390",
+      "passed": true
+    },
+    {
+      "name": "acquisition-390",
+      "passed": true
+    },
+    {
+      "name": "start-busy",
+      "passed": true
+    },
+    {
+      "name": "transition-order-390",
+      "passed": true,
+      "timeline": [
+        {
+          "text": "BATTLE START",
+          "hidden": false,
+          "time": 349.20000000298023
+        },
+        {
+          "text": "BATTLE START",
+          "hidden": true,
+          "time": 799.4000000022352
+        },
+        {
+          "text": "YOUR TURN",
+          "hidden": false,
+          "time": 860
+        },
+        {
+          "text": "YOUR TURN",
+          "hidden": true,
+          "time": 1210.300000000745
+        }
+      ]
+    },
+    {
+      "name": "no-legacy-terms-390",
+      "passed": true
+    },
+    {
+      "name": "nav-order-390",
+      "passed": true
+    },
+    {
+      "name": "no-overflow-390",
+      "passed": true
+    },
+    {
+      "name": "panel-bounds-390",
+      "passed": true,
+      "panels": [
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 2",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 2",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 2",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 2",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        }
+      ]
+    },
+    {
+      "name": "enemy-anchor-390-0",
+      "passed": true,
+      "before": {
+        "x": 12,
+        "y": 184.5,
+        "width": 70,
+        "height": 88
+      },
+      "after": {
+        "x": 12,
+        "y": 184.5,
+        "width": 70,
+        "height": 88
+      },
+      "detail": {
+        "x": 8,
+        "y": 277.5,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "only-effect-390-0",
+      "passed": true
+    },
+    {
+      "name": "enemy-anchor-390-4",
+      "passed": true,
+      "before": {
+        "x": 308,
+        "y": 184.5,
+        "width": 70,
+        "height": 88
+      },
+      "after": {
+        "x": 308,
+        "y": 184.5,
+        "width": 70,
+        "height": 88
+      },
+      "detail": {
+        "x": 152,
+        "y": 277.5,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "only-effect-390-4",
+      "passed": true
+    },
+    {
+      "name": "player-detail-390",
+      "passed": true
+    },
+    {
+      "name": "spent-390-player-slash",
+      "passed": true
+    },
+    {
+      "name": "cooldown-390-player-slash",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-390-player-slash",
+      "passed": true
+    },
+    {
+      "name": "spent-390-player-setup",
+      "passed": true
+    },
+    {
+      "name": "cooldown-390-player-setup",
+      "passed": true
+    },
+    {
+      "name": "cd-own-390-player-setup-0",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-390-player-setup",
+      "passed": true
+    },
+    {
+      "name": "spent-390-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cooldown-390-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cd-own-390-player-battle_spirit-0",
+      "passed": true
+    },
+    {
+      "name": "cd-own-390-player-battle_spirit-1",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-390-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "spent-390-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "cooldown-390-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-390-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "spent-390-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "cooldown-390-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "cd-own-390-boss-setup-0",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-390-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "spent-390-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cooldown-390-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cd-own-390-boss-battle_spirit-0",
+      "passed": true
+    },
+    {
+      "name": "cd-own-390-boss-battle_spirit-1",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-390-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "start-busy",
+      "passed": true
+    },
+    {
+      "name": "hit-heal-390",
+      "passed": true
+    },
+    {
+      "name": "poison-390",
+      "passed": true
+    },
+    {
+      "name": "modal-clean-430",
+      "passed": true
+    },
+    {
+      "name": "acquisition-430",
+      "passed": true
+    },
+    {
+      "name": "start-busy",
+      "passed": true
+    },
+    {
+      "name": "transition-order-430",
+      "passed": true,
+      "timeline": [
+        {
+          "text": "BATTLE START",
+          "hidden": false,
+          "time": 239
+        },
+        {
+          "text": "BATTLE START",
+          "hidden": true,
+          "time": 689.0999999977648
+        },
+        {
+          "text": "YOUR TURN",
+          "hidden": false,
+          "time": 749.6999999992549
+        },
+        {
+          "text": "YOUR TURN",
+          "hidden": true,
+          "time": 1100
+        }
+      ]
+    },
+    {
+      "name": "no-legacy-terms-430",
+      "passed": true
+    },
+    {
+      "name": "nav-order-430",
+      "passed": true
+    },
+    {
+      "name": "no-overflow-430",
+      "passed": true
+    },
+    {
+      "name": "panel-bounds-430",
+      "passed": true,
+      "panels": [
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 2",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 2",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 2",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 2",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        }
+      ]
+    },
+    {
+      "name": "enemy-anchor-430-0",
+      "passed": true,
+      "before": {
+        "x": 12,
+        "y": 184.5,
+        "width": 78,
+        "height": 88
+      },
+      "after": {
+        "x": 12,
+        "y": 184.5,
+        "width": 78,
+        "height": 88
+      },
+      "detail": {
+        "x": 8,
+        "y": 277.5,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "only-effect-430-0",
+      "passed": true
+    },
+    {
+      "name": "enemy-anchor-430-4",
+      "passed": true,
+      "before": {
+        "x": 340,
+        "y": 184.5,
+        "width": 78,
+        "height": 88
+      },
+      "after": {
+        "x": 340,
+        "y": 184.5,
+        "width": 78,
+        "height": 88
+      },
+      "detail": {
+        "x": 192,
+        "y": 277.5,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "only-effect-430-4",
+      "passed": true
+    },
+    {
+      "name": "player-detail-430",
+      "passed": true
+    },
+    {
+      "name": "spent-430-player-slash",
+      "passed": true
+    },
+    {
+      "name": "cooldown-430-player-slash",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-430-player-slash",
+      "passed": true
+    },
+    {
+      "name": "spent-430-player-setup",
+      "passed": true
+    },
+    {
+      "name": "cooldown-430-player-setup",
+      "passed": true
+    },
+    {
+      "name": "cd-own-430-player-setup-0",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-430-player-setup",
+      "passed": true
+    },
+    {
+      "name": "spent-430-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cooldown-430-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cd-own-430-player-battle_spirit-0",
+      "passed": true
+    },
+    {
+      "name": "cd-own-430-player-battle_spirit-1",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-430-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "spent-430-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "cooldown-430-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-430-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "spent-430-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "cooldown-430-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "cd-own-430-boss-setup-0",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-430-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "spent-430-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cooldown-430-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cd-own-430-boss-battle_spirit-0",
+      "passed": true
+    },
+    {
+      "name": "cd-own-430-boss-battle_spirit-1",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-430-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "start-busy",
+      "passed": true
+    },
+    {
+      "name": "hit-heal-430",
+      "passed": true
+    },
+    {
+      "name": "poison-430",
+      "passed": true
+    },
+    {
+      "name": "modal-clean-768",
+      "passed": true
+    },
+    {
+      "name": "acquisition-768",
+      "passed": true
+    },
+    {
+      "name": "start-busy",
+      "passed": true
+    },
+    {
+      "name": "transition-order-768",
+      "passed": true,
+      "timeline": [
+        {
+          "text": "BATTLE START",
+          "hidden": false,
+          "time": 269.69999999925494
+        },
+        {
+          "text": "BATTLE START",
+          "hidden": true,
+          "time": 719.8000000007451
+        },
+        {
+          "text": "YOUR TURN",
+          "hidden": false,
+          "time": 780.3000000007451
+        },
+        {
+          "text": "YOUR TURN",
+          "hidden": true,
+          "time": 1130.5
+        }
+      ]
+    },
+    {
+      "name": "no-legacy-terms-768",
+      "passed": true
+    },
+    {
+      "name": "nav-order-768",
+      "passed": true
+    },
+    {
+      "name": "no-overflow-768",
+      "passed": true
+    },
+    {
+      "name": "panel-bounds-768",
+      "passed": true,
+      "panels": [
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 2",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 2",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 2",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 2",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        }
+      ]
+    },
+    {
+      "name": "enemy-anchor-768-0",
+      "passed": true,
+      "before": {
+        "x": 138.2421875,
+        "y": 129,
+        "width": 91.890625,
+        "height": 88
+      },
+      "after": {
+        "x": 138.2421875,
+        "y": 129,
+        "width": 91.890625,
+        "height": 88
+      },
+      "detail": {
+        "x": 69.1796875,
+        "y": 222,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "only-effect-768-0",
+      "passed": true
+    },
+    {
+      "name": "enemy-anchor-768-4",
+      "passed": true,
+      "before": {
+        "x": 537.8515625,
+        "y": 129,
+        "width": 91.890625,
+        "height": 88
+      },
+      "after": {
+        "x": 537.8515625,
+        "y": 129,
+        "width": 91.890625,
+        "height": 88
+      },
+      "detail": {
+        "x": 468.7890625,
+        "y": 222,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "only-effect-768-4",
+      "passed": true
+    },
+    {
+      "name": "player-detail-768",
+      "passed": true
+    },
+    {
+      "name": "spent-768-player-slash",
+      "passed": true
+    },
+    {
+      "name": "cooldown-768-player-slash",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-768-player-slash",
+      "passed": true
+    },
+    {
+      "name": "spent-768-player-setup",
+      "passed": true
+    },
+    {
+      "name": "cooldown-768-player-setup",
+      "passed": true
+    },
+    {
+      "name": "cd-own-768-player-setup-0",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-768-player-setup",
+      "passed": true
+    },
+    {
+      "name": "spent-768-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cooldown-768-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cd-own-768-player-battle_spirit-0",
+      "passed": true
+    },
+    {
+      "name": "cd-own-768-player-battle_spirit-1",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-768-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "spent-768-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "cooldown-768-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-768-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "spent-768-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "cooldown-768-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "cd-own-768-boss-setup-0",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-768-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "spent-768-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cooldown-768-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cd-own-768-boss-battle_spirit-0",
+      "passed": true
+    },
+    {
+      "name": "cd-own-768-boss-battle_spirit-1",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-768-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "start-busy",
+      "passed": true
+    },
+    {
+      "name": "hit-heal-768",
+      "passed": true
+    },
+    {
+      "name": "poison-768",
+      "passed": true
+    },
+    {
+      "name": "hud-top-768",
+      "passed": true
+    },
+    {
+      "name": "modal-clean-1366",
+      "passed": true
+    },
+    {
+      "name": "acquisition-1366",
+      "passed": true
+    },
+    {
+      "name": "start-busy",
+      "passed": true
+    },
+    {
+      "name": "transition-order-1366",
+      "passed": true,
+      "timeline": [
+        {
+          "text": "BATTLE START",
+          "hidden": false,
+          "time": 267.6000000014901
+        },
+        {
+          "text": "BATTLE START",
+          "hidden": true,
+          "time": 1367.800000000745
+        },
+        {
+          "text": "YOUR TURN",
+          "hidden": false,
+          "time": 1518.300000000745
+        },
+        {
+          "text": "YOUR TURN",
+          "hidden": true,
+          "time": 3518.60000000149
+        }
+      ]
+    },
+    {
+      "name": "no-legacy-terms-1366",
+      "passed": true
+    },
+    {
+      "name": "nav-order-1366",
+      "passed": true
+    },
+    {
+      "name": "no-overflow-1366",
+      "passed": true
+    },
+    {
+      "name": "panel-bounds-1366",
+      "passed": true,
+      "panels": [
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 2",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 2",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "boss",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 0",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 2",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 2",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        },
+        {
+          "side": "player",
+          "mp": "♦ 1",
+          "cd": "⌛ 1",
+          "overlap": false,
+          "effectOverlap": false,
+          "cdRight": true
+        }
+      ]
+    },
+    {
+      "name": "enemy-anchor-1366-0",
+      "passed": true,
+      "before": {
+        "x": 303,
+        "y": 129,
+        "width": 145.59375,
+        "height": 88
+      },
+      "after": {
+        "x": 303,
+        "y": 129,
+        "width": 145.59375,
+        "height": 88
+      },
+      "detail": {
+        "x": 260.796875,
+        "y": 222,
+        "width": 230,
+        "height": 37.796875
+      }
+    },
+    {
+      "name": "only-effect-1366-0",
+      "passed": true
+    },
+    {
+      "name": "enemy-anchor-1366-4",
+      "passed": true,
+      "before": {
+        "x": 917.390625,
+        "y": 129,
+        "width": 145.609375,
+        "height": 88
+      },
+      "after": {
+        "x": 917.390625,
+        "y": 129,
+        "width": 145.609375,
+        "height": 88
+      },
+      "detail": {
+        "x": 875.1875,
+        "y": 222,
+        "width": 230,
+        "height": 77.390625
+      }
+    },
+    {
+      "name": "only-effect-1366-4",
+      "passed": true
+    },
+    {
+      "name": "player-detail-1366",
+      "passed": true
+    },
+    {
+      "name": "spent-1366-player-slash",
+      "passed": true
+    },
+    {
+      "name": "cooldown-1366-player-slash",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-1366-player-slash",
+      "passed": true
+    },
+    {
+      "name": "spent-1366-player-setup",
+      "passed": true
+    },
+    {
+      "name": "cooldown-1366-player-setup",
+      "passed": true
+    },
+    {
+      "name": "cd-own-1366-player-setup-0",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-1366-player-setup",
+      "passed": true
+    },
+    {
+      "name": "spent-1366-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cooldown-1366-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cd-own-1366-player-battle_spirit-0",
+      "passed": true
+    },
+    {
+      "name": "cd-own-1366-player-battle_spirit-1",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-1366-player-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "spent-1366-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "cooldown-1366-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-1366-boss-slash",
+      "passed": true
+    },
+    {
+      "name": "spent-1366-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "cooldown-1366-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "cd-own-1366-boss-setup-0",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-1366-boss-setup",
+      "passed": true
+    },
+    {
+      "name": "spent-1366-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cooldown-1366-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "cd-own-1366-boss-battle_spirit-0",
+      "passed": true
+    },
+    {
+      "name": "cd-own-1366-boss-battle_spirit-1",
+      "passed": true
+    },
+    {
+      "name": "cd-ready-1366-boss-battle_spirit",
+      "passed": true
+    },
+    {
+      "name": "start-busy",
+      "passed": true
+    },
+    {
+      "name": "hit-heal-1366",
+      "passed": true
+    },
+    {
+      "name": "poison-1366",
+      "passed": true
+    },
+    {
+      "name": "hud-top-1366",
+      "passed": true
+    },
+    {
+      "name": "errors",
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "errors": []
+}

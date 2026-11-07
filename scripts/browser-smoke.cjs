@@ -40,8 +40,8 @@ async function main(){
     }
     await call('Page.navigate',{url:process.env.BROWSER_TEST_URL||pathToFileURL(path.join(root,'index.html')).href});
     for(let i=0;i<100;i++){if(await evaluate('typeof trialDebug!=="undefined"'))break;await sleep(100);}
-    await evaluate(`document.getElementById('speedButton').click();document.querySelector('.starter-option').click();for(let i=0;i<3;i++){document.querySelector('.card-pick').click();document.getElementById('confirmCard').click();}hideTransitions();`);
-    await evaluate(`initBattle('boss_witch_poison');hideTransitions();`);
+    await evaluate(`document.getElementById('speedButton').click();document.querySelector('.starter-option').click();for(let i=0;i<3;i++){document.querySelector('.card-pick').click();document.getElementById('confirmCard').click();}skipDraft();skipDraft();hideTransitions();`);
+    await evaluate(`initBattle('boss_witch_poison')`);
     await sleep(100);const reports=[];
     for(const [width,height] of [[1366,768],[1280,720],[360,800],[390,844],[430,932]]){
       await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<761});await sleep(200);
@@ -59,11 +59,11 @@ async function main(){
     const integration=await evaluate(`(async()=>{
       document.getElementById('endTurn').click();hideTransitions();resetGame();await Promise.resolve();
       const resetSafe=app.mode==='draft'&&app.battle===null;
-      applyStarter('rush');for(let i=0;i<3;i++)acquireDraft(app.draftOptions[0]);hideTransitions();await Promise.resolve();
+      applyStarter('rush');for(let i=0;i<3;i++)acquireDraft(app.draftOptions[0]);skipDraft();skipDraft();while(app.busy){hideTransitions();await new Promise(r=>setTimeout(r,80));}
       const preset=app.retryPreset,deck=JSON.stringify(app.draftCards);
       app.battle.actors.boss.hp=1;app.battle.actors.player.mana=5;openCardDetail('slash','player');useCard('slash');await new Promise(r=>setTimeout(r,950));
       const resultShown=!document.getElementById('resultOverlay').hidden;
-      document.getElementById('retryButton').click();hideTransitions();await Promise.resolve();
+      document.getElementById('retryButton').click();while(app.busy){hideTransitions();await new Promise(r=>setTimeout(r,80));}
       const replay=app.retryPreset===preset&&JSON.stringify(app.draftCards)===deck&&app.battle.actors.player.hp===20&&app.battle.actors.player.mana===2;
       setCharacterImage(document.getElementById('bossPortrait'),'04_giant_warrior','boss');
       document.getElementById('bossPortrait').onerror();const fallback=document.getElementById('bossPortrait').hidden;

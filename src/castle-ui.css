@@ -177,3 +177,77 @@ footer{height:22px;position:relative;z-index:2}
 }
 
 @media(max-width:760px){.boss-figure img{height:calc((100svh - 465px)*var(--boss-mobile-scale,1.35))}}
+
+/* Demo acquisition controls: five events, optional replacement and skip. */
+.draft-actions,.draft-replacement{width:min(900px,100%);margin:0 auto}
+.draft-actions{display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap}
+.draft-actions button,.draft-replacement button{min-height:48px;padding:12px 18px}
+.draft-actions #draftSkip{background:#15212c;border:1px solid #9fadb8}
+.draft-actions span{margin-left:8px;color:#dcc28a}
+.draft-replacement{padding:16px;background:#101b29ed;border:1px solid #9d8556;border-radius:12px}
+.replace-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:12px 0}
+@media(max-width:760px){.draft-actions button{flex:1;min-width:140px}.draft-replacement{padding:12px}.replace-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.draft-heading .badge{white-space:nowrap;flex-shrink:0}
+
+/* Skill-building RPG: consistent skill information and exclusive use/CD state. */
+.game-card .card-open{position:relative}
+.game-card .card-cost{position:absolute;top:6px;right:5px;width:auto;height:auto;line-height:16px;border:0;border-radius:4px;padding:0 3px;font-size:11px;transform:none;background:#101e30;color:#bce6ff;white-space:nowrap}
+.game-card .card-name{display:block;position:absolute;left:7px;right:38px;top:7px;padding:0;font-size:13px;line-height:17px;text-align:left;white-space:normal;overflow-wrap:anywhere}
+.game-card .card-tags,.game-card .card-kind,.game-card .condition-mark{display:none}
+.game-card .card-description{display:-webkit-box;position:absolute;left:7px;right:7px;top:40px;bottom:25px;flex:none;min-height:0;font-size:11px;line-height:1.45;text-align:left;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.game-card .card-cd{display:block;position:absolute;right:6px;bottom:6px;margin:0;font-size:11px;line-height:15px;color:#e8d8ae;white-space:nowrap}
+.game-card .card-status,.enemy-deck .game-card .card-status{position:absolute;left:50%;right:auto;top:50%;bottom:auto;transform:translate(-50%,-50%);width:max-content;max-width:calc(100% - 4px);padding:4px 5px;font-size:10px;line-height:1.4;text-align:center;white-space:normal;border:1px solid #a58d75;background:#17151ef5;color:#f1e2cc;border-radius:4px;z-index:4}
+.game-card.cooling .card-status{background:#122c40f5;border-color:#72afcf;color:#d1efff}
+.spent .card-description,.cooling .card-description{opacity:.8}
+.enemy-deck .game-card,.enemy-deck .game-card .card-open{height:88px}
+.enemy-deck .game-card .card-name{font-size:11px;right:30px;left:5px;top:5px;line-height:14px}
+.enemy-deck .game-card .card-cost{display:block;font-size:9px;top:4px;right:3px;padding:0 2px}
+.enemy-deck .game-card .card-description{display:-webkit-box;top:34px;bottom:20px;left:5px;right:5px;font-size:9px;line-height:12px;-webkit-line-clamp:2}
+.enemy-deck .game-card .card-cd{display:block;font-size:9px;bottom:3px;right:4px}
+.enemy-deck .game-card.selected{transform:none;transform-origin:center;box-shadow:0 0 0 1px #d7bc84,0 0 16px #080d17}
+.enemy-deck .inline-card-details{width:230px;min-width:0;max-width:calc(100vw - 16px);left:50%;margin:0;top:calc(100% + 6px);bottom:auto;transform:translateX(calc(-50% + var(--detail-shift-x,0px)));font-size:12px;line-height:1.65;max-height:260px;overflow:auto}
+.boss-figure{top:216px}
+.status-icon.poison-status{background:#342047;border-color:#c381ec;color:#d3a0ff}
+.status-icon.poison-status .status-symbol{color:#d3a0ff}.status-icon.poison-status b{color:#fff4ff;text-shadow:0 1px 3px #150323}
+.turn-banner{bottom:214px;right:0;padding:5px 10px;font-size:12px;font-weight:700;letter-spacing:.08em;background:#101d2def;border:1px solid #7793ad;border-radius:5px;z-index:15}
+.turn-banner.your-turn{color:#c1e8ff;border-color:#63b9f3;box-shadow:0 0 12px #3091d338}
+.turn-banner.enemy-turn{color:#ffc4c4;border-color:#dd7474;box-shadow:0 0 12px #c6383838}
+.battle-transition.player{color:#a4daff}.battle-transition.enemy{color:#ff9c9c}.battle-transition.start{color:#e4c486;background:#100e13bd}
+.battle-transition.player span{text-shadow:0 0 28px #2586d2}.battle-transition.enemy span{text-shadow:0 0 28px #b83131}.battle-transition.start span{text-shadow:0 0 25px #c4a269}
+.hit-number{color:#ff6c76;-webkit-text-stroke:1px #5c101b;text-shadow:0 2px 3px #000,0 0 12px #ff344f;font-weight:900;z-index:50;white-space:nowrap}
+.hit-number.healing{color:#8effb0;-webkit-text-stroke:1px #125c30;text-shadow:0 2px 3px #000,0 0 12px #2dea7d}
+.boss-hit{top:36%;left:52%;bottom:auto}.player-hit{top:auto;bottom:205px;left:18%}
+.player-status .face-frame{width:50px;height:50px}.player-status .face-frame img{object-fit:cover}
+@media(min-width:761px){.player-status{top:calc(100% - 190px);bottom:auto;align-items:flex-start}}
+@media(min-width:761px) and (max-height:740px){.player-status{top:calc(100% - 178px)}}
+@media(max-width:760px){
+ .game-card .card-name,.hand-row .game-card .card-name{left:3px;right:22px;top:5px;font-size:9px;line-height:11px;max-height:22px;overflow:hidden;padding:0}
+ .game-card .card-cost,.hand-row .game-card .card-cost{right:2px;top:4px;font-size:8px;line-height:12px;padding:0 1px;width:auto;height:auto}
+ .game-card .card-description,.hand-row .game-card .card-description{top:32px;bottom:22px;left:3px;right:3px;font-size:9px;line-height:1.4;-webkit-line-clamp:5}
+ .game-card .card-cd,.hand-row .game-card .card-cd{font-size:9px;bottom:4px;right:3px;line-height:13px}
+ .game-card .card-status,.enemy-deck .game-card .card-status{font-size:8px;padding:3px 2px;line-height:11px}
+ .enemy-deck .game-card,.enemy-deck .game-card .card-open{height:88px}
+ .enemy-deck .game-card .card-name{top:4px;font-size:9px;line-height:11px;right:22px;left:3px}
+ .enemy-deck .game-card .card-description{top:31px;bottom:19px;font-size:8px;line-height:11px;-webkit-line-clamp:3}
+ .enemy-deck .game-card .card-cd{font-size:8px;bottom:2px}
+ .boss-figure{top:276px}
+ .player-status .face-frame{width:44px;height:44px}
+ .turn-banner{bottom:301px;font-size:10px;padding:4px 8px}
+ .boss-hit{top:38%;left:47%}.player-hit{bottom:245px;left:20%}
+ .draft-options .game-card .card-name{font-size:13px;line-height:17px;right:35px;max-height:34px;top:8px;left:6px}
+ .draft-options .game-card .card-cost{font-size:11px;right:5px;top:8px;line-height:16px}
+ .draft-options .game-card .card-description{top:51px;bottom:26px;left:7px;right:7px;font-size:12px;-webkit-line-clamp:6}
+ .draft-options .game-card .card-cd{font-size:11px;bottom:7px;right:6px}
+}
+.battle-transition.player span{color:#a4daff}.battle-transition.enemy span{color:#ff9c9c}.battle-transition.start span{color:#e4c486}
+@media(max-width:760px){.enemy-deck .game-card .card-name{right:27px}}
+.game-card .card-cd{padding:0;border:0}
+@media(min-width:761px) and (max-width:1000px){
+ .hand-row .game-card .card-name{font-size:10px;line-height:12px;right:25px;left:4px;max-height:24px;overflow:hidden}
+ .hand-row .game-card .card-cost{font-size:9px;right:3px;padding:0 1px}
+ .hand-row .game-card .card-description{top:35px;font-size:10px}
+}
+.game-card .card-cd{left:auto;width:auto;text-align:right}
+.poison-status .status-symbol{font-family:Arial,sans-serif;font-variant-emoji:text}
+.game-card .card-open:disabled{opacity:1;cursor:default}

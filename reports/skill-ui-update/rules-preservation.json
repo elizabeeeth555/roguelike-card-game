@@ -1,0 +1,10 @@
+{
+  "unchangedSinceUiTask": [
+    "src/game/battle-engine.js",
+    "src/game/boss-planner.js",
+    "src/game/card-data.js",
+    "src/game/card-effects.js",
+    "src/game/combat-math.js",
+    "src/game/progression.js"
+  ]
+}

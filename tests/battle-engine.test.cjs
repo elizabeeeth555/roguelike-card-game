@@ -8,9 +8,9 @@ function play(s,id,side=s.active){return Battle.execute(s,{type:'card',side,id})
 function end(s){return Battle.execute(s,{type:'endTurn',side:s.active});}
 function roundTrip(s){end(s);end(s);}
 
-test('19枚のコスト・CD・タグ・説明がパッケージと一致、5ボスで全種を網羅',()=>{
+test('19枚のコスト・タグ・説明がパッケージと一致し、CDは正式D案を反映、5ボスで全種を網羅',()=>{
   assert.equal(Object.keys(Data.CARDS).length,19);assert.deepEqual(Data.BOSSES,require('./fixtures/first-era-bosses.json').presets);
-  for(const card of source.cards){const current=Data.CARDS[card.id];assert.equal(current.cost,card.cost);assert.equal(current.cd,card.cooldown_own_turns);assert.deepEqual(current.tags,card.tags);assert.equal(current.description,card.effect_text);}
+  for(const card of source.cards){const current=Data.CARDS[card.id];assert.equal(current.cost,card.cost);assert.equal(current.cd,['barrier','fortress'].includes(card.id)?1:card.cooldown_own_turns);assert.deepEqual(current.tags,card.tags);assert.equal(current.description,card.effect_text);}
   for(const boss of Data.BOSSES){assert.equal(boss.card_ids.length,5);assert.equal(new Set(boss.card_ids).size,5);assert(boss.card_ids.every(id=>Data.CARDS[id]));}
   assert.equal(new Set(Data.BOSSES.flatMap(b=>b.card_ids)).size,19);
 });

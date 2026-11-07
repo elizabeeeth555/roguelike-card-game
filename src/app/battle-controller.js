@@ -1,6 +1,6 @@
 'use strict';
 async function initBattle(presetId){
-  if(app.draftCards.length!==5)return;
+  if(!app.draftCards.length||app.draftCards.length>5)return;
   cancelPresentation();app.mode='battle';app.busy=true;
   app.battle=GameBattle.createState({playerDeck:app.draftCards,bossPresetId:presetId});
   app.retryPreset=app.battle.bossPresetId;
@@ -8,7 +8,11 @@ async function initBattle(presetId){
   app.logFollow=true;$('combatLog').replaceChildren();GameAudio.setScene('battle');sound('battle_start');
   applyVisualAssets();render();addLog('戦闘開始：先攻2/3、後攻3/3。','turn');
   const version=app.version;
-  await turnMessage('YOUR TURN','player',app.fastFx?450:2500);
+  await turnMessage('BATTLE START','start',app.fastFx?450:1100);
+  if(version!==app.version||app.battle.end)return;
+  await battleTasks.wait(app.fastFx?60:150);
+  if(version!==app.version||app.battle.end)return;
+  await turnMessage('YOUR TURN','player',app.fastFx?350:2000);
   if(version!==app.version||app.battle.end)return;
   app.busy=false;render();
 }
@@ -16,7 +20,7 @@ function perform(action){
   const hp={player:app.battle.actors.player.hp,boss:app.battle.actors.boss.hp};
   const outcome=GameBattle.execute(app.battle,action);
   if(outcome.ok)presentBattleEvents(outcome.events.map(e=>{if(e.type==='damage'){const actualAmount=Math.min(hp[e.target],e.amount);hp[e.target]-=actualAmount;return {...e,actualAmount};}if(e.type==='heal')hp[e.side]+=e.amount;return e;}));
-  else announce(outcome.reason);
+  else announce(skillText(outcome.reason));
   render();return outcome;
 }
 async function useCard(id){
@@ -37,12 +41,12 @@ async function endTurn(confirmed=false){
  if(!canChangeBattle())return;
  const actions=GameBattle.legalActions(app.battle).filter(a=>a.type!=='endTurn');
  if(confirmed!==true&&actions.length){
-  $('endTurnMessage').textContent=`残りMP ${app.battle.actors.player.mana}。使用可能カード ${actions.filter(a=>a.type==='card').length}枚${actions.some(a=>a.type==='accelerate')?'、マナ加速も可能':''}。未使用のまま終了しますか？`;
+  $('endTurnMessage').textContent=`残りMP ${app.battle.actors.player.mana}。使用可能スキル ${actions.filter(a=>a.type==='card').length}種${actions.some(a=>a.type==='accelerate')?'、マナ加速も可能':''}。未使用のまま終了しますか？`;
   $('endTurnOverlay').hidden=false;render();activateDialog($('endTurnOverlay'));return;
  }
  closeCardDetail();app.busy=true;const version=app.version;
  perform({type:'endTurn',side:'player'});if(app.battle.end)return;
- await turnMessage('ENEMY TURN','enemy',app.fastFx?450:2500);
+ await turnMessage('ENEMY TURN','enemy',app.fastFx?350:2000);
  if(version!==app.version||app.battle.end)return;
  const plan=GamePlanner.plan(app.battle);
  for(const action of plan.actions){
@@ -55,7 +59,7 @@ async function endTurn(confirmed=false){
  if(version!==app.version||app.battle.end)return;
  perform({type:'endTurn',side:'boss'});if(app.battle.end)return;
  clearEnemyAction();app.enemyUsedKeys.clear();render();
- await turnMessage('YOUR TURN','player',app.fastFx?450:2500);
+ await turnMessage('YOUR TURN','player',app.fastFx?350:2000);
  if(version!==app.version||app.battle.end)return;
  app.busy=false;render();
 }

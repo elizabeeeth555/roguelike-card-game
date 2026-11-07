@@ -1,0 +1,7136 @@
+[
+  {
+    "sourceIndex": 1,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "corrosion",
+            "slash",
+            "mana_bind",
+            "fortress",
+            "heart_corrosion"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 2,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "corrosion"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 2,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "corrosion",
+            "slash",
+            "mana_bind",
+            "fortress",
+            "heart_corrosion"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "corrosion",
+            "slash"
+          ],
+          "readyOn": {
+            "corrosion": 3,
+            "slash": 2
+          },
+          "attacks": [
+            "slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 18,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 2,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "feint"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 3,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "corrosion",
+            "slash",
+            "mana_bind",
+            "fortress",
+            "heart_corrosion"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "corrosion": 3,
+            "slash": 2
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 16,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "feint",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "feint": 3,
+            "heavy_slash": 2
+          },
+          "attacks": [
+            "feint",
+            "heavy_slash"
+          ],
+          "barrier": 0,
+          "poison": 1,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "mana_bind"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 4,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "corrosion",
+            "slash",
+            "mana_bind",
+            "fortress",
+            "heart_corrosion"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "mana_bind",
+            "slash"
+          ],
+          "readyOn": {
+            "corrosion": 3,
+            "slash": 3,
+            "mana_bind": 4
+          },
+          "attacks": [
+            "mana_bind",
+            "slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 14,
+          "maxHp": 20,
+          "mana": 2,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "feint": 3,
+            "heavy_slash": 2
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 1,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 5,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heart_corrosion",
+            "mana_bind"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 2,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "fortress"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 6,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heart_corrosion",
+            "mana_bind"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "fortress"
+          ],
+          "readyOn": {
+            "fortress": 3
+          },
+          "attacks": [],
+          "barrier": 5,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "accelerate",
+        "side": "boss"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "barrier"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 7,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heart_corrosion",
+            "mana_bind"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "fortress": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "fortress"
+          ],
+          "readyOn": {
+            "barrier": 3,
+            "fortress": 3
+          },
+          "attacks": [],
+          "barrier": 8,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "mana_bind"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 8,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heart_corrosion",
+            "mana_bind"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "mana_bind"
+          ],
+          "readyOn": {
+            "fortress": 3,
+            "barrier": 4,
+            "mana_bind": 4
+          },
+          "attacks": [
+            "mana_bind"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 2,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "fortress": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "accelerate",
+        "side": "boss"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 9,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heart_corrosion",
+            "venom_blade"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 2,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "fortress"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 10,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heart_corrosion",
+            "venom_blade"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "fortress"
+          ],
+          "readyOn": {
+            "fortress": 3
+          },
+          "attacks": [],
+          "barrier": 5,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "accelerate",
+        "side": "boss"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "feint"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 11,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heart_corrosion",
+            "venom_blade"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "fortress": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "feint",
+            "fortress"
+          ],
+          "readyOn": {
+            "feint": 3,
+            "fortress": 3
+          },
+          "attacks": [
+            "feint"
+          ],
+          "barrier": 5,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "accelerate",
+        "side": "player"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "barrier"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 12,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heart_corrosion",
+            "venom_blade"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": true,
+          "accelerated": true,
+          "used": [
+            "barrier"
+          ],
+          "readyOn": {
+            "fortress": 3,
+            "barrier": 4
+          },
+          "attacks": [],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "feint": 3,
+            "fortress": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 13,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "mana_bind",
+            "first_aid",
+            "charge"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 2,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "charge"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 14,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "mana_bind",
+            "first_aid",
+            "charge"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "charge"
+          ],
+          "readyOn": {
+            "charge": 3
+          },
+          "attacks": [
+            "charge"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "feint"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 15,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "mana_bind",
+            "first_aid",
+            "charge"
+          ],
+          "hp": 17,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "charge": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "feint",
+            "slash"
+          ],
+          "readyOn": {
+            "barrier": 3,
+            "feint": 3,
+            "slash": 2
+          },
+          "attacks": [
+            "feint",
+            "slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "first_aid"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "mana_bind"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 16,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "mana_bind",
+            "first_aid",
+            "charge"
+          ],
+          "hp": 19,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "first_aid",
+            "mana_bind"
+          ],
+          "readyOn": {
+            "charge": 3,
+            "first_aid": 4,
+            "mana_bind": 4
+          },
+          "attacks": [
+            "mana_bind"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 2,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "feint": 3,
+            "slash": 2
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "fortress"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 17,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "mana_bind",
+            "battle_spirit",
+            "barrier"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 2,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "battle_spirit"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "feint"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 18,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "mana_bind",
+            "battle_spirit",
+            "barrier"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "battle_spirit",
+            "feint"
+          ],
+          "readyOn": {
+            "battle_spirit": 4,
+            "feint": 3
+          },
+          "attacks": [
+            "feint"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 16,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "feint"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 19,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "mana_bind",
+            "battle_spirit",
+            "barrier"
+          ],
+          "hp": 16,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "battle_spirit": 4,
+            "feint": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 16,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "feint",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "feint": 3,
+            "heavy_slash": 2
+          },
+          "attacks": [
+            "feint",
+            "heavy_slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 20,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "mana_bind",
+            "battle_spirit",
+            "barrier"
+          ],
+          "hp": 16,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "battle_spirit": 4,
+            "feint": 3,
+            "barrier": 4,
+            "heavy_slash": 3
+          },
+          "attacks": [
+            "heavy_slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 14,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "feint": 3,
+            "heavy_slash": 2
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "fortress"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 21,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "mana_bind",
+            "barrier",
+            "venom_blade"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 2,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 22,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "mana_bind",
+            "barrier",
+            "venom_blade"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "heavy_slash": 2
+          },
+          "attacks": [
+            "heavy_slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 16,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 23,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "mana_bind",
+            "barrier",
+            "venom_blade"
+          ],
+          "hp": 16,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "heavy_slash": 2
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 16,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "barrier": 3,
+            "heavy_slash": 2
+          },
+          "attacks": [
+            "heavy_slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 24,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "mana_bind",
+            "barrier",
+            "venom_blade"
+          ],
+          "hp": 16,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "heavy_slash": 3,
+            "barrier": 4
+          },
+          "attacks": [
+            "heavy_slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "heavy_slash": 2
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "fortress"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 25,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heavy_slash",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 2,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 26,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heavy_slash",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "heavy_slash": 2
+          },
+          "attacks": [
+            "heavy_slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 16,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 27,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heavy_slash",
+            "feint"
+          ],
+          "hp": 14,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "heavy_slash": 2
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 16,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "heavy_slash",
+            "slash"
+          ],
+          "readyOn": {
+            "heavy_slash": 2,
+            "slash": 2
+          },
+          "attacks": [
+            "heavy_slash",
+            "slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 28,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heavy_slash",
+            "feint"
+          ],
+          "hp": 14,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "heavy_slash": 3,
+            "barrier": 4
+          },
+          "attacks": [
+            "heavy_slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 12,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "heavy_slash": 2,
+            "slash": 2
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 29,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 3,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heavy_slash",
+            "feint"
+          ],
+          "hp": 11,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "heavy_slash": 3,
+            "barrier": 4
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 12,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "heavy_slash",
+            "slash"
+          ],
+          "readyOn": {
+            "heavy_slash": 3,
+            "slash": 3
+          },
+          "attacks": [
+            "heavy_slash",
+            "slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "feint"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 30,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 3,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heavy_slash",
+            "feint"
+          ],
+          "hp": 11,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "feint",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "heavy_slash": 4,
+            "barrier": 4,
+            "feint": 5
+          },
+          "attacks": [
+            "feint",
+            "heavy_slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 7,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "heavy_slash": 3,
+            "slash": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "feint"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 31,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 4,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heavy_slash",
+            "feint"
+          ],
+          "hp": 7,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 4,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "heavy_slash": 4,
+            "barrier": 4,
+            "feint": 5
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 7,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "feint",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "heavy_slash": 4,
+            "slash": 3,
+            "feint": 5
+          },
+          "attacks": [
+            "feint",
+            "heavy_slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 32,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 4,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heavy_slash",
+            "feint"
+          ],
+          "hp": 7,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 4,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "heavy_slash": 5,
+            "barrier": 6,
+            "feint": 5
+          },
+          "attacks": [
+            "heavy_slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 5,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 4,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "heavy_slash": 4,
+            "slash": 3,
+            "feint": 5
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 33,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 5,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heavy_slash",
+            "feint"
+          ],
+          "hp": 6,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 5,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "heavy_slash": 5,
+            "barrier": 6,
+            "feint": 5
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 5,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 4,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "heavy_slash": 5,
+            "slash": 3,
+            "feint": 5,
+            "barrier": 6
+          },
+          "attacks": [
+            "heavy_slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "first_aid"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 34,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 5,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heavy_slash",
+            "feint"
+          ],
+          "hp": 8,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 5,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "first_aid",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "heavy_slash": 6,
+            "barrier": 6,
+            "feint": 5,
+            "first_aid": 7
+          },
+          "attacks": [
+            "heavy_slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 4,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 5,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "heavy_slash": 5,
+            "slash": 3,
+            "feint": 5,
+            "barrier": 6
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "fortress"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 35,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 6,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heavy_slash",
+            "feint"
+          ],
+          "hp": 6,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 6,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "heavy_slash": 6,
+            "barrier": 6,
+            "feint": 5,
+            "first_aid": 7
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 4,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 5,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "fortress",
+            "slash"
+          ],
+          "readyOn": {
+            "heavy_slash": 5,
+            "slash": 6,
+            "feint": 5,
+            "barrier": 6,
+            "fortress": 7
+          },
+          "attacks": [
+            "slash"
+          ],
+          "barrier": 5,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "accelerate",
+        "side": "player"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "barrier"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 36,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 6,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "barrier",
+            "fortress",
+            "first_aid",
+            "heavy_slash",
+            "feint"
+          ],
+          "hp": 6,
+          "maxHp": 20,
+          "mana": 2,
+          "manaCap": 3,
+          "ownTurn": 6,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier"
+          ],
+          "readyOn": {
+            "heavy_slash": 6,
+            "barrier": 8,
+            "feint": 5,
+            "first_aid": 7
+          },
+          "attacks": [],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 4,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 6,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "heavy_slash": 5,
+            "slash": 6,
+            "feint": 5,
+            "barrier": 6,
+            "fortress": 7
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 37,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "barrier",
+            "first_aid",
+            "setup"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 2,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "setup"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 38,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "barrier",
+            "first_aid",
+            "setup"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "setup"
+          ],
+          "readyOn": {
+            "setup": 3
+          },
+          "attacks": [
+            "setup"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 2,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 17,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "feint"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 39,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "barrier",
+            "first_aid",
+            "setup"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "setup": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 2,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 17,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "feint",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "feint": 3,
+            "heavy_slash": 2
+          },
+          "attacks": [
+            "feint",
+            "heavy_slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "feint"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 40,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "barrier",
+            "first_aid",
+            "setup"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "feint",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "setup": 3,
+            "feint": 4,
+            "heavy_slash": 3
+          },
+          "attacks": [
+            "feint",
+            "heavy_slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 12,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "feint": 3,
+            "heavy_slash": 2
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 41,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 3,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "barrier",
+            "first_aid",
+            "setup"
+          ],
+          "hp": 13,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "setup": 3,
+            "feint": 4,
+            "heavy_slash": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 12,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "feint": 3,
+            "heavy_slash": 3,
+            "barrier": 4
+          },
+          "attacks": [
+            "heavy_slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "first_aid"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 42,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 3,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "barrier",
+            "first_aid",
+            "setup"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 1,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "first_aid"
+          ],
+          "readyOn": {
+            "setup": 3,
+            "feint": 4,
+            "heavy_slash": 3,
+            "barrier": 5,
+            "first_aid": 5
+          },
+          "attacks": [],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 12,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "feint": 3,
+            "heavy_slash": 3,
+            "barrier": 4
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "fortress"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 43,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 4,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "barrier",
+            "first_aid",
+            "setup"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 4,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "setup": 3,
+            "feint": 4,
+            "heavy_slash": 3,
+            "barrier": 5,
+            "first_aid": 5
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 12,
+          "maxHp": 20,
+          "mana": 1,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "fortress"
+          ],
+          "readyOn": {
+            "feint": 3,
+            "heavy_slash": 3,
+            "barrier": 4,
+            "fortress": 5
+          },
+          "attacks": [],
+          "barrier": 5,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "feint"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "setup"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 44,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 4,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "barrier",
+            "first_aid",
+            "setup"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 4,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "feint",
+            "setup"
+          ],
+          "readyOn": {
+            "setup": 6,
+            "feint": 6,
+            "heavy_slash": 3,
+            "barrier": 5,
+            "first_aid": 5
+          },
+          "attacks": [
+            "feint",
+            "setup"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 2,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 12,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 4,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "feint": 3,
+            "heavy_slash": 3,
+            "barrier": 4,
+            "fortress": 5
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "feint"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 45,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "barrier",
+            "fortress",
+            "slash"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 2,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 46,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "barrier",
+            "fortress",
+            "slash"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "slash"
+          ],
+          "readyOn": {
+            "barrier": 3,
+            "slash": 2
+          },
+          "attacks": [
+            "slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 18,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "accelerate",
+        "side": "boss"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "barrier"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 47,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "barrier",
+            "fortress",
+            "slash"
+          ],
+          "hp": 19,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "slash": 2
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 18,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "barrier": 3,
+            "heavy_slash": 2
+          },
+          "attacks": [
+            "heavy_slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "heavy_slash"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 48,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "heavy_slash",
+            "feint",
+            "barrier",
+            "fortress",
+            "slash"
+          ],
+          "hp": 19,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "heavy_slash",
+            "slash"
+          ],
+          "readyOn": {
+            "barrier": 3,
+            "slash": 3,
+            "heavy_slash": 3
+          },
+          "attacks": [
+            "heavy_slash",
+            "slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "heavy_slash": 2
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 49,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "follow_up",
+            "finisher_slash",
+            "charge"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 2,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "dash_slash"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "follow_up"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 50,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "follow_up",
+            "finisher_slash",
+            "charge"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "dash_slash",
+            "follow_up"
+          ],
+          "readyOn": {
+            "dash_slash": 3,
+            "follow_up": 3
+          },
+          "attacks": [
+            "dash_slash",
+            "follow_up"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 14,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "feint"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 51,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "follow_up",
+            "finisher_slash",
+            "charge"
+          ],
+          "hp": 17,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "dash_slash": 3,
+            "follow_up": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 14,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "feint",
+            "slash"
+          ],
+          "readyOn": {
+            "barrier": 3,
+            "feint": 3,
+            "slash": 2
+          },
+          "attacks": [
+            "feint",
+            "slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "charge"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 52,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "follow_up",
+            "finisher_slash",
+            "charge"
+          ],
+          "hp": 17,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "charge",
+            "slash"
+          ],
+          "readyOn": {
+            "dash_slash": 3,
+            "follow_up": 3,
+            "charge": 4,
+            "slash": 3
+          },
+          "attacks": [
+            "charge",
+            "slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 12,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "feint": 3,
+            "slash": 2
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "fortress"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 53,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 3,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "follow_up",
+            "finisher_slash",
+            "charge"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "dash_slash": 3,
+            "follow_up": 3,
+            "charge": 4,
+            "slash": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 12,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "fortress",
+            "slash"
+          ],
+          "readyOn": {
+            "barrier": 3,
+            "feint": 3,
+            "slash": 3,
+            "fortress": 4
+          },
+          "attacks": [
+            "slash"
+          ],
+          "barrier": 5,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "dash_slash"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "follow_up"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 54,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 3,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "follow_up",
+            "finisher_slash",
+            "charge"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "dash_slash",
+            "follow_up",
+            "slash"
+          ],
+          "readyOn": {
+            "dash_slash": 5,
+            "follow_up": 5,
+            "charge": 4,
+            "slash": 4
+          },
+          "attacks": [
+            "dash_slash",
+            "follow_up",
+            "slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 9,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "feint": 3,
+            "slash": 3,
+            "fortress": 4
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "feint"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 55,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 4,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "follow_up",
+            "finisher_slash",
+            "charge"
+          ],
+          "hp": 12,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 4,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "dash_slash": 5,
+            "follow_up": 5,
+            "charge": 4,
+            "slash": 4
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 9,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "feint",
+            "slash"
+          ],
+          "readyOn": {
+            "barrier": 5,
+            "feint": 5,
+            "slash": 4,
+            "fortress": 4
+          },
+          "attacks": [
+            "feint",
+            "slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "charge"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "finisher_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 56,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 4,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "follow_up",
+            "finisher_slash",
+            "charge"
+          ],
+          "hp": 12,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 4,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "charge",
+            "finisher_slash"
+          ],
+          "readyOn": {
+            "dash_slash": 5,
+            "follow_up": 5,
+            "charge": 6,
+            "slash": 4,
+            "finisher_slash": 6
+          },
+          "attacks": [
+            "charge",
+            "finisher_slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 5,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 4,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 5,
+            "feint": 5,
+            "slash": 4,
+            "fortress": 4
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "fortress"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 57,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 5,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "follow_up",
+            "finisher_slash",
+            "charge"
+          ],
+          "hp": 10,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 5,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "dash_slash": 5,
+            "follow_up": 5,
+            "charge": 6,
+            "slash": 4,
+            "finisher_slash": 6
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 5,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 4,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "fortress",
+            "slash"
+          ],
+          "readyOn": {
+            "barrier": 5,
+            "feint": 5,
+            "slash": 5,
+            "fortress": 6
+          },
+          "attacks": [
+            "slash"
+          ],
+          "barrier": 5,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "dash_slash"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "follow_up"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 58,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 5,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "follow_up",
+            "finisher_slash",
+            "charge"
+          ],
+          "hp": 10,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 5,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "dash_slash",
+            "follow_up",
+            "slash"
+          ],
+          "readyOn": {
+            "dash_slash": 7,
+            "follow_up": 7,
+            "charge": 6,
+            "slash": 6,
+            "finisher_slash": 6
+          },
+          "attacks": [
+            "dash_slash",
+            "follow_up",
+            "slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 2,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 5,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 5,
+            "feint": 5,
+            "slash": 5,
+            "fortress": 6
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 59,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 6,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "follow_up",
+            "finisher_slash",
+            "charge"
+          ],
+          "hp": 4,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 6,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "dash_slash": 7,
+            "follow_up": 7,
+            "charge": 6,
+            "slash": 6,
+            "finisher_slash": 6
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 2,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 5,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "heavy_slash",
+            "slash"
+          ],
+          "readyOn": {
+            "barrier": 5,
+            "feint": 5,
+            "slash": 6,
+            "fortress": 6,
+            "heavy_slash": 6
+          },
+          "attacks": [
+            "heavy_slash",
+            "slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "charge"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 60,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "finisher_slash",
+            "barrier",
+            "first_aid"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 2,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "dash_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 61,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "finisher_slash",
+            "barrier",
+            "first_aid"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "dash_slash"
+          ],
+          "readyOn": {
+            "barrier": 3,
+            "dash_slash": 3
+          },
+          "attacks": [
+            "dash_slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 17,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "fortress"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 62,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "finisher_slash",
+            "barrier",
+            "first_aid"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "dash_slash": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 17,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "fortress"
+          ],
+          "readyOn": {
+            "barrier": 3,
+            "fortress": 3
+          },
+          "attacks": [],
+          "barrier": 8,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "accelerate",
+        "side": "player"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 63,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "finisher_slash",
+            "barrier",
+            "first_aid"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 1,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": true,
+          "accelerated": true,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "dash_slash": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 17,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "fortress": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "feint"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 64,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 3,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "finisher_slash",
+            "barrier",
+            "first_aid"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 4,
+          "manaCap": 4,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "dash_slash": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 17,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "feint",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "barrier": 3,
+            "fortress": 3,
+            "feint": 4,
+            "heavy_slash": 3
+          },
+          "attacks": [
+            "feint",
+            "heavy_slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "dash_slash"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "finisher_slash"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "first_aid"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 65,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 3,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "finisher_slash",
+            "barrier",
+            "first_aid"
+          ],
+          "hp": 17,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 4,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "dash_slash",
+            "finisher_slash",
+            "first_aid",
+            "slash"
+          ],
+          "readyOn": {
+            "barrier": 3,
+            "dash_slash": 5,
+            "finisher_slash": 5,
+            "first_aid": 5,
+            "slash": 4
+          },
+          "attacks": [
+            "dash_slash",
+            "finisher_slash",
+            "slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 12,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "fortress": 3,
+            "feint": 4,
+            "heavy_slash": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 66,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 4,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "finisher_slash",
+            "barrier",
+            "first_aid"
+          ],
+          "hp": 11,
+          "maxHp": 20,
+          "mana": 4,
+          "manaCap": 4,
+          "ownTurn": 4,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "dash_slash": 5,
+            "finisher_slash": 5,
+            "first_aid": 5,
+            "slash": 4
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 12,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "heavy_slash",
+            "slash"
+          ],
+          "readyOn": {
+            "barrier": 3,
+            "fortress": 3,
+            "feint": 4,
+            "heavy_slash": 4,
+            "slash": 4
+          },
+          "attacks": [
+            "heavy_slash",
+            "slash"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "accelerate",
+        "side": "player"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 67,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 4,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "slash",
+            "dash_slash",
+            "finisher_slash",
+            "barrier",
+            "first_aid"
+          ],
+          "hp": 11,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 4,
+          "ownTurn": 4,
+          "accelerationPending": true,
+          "accelerated": true,
+          "used": [
+            "barrier",
+            "slash"
+          ],
+          "readyOn": {
+            "barrier": 6,
+            "dash_slash": 5,
+            "finisher_slash": 5,
+            "first_aid": 5,
+            "slash": 5
+          },
+          "attacks": [
+            "slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 10,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 4,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "fortress": 3,
+            "feint": 4,
+            "heavy_slash": 4,
+            "slash": 4
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "fortress"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 68,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "corrosion",
+            "slash",
+            "barrier",
+            "first_aid",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 2,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 69,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 1,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "corrosion",
+            "slash",
+            "barrier",
+            "first_aid",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "slash"
+          ],
+          "readyOn": {
+            "barrier": 3,
+            "slash": 2
+          },
+          "attacks": [
+            "slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 18,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "accelerate",
+        "side": "boss"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "barrier"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 70,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "corrosion",
+            "slash",
+            "barrier",
+            "first_aid",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "slash": 2
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 18,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 1,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "fortress"
+          ],
+          "readyOn": {
+            "barrier": 3,
+            "fortress": 3
+          },
+          "attacks": [],
+          "barrier": 8,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "accelerate",
+        "side": "player"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "corrosion"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 71,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 2,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "corrosion",
+            "slash",
+            "barrier",
+            "first_aid",
+            "feint"
+          ],
+          "hp": 20,
+          "maxHp": 20,
+          "mana": 1,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "corrosion",
+            "feint"
+          ],
+          "readyOn": {
+            "barrier": 3,
+            "slash": 2,
+            "corrosion": 4,
+            "feint": 4
+          },
+          "attacks": [
+            "feint"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 18,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "fortress": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 2,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "feint"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 72,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 3,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "corrosion",
+            "slash",
+            "barrier",
+            "first_aid",
+            "feint"
+          ],
+          "hp": 16,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "slash": 2,
+            "corrosion": 4,
+            "feint": 4
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 16,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 2,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "feint",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "barrier": 3,
+            "fortress": 3,
+            "feint": 4,
+            "heavy_slash": 3
+          },
+          "attacks": [
+            "feint",
+            "heavy_slash"
+          ],
+          "barrier": 0,
+          "poison": 1,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "first_aid"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 73,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 3,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "corrosion",
+            "slash",
+            "barrier",
+            "first_aid",
+            "feint"
+          ],
+          "hp": 18,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "first_aid",
+            "slash"
+          ],
+          "readyOn": {
+            "barrier": 5,
+            "slash": 4,
+            "corrosion": 4,
+            "feint": 4,
+            "first_aid": 5
+          },
+          "attacks": [
+            "slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 16,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 3,
+            "fortress": 3,
+            "feint": 4,
+            "heavy_slash": 3
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 1,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "accelerate",
+        "side": "boss"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "barrier"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 74,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 4,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "corrosion",
+            "slash",
+            "barrier",
+            "first_aid",
+            "feint"
+          ],
+          "hp": 17,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 4,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 5,
+            "slash": 4,
+            "corrosion": 4,
+            "feint": 4,
+            "first_aid": 5
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 3,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "barrier": 5,
+            "fortress": 3,
+            "feint": 4,
+            "heavy_slash": 4
+          },
+          "attacks": [
+            "heavy_slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "accelerate",
+        "side": "player"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "corrosion"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 75,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 4,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "corrosion",
+            "slash",
+            "barrier",
+            "first_aid",
+            "feint"
+          ],
+          "hp": 17,
+          "maxHp": 20,
+          "mana": 1,
+          "manaCap": 3,
+          "ownTurn": 4,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "corrosion",
+            "feint"
+          ],
+          "readyOn": {
+            "barrier": 5,
+            "slash": 4,
+            "corrosion": 6,
+            "feint": 6,
+            "first_aid": 5
+          },
+          "attacks": [
+            "feint"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 4,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 5,
+            "fortress": 3,
+            "feint": 4,
+            "heavy_slash": 4
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 2,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "feint"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 76,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 5,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "corrosion",
+            "slash",
+            "barrier",
+            "first_aid",
+            "feint"
+          ],
+          "hp": 13,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 5,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 5,
+            "slash": 4,
+            "corrosion": 6,
+            "feint": 6,
+            "first_aid": 5
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 13,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 4,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "feint",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "barrier": 5,
+            "fortress": 3,
+            "feint": 6,
+            "heavy_slash": 5
+          },
+          "attacks": [
+            "feint",
+            "heavy_slash"
+          ],
+          "barrier": 0,
+          "poison": 1,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "player",
+        "id": "barrier"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "first_aid"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "slash"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 77,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 5,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "corrosion",
+            "slash",
+            "barrier",
+            "first_aid",
+            "feint"
+          ],
+          "hp": 15,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 5,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "first_aid",
+            "slash"
+          ],
+          "readyOn": {
+            "barrier": 7,
+            "slash": 6,
+            "corrosion": 6,
+            "feint": 6,
+            "first_aid": 7
+          },
+          "attacks": [
+            "slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 13,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 5,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 5,
+            "fortress": 3,
+            "feint": 6,
+            "heavy_slash": 5
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 1,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "accelerate",
+        "side": "boss"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "barrier"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 78,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 6,
+      "firstSide": "player",
+      "active": "player",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "corrosion",
+            "slash",
+            "barrier",
+            "first_aid",
+            "feint"
+          ],
+          "hp": 14,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 6,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 7,
+            "slash": 6,
+            "corrosion": 6,
+            "feint": 6,
+            "first_aid": 7
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 12,
+          "maxHp": 20,
+          "mana": 0,
+          "manaCap": 3,
+          "ownTurn": 5,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "barrier",
+            "heavy_slash"
+          ],
+          "readyOn": {
+            "barrier": 7,
+            "fortress": 3,
+            "feint": 6,
+            "heavy_slash": 6
+          },
+          "attacks": [
+            "heavy_slash"
+          ],
+          "barrier": 3,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "accelerate",
+        "side": "player"
+      },
+      {
+        "type": "card",
+        "side": "player",
+        "id": "corrosion"
+      }
+    ]
+  },
+  {
+    "sourceIndex": 79,
+    "state": {
+      "schemaVersion": 2,
+      "ruleset": "first-era-trial",
+      "round": 6,
+      "firstSide": "player",
+      "active": "boss",
+      "bossPresetId": "boss_knight_defense",
+      "playerCharacterId": "01_black_swordsman",
+      "bossCharacterId": "02_heavy_knight",
+      "actors": {
+        "player": {
+          "deck": [
+            "corrosion",
+            "slash",
+            "barrier",
+            "first_aid",
+            "feint"
+          ],
+          "hp": 14,
+          "maxHp": 20,
+          "mana": 1,
+          "manaCap": 3,
+          "ownTurn": 6,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [
+            "corrosion",
+            "feint"
+          ],
+          "readyOn": {
+            "barrier": 7,
+            "slash": 6,
+            "corrosion": 8,
+            "feint": 8,
+            "first_aid": 7
+          },
+          "attacks": [
+            "feint"
+          ],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0,
+          "inheritanceId": null,
+          "inheritanceLevel": "normal"
+        },
+        "boss": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "barrier",
+            "fortress",
+            "feint"
+          ],
+          "hp": 12,
+          "maxHp": 20,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 6,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {
+            "barrier": 7,
+            "fortress": 3,
+            "feint": 6,
+            "heavy_slash": 6
+          },
+          "attacks": [],
+          "barrier": 0,
+          "poison": 2,
+          "weak": 2,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        }
+      },
+      "end": null
+    },
+    "actions": [
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "feint"
+      },
+      {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      }
+    ]
+  }
+]

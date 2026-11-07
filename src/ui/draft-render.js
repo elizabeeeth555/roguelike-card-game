@@ -2,9 +2,9 @@
 function renderDraft(){
   setSceneArtwork('draft');
   const starting=app.draftCards.length===0;
-  $('draftTitle').textContent=starting?'英雄の戦い方を選ぶ':'新たな技をひとつ';
-  $('draftDescription').textContent=starting?'2枚から始め、3回の選択で5枚のビルドを完成させる。':'未所持の3枚から1枚を獲得。強化・継承のない第一紀限定の試練。';
-  $('draftStep').textContent=starting?'BUILD SELECT':`選択 ${app.draftStep+1} / 3`;
+  $('draftTitle').textContent=starting?'英雄の戦い方を選ぶ':'新たなスキルをひとつ';
+  $('draftDescription').textContent=starting?'2つのスキルから始め、5回の習得イベントでビルドを整える。':'未習得の3スキルから習得・入れ替え。不要ならスキップできます。';
+  $('draftStep').textContent=starting?'BUILD SELECT':`選択 ${app.draftStep+1} / ${GameProgression.DRAFT_EVENTS}`;
   const options=$('draftOptions');options.replaceChildren();
   if(starting){
     for(const starter of GameData.STARTERS){
@@ -15,6 +15,16 @@ function renderDraft(){
     }
   }else{
     for(const id of app.draftOptions){const card=createCardView(id,'draft');card.querySelector('.card-open').addEventListener('click',()=>openCardDetail(id,'draft'));options.append(card);}
+  }
+  options.hidden=!!app.draftPending;
+  $('draftActions').hidden=starting;
+  $('draftRerolls').textContent=`残り${app.draftRerolls}回`;
+  $('draftReroll').disabled=app.draftRerolls===0;
+  $('draftReplacement').hidden=!app.draftPending;
+  const replacements=$('draftReplaceOptions');replacements.replaceChildren();
+  if(app.draftPending){
+    $('draftReplaceTitle').textContent=`「${GameData.CARDS[app.draftPending].name}」と入れ替えるスキルを選択`;
+    for(const id of app.draftCards){const button=document.createElement('button');button.type='button';button.textContent=GameData.CARDS[id].name;button.addEventListener('click',()=>replaceDraft(id));replacements.append(button);}
   }
   $('draftDeckCount').textContent=`${app.draftCards.length} / 5`;
   const deck=$('draftDeck');deck.replaceChildren();

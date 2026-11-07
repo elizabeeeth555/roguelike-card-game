@@ -1,4 +1,5 @@
 'use strict';
+function skillText(text){return String(text).replaceAll('カード','スキル').replaceAll('デッキ','スキルセット');}
 // Presentation-only status; GameBattle remains the authority for legal actions.
 function cardDisplayState(id,side){
  if(!app.battle||!['player','boss'].includes(side))return {used:false,remaining:0,manaShort:false,conditionMissing:false,readyOn:0};
@@ -9,7 +10,7 @@ function cardDisplayState(id,side){
 function cardStatusText(id,side){
  if(!app.battle||!['player','boss'].includes(side))return '詳細を見る';
  const d=cardDisplayState(id,side),parts=[];
- if(d.used)parts.push('使用済');if(d.remaining)parts.push(`残${d.remaining}`);
+ if(d.used)parts.push('使用済');else if(d.remaining)parts.push(`CD中（残${d.remaining}T）`);
  if(d.manaShort)parts.push('MP不足');if(d.conditionMissing)parts.push('条件未達：対象の毒が必要');
  if(app.battle.end)parts.push('戦闘終了');else if(app.battle.active!==side)parts.push('相手のターン');
  return parts.join(' ／ ')||'使用可能';
@@ -22,7 +23,7 @@ function cardDescription(id){
  if(id==='first_aid')text+='。最大HP20を超えない。';
  if(['corrosion','plague'].includes(id))text+='。毒は対象の自ターン終了時に現在値のHP直接ダメージを与え、1減る。';
  if(['feint','curse'].includes(id))text+='。攻撃弱体は次の攻撃まで保持、合算して消費。';
- return text;
+ return skillText(text);
 }
 function cardDamagePreview(id,side='player'){
  if(!app.battle||!GameData.CARDS[id].tags.includes('attack'))return null;
@@ -37,26 +38,25 @@ function cardDetailStatus(id,side){
   const d=cardDisplayState(id,side),a=app.battle.actors[side];
   if(d.readyOn>a.ownTurn)text+=` ／ 自ターン${d.readyOn}から再使用可能。残CDは今後使用不可の自ターン数（使用ターンを除く）`;
   const p=cardDamagePreview(id,side);if(p)text+=` ／ HP −${p.damage}、バリア −${p.blocked}${p.allowed?'':'（現在は使用不可）'}`;
- }return text;
+ }return skillText(text);
 }
 function createCardView(id,side){
  const spec=GameData.CARDS[id],view=document.createElement('div'),d=cardDisplayState(id,side);
  const selected=side==='player'?app.selectedPlayer===id:side==='boss'?app.selectedBoss===id:false;
- view.className=`game-card ${GameData.category(spec)}${side==='boss'?' enemy-mini-card':''}${selected?' selected':''}${d.used?' spent':''}${d.remaining?' cooling':''}`;
+ view.className=`game-card ${GameData.category(spec)}${side==='boss'?' enemy-mini-card':''}${selected?' selected':''}${d.used?' spent':''}${d.remaining&&!d.used?' cooling':''}`;
  if((side==='boss'&&app.enemyActiveKey===id)||(side==='player'&&app.playerActiveKey===id))view.classList.add('active');
  view.dataset.cardId=id;view.dataset.side=side;
  if(d.manaShort)view.classList.add('mana-unavailable');if(d.conditionMissing)view.classList.add('condition-unavailable');
  const open=document.createElement('button');open.type='button';open.className='card-open';
  open.disabled=['player','boss'].includes(side)&&!canInspectBattle();open.setAttribute('aria-expanded',String(selected));
- const cost=document.createElement('span');cost.className='card-cost'+(d.manaShort?' mana-short':'');cost.textContent=spec.cost;
+ const cost=document.createElement('span');cost.className='card-cost'+(d.manaShort?' mana-short':'');cost.textContent=`♦ ${spec.cost}`;cost.setAttribute('aria-label',`消費MP ${spec.cost}`);
  const name=document.createElement('strong');name.className='card-name';name.textContent=spec.name;
  const tags=document.createElement('span');tags.className='card-tags';tags.textContent=spec.tags.map(t=>GameData.TAG_LABELS[t]).join('＋');
- const desc=document.createElement('span');desc.className='card-description';desc.textContent=spec.description;
- const cd=document.createElement('span');cd.className='card-cd';const baseCost=document.createElement('span');baseCost.textContent=`${spec.cost}MP / `;const baseCD=document.createElement('span');baseCD.textContent=`基本CD${spec.cd}`;cd.append(baseCost,baseCD);
- const status=document.createElement('span');status.className='card-status';status.textContent=d.used?'使用済':'';
- const badge=document.createElement('span');badge.className='remaining-cd';badge.hidden=!d.remaining;badge.textContent=`残${d.remaining}`;
+ const desc=document.createElement('span');desc.className='card-description';desc.textContent=skillText(spec.description);
+ const cd=document.createElement('span');cd.className='card-cd';cd.textContent=`⌛ ${spec.cd}`;cd.setAttribute('aria-label',`基本CD ${spec.cd}`);
+ const status=document.createElement('span');status.className='card-status';status.textContent=d.used?'使用済':d.remaining?`CD中（残${d.remaining}T）`:'';
  const condition=document.createElement('span');condition.className='condition-mark';condition.textContent='⚠';condition.hidden=!d.conditionMissing;condition.setAttribute('aria-label','条件未達：対象の毒が必要');
- open.append(cost,name,tags,desc,cd,status,badge,condition);
+ open.append(cost,name,tags,desc,cd,status,condition);
  if(side==='boss'){
   const kind=document.createElement('span');kind.className='card-kind';
   kind.textContent={attack:'⚔︎',defense:'⬡',heal:'♥',buff:'✦',poison:'☣︎'}[GameData.category(spec)]||'✦';
@@ -66,8 +66,7 @@ function createCardView(id,side){
  if(selected){
   const detail=document.createElement('div');detail.className='inline-card-details';
   const full=document.createElement('p');full.textContent=cardDescription(id);
-  if(side==='boss'){const meta=document.createElement('p');meta.className='enemy-detail-meta';meta.textContent=`${spec.cost}MP ／ 基本CD${spec.cd} ／ ${spec.tags.map(t=>GameData.TAG_LABELS[t]).join('＋')}`;detail.append(meta);}
-  const why=document.createElement('p');why.className='inline-card-reason';why.textContent=cardDetailStatus(id,side);detail.append(full,why);view.append(detail);
+  detail.append(full);view.append(detail);
  }
  if(side==='player'){
   const use=document.createElement('button');use.type='button';use.className='card-use';use.textContent=app.playerAnimating?'演出中':'使用する';use.hidden=!selected;
@@ -82,8 +81,8 @@ function createCardView(id,side){
 function renderStatusIcons(side){
  const a=app.battle.actors[side];
  const make=(icon,value,label,description)=>{
-  const b=document.createElement('button');b.type='button';b.className='status-icon info-trigger';b.dataset.info=`${label} ${value}：${description}`;b.setAttribute('aria-label',b.dataset.info);
-  const art=document.createElement('span');art.className='status-symbol';art.textContent=icon;
+  const b=document.createElement('button');b.type='button';b.className='status-icon info-trigger'+(label==='毒'?' poison-status':'');b.dataset.info=`${label} ${value}：${description}`;b.setAttribute('aria-label',b.dataset.info);
+  const art=document.createElement('span');art.className='status-symbol';art.textContent=label==='毒'?'☣︎':icon;
   const n=document.createElement('b');n.textContent=value;b.append(art,n);return b;
  };
  $(side+'Status').replaceChildren(...[
@@ -95,6 +94,8 @@ function renderStatusIcons(side){
 }
 function render(){
  if(app.mode!=='battle'||!app.battle)return;const s=app.battle;clearInfoTooltip();$('gameLayout').classList.toggle('fast-effects',app.fastFx);
+ $('roundValue').title=s.round<12?'12TURNから各自ターン開始時に消耗ダメージ（バリア無視）':`消耗：各自ターン開始時に${GameBattle.exhaustionDamage(s.round)}ダメージ`;
+ $('turnBanner').classList.toggle('your-turn',!s.end&&s.active==='player');$('turnBanner').classList.toggle('enemy-turn',!s.end&&s.active==='boss');
  $('roundValue').textContent=String(s.round).padStart(2,'0');$('turnBanner').textContent=s.end?'戦闘終了':s.active==='player'?'YOUR TURN':'ENEMY TURN';
  for(const side of ['player','boss']){
   const a=s.actors[side];$(side+'HpValue').textContent=`${a.hp} / ${a.maxHp}`;$(side+'HpBar').style.width=a.hp/a.maxHp*100+'%';

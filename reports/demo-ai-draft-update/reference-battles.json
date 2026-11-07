@@ -1,0 +1,1026 @@
+[
+  {
+    "id": "poison-5001-boss_knight_defense",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "corrosion",
+      "slash",
+      "fortress",
+      "feint",
+      "heart_corrosion"
+    ],
+    "boss": "boss_knight_defense",
+    "winner": "boss",
+    "round": 6
+  },
+  {
+    "id": "poison-5001-boss_witch_poison",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "corrosion",
+      "slash",
+      "fortress",
+      "feint",
+      "heart_corrosion"
+    ],
+    "boss": "boss_witch_poison",
+    "winner": "boss",
+    "round": 5
+  },
+  {
+    "id": "poison-5001-boss_giant_power",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "corrosion",
+      "slash",
+      "fortress",
+      "feint",
+      "heart_corrosion"
+    ],
+    "boss": "boss_giant_power",
+    "winner": "boss",
+    "round": 6
+  },
+  {
+    "id": "poison-5001-boss_scout_rush",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "corrosion",
+      "slash",
+      "fortress",
+      "feint",
+      "heart_corrosion"
+    ],
+    "boss": "boss_scout_rush",
+    "winner": "boss",
+    "round": 6
+  },
+  {
+    "id": "poison-5001-boss_sage_tempo",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "corrosion",
+      "slash",
+      "fortress",
+      "feint",
+      "heart_corrosion"
+    ],
+    "boss": "boss_sage_tempo",
+    "winner": "player",
+    "round": 7
+  },
+  {
+    "id": "poison-5002-boss_knight_defense",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "corrosion",
+      "slash",
+      "venom_blade",
+      "heart_corrosion",
+      "first_aid"
+    ],
+    "boss": "boss_knight_defense",
+    "winner": "boss",
+    "round": 5
+  },
+  {
+    "id": "poison-5002-boss_witch_poison",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "corrosion",
+      "slash",
+      "venom_blade",
+      "heart_corrosion",
+      "first_aid"
+    ],
+    "boss": "boss_witch_poison",
+    "winner": "boss",
+    "round": 4
+  },
+  {
+    "id": "poison-5002-boss_giant_power",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "corrosion",
+      "slash",
+      "venom_blade",
+      "heart_corrosion",
+      "first_aid"
+    ],
+    "boss": "boss_giant_power",
+    "winner": "player",
+    "round": 5
+  },
+  {
+    "id": "poison-5002-boss_scout_rush",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "corrosion",
+      "slash",
+      "venom_blade",
+      "heart_corrosion",
+      "first_aid"
+    ],
+    "boss": "boss_scout_rush",
+    "winner": "boss",
+    "round": 5
+  },
+  {
+    "id": "poison-5002-boss_sage_tempo",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "corrosion",
+      "slash",
+      "venom_blade",
+      "heart_corrosion",
+      "first_aid"
+    ],
+    "boss": "boss_sage_tempo",
+    "winner": "player",
+    "round": 5
+  },
+  {
+    "id": "poison-5003-boss_knight_defense",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "corrosion",
+      "slash",
+      "curse",
+      "dash_slash",
+      "setup"
+    ],
+    "boss": "boss_knight_defense",
+    "winner": "player",
+    "round": 6
+  },
+  {
+    "id": "poison-5003-boss_witch_poison",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "corrosion",
+      "slash",
+      "curse",
+      "dash_slash",
+      "setup"
+    ],
+    "boss": "boss_witch_poison",
+    "winner": "player",
+    "round": 4
+  },
+  {
+    "id": "poison-5003-boss_giant_power",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "corrosion",
+      "slash",
+      "curse",
+      "dash_slash",
+      "setup"
+    ],
+    "boss": "boss_giant_power",
+    "winner": "player",
+    "round": 5
+  },
+  {
+    "id": "poison-5003-boss_scout_rush",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "corrosion",
+      "slash",
+      "curse",
+      "dash_slash",
+      "setup"
+    ],
+    "boss": "boss_scout_rush",
+    "winner": "player",
+    "round": 4
+  },
+  {
+    "id": "poison-5003-boss_sage_tempo",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "corrosion",
+      "slash",
+      "curse",
+      "dash_slash",
+      "setup"
+    ],
+    "boss": "boss_sage_tempo",
+    "winner": "player",
+    "round": 4
+  },
+  {
+    "id": "defense-5001-boss_knight_defense",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "barrier",
+      "fortress",
+      "first_aid",
+      "setup",
+      "slash"
+    ],
+    "boss": "boss_knight_defense",
+    "winner": "boss",
+    "round": 14
+  },
+  {
+    "id": "defense-5001-boss_witch_poison",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "barrier",
+      "fortress",
+      "first_aid",
+      "setup",
+      "slash"
+    ],
+    "boss": "boss_witch_poison",
+    "winner": "boss",
+    "round": 6
+  },
+  {
+    "id": "defense-5001-boss_giant_power",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "barrier",
+      "fortress",
+      "first_aid",
+      "setup",
+      "slash"
+    ],
+    "boss": "boss_giant_power",
+    "winner": "boss",
+    "round": 6
+  },
+  {
+    "id": "defense-5001-boss_scout_rush",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "barrier",
+      "fortress",
+      "first_aid",
+      "setup",
+      "slash"
+    ],
+    "boss": "boss_scout_rush",
+    "winner": "boss",
+    "round": 14
+  },
+  {
+    "id": "defense-5001-boss_sage_tempo",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "barrier",
+      "fortress",
+      "first_aid",
+      "setup",
+      "slash"
+    ],
+    "boss": "boss_sage_tempo",
+    "winner": "player",
+    "round": 8
+  },
+  {
+    "id": "defense-5002-boss_knight_defense",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "barrier",
+      "fortress",
+      "first_aid",
+      "heart_corrosion",
+      "venom_blade"
+    ],
+    "boss": "boss_knight_defense",
+    "winner": "boss",
+    "round": 13
+  },
+  {
+    "id": "defense-5002-boss_witch_poison",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "barrier",
+      "fortress",
+      "first_aid",
+      "heart_corrosion",
+      "venom_blade"
+    ],
+    "boss": "boss_witch_poison",
+    "winner": "boss",
+    "round": 5
+  },
+  {
+    "id": "defense-5002-boss_giant_power",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "barrier",
+      "fortress",
+      "first_aid",
+      "heart_corrosion",
+      "venom_blade"
+    ],
+    "boss": "boss_giant_power",
+    "winner": "boss",
+    "round": 6
+  },
+  {
+    "id": "defense-5002-boss_scout_rush",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "barrier",
+      "fortress",
+      "first_aid",
+      "heart_corrosion",
+      "venom_blade"
+    ],
+    "boss": "boss_scout_rush",
+    "winner": "boss",
+    "round": 10
+  },
+  {
+    "id": "defense-5002-boss_sage_tempo",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "barrier",
+      "fortress",
+      "first_aid",
+      "heart_corrosion",
+      "venom_blade"
+    ],
+    "boss": "boss_sage_tempo",
+    "winner": "boss",
+    "round": 13
+  },
+  {
+    "id": "defense-5003-boss_knight_defense",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "barrier",
+      "fortress",
+      "first_aid",
+      "curse",
+      "finisher_slash"
+    ],
+    "boss": "boss_knight_defense",
+    "winner": "boss",
+    "round": 14
+  },
+  {
+    "id": "defense-5003-boss_witch_poison",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "barrier",
+      "fortress",
+      "first_aid",
+      "curse",
+      "finisher_slash"
+    ],
+    "boss": "boss_witch_poison",
+    "winner": "boss",
+    "round": 5
+  },
+  {
+    "id": "defense-5003-boss_giant_power",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "barrier",
+      "fortress",
+      "first_aid",
+      "curse",
+      "finisher_slash"
+    ],
+    "boss": "boss_giant_power",
+    "winner": "boss",
+    "round": 7
+  },
+  {
+    "id": "defense-5003-boss_scout_rush",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "barrier",
+      "fortress",
+      "first_aid",
+      "curse",
+      "finisher_slash"
+    ],
+    "boss": "boss_scout_rush",
+    "winner": "boss",
+    "round": 9
+  },
+  {
+    "id": "defense-5003-boss_sage_tempo",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "barrier",
+      "fortress",
+      "first_aid",
+      "curse",
+      "finisher_slash"
+    ],
+    "boss": "boss_sage_tempo",
+    "winner": "player",
+    "round": 12
+  },
+  {
+    "id": "rush-5001-boss_knight_defense",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "slash",
+      "dash_slash",
+      "heavy_slash",
+      "finisher_slash",
+      "corrosion"
+    ],
+    "boss": "boss_knight_defense",
+    "winner": "player",
+    "round": 5
+  },
+  {
+    "id": "rush-5001-boss_witch_poison",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "slash",
+      "dash_slash",
+      "heavy_slash",
+      "finisher_slash",
+      "corrosion"
+    ],
+    "boss": "boss_witch_poison",
+    "winner": "player",
+    "round": 4
+  },
+  {
+    "id": "rush-5001-boss_giant_power",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "slash",
+      "dash_slash",
+      "heavy_slash",
+      "finisher_slash",
+      "corrosion"
+    ],
+    "boss": "boss_giant_power",
+    "winner": "player",
+    "round": 4
+  },
+  {
+    "id": "rush-5001-boss_scout_rush",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "slash",
+      "dash_slash",
+      "heavy_slash",
+      "finisher_slash",
+      "corrosion"
+    ],
+    "boss": "boss_scout_rush",
+    "winner": "player",
+    "round": 4
+  },
+  {
+    "id": "rush-5001-boss_sage_tempo",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "slash",
+      "dash_slash",
+      "heavy_slash",
+      "finisher_slash",
+      "corrosion"
+    ],
+    "boss": "boss_sage_tempo",
+    "winner": "player",
+    "round": 4
+  },
+  {
+    "id": "rush-5002-boss_knight_defense",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "slash",
+      "dash_slash",
+      "corrosion",
+      "barrier",
+      "finisher_slash"
+    ],
+    "boss": "boss_knight_defense",
+    "winner": "player",
+    "round": 6
+  },
+  {
+    "id": "rush-5002-boss_witch_poison",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "slash",
+      "dash_slash",
+      "corrosion",
+      "barrier",
+      "finisher_slash"
+    ],
+    "boss": "boss_witch_poison",
+    "winner": "player",
+    "round": 4
+  },
+  {
+    "id": "rush-5002-boss_giant_power",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "slash",
+      "dash_slash",
+      "corrosion",
+      "barrier",
+      "finisher_slash"
+    ],
+    "boss": "boss_giant_power",
+    "winner": "player",
+    "round": 5
+  },
+  {
+    "id": "rush-5002-boss_scout_rush",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "slash",
+      "dash_slash",
+      "corrosion",
+      "barrier",
+      "finisher_slash"
+    ],
+    "boss": "boss_scout_rush",
+    "winner": "player",
+    "round": 5
+  },
+  {
+    "id": "rush-5002-boss_sage_tempo",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "slash",
+      "dash_slash",
+      "corrosion",
+      "barrier",
+      "finisher_slash"
+    ],
+    "boss": "boss_sage_tempo",
+    "winner": "player",
+    "round": 4
+  },
+  {
+    "id": "rush-5003-boss_knight_defense",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "slash",
+      "dash_slash",
+      "curse",
+      "follow_up",
+      "corrosion"
+    ],
+    "boss": "boss_knight_defense",
+    "winner": "player",
+    "round": 5
+  },
+  {
+    "id": "rush-5003-boss_witch_poison",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "slash",
+      "dash_slash",
+      "curse",
+      "follow_up",
+      "corrosion"
+    ],
+    "boss": "boss_witch_poison",
+    "winner": "player",
+    "round": 4
+  },
+  {
+    "id": "rush-5003-boss_giant_power",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "slash",
+      "dash_slash",
+      "curse",
+      "follow_up",
+      "corrosion"
+    ],
+    "boss": "boss_giant_power",
+    "winner": "player",
+    "round": 5
+  },
+  {
+    "id": "rush-5003-boss_scout_rush",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "slash",
+      "dash_slash",
+      "curse",
+      "follow_up",
+      "corrosion"
+    ],
+    "boss": "boss_scout_rush",
+    "winner": "player",
+    "round": 5
+  },
+  {
+    "id": "rush-5003-boss_sage_tempo",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "slash",
+      "dash_slash",
+      "curse",
+      "follow_up",
+      "corrosion"
+    ],
+    "boss": "boss_sage_tempo",
+    "winner": "player",
+    "round": 4
+  },
+  {
+    "id": "midrange-5001-boss_knight_defense",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "heavy_slash",
+      "feint",
+      "setup",
+      "charge",
+      "slash"
+    ],
+    "boss": "boss_knight_defense",
+    "winner": "player",
+    "round": 6
+  },
+  {
+    "id": "midrange-5001-boss_witch_poison",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "heavy_slash",
+      "feint",
+      "setup",
+      "charge",
+      "slash"
+    ],
+    "boss": "boss_witch_poison",
+    "winner": "boss",
+    "round": 4
+  },
+  {
+    "id": "midrange-5001-boss_giant_power",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "heavy_slash",
+      "feint",
+      "setup",
+      "charge",
+      "slash"
+    ],
+    "boss": "boss_giant_power",
+    "winner": "player",
+    "round": 5
+  },
+  {
+    "id": "midrange-5001-boss_scout_rush",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "heavy_slash",
+      "feint",
+      "setup",
+      "charge",
+      "slash"
+    ],
+    "boss": "boss_scout_rush",
+    "winner": "boss",
+    "round": 5
+  },
+  {
+    "id": "midrange-5001-boss_sage_tempo",
+    "set": "primary",
+    "seed": 5001,
+    "name": null,
+    "deck": [
+      "heavy_slash",
+      "feint",
+      "setup",
+      "charge",
+      "slash"
+    ],
+    "boss": "boss_sage_tempo",
+    "winner": "player",
+    "round": 4
+  },
+  {
+    "id": "midrange-5002-boss_knight_defense",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "heavy_slash",
+      "feint",
+      "plague",
+      "mana_bind",
+      "follow_up"
+    ],
+    "boss": "boss_knight_defense",
+    "winner": "player",
+    "round": 5
+  },
+  {
+    "id": "midrange-5002-boss_witch_poison",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "heavy_slash",
+      "feint",
+      "plague",
+      "mana_bind",
+      "follow_up"
+    ],
+    "boss": "boss_witch_poison",
+    "winner": "boss",
+    "round": 4
+  },
+  {
+    "id": "midrange-5002-boss_giant_power",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "heavy_slash",
+      "feint",
+      "plague",
+      "mana_bind",
+      "follow_up"
+    ],
+    "boss": "boss_giant_power",
+    "winner": "player",
+    "round": 5
+  },
+  {
+    "id": "midrange-5002-boss_scout_rush",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "heavy_slash",
+      "feint",
+      "plague",
+      "mana_bind",
+      "follow_up"
+    ],
+    "boss": "boss_scout_rush",
+    "winner": "player",
+    "round": 6
+  },
+  {
+    "id": "midrange-5002-boss_sage_tempo",
+    "set": "primary",
+    "seed": 5002,
+    "name": null,
+    "deck": [
+      "heavy_slash",
+      "feint",
+      "plague",
+      "mana_bind",
+      "follow_up"
+    ],
+    "boss": "boss_sage_tempo",
+    "winner": "boss",
+    "round": 4
+  },
+  {
+    "id": "midrange-5003-boss_knight_defense",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "heavy_slash",
+      "feint",
+      "plague",
+      "venom_blade",
+      "setup"
+    ],
+    "boss": "boss_knight_defense",
+    "winner": "boss",
+    "round": 5
+  },
+  {
+    "id": "midrange-5003-boss_witch_poison",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "heavy_slash",
+      "feint",
+      "plague",
+      "venom_blade",
+      "setup"
+    ],
+    "boss": "boss_witch_poison",
+    "winner": "player",
+    "round": 4
+  },
+  {
+    "id": "midrange-5003-boss_giant_power",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "heavy_slash",
+      "feint",
+      "plague",
+      "venom_blade",
+      "setup"
+    ],
+    "boss": "boss_giant_power",
+    "winner": "boss",
+    "round": 5
+  },
+  {
+    "id": "midrange-5003-boss_scout_rush",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "heavy_slash",
+      "feint",
+      "plague",
+      "venom_blade",
+      "setup"
+    ],
+    "boss": "boss_scout_rush",
+    "winner": "boss",
+    "round": 5
+  },
+  {
+    "id": "midrange-5003-boss_sage_tempo",
+    "set": "primary",
+    "seed": 5003,
+    "name": null,
+    "deck": [
+      "heavy_slash",
+      "feint",
+      "plague",
+      "venom_blade",
+      "setup"
+    ],
+    "boss": "boss_sage_tempo",
+    "winner": "player",
+    "round": 5
+  },
+  {
+    "id": "loop_fortress-boss_knight_defense",
+    "set": "curated",
+    "seed": 0,
+    "name": "loop_fortress",
+    "deck": [
+      "heavy_slash",
+      "feint",
+      "barrier",
+      "first_aid",
+      "setup"
+    ],
+    "boss": "boss_knight_defense",
+    "winner": "boss",
+    "round": 17
+  },
+  {
+    "id": "new_heal-boss_knight_defense",
+    "set": "curated",
+    "seed": 0,
+    "name": "new_heal",
+    "deck": [
+      "heavy_slash",
+      "feint",
+      "barrier",
+      "fortress",
+      "slash"
+    ],
+    "boss": "boss_knight_defense",
+    "winner": "boss",
+    "round": 12
+  },
+  {
+    "id": "regression_2020-boss_knight_defense",
+    "set": "curated",
+    "seed": 2020,
+    "name": "regression_2020",
+    "deck": [
+      "barrier",
+      "fortress",
+      "first_aid",
+      "heavy_slash",
+      "setup"
+    ],
+    "boss": "boss_knight_defense",
+    "winner": "boss",
+    "round": 16
+  },
+  {
+    "id": "regression_2055-boss_knight_defense",
+    "set": "curated",
+    "seed": 2055,
+    "name": "regression_2055",
+    "deck": [
+      "barrier",
+      "fortress",
+      "first_aid",
+      "mana_bind",
+      "charge"
+    ],
+    "boss": "boss_knight_defense",
+    "winner": "boss",
+    "round": 14
+  }
+]

@@ -26,9 +26,9 @@ function openCardDetail(id,side){
 function updateCardDetail(){
  const id=app.selectedCard;if(!id)return;const spec=GameData.CARDS[id],side=app.selectedSide;
  $('cardDetailTitle').textContent=spec.name;
- $('cardDetailMeta').textContent=`${spec.cost}MP ／ ${spec.tags.map(t=>GameData.TAG_LABELS[t]).join('＋')} ／ 基本CD${spec.cd}`;
- $('cardDetailText').textContent=cardDescription(id);$('cardDetailStatus').textContent=cardDetailStatus(id,side);
- const confirm=$('confirmCard');confirm.hidden=side!=='draft';confirm.textContent='この技を獲得';
+ $('cardDetailMeta').hidden=true;$('cardDetailStatus').hidden=true;
+ $('cardDetailText').textContent=cardDescription(id);
+ const confirm=$('confirmCard');confirm.hidden=side!=='draft';confirm.textContent=app.draftCards.length===5?'このスキルと入れ替える':'このスキルを習得';
  confirm.disabled=app.mode!=='draft'||!app.draftOptions.includes(id);
 }
 function closeEndTurn(){
@@ -103,6 +103,12 @@ function positionCardDetails(){
  if(!document.querySelectorAll)return;
  for(const card of document.querySelectorAll('.game-card.selected')){
   card.style.setProperty('--card-shift-x','0px');card.style.setProperty('--card-shift-y','0px');
+  if(card.dataset.side==='boss'){
+   const detail=card.querySelector('.inline-card-details');if(!detail)continue;
+   detail.style.setProperty('--detail-shift-x','0px');
+   const r=detail.getBoundingClientRect(),shift=Math.max(8-r.left,Math.min(0,innerWidth-8-r.right));
+   detail.style.setProperty('--detail-shift-x',shift+'px');continue;
+  }
   const rects=[card,...card.querySelectorAll('.inline-card-details,.card-use:not([hidden])')].map(n=>n.getBoundingClientRect());
   const left=Math.min(...rects.map(r=>r.left)),right=Math.max(...rects.map(r=>r.right));
   const top=Math.min(...rects.map(r=>r.top)),bottom=Math.max(...rects.map(r=>r.bottom));

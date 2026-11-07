@@ -6,7 +6,7 @@ function presentBattleEvents(events){
       case 'card':{
         const spec=GameData.CARDS[event.id];
         effectVisual(GameData.category(spec),event.side);sound('card_cast');
-        addLog(`${label}：${spec.name}を使用。${spec.description}`,event.side==='boss'?'enemy':'hero');
+        addLog(`${label}：${spec.name}を使用。${skillText(spec.description)}`,event.side==='boss'?'enemy':'hero');
         if(event.side==='boss'){
           app.enemyActiveKey=event.id;app.enemyUsedKeys.add(event.id);
           $('enemyActionToast').textContent=`敵が「${spec.name}」を使用`;$('enemyActionToast').hidden=false;
@@ -18,13 +18,16 @@ function presentBattleEvents(events){
         addLog(`${event.target==='boss'?'敵':'あなた'}：${event.kind==='poison'?'毒で':''}${damage}ダメージ${event.blocked?`（バリア${event.blocked}消費）`:''}`,event.target==='boss'?'hero':'enemy');
         if(damage>0||event.blocked){animateHit(damage,event.target,event.blocked);sound(event.kind==='poison'?'poison_tick':damage>0?'hit':'block');}else sound('block');
         break;}
-      case 'heal':addLog(`${label}：HPを${event.amount}回復`);sound('heal');break;
+      case 'environmentDamage':
+        addLog(`${event.target==='boss'?'敵':'あなた'}：消耗で${event.amount}ダメージ（TURN ${event.round}・バリア無視）`,'turn');
+        animateHit(event.amount,event.target,0);sound('hit');break;
+      case 'heal':animateHeal(event.amount,event.side);addLog(`${label}：HPを${event.amount}回復`);sound('heal');break;
       case 'accelerate':
         addLog(`${label}：マナ加速。次の自ターンから上限${event.nextCap}`);sound('mana');
         if(event.side==='boss'){$('enemyActionToast').textContent='敵がマナ加速を使用';$('enemyActionToast').hidden=false;}
         break;
       case 'barrierExpired':addLog(`${label}のバリアが消滅`);break;
-      case 'turn':addLog(`ROUND ${event.round} / ${label}の自ターン${event.ownTurn}`,'turn');break;
+      case 'turn':addLog(`TURN ${event.round} / ${label}の自ターン${event.ownTurn}`,'turn');break;
       case 'finish':finishBattle(event.winner);break;
     }
   }

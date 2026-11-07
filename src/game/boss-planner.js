@@ -29,18 +29,42 @@
     results.sort((a,b)=>b.score-a.score||a.actions.length-b.actions.length||key(a.actions).localeCompare(key(b.actions),'en'));
     return {results,nodes};
   }
+  function preparationStateKey(state){
+    // Retain unknown fields and attack order. used is a membership set in this ruleset.
+    function canonical(value){
+      if(Array.isArray(value))return value.map(canonical);
+      if(value&&typeof value==='object')return Object.fromEntries(Object.keys(value).sort().map(k=>[k,canonical(value[k])]));
+      return value;
+    }
+    const actors=Object.fromEntries(Object.entries(state.actors).map(([side,a])=>[side,{...a,used:[...a.used].sort()}]));
+    return JSON.stringify(canonical({...state,actors}));
+  }
   function plan(state,{lookahead=true}={}){
     if(state.end)return {actions:[],score:0,nodes:0};
     const side=state.active,search=enumerate(state,side);
     const win=search.results.find(result=>result.state.end===side);
     if(win)return {actions:win.actions,score:win.score,nodes:search.nodes};
     if(!lookahead)return {actions:search.results[0].actions,score:search.results[0].score,nodes:search.nodes};
-    // Evaluate best replies for top candidates. If all lose, search the remainder
-    // until a safe line is found; a defense is never omitted solely by this cutoff.
+    // Preserve eight ordinary sequences; reserve up to two distinct outcomes
+    // for each preparation type. This is AI-2, not global endpoint deduplication.
+    const candidates=search.results.slice(0,8),selected=new Set(candidates.map(c=>key(c.actions)));
+    for(const predicate of [c=>c.actions.some(a=>a.type==='accelerate'),c=>c.actions.some(a=>a.id==='setup')]){
+      const seen=new Set();let count=0;
+      for(const c of search.results){
+        if(!predicate(c))continue;
+        const endpoint=preparationStateKey(c.state);if(seen.has(endpoint))continue;
+        seen.add(endpoint);if(!selected.has(key(c.actions))){candidates.push(c);selected.add(key(c.actions));}
+        if(++count===2)break;
+      }
+    }
     let best=null,nodes=search.nodes;
-    for(let i=0;i<search.results.length;i++){
-      if(i>=8&&best&&best.score>-50000)break;
-      const candidate=search.results[i];let replyScore=candidate.score,futureScore=candidate.score;
+    const evaluated=new Set();
+    // If all selected lines lose, retain the existing safety search through the rest.
+    for(const candidate of [...candidates,...search.results]){
+      const actionKey=key(candidate.actions);if(evaluated.has(actionKey))continue;
+      if(evaluated.size>=candidates.length&&best&&best.score>-50000)break;
+      evaluated.add(actionKey);
+      let replyScore=candidate.score,futureScore=candidate.score;
       if(!candidate.state.end){
         const replies=enumerate(candidate.state,Battle.other(side));nodes+=replies.nodes;
         replyScore=-replies.results[0].score;

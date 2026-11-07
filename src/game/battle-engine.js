@@ -16,7 +16,19 @@
       accelerationPending:false,accelerated:false,used:[],readyOn:{},attacks:[],
       barrier:0,poison:0,weak:0,manaPenalty:0,attackBonus:0,setupBonus:0};
   }
+  function exhaustionDamage(round){return round<12?0:1+Math.floor((round-12)/2);}
+  // Start-phase ordering: environment (and lethal check), then refill/queued effects.
+  function applyStartEnvironment(state,side,events){
+    const who=state.actors[side],amount=exhaustionDamage(state.round);
+    if(amount){
+      const actual=Math.min(who.hp,amount);who.hp=Math.max(0,who.hp-amount);
+      events.push({type:'environmentDamage',kind:'exhaustion',source:'environment',target:side,amount:actual,rawAmount:amount,round:state.round});
+      if(who.hp===0){state.endCause='exhaustion';finish(state,other(side),events);return false;}
+    }
+    return true;
+  }
   function startTurn(state,side,events){
+    if(!applyStartEnvironment(state,side,events))return;
     const who=state.actors[side];who.ownTurn++;
     Object.assign(who,MathRules.refill(who.manaCap,who.accelerationPending,who.manaPenalty,side===state.firstSide&&who.ownTurn===1));
     who.accelerationPending=false;who.manaPenalty=0;who.accelerated=false;
@@ -113,5 +125,5 @@
     if(!value||value.schemaVersion!==2||value.ruleset!=='first-era-trial')throw new TypeError('Unsupported battle snapshot');
     return clone(value);
   }
-  return Object.freeze({createState,availability,accelerationStatus,legalActions,execute,transition,snapshot,restore,other});
+  return Object.freeze({exhaustionDamage,createState,availability,accelerationStatus,legalActions,execute,transition,snapshot,restore,other});
 });

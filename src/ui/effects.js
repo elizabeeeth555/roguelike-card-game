@@ -40,8 +40,12 @@ function effectVisual(kind,side){
   sound(kind==='defense'?'block':kind==='poison'?'poison':kind==='buff'?'boost':kind==='heal'?'heal':'attack');
 }
 function animateHit(amount,side,blocked=0){
-  const number=$(side+'Hit');number.textContent=[blocked?'⬡ −'+blocked:'',amount?'♥ −'+amount:''].filter(Boolean).join(' ／ ');number.classList.remove('active');void number.offsetWidth;number.classList.add('active');
+  const number=$(side+'Hit');number.textContent=[blocked?'⬡ −'+blocked:'',amount?'−'+amount:''].filter(Boolean).join(' ／ ');number.classList.remove('healing');number.classList.remove('active');void number.offsetWidth;number.classList.add('active');
   const figure=$(side==='boss'?'enemyShadow':'playerHpTrack');figure.classList.remove('hurt');void figure.offsetWidth;figure.classList.add('hurt');
+}
+function animateHeal(amount,side){
+ if(amount<=0)return;
+ const number=$(side+'Hit');number.textContent='＋'+amount;number.classList.add('healing');number.classList.remove('active');void number.offsetWidth;number.classList.add('active');
 }
 function hideTransitions(){
   if(app.transitionTimer!==null){clearTimeout(app.transitionTimer);app.transitionTimer=null;}
@@ -52,7 +56,7 @@ function turnMessage(label,kind,ms){
   hideTransitions();const overlay=$('battleTransition');overlay.className='battle-transition '+kind;overlay.hidden=false;
   const skippable=['player','enemy'].includes(kind);overlay.classList.toggle('skippable',skippable);
   $('transitionText').textContent=label;overlay.style.setProperty('--banner-time',ms+'ms');
-  sound(kind==='player'?'player_turn':kind==='enemy'?'enemy_turn':kind==='victory'?'win':'lose');
+  if(kind!=='start')sound(kind==='player'?'player_turn':kind==='enemy'?'enemy_turn':kind==='victory'?'win':'lose');
   return new Promise(resolve=>{app.transitionResolve=resolve;app.transitionTimer=setTimeout(hideTransitions,ms);});
 }
 

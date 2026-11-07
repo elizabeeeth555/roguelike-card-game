@@ -31,12 +31,12 @@ function browser(){
   for(const [,file] of html.matchAll(/<script src="([^"]+)"><\/script>/g))vm.runInContext(fs.readFileSync(path.join(__dirname,'..',file),'utf8'),scope,{filename:file});
   const evaluate=code=>vm.runInContext(code,scope);
   async function settle(promise){let done=false;promise.then(()=>done=true);for(let i=0;i<100&&!done;i++){await new Promise(setImmediate);const item=[...timers.entries()].sort((a,b)=>a[1].ms-b[1].ms)[0];if(item){timers.delete(item[0]);item[1].fn();}}assert(done,'all waits must settle');await promise;}
-  async function build(){get('draftOptions').children[0].click();for(let i=0;i<3;i++){get('draftOptions').children[0].querySelector('.card-pick').click();get('confirmCard').click();}evaluate('hideTransitions()');await new Promise(setImmediate);}
+  async function build(){get('draftOptions').children[0].click();for(let i=0;i<3;i++){get('draftOptions').children[0].querySelector('.card-pick').click();get('confirmCard').click();}get('draftSkip').click();get('draftSkip').click();for(let n=0;n<8;n++){evaluate('hideTransitions()');await new Promise(setImmediate);const item=[...timers.entries()].sort((a,b)=>a[1].ms-b[1].ms)[0];if(item){timers.delete(item[0]);item[1].fn();}await new Promise(setImmediate);if(!evaluate('app.busy'))break;}}
   return {get,evaluate,settle,build,timers};
 }
-test('classic scriptの実読み込み順で起動、初期2枚→獲得3回→5枚→第一紀1戦',async()=>{
+test('classic scriptの実読み込み順で起動、初期2枚→獲得3回＋スキップ2回→5枚→第一紀1戦',async()=>{
   const b=browser();assert.equal(b.evaluate('app.mode'),'draft');assert.equal(b.get('draftOptions').children.length,3);
-  await b.build();assert.equal(b.evaluate('app.mode'),'battle');assert.equal(b.evaluate('app.draftStep'),3);assert.equal(b.get('hand').children.length,5);assert.equal(b.evaluate('app.battle.actors.player.mana'),2);assert.equal(b.evaluate('app.busy'),false);
+  await b.build();assert.equal(b.evaluate('app.mode'),'battle');assert.equal(b.evaluate('app.draftStep'),5);assert.equal(b.get('hand').children.length,5);assert.equal(b.evaluate('app.battle.actors.player.mana'),2);assert.equal(b.evaluate('app.busy'),false);
   b.get('hand').children[0].querySelector('.card-open').click();assert.equal(b.evaluate('app.selectedPlayer'),b.evaluate('app.battle.actors.player.deck[0]'));assert.equal(b.get('cardDetailOverlay').hidden,true);
   b.get('hand').children[0].querySelector('.card-use').click();assert.equal(b.evaluate('app.selectedPlayer'),null);assert.equal(b.evaluate('app.battle.actors.player.used.length'),1);
 });
@@ -129,4 +129,46 @@ test('全攻撃カードの予測は条件・バフ・弱体・バリアを反�
   assert.equal(p.allowed,out.ok);
   if(out.ok){assert.equal(p.damage,10-out.state.actors.boss.hp);assert.equal(p.blocked,3-out.state.actors.boss.barrier);}
  }
+});
+
+test('5イベント：3枚追加後は入れ替え、キャンセルは進行/デッキを保持',()=>{
+ const b=browser();b.get('draftOptions').children[0].click();
+ for(let i=0;i<3;i++)b.evaluate('acquireDraft(app.draftOptions[0])');
+ assert.equal(b.evaluate('app.draftStep'),3);assert.equal(b.evaluate('app.draftCards.length'),5);
+ const before=b.evaluate('JSON.stringify(app.draftCards)');b.evaluate('acquireDraft(app.draftOptions[0])');
+ assert.equal(b.evaluate('app.draftStep'),3);assert(b.evaluate('app.draftPending'));assert.equal(b.evaluate('JSON.stringify(app.draftCards)'),before);
+ b.get('draftReplaceCancel').click();assert.equal(b.evaluate('app.draftPending'),null);assert.equal(b.evaluate('app.draftStep'),3);
+ b.evaluate('acquireDraft(app.draftOptions[0]);replaceDraft(app.draftCards[0])');assert.equal(b.evaluate('app.draftStep'),4);assert.equal(b.evaluate('new Set(app.draftCards).size'),5);assert.notEqual(b.evaluate('JSON.stringify(app.draftCards)'),before);
+});
+test('リロール2回を持越し・選択解除、スキップはデッキ/残数不変、2枚で戦闘可能',async()=>{
+ const b=browser();b.get('draftOptions').children[0].click();const deck=b.evaluate('JSON.stringify(app.draftCards)'),old=b.evaluate('JSON.stringify(app.draftOptions)');
+ b.evaluate("openCardDetail(app.draftOptions[0],'draft');rerollDraft()");assert.equal(b.evaluate('app.selectedCard'),null);assert.equal(b.get('cardDetailOverlay').hidden,true);assert.equal(b.evaluate('app.draftRerolls'),1);assert.equal(b.evaluate('app.draftStep'),0);assert.notEqual(b.evaluate('JSON.stringify(app.draftOptions)'),old);
+ b.get('draftSkip').click();assert.equal(b.evaluate('app.draftRerolls'),1);assert.equal(b.evaluate('JSON.stringify(app.draftCards)'),deck);
+ b.get('draftReroll').click();assert.equal(b.evaluate('app.draftRerolls'),0);assert(b.get('draftReroll').disabled);const options=b.evaluate('JSON.stringify(app.draftOptions)');b.evaluate('rerollDraft()');assert.equal(b.evaluate('JSON.stringify(app.draftOptions)'),options);
+ for(let i=0;i<4;i++)b.get('draftSkip').click();b.evaluate('hideTransitions()');await new Promise(setImmediate);
+ assert.equal(b.evaluate('app.mode'),'battle');assert.equal(b.get('hand').children.length,2);assert.equal(b.evaluate('app.draftStep'),5);
+ b.evaluate('resetGame()');assert.equal(b.evaluate('app.draftRerolls'),2);assert.equal(b.evaluate('app.draftStep'),0);
+});
+test('詳細を閉じてスキップでき、入れ替え待ちからのリロールもデッキを変えない',()=>{
+ const b=browser();b.get('draftOptions').children[0].click();b.evaluate("openCardDetail(app.draftOptions[0],'draft')");b.get('closeCardDetail').click();b.get('draftSkip').click();assert.equal(b.evaluate('app.draftStep'),1);assert.equal(b.evaluate('app.draftCards.length'),2);
+ for(let i=0;i<3;i++)b.evaluate('acquireDraft(app.draftOptions[0])');const before=b.evaluate('JSON.stringify(app.draftCards)');b.evaluate('acquireDraft(app.draftOptions[0]);rerollDraft()');assert.equal(b.evaluate('app.draftPending'),null);assert.equal(b.evaluate('JSON.stringify(app.draftCards)'),before);assert.equal(b.evaluate('app.draftStep'),4);
+});
+
+test('スキル表示：MP/CD独立、使用済とCD中は排他、詳細は効果だけ',async()=>{
+ const b=browser();await b.build();
+ for(const side of ['player','boss'])for(const [id,cd] of [['slash',0],['setup',1],['battle_spirit',2]]){
+  b.evaluate(`app.battle=GameBattle.createState({playerDeck:['${id}'],bossPresetId:'boss_knight_defense',firstSide:'${side}'});app.battle.actors.${side}.deck=['${id}'];app.battle.actors.${side}.mana=5;GameBattle.execute(app.battle,{type:'card',side:'${side}',id:'${id}'});render()`);
+  const root=side==='player'?'hand':'enemyDeck';let view=b.get(root).children[0];assert.equal(view.querySelector('.card-status').textContent,'使用済');assert.equal(view.querySelector('.remaining-cd'),null);assert.match(view.querySelector('.card-cost').textContent,/♦/);assert.equal(view.querySelector('.card-cd').textContent,`⌛ ${cd}`);
+  b.evaluate("GameBattle.execute(app.battle,{type:'endTurn'});render()");view=b.get(root).children[0];assert.equal(view.querySelector('.card-status').textContent,cd?`CD中（残${cd}T）`:'');
+ }
+ b.evaluate("app.battle=GameBattle.createState({playerDeck:['setup'],bossPresetId:'boss_knight_defense'});app.battle.actors.player.mana=0;app.busy=false;openCardDetail('setup','player')");const v=b.get('hand').children[0];assert.equal(v.querySelector('.inline-card-reason'),null);assert.equal(v.querySelector('.inline-card-details').children.length,1);assert.equal(v.querySelector('.inline-card-details').children[0].textContent,b.evaluate("cardDescription('setup')"));assert.equal(v.querySelector('.card-use').disabled,true);
+});
+test('習得詳細は効果と習得のみ、数値演出はハートなしでダメージ/回復を分離',()=>{
+ const b=browser();b.get('draftOptions').children[0].click();b.evaluate("openCardDetail(app.draftOptions[0],'draft')");assert.equal(b.get('cardDetailMeta').hidden,true);assert.equal(b.get('cardDetailStatus').hidden,true);assert.match(b.get('confirmCard').textContent,/スキル/);
+ b.evaluate("animateHit(3,'boss');animateHeal(2,'player')");assert.equal(b.get('bossHit').textContent,'−3');assert.equal(b.get('playerHit').textContent,'＋2');assert(b.get('playerHit').classList.contains('healing'));b.evaluate("animateHit(1,'player')");assert(!b.get('playerHit').classList.contains('healing'));
+});
+test('開始演出はSTART→空白→YOUR、通常2000ms、空白中リセットで残留しない',async()=>{
+ const b=browser(),opening=b.evaluate("app.draftCards=['slash','barrier'];initBattle('boss_knight_defense')");assert.equal(b.get('transitionText').textContent,'BATTLE START');assert([...b.timers.values()].some(t=>t.ms===1100));assert(b.evaluate('app.busy'));
+ b.evaluate('hideTransitions()');await new Promise(setImmediate);assert(b.get('battleTransition').hidden);const gap=[...b.timers].find(([,t])=>t.ms===150);assert(gap);b.timers.delete(gap[0]);gap[1].fn();await new Promise(setImmediate);assert.equal(b.get('transitionText').textContent,'YOUR TURN');assert([...b.timers.values()].some(t=>t.ms===2000));b.evaluate('hideTransitions()');await opening;assert.equal(b.evaluate('app.busy'),false);
+ const next=b.evaluate("initBattle('boss_knight_defense')");b.evaluate('hideTransitions()');await new Promise(setImmediate);b.evaluate('resetGame()');await next;assert.equal(b.evaluate('app.mode'),'draft');assert(b.get('battleTransition').hidden);
 });

@@ -9,9 +9,9 @@
 | [first-era-architecture.md](first-era-architecture.md) | 実装構成、API、テスト、実測結果 |
 | [roadmap.md](roadmap.md) | 完了事項と今後の確認項目 |
 | [戦闘ルール](specs/first-era/02-combat-rules.md) | マナ・CD・バリア・毒・妨害・終了順 |
-| [19カード表](specs/first-era/03-card-pool-A-D.md) | コスト、効果、CD、タグ |
+| [19スキル表](specs/first-era/03-card-pool-A-D.md) | コスト、効果、CD、タグ |
 | [進行とボス](specs/first-era/04-progress-and-boss-presets.md) | 初期ビルド、獲得、固定5組、AI、再戦 |
-| [正式PNG・敵デッキ小型化](specs/first-era/10-png-compact-enemy-ui.md) | 最新差分：PNG原本・個別倍率・敵カード44px |
+| [正式PNG・敵スキルセット小型化](specs/first-era/10-png-compact-enemy-ui.md) | 最新差分：PNG原本・個別倍率・敵スキル44px |
 | [最新の古城UI指示](specs/first-era/09-castle-ui-request.md) | UI・背景・6キャラの最新指示。旧UIの同時拡大・画像除外を置換 |
 | [UI仕様](specs/first-era/05-battle-ui-spec.md) | PC／スマホ、予約UI、色と文字、操作 |
 | [素材仕様](specs/first-era/06-assets-and-characters.md) | 採用12PNG、除外画像、フォールバック |
@@ -23,7 +23,7 @@
 
 ## 将来仕様（現行導線には入れない）
 
-- [E〜Hの16カード](future/deferred-card-pool-E-H.md)：未強化効果の保留記録。
+- [E〜Hの16スキル](future/deferred-card-pool-E-H.md)：未強化効果の保留記録。
 - [35種の強化草案](future/future-upgrades-draft.md)：未承認。実装を確約しない。
 - [継承・強化・能力・後続世代](future/inheritance-and-progression.md)：合意済みの方向と未決事項を区別。
 - [キャラ制作プロンプト](art/character-art-prompts-reference.md)：再制作の参考。現存素材の完成保証ではない。
@@ -37,3 +37,7 @@
 
 これらは当時の承認状況・数値・ファイル配置を保存する資料。現行仕様へ逆適用しない。
 入力パッケージの内容は必要な資料・素材・検証値へ移管済みで、入力フォルダは削除した。
+
+最新採用仕様：[AI・消耗・デモ構築](specs/first-era/11-ai-exhaustion-draft.md)。正式戦闘仕様とデモ暫定構築を区別する。
+
+最新UI：[スキル構築型RPGのUI](specs/first-era/12-skill-ui.md)。過去UI仕様より優先。

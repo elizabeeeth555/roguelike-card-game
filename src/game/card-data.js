@@ -45,7 +45,7 @@
     "name": "結界",
     "group": "A",
     "cost": 1,
-    "cd": 0,
+    "cd": 1,
     "tags": [
       "defense"
     ],
@@ -56,7 +56,7 @@
     "name": "堅守",
     "group": "A",
     "cost": 2,
-    "cd": 0,
+    "cd": 1,
     "tags": [
       "defense"
     ],
