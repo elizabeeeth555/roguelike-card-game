@@ -1,7 +1,7 @@
 /* FX Lab host: independent of game progression, rules, AI, and audio engine. */
 (function(){
  'use strict';
- const $=id=>document.getElementById(id),Core=FxLabCore,Media=FxLabMedia;
+ const $=id=>document.getElementById(id),Core=FxLabCore,Media=FxLabMedia,Impact=FxLabImpact,Layers=FxLabLayers;
  if(!['127.0.0.1','localhost','[::1]'].includes(location.hostname)){$('workspace').hidden=true;$('localOnly').hidden=false;return;}
  const rootURL=path=>new URL('../'+path,document.baseURI).href;
  const fxNames={slash:'斬撃',venom:'毒参照の斬撃',poison:'毒霧', 'poison-tick':'毒の発動',ward:'結界展開',block:'防御成功',break:'結界破壊',heal:'回復',buff:'強化',curse:'呪い・弱体',mana:'マナ集積',finish:'決着'};
@@ -18,7 +18,7 @@
  const canvas=$('fxCanvas'),ctx=canvas.getContext('2d'),native=$('nativeFx');
  function status(message,error=false){$('status').textContent=message;$('status').classList.toggle('error',error);}
  function stop(message='停止しました'){
-  generation++;playing=false;clearTimers();cancelAnimationFrame(raf);raf=0;
+  generation++;playing=false;clearTimers();cancelAnimationFrame(raf);raf=0;Impact.stop();Layers.stop();
   for(const source of sources){try{source.stop();source.disconnect();}catch{}}sources.clear();for(const gain of gains)gain.disconnect();gains.clear();
   clearCombatFx();$('combatFxLayer').replaceChildren();ctx.clearRect(0,0,canvas.width,canvas.height);native.hidden=true;native.removeAttribute('src');
   if(nativeURL){URL.revokeObjectURL(nativeURL);nativeURL=null;}
@@ -52,7 +52,7 @@
   for(const id of ['speed','size','x','y','opacity','rotation','volume','audioDelayMs'])$(id+'Out').textContent=id==='speed'?p[id].toFixed(2)+'×':id==='volume'||id==='opacity'?Math.round(p[id]*100)+'%':id==='audioDelayMs'?(p[id]>0?'+':'')+p[id]+' ms':p[id]+(id==='rotation'?'°':' px');
   const nativeMode=!!e.visual?.native;$('speed').disabled=nativeMode;$('loop').disabled=nativeMode;for(const b of document.querySelectorAll('[data-speed]'))b.disabled=nativeMode;
   $('capability').textContent=nativeMode?'ネイティブ再生：速度は1×固定、ループは素材の内蔵設定に従います。停止は非表示。表示時間で区切って比較できます。速度制御には対応ブラウザ・PNG連番・シートを使ってください。':format==='builtin'?'本編の自作FX＋既存SE。画像や音声を差し替えず、速度と配置だけを試写します。動きを減らすOS設定も本編と同じく反映します。':format==='sequence'||format==='sheet'?'FPSが素材の基準速度です。シートは左上から右へ、行ごとに再生。空きセルはフレーム数で除外します。':e.visual?.animated?'ImageDecoderで合成済みフレームと素材本来の表示時間を取得。速度変更・停止・1回再生・ループに対応しています。':'PNGは静止画です。APNG / アニメーションWebPは対応時にフレーム展開し、非対応時は制約を表示します。';
-  $('play').disabled=e.loading>0;$('soundOnly').disabled=e.loading>0;if(!playing)$('previewBadge').textContent='パターン '+active;updateMarker();
+  $('play').disabled=e.loading>0;$('soundOnly').disabled=e.loading>0;if(!playing)$('previewBadge').textContent='パターン '+active;updateMarker();Impact.refresh(p.impact,active);Layers.render();
  }
  function updateSetting(id){const live=id==='volume'&&playing&&lastSchedule?.pattern===active;if(!live)stop(null);const p=current().playback,previous={...p};p[id]=typeof previous[id]==='boolean'?$(id).checked:id==='target'?$(id).value:Number($(id).value);if(id==='columns'||id==='rows')p.frameCount=Math.min(p.frameCount,p.columns*p.rows);try{model.patterns[active]=Core.profile(current());if(live)for(const gain of gains)gain.gain.setTargetAtTime(p.volume,Media.audioContext().currentTime,.015);status(live?'音量を再生中に調整しました。':'調整しました。再生して比較できます。');}catch(error){current().playback=previous;status(error.message,true);}refresh();}
  for(const id of settings)$(id).addEventListener($(id).type==='range'?'input':'change',()=>updateSetting(id));
@@ -84,7 +84,7 @@
  const presets={slash:['slash','hit_light',2],heavy:['slash','hit_heavy',6],poison:['poison','poison',3],ward:['ward','ward',3],heal:['heal','heal',2]};
  for(const button of document.querySelectorAll('[data-preset]'))button.addEventListener('click',()=>{stop(null);const [id,se,amount]=presets[button.dataset.preset];disposeEntry(entries[active]);current().visual={kind:'builtin',id,amount};current().sound={kind:'builtin',id:se};refresh();status('公開素材の組み合わせを選択しました。');});
  for(const button of document.querySelectorAll('[data-speed]'))button.addEventListener('click',()=>{$('speed').value=button.dataset.speed;updateSetting('speed');});
- $('matchSettings').addEventListener('click',()=>{stop(null);const other=active==='A'?'B':'A';for(const id of ['speed','size','x','y','opacity','rotation','flipX','target','volume','audioDelayMs','loop','holdMs','gapMs'])model.patterns[other].playback[id]=current().playback[id];if(entries[other].visual?.native){model.patterns[other].playback.speed=1;model.patterns[other].playback.loop=false;}status(`${active}の試写条件を${other}に揃えました（素材・フレーム指定は維持）。`);});
+ $('matchSettings').addEventListener('click',()=>{stop(null);const other=active==='A'?'B':'A';for(const id of ['speed','size','x','y','opacity','rotation','flipX','target','volume','audioDelayMs','loop','holdMs','gapMs'])model.patterns[other].playback[id]=current().playback[id];model.patterns[other].playback.impact={...current().playback.impact};if(entries[other].visual?.native){model.patterns[other].playback.speed=1;model.patterns[other].playback.loop=false;}status(`${active}の試写条件を${other}に揃えました（素材・フレーム指定は維持）。`);});
  async function resolveSound(key){
   const c=model.patterns[key],e=entries[key];if(c.sound.kind==='none')return null;
   if(c.sound.kind==='local'){if(!e.sound)throw Error(key+'：SEファイルを再選択してください');return e.sound;}
@@ -120,17 +120,21 @@
   const unlocked=audio.resume();
   (async()=>{try{
    await unlocked;const prepared=[];
-   for(const key of keys){if(entries[key].loading)throw Error(key+'：素材の読込完了を待ってください');prepared.push({key,visual:soundOnly?null:prepareVisual(key),sound:await resolveSound(key)});}
+   for(const key of keys){if(entries[key].loading)throw Error(key+'：素材の読込完了を待ってください');prepared.push({key,visual:soundOnly?null:prepareVisual(key),extra:soundOnly?0:Layers.prepare(key),sound:await resolveSound(key)});}
    if(token!==generation)return;
    function cycle(index,count){
     if(token!==generation)return;const item=prepared[index],c=model.patterns[item.key],p=c.playback,v=item.visual,buffer=item.sound;
     if(soundOnly&&!buffer){stop('SEを選択してください。');return;}
-    const timing=Core.timeline(v?v.duration:0,buffer?buffer.duration*1000:0,soundOnly?0:p.audioDelayMs),lead=30,wall=performance.now()+lead;
+    const hit=p.impact,impactMs=soundOnly?0:Math.max(hit.hitDelayMs+hit.shakeMs,hit.hitDelayMs+hit.flashMs,hit.hitDelayMs+hit.damageDelayMs+(hit.damageEnabled?hit.damageDurationMs:0));
+     const visualMs=soundOnly?0:Math.max(v?.duration||0,item.extra+hit.hitStopMs,impactMs);
+     const timing=Core.timeline(visualMs,buffer?buffer.duration*1000:0,soundOnly?0:p.audioDelayMs),lead=30,wall=performance.now()+lead;
     lastSchedule={pattern:item.key,...timing,leadMs:lead,soundOnly,iteration:count+1,startedAt:wall};$('previewBadge').textContent='再生中 '+item.key+' · '+c.label;status(`${item.key}：${(timing.duration/1000).toFixed(2)}秒 · SE ${soundOnly?0:p.audioDelayMs}ms`);
     if(buffer){const source=audio.createBufferSource(),gain=audio.createGain();source.buffer=buffer;gain.gain.value=p.volume;source.connect(gain);gain.connect(audio.destination);sources.add(source);gains.add(gain);source.onended=()=>{sources.delete(source);gains.delete(gain);source.disconnect();gain.disconnect();};source.start(audio.currentTime+(lead+timing.audioOffset)/1000);}
-    if(v){later(()=>{if(token===generation)showVisual(v,c);},lead+timing.visualOffset);if(!['builtin','native'].includes(v.kind)){function frame(now){if(token!==generation)return;drawFrame(v,p,now-wall-timing.visualOffset);raf=requestAnimationFrame(frame);}raf=requestAnimationFrame(frame);}}
+    if(v||item.extra){later(()=>{if(token!==generation)return;if(v)showVisual(v,c);Impact.play(p.impact,()=>anchor(p),{key:item.key,kind:v?.kind||'static'});},lead+timing.visualOffset);
+      Layers.play(item.key,wall,timing.visualOffset);
+      if(v&&!['builtin','native'].includes(v.kind)){function frame(now){if(token!==generation)return;drawFrame(v,p,Impact.elapsed(now-wall-timing.visualOffset,p.impact));raf=requestAnimationFrame(frame);}raf=requestAnimationFrame(frame);}}
     later(()=>{
-     if(token!==generation)return;cancelAnimationFrame(raf);clearCombatFx();$('combatFxLayer').replaceChildren();ctx.clearRect(0,0,canvas.width,canvas.height);native.hidden=true;native.removeAttribute('src');if(nativeURL){URL.revokeObjectURL(nativeURL);nativeURL=null;}
+     if(token!==generation)return;Impact.stop();Layers.stop();cancelAnimationFrame(raf);clearCombatFx();$('combatFxLayer').replaceChildren();ctx.clearRect(0,0,canvas.width,canvas.height);native.hidden=true;native.removeAttribute('src');if(nativeURL){URL.revokeObjectURL(nativeURL);nativeURL=null;}
      const next=index+1<prepared.length?index+1:0,nextCount=next===0?count+1:count;
      if(next!==0||nextCount<repeats||(keys.length===1&&repeats===1&&!soundOnly&&p.loop&&!entries[item.key].visual?.native))later(()=>cycle(next,nextCount),p.gapMs);else{playing=false;$('play').textContent='▶ 再生 / 最初から';status('再生完了。設定を変えてもう一度比較できます。');}
     },lead+timing.duration);
@@ -140,10 +144,12 @@
  }
  $('play').addEventListener('click',()=>start([active]));$('stop').addEventListener('click',()=>stop());$('repeat').addEventListener('click',()=>start([active],3));$('compare').addEventListener('click',()=>start(['A','B']));$('soundOnly').addEventListener('click',()=>start([active],1,true));
  $('exportConfig').addEventListener('click',()=>{try{const config=Core.normalize(model),blob=new Blob([JSON.stringify(config,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=(config.name.replace(/[\\/:*?"<>|]/g,'_')||'fx-lab')+'.fx-lab.local.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1500);status('設定JSONを書き出しました。素材本体は含みません。');}catch(error){status(error.message,true);}});
- $('importConfig').addEventListener('click',()=>$('configFile').click());$('configFile').addEventListener('change',async event=>{const file=event.target.files[0];event.target.value='';if(!file)return;try{if(file.size>1024*1024)throw Error('設定JSONは1MiBまでです');const config=Core.normalize(JSON.parse(await file.text()));stop(null);epoch++;for(const key of ['A','B']){disposeEntry(entries[key]);entries[key]=entry();}model=config;setScene();refresh();status('設定を読み込みました。ローカル素材はファイルを再選択してください。');}catch(error){status('設定の読込失敗：'+error.message,true);}});
+ $('importConfig').addEventListener('click',()=>$('configFile').click());$('configFile').addEventListener('change',async event=>{const file=event.target.files[0];event.target.value='';if(!file)return;try{if(file.size>1024*1024)throw Error('設定JSONは1MiBまでです');const config=Core.normalize(JSON.parse(await file.text()));stop(null);Impact.clearFonts();Layers.disposeAll();epoch++;for(const key of ['A','B']){disposeEntry(entries[key]);entries[key]=entry();}model=config;setScene();refresh();status('設定を読み込みました。ローカル素材はファイルを再選択してください。');}catch(error){status('設定の読込失敗：'+error.message,true);}});
  document.addEventListener('keydown',event=>{if(event.code!=='Space'||event.repeat||event.target.closest('input,select,textarea,button'))return;event.preventDefault();if(playing)stop();else start([active]);});
- window.addEventListener('pagehide',()=>{stop(null);for(const e of Object.values(entries))disposeEntry(e);});
+ window.addEventListener('pagehide',()=>{stop(null);Impact.clearFonts();Layers.disposeAll();for(const e of Object.values(entries))disposeEntry(e);});
  window.addEventListener('resize',resize);new ResizeObserver(resize).observe($('arena'));
  window.FxLab=Object.freeze({getConfig:()=>Core.normalize(model),getPlayback:()=>({playing,lastSchedule:lastSchedule?{...lastSchedule}:null,frames:canvas.dataset.frame||null}),stop});
- setScene();refresh();resize();
+ Impact.init({getKey:()=>active,getImpact:()=>current().playback.impact,onChange:()=>{try{model.patterns[active]=Core.profile(current());stop(null);refresh();status('命中演出を更新しました。');return true;}catch(error){status(error.message,true);return false;}}});
+  Layers.init({getKey:()=>active,getProfile:key=>model.patterns[key],notify:()=>{model.patterns[active]=Core.profile(current());refresh();},halt:()=>stop(null),anchor});
+  setScene();refresh();resize();
 })();
