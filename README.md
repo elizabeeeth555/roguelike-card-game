@@ -103,7 +103,7 @@ AI-L/AI-D/AI-4、幅24、探索延長、強化/特性/継承6枚目は未実装�
 
 ## 開発用 FX Lab（ローカル専用）
 
-ゲームを起動せず、FXとSEの再生・調整・A/B比較・JSON保存を行えます。
+ゲームを起動せず、基本FX＋最大3つの追加映像、SE、画面揺れ・ヒットストップ・ダメージ数値の試写・A/B比較・JSON保存を行えます。
 リポジトリルートで `python -m http.server 8000 --bind 127.0.0.1` を実行し、
 [http://localhost:8000/dev/fx-lab.html](http://localhost:8000/dev/fx-lab.html)を開いてください。
 追加依存・クラウド・APIキーは不要です。[操作と対応形式](dev/README.md)。
