@@ -21,6 +21,22 @@
  function profile(raw={}){object(raw);const p=object(raw.playback||{});const playback={
   speed:number(p.speed,1,.25,2),size:number(p.size,200,32,1000),x:number(p.x,0,-600,600),y:number(p.y,0,-600,600),opacity:number(p.opacity,1,0,1),rotation:number(p.rotation,0,-180,180),flipX:boolean(p.flipX,false),target:choice(p.target,'boss',['boss','player']),
   volume:number(p.volume,.5,0,1),audioDelayMs:number(p.audioDelayMs,0,-1000,1000),loop:boolean(p.loop,false),gapMs:number(p.gapMs,500,100,3000),holdMs:number(p.holdMs,1200,200,5000),columns:number(p.columns,4,1,32,true),rows:number(p.rows,4,1,32,true),frameCount:number(p.frameCount,16,1,LIMITS.frames,true),fps:number(p.fps,24,1,120)};
+  const i=object(p.impact||{}),color=(v,f)=>{v=text(v,f,7);if(!/^#[0-9a-fA-F]{6}$/.test(v))throw Error('色は#RRGGBB形式で指定してください');return v;};
+  playback.impact={
+   hitDelayMs:number(i.hitDelayMs,140,0,2000,true),hitStopMs:number(i.hitStopMs,50,0,200,true),
+   shakePx:number(i.shakePx,6,0,32),shakeMs:number(i.shakeMs,150,0,800,true),
+   flashOpacity:number(i.flashOpacity,.2,0,1),flashMs:number(i.flashMs,110,0,600,true),
+   damageEnabled:boolean(i.damageEnabled,true),damageText:text(i.damageText,'128',10),
+   damageX:number(i.damageX,0,-400,400),damageY:number(i.damageY,-30,-400,400),
+   damageSize:number(i.damageSize,54,12,160),damageDelayMs:number(i.damageDelayMs,0,-500,1500,true),
+   damageDurationMs:number(i.damageDurationMs,650,100,2500,true),
+   damageFont:choice(i.damageFont,'impact',['impact','serif','sans','mono','local']),
+   damageMotion:choice(i.damageMotion,'pop',['pop','rise','static']),
+   damageColor:color(i.damageColor,'#ffe5a7'),damageStrokeColor:color(i.damageStrokeColor,'#17151c'),
+   damageStrokePx:number(i.damageStrokePx,3,0,10),
+   fontFile:i.fontFile?metadata(i.fontFile):null
+  };
+  if(!/^[+\-]?[0-9]{1,8}$/.test(playback.impact.damageText))throw Error('ダメージ値は1〜8桁の整数（符号可）で指定してください');
   if(playback.frameCount>playback.columns*playback.rows)throw Error('フレーム数は行数×列数以内にしてください');
   return {label:text(raw.label,'パターン'),visual:reference(raw.visual||{kind:'builtin',id:'slash'},'visual'),sound:reference(raw.sound||{kind:'builtin',id:'hit_heavy'},'sound'),playback};
  }
