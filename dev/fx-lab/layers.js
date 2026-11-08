@@ -129,7 +129,7 @@
    const l=profile.layers[n],a=getEntry(key,n).asset;if(!l.enabled||!a)continue;
    const el=document.createElement(a.kind==='native'?'img':'canvas');el.className='layer-image';el.setAttribute('aria-hidden','true');
    let ctx=null,unit=1;
-   if(a.kind==='native'){el.src=a.url;el.style.objectFit='contain';el.style.display='none';}
+   if(a.kind==='native'){el.style.objectFit='contain';el.style.display='none';}
    else{unit=Math.min(2,window.devicePixelRatio||1);el.width=Math.round(stage.clientWidth*unit);el.height=Math.round(stage.clientHeight*unit);ctx=el.getContext('2d');ctx.setTransform(unit,0,0,unit,0,0);}
    scene.append(el);items.push({l,a,el,ctx});
   }
@@ -146,6 +146,7 @@
     if(elapsed>=total){if(a.kind==='native')el.style.display='none';continue;}
     active=true;const at=anchor(profile.playback);
     if(a.kind==='native'){
+     if(!el.src)el.src=a.url; // Start native animation on this layer's own delayed start.
      const w=l.size*a.width/Math.max(a.width,a.height),h=l.size*a.height/Math.max(a.width,a.height);
      el.style.width=w+'px';el.style.height=h+'px';el.style.left=(at.x+l.x-w/2)+'px';el.style.top=(at.y+l.y-h/2)+'px';
      el.style.opacity=l.opacity;el.style.transform='rotate('+l.rotation+'deg) scaleX('+(l.flipX?-1:1)+')';el.style.display='block';
