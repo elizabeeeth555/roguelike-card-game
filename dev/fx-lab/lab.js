@@ -27,7 +27,7 @@
  function disposeEntry(e){Media.dispose(e.visual);e.visual=null;e.sound=null;e.files=[];e.soundFile=null;e.visualToken++;e.soundToken++;}
  function anchor(p){
   const r=$('arena').getBoundingClientRect(),a=$(p.target==='boss'?'enemyShadow':'playerHpTrack').getBoundingClientRect();
-  return {x:Math.max(35,Math.min(r.width-35,a.left+a.width/2-r.left))+p.x,y:Math.max(45,Math.min(r.height-45,p.target==='boss'?a.top+a.height*.36-r.top:a.top+a.height/2-r.top))+p.y};
+  return {x:Math.max(35,Math.min(r.width-35,a.left+a.width/2-r.left))+p.x,y:Math.max(45,Math.min(r.height-45,p.target==='boss'?a.top+a.height*.36-r.top:a.top-r.top-Math.max(45,r.height*.20)))+p.y};
  }
  function updateMarker(){const p=current().playback,a=anchor(p);$('targetMarker').style.left=a.x+'px';$('targetMarker').style.top=a.y+'px';$('sceneShell').dataset.target=p.target;}
  function resize(){stop(null);const r=canvas.getBoundingClientRect(),dpr=Math.min(2,devicePixelRatio||1);canvas.width=Math.max(1,Math.round(r.width*dpr));canvas.height=Math.max(1,Math.round(r.height*dpr));ctx.setTransform(dpr,0,0,dpr,0,0);updateMarker();}
