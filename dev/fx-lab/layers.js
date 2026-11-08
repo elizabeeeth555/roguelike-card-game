@@ -93,7 +93,7 @@
   return null;
  }
  function duration(l,asset){
-  if(asset.kind==='native'||asset.kind==='static')return l.holdMs;
+  if(asset.kind==='native'||(asset.kind==='static'&&l.visual.format!=='sheet'))return l.holdMs;
   const ds=durations(asset,l);return ds.reduce((a,b)=>a+b,0)/l.speed;
  }
  function prepare(key){
