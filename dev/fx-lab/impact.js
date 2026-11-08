@@ -40,8 +40,8 @@
   for(const id of ids){
    const el=$(id);if(!el)throw Error('FX Lab impact control missing: '+id);
    el.addEventListener(el.type==='range'||el.type==='color'?'input':'change',()=>{
-    const i=getImpact();i[id]=el.type==='checkbox'?el.checked:el.type==='range'||el.type==='number'?Number(el.value):el.value;
-    onChange();
+    const i=getImpact(),previous=i[id];i[id]=el.type==='checkbox'?el.checked:el.type==='range'||el.type==='number'?Number(el.value):el.value;
+    if(onChange()===false){i[id]=previous;refresh(i,getKey());}
    });
   }
   $('damageFontFile').addEventListener('change',async event=>{
