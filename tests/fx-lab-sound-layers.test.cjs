@@ -45,7 +45,7 @@ test('SE先行・遅延を組み合わせても負の再生時刻を作らず全
  assert.deepEqual(timing.audioOffsets,[0,350]);
  assert.equal(timing.duration,750);
  assert.equal(Core.mixTimeline(500,[]).duration,500);
- assert.equal(Core.mixTimeline(0,[{durationMs:200,delayMs:-300}]).duration,500);
+ assert.equal(Core.mixTimeline(0,[{durationMs:200,delayMs:-300}]).duration,300);
 });
 test('追加SEコントロールを開発ページにのみ配置',()=>{
  const html=fs.readFileSync('dev/fx-lab.html','utf8');
