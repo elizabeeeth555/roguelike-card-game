@@ -1,0 +1,90 @@
+/* FX Lab combat mock: representative first-era composition (not a running battle engine). */
+.preview-tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.preview-tools label{white-space:nowrap}
+.preview-tools button{min-height:34px;white-space:nowrap}
+.target-hint{font-size:11px;line-height:1.5;color:#c9d1db;background:#202936;border-left:2px solid #bda16d;padding:6px 8px;margin:-6px 0 14px}
+.battle-preview{container-type:inline-size;background:#101724 url('../../assets/backgrounds/castle_throne_room.webp') center center/cover no-repeat}
+.battle-preview #arena{position:absolute;inset:0;overflow:hidden;color:#eee4d3;font-family:system-ui,"Yu Gothic UI",sans-serif}
+.battle-preview .stage-vignette{z-index:0;background:linear-gradient(180deg,#050a14bb 0%,transparent 36%,#050a1490 70%,#050911ee 100%)}
+.battle-preview .mock-round{position:absolute;left:2.5%;top:3%;z-index:6;display:flex;flex-direction:column;gap:2px;text-shadow:0 2px 9px #000}
+.battle-preview .mock-round>span{color:#dac6a1;font-size:clamp(7px,.72cqw,12px);letter-spacing:.12em}
+.battle-preview .mock-round strong{font-family:Georgia,serif;font-weight:500;font-size:clamp(15px,2.25cqw,32px);letter-spacing:.07em}
+.battle-preview .mock-round strong span{color:#f6dca8}
+.mock-boss-hud{position:absolute;z-index:5;top:3%;left:25%;width:50%;text-shadow:0 1px 7px #000}
+.mock-hud-head{display:flex;justify-content:space-between;align-items:baseline;gap:7px;white-space:nowrap}
+.mock-hud-head strong{font-size:clamp(10px,1.4cqw,21px);font-weight:700;line-height:1.3;overflow:hidden;text-overflow:ellipsis}
+.mock-hud-head span{font-size:clamp(8px,.9cqw,12px);white-space:nowrap}
+.mock-hud-head b{font-size:1.1em;color:#fff3e3}
+.mock-hp-track{height:clamp(5px,.62cqw,10px);border:1px solid #b59d7e91;background:#090c13d9;margin-top:5px;box-shadow:0 2px 9px #0008;overflow:hidden;position:relative}
+.mock-hp-track>div{height:100%;width:100%}
+.mock-hp-boss{background:linear-gradient(90deg,#a03342,#e0787e)}
+.mock-hp-player{background:linear-gradient(90deg,#377f9e,#7bc6e5)}
+.mock-status{display:flex;align-items:center;justify-content:space-between;gap:4px;color:#d8cbb4;font-size:clamp(7px,.7cqw,11px);min-width:0}
+.mock-mana{font-size:clamp(12px,1.5cqw,23px);color:#88caee;white-space:nowrap;letter-spacing:.1em;text-shadow:0 0 10px #58b8fe66}
+.mock-enemy-deck{position:absolute;z-index:7;top:16%;left:19%;width:62%;pointer-events:none}
+.mock-deck-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;font-size:clamp(7px,.63cqw,10px);letter-spacing:.05em;color:#e8d9bf;text-shadow:0 2px 7px #000}
+.mock-enemy-skills{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1.1%;width:100%}
+.mock-enemy-skills>span{display:flex;align-items:center;justify-content:center;min-width:0;height:clamp(20px,3.3cqw,46px);overflow:hidden;white-space:nowrap;text-overflow:ellipsis;border:1px solid #927c62aa;background:linear-gradient(135deg,#191f2fe6,#0d1524ec);border-radius:5px;color:#e8d4b6;font-size:clamp(8px,.95cqw,13px);font-weight:650}
+.mock-boss-figure{position:absolute;z-index:1;left:25%;top:25%;width:50%;height:66%;display:flex;justify-content:center;align-items:flex-end;pointer-events:none}
+.mock-boss-figure img{width:100%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 12px 12px #000b)}
+.mock-player-hud{position:absolute;left:1.8%;bottom:3%;width:20%;min-width:0;z-index:7;display:flex;align-items:flex-start;gap:clamp(3px,.65cqw,9px);text-shadow:0 2px 6px #000}
+.mock-player-face{width:25%;aspect-ratio:1;flex-shrink:0;border:1px solid #bda7799c;background:#152336bb;overflow:hidden;border-radius:4px}
+.mock-player-face img{width:100%;height:100%;object-fit:cover}
+.mock-player-body{flex:1;min-width:0}
+.mock-player-hud .mock-hud-head{display:block}
+.mock-player-hud .mock-hud-head strong{font-size:clamp(8px,.9cqw,14px);display:block}
+.mock-player-hud .mock-hud-head span{font-size:clamp(7px,.7cqw,10px)}
+.mock-player-hud .mock-hp-track{margin:3px 0}
+.mock-player-hud .mock-status{flex-wrap:wrap;justify-content:flex-start}
+.mock-player-hud .mock-status>span:last-child{font-size:clamp(6px,.54cqw,9px)}
+.mock-hand{position:absolute;bottom:2%;left:22%;right:1.8%;height:22%;z-index:6;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,.75fr) minmax(0,1.2fr);gap:1.1%;pointer-events:none}
+.mock-hand:before{content:'';position:absolute;inset:-60% -4% -10% -33%;background:linear-gradient(0deg,#080e17d9,#080e1738 68%,transparent);z-index:-1}
+.mock-skills{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1%;min-width:0}
+.mock-skill{position:relative;min-width:0;height:100%;border:1px solid #ba7676a5;background:linear-gradient(160deg,#3e232bd9,#151522f2);border-radius:5px;box-shadow:0 3px 11px #0007;overflow:hidden;padding:clamp(4px,.7cqw,10px);font-size:clamp(7px,.8cqw,12px)}
+.mock-skill.defense{border-color:#73aac5aa;background:linear-gradient(160deg,#1b3540d9,#111923e8)}
+.mock-skill.heal{border-color:#85b58aaa;background:linear-gradient(160deg,#1b3929d9,#111d19e8)}
+.mock-skill strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(8px,.95cqw,15px);padding-right:26%}
+.mock-skill b{position:absolute;right:4%;top:4%;padding:1px 2px;border-radius:3px;background:#102239;color:#bce6ff;font-size:clamp(7px,.76cqw,12px)}
+.mock-skill p{margin:clamp(5px,.9cqw,12px) 0 0;line-height:1.5;max-height:40%;overflow:hidden;color:#e6e0d7}
+.mock-skill small{position:absolute;right:5%;bottom:4%;font-size:clamp(7px,.7cqw,11px);color:#ddc38d}
+.mock-legacy{border:1px solid #88765c8c;background:linear-gradient(145deg,#171c2cce,#090f19eb);border-radius:5px;color:#b4a07a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5%;font-size:clamp(16px,2cqw,28px)}
+.mock-legacy small,.mock-legacy span{font-size:clamp(6px,.66cqw,11px)}
+.mock-actions{display:flex;flex-direction:column;gap:5%;height:100%;font-size:clamp(8px,1cqw,15px)}
+.mock-actions>span,.mock-actions>strong{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:1px solid #8b9fab80;border-radius:5px;background:#182a3bd9;flex:1}
+.mock-actions strong{background:linear-gradient(135deg,#846741ed,#433322eb);border-color:#d0ac70}
+.mock-actions small{font-size:.75em}
+.mock-turn{position:absolute;right:2%;bottom:27%;padding:clamp(3px,.45cqw,7px) clamp(5px,.8cqw,11px);border-radius:5px;border:1px solid #6cb5ed;background:#121e2eeb;color:#c5e7ff;font-size:clamp(8px,.95cqw,13px);font-weight:700;letter-spacing:.08em;z-index:8}
+.battle-preview #targetMarker{z-index:13}
+.battle-preview #combatFxLayer,.battle-preview .combat-fx-layer{z-index:10}
+.battle-preview #fxCanvas,.battle-preview #layerStage,.battle-preview #nativeFx{z-index:11}
+.battle-preview #impactFlash{z-index:12}
+.battle-preview #damagePreview{z-index:14}
+.battle-preview #previewBadge{top:auto;left:auto;bottom:7px;right:7px;z-index:18}
+.battle-preview .preview-watermark{position:absolute;left:7px;bottom:5px;max-width:60%;font-size:clamp(6px,.64cqw,10px);color:#d1c4aca3;z-index:8;margin:0;pointer-events:none}
+.battle-preview[data-target="boss"] .mock-boss-hud .mock-hp-track,.battle-preview[data-target="player"] .mock-player-hud .mock-hp-track{outline:1px solid #e6cf8baa;outline-offset:2px}
+.battle-preview .preview-exit{position:absolute;right:18px;top:18px;z-index:1100;color:#fff6df;background:#151d2df0;border:1px solid #d2bb8b;box-shadow:0 2px 20px #000b;padding:9px 14px;min-height:40px;pointer-events:auto}
+.battle-preview.expanded{position:fixed;inset:0;width:100vw;height:100dvh;min-height:480px;max-height:none;z-index:1000;border:0;border-radius:0;box-shadow:none}
+.battle-preview.expanded .mock-round{top:3%;left:2%}
+.battle-preview.expanded .mock-boss-hud{left:27%;width:46%}
+.battle-preview.expanded .mock-boss-figure{top:23%;height:70%}
+.battle-preview.expanded .mock-enemy-deck{top:15%}
+.battle-preview.expanded #previewBadge{bottom:auto;top:14px;right:220px}
+body.fx-preview-open{overflow:hidden}
+@media(max-width:1000px){
+ .preview-tools button{font-size:11px;padding:6px}
+ .battle-preview .mock-player-hud{width:20%}
+ .battle-preview .mock-status>span:last-child{display:none}
+ .battle-preview .mock-skill p{font-size:clamp(7px,.8cqw,10px)}
+}
+@media(max-width:650px){
+ .battle-preview .mock-round>span{display:none}
+ .battle-preview .mock-enemy-deck{top:21%;left:4%;width:92%}
+ .battle-preview .mock-boss-hud{top:7%;left:20%;width:76%}
+ .battle-preview .mock-boss-figure{top:31%;width:75%;left:12%;height:50%}
+ .battle-preview .mock-skills{gap:2px}
+ .battle-preview .mock-hand{left:2%;right:2%;height:19%;bottom:3%;grid-template-columns:minmax(0,5fr) minmax(0,.8fr)}
+ .battle-preview .mock-actions{display:none}
+ .battle-preview .mock-player-hud{bottom:25%;width:50%}
+ .battle-preview .mock-turn{bottom:25%}
+ .battle-preview .preview-watermark{display:none}
+}
