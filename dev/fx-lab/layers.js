@@ -22,7 +22,7 @@
    asset=await Media.visual(files,format);
    if(token!==e.token){Media.dispose(asset);return;}
    Media.dispose(e.asset);e.asset=asset;e.files=files;
-   i.visual={kind:'local',format,files:files.map(f=>({name:f.name,size:f.size,lastModified:f.lastModified}))};
+   i.visual={kind:'local',format,files:files.map(f=>({name:f.name,size:f.size,lastModified:f.lastModified}))};i.enabled=true;
    notify();render();
   }catch(err){Media.dispose(asset);if(token===e.token)alert('レイヤー素材の読み込み失敗：'+err.message);}
   finally{if(token===e.token){e.loading=false;render();}}
@@ -38,7 +38,7 @@
   const title=document.createElement('strong');title.textContent='追加映像レイヤー（'+layers.length+'/3）';
   const add=document.createElement('button');add.textContent='＋追加';add.disabled=layers.length>=3;add.type='button';
   add.onclick=()=>{
-   const l={label:'レイヤー '+(layers.length+2),enabled:true,visual:{kind:'local',format:'image',files:[]},delayMs:0,x:0,y:0,size:200,speed:1,opacity:1,rotation:0,flipX:false,fps:24,columns:4,rows:4,frameCount:16,holdMs:900};
+   const l={label:'レイヤー '+(layers.length+2),enabled:false,visual:{kind:'local',format:'image',files:[]},delayMs:0,x:0,y:0,size:200,speed:1,opacity:1,rotation:0,flipX:false,fps:24,columns:4,rows:4,frameCount:16,holdMs:900};
    layers.push(l);getEntry(key,layers.length-1);halt();notify();render();
   };
   top.append(title,add);root.append(top);
