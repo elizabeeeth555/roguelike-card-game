@@ -126,7 +126,7 @@
     if(token!==generation)return;const item=prepared[index],c=model.patterns[item.key],p=c.playback,v=item.visual,buffer=item.sound;
     if(soundOnly&&!buffer){stop('SEを選択してください。');return;}
     const hit=p.impact,impactMs=soundOnly?0:Math.max(hit.hitDelayMs+hit.shakeMs,hit.hitDelayMs+hit.flashMs,hit.hitDelayMs+hit.damageDelayMs+(hit.damageEnabled?hit.damageDurationMs:0));
-     const visualMs=soundOnly?0:Math.max(v?.duration||0,item.extra+hit.hitStopMs,impactMs);
+     const visualMs=soundOnly?0:Math.max((v?.duration||0)+(v&&v.kind!=='native'?hit.hitStopMs:0),item.extra+hit.hitStopMs,impactMs);
      const timing=Core.timeline(visualMs,buffer?buffer.duration*1000:0,soundOnly?0:p.audioDelayMs),lead=30,wall=performance.now()+lead;
     lastSchedule={pattern:item.key,...timing,leadMs:lead,soundOnly,iteration:count+1,startedAt:wall};$('previewBadge').textContent='再生中 '+item.key+' · '+c.label;status(`${item.key}：${(timing.duration/1000).toFixed(2)}秒 · SE ${soundOnly?0:p.audioDelayMs}ms`);
     if(buffer){const source=audio.createBufferSource(),gain=audio.createGain();source.buffer=buffer;gain.gain.value=p.volume;source.connect(gain);gain.connect(audio.destination);sources.add(source);gains.add(gain);source.onended=()=>{sources.delete(source);gains.delete(gain);source.disconnect();gain.disconnect();};source.start(audio.currentTime+(lead+timing.audioOffset)/1000);}
