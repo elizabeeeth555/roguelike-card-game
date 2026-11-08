@@ -88,3 +88,12 @@ body.fx-preview-open{overflow:hidden}
  .battle-preview .mock-turn{bottom:25%}
  .battle-preview .preview-watermark{display:none}
 }
+
+/* Expanded stage transport, target selection and close button. */
+.battle-preview .preview-overlay-controls{position:absolute;top:14px;right:14px;z-index:1100;display:flex;align-items:end;gap:7px;padding:8px;border:1px solid #ac986f8c;border-radius:8px;background:#0b1424e8;box-shadow:0 4px 26px #0009;pointer-events:auto}
+.battle-preview .preview-overlay-controls label{margin:0;font-size:11px}
+.battle-preview .preview-overlay-controls label select{margin-top:3px;min-width:122px}
+.battle-preview .preview-overlay-controls button{min-height:38px;white-space:nowrap}
+.battle-preview .preview-overlay-controls .preview-exit{position:static;box-shadow:none;min-height:38px;padding:7px 10px}
+.battle-preview.expanded #previewBadge{top:auto;bottom:12px;right:14px}
+@media(max-width:650px){.battle-preview .preview-overlay-controls{top:7px;right:7px;gap:3px;padding:5px}.battle-preview .preview-overlay-controls label select{min-width:86px}.battle-preview .preview-overlay-controls button{font-size:10px;padding:5px;min-height:34px}}
