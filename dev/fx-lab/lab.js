@@ -29,7 +29,7 @@
   const r=$('arena').getBoundingClientRect(),a=$(p.target==='boss'?'enemyShadow':'playerHpTrack').getBoundingClientRect();
   return {x:Math.max(35,Math.min(r.width-35,a.left+a.width/2-r.left))+p.x,y:Math.max(45,Math.min(r.height-45,p.target==='boss'?a.top+a.height*.36-r.top:a.top+a.height/2-r.top))+p.y};
  }
- function updateMarker(){const a=anchor(current().playback);$('targetMarker').style.left=a.x+'px';$('targetMarker').style.top=a.y+'px';}
+ function updateMarker(){const p=current().playback,a=anchor(p);$('targetMarker').style.left=a.x+'px';$('targetMarker').style.top=a.y+'px';$('sceneShell').dataset.target=p.target;}
  function resize(){stop(null);const r=canvas.getBoundingClientRect(),dpr=Math.min(2,devicePixelRatio||1);canvas.width=Math.max(1,Math.round(r.width*dpr));canvas.height=Math.max(1,Math.round(r.height*dpr));ctx.setTransform(dpr,0,0,dpr,0,0);updateMarker();}
  function current(){return model.patterns[active];}
  function metadata(file){return {name:file.name,size:file.size,lastModified:file.lastModified};}
@@ -37,7 +37,7 @@
  fillOptions($('builtinFx'),Core.FX.map(id=>[id,fxNames[id]]));
  fillOptions($('soundMode'),[...Core.SE.map(id=>[id,'本編SE：'+seNames[id]]),['none','SEなし'],['local','ローカルのSEを選ぶ']]);
  fillOptions($('bossSelect'),Core.BOSSES.map(id=>[id,GAME_ASSETS.characterSets[id].name]));
- function setScene(){const character=GAME_ASSETS.characterSets[model.scene.boss];$('heroFace').src=rootURL(GAME_ASSETS.characterSets['01_black_swordsman'].images.boss);$('bossPortrait').src=rootURL(character.images.boss);$('bossPortrait').alt=character.name;$('bossCaption').textContent=character.name;$('bossSelect').value=model.scene.boss;}
+ function setScene(){const character=GAME_ASSETS.characterSets[model.scene.boss];$('heroFace').src=rootURL(GAME_ASSETS.characterSets['01_black_swordsman'].images.face);$('bossPortrait').src=rootURL(character.images.boss);$('bossPortrait').alt=character.name;$('bossCaption').textContent=character.name;$('bossSelect').value=model.scene.boss;}
  for(const id of ['heroFace','bossPortrait'])$(id).addEventListener('error',()=>status('既存キャラクター画像を読み込めませんでした。リポジトリルートからサーバーを起動してください。',true));
  const settings=['speed','size','x','y','opacity','rotation','flipX','target','volume','audioDelayMs','loop','gapMs','holdMs','columns','rows','frameCount','fps'];
  function refresh(){
@@ -46,6 +46,7 @@
   $('patternLabel').value=c.label;$('configName').value=model.name;$('visualMode').value=format;$('builtinBox').hidden=format!=='builtin';$('fileBox').hidden=format==='builtin';$('builtinFx').value=c.visual.kind==='builtin'?c.visual.id:'slash';
   $('frameSettings').hidden=!['sheet','sequence'].includes(format);for(const id of ['columnsBox','rowsBox','countBox'])$(id).hidden=format!=='sheet';
   $('soundMode').value=c.sound.kind==='builtin'?c.sound.id:c.sound.kind;$('soundFileBox').hidden=c.sound.kind!=='local';
+   $('previewTarget').value=p.target;$('targetInfo').textContent=(p.target==='boss'?'敵（ボス）':'自分（プレイヤー）')+' に表示 · JSON: patterns.'+active+'.playback.target';
   $('visualInfo').textContent=c.visual.kind==='builtin'?'本編の描画関数を使用：'+fxNames[c.visual.id]:e.visual?`${e.files.map(f=>f.name).join(' / ')} · ${e.visual.kind==='native'?'ネイティブ再生':e.visual.frames?e.visual.frames.length+' フレーム':'画像読込済み'}`:c.visual.files.length?'JSONの識別情報のみ：'+c.visual.files.map(f=>f.name).join(' / ')+' — ファイルを再選択してください。':'まだ映像ファイルが選ばれていません。';
   $('soundInfo').textContent=c.sound.kind==='builtin'?'既存の自作SE：'+seNames[c.sound.id]:c.sound.kind==='none'?'映像のみ再生します。':e.sound?`${e.soundFile.name} · ${e.sound.duration.toFixed(2)}秒`:c.sound.file?c.sound.file.name+' — ファイルを再選択してください。':'まだSEファイルが選ばれていません。';
   for(const id of settings){if(typeof p[id]==='boolean')$(id).checked=p[id];else $(id).value=p[id];}
@@ -147,7 +148,18 @@
    cycle(0,0);
   }catch(error){if(token===generation){stop(null);status('再生できません：'+error.message,true);}}})();
  }
- $('play').addEventListener('click',()=>start([active]));$('stop').addEventListener('click',()=>stop());$('repeat').addEventListener('click',()=>start([active],3));$('compare').addEventListener('click',()=>start(['A','B']));$('soundOnly').addEventListener('click',()=>start([active],1,true));
+ $('play').addEventListener('click',()=>start([active]));$('stop').addEventListener('click',()=>stop());$('previewPlay').addEventListener('click',()=>start([active]));$('previewStop').addEventListener('click',()=>stop());$('repeat').addEventListener('click',()=>start([active],3));$('compare').addEventListener('click',()=>start(['A','B']));$('soundOnly').addEventListener('click',()=>start([active],1,true));
+ function toggleExpanded(open){
+  if($('sceneShell').classList.contains('expanded')===open)return;
+  stop(null);$('sceneShell').classList.toggle('expanded',open);document.body.classList.toggle('fx-preview-open',open);
+  $('previewOverlayControls').hidden=!open;$('previewExpand').setAttribute('aria-expanded',String(open));
+  $('previewExpand').textContent=open?'⛶ 実戦サイズ表示中':'⛶ 拡大して確認';
+  requestAnimationFrame(resize);status(open?'実戦に近い大きさで表示中。上部の再生ボタンで試写できます。':'通常サイズに戻しました。');
+ }
+ $('previewExpand').addEventListener('click',()=>toggleExpanded(true));
+ $('previewExit').addEventListener('click',()=>toggleExpanded(false));
+ $('previewTarget').addEventListener('change',()=>{$('target').value=$('previewTarget').value;updateSetting('target');});
+ document.addEventListener('keydown',event=>{if(event.key==='Escape'&&$('sceneShell').classList.contains('expanded')){event.preventDefault();toggleExpanded(false);}});
  $('exportConfig').addEventListener('click',()=>{try{const config=Core.normalize(model),blob=new Blob([JSON.stringify(config,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=(config.name.replace(/[\\/:*?"<>|]/g,'_')||'fx-lab')+'.fx-lab.local.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1500);status('設定JSONを書き出しました。素材本体は含みません。');}catch(error){status(error.message,true);}});
  $('importConfig').addEventListener('click',()=>$('configFile').click());$('configFile').addEventListener('change',async event=>{const file=event.target.files[0];event.target.value='';if(!file)return;try{if(file.size>1024*1024)throw Error('設定JSONは1MiBまでです');const config=Core.normalize(JSON.parse(await file.text()));stop(null);Impact.clearFonts();Layers.disposeAll();AudioLayers.disposeAll();epoch++;for(const key of ['A','B']){disposeEntry(entries[key]);entries[key]=entry();}model=config;setScene();refresh();status('設定を読み込みました。ローカル素材はファイルを再選択してください。');}catch(error){status('設定の読込失敗：'+error.message,true);}});
  document.addEventListener('keydown',event=>{if(event.code!=='Space'||event.repeat||event.target.closest('input,select,textarea,button'))return;event.preventDefault();if(playing)stop();else start([active]);});
