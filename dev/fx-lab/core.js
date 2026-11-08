@@ -38,7 +38,20 @@
   };
   if(!/^[+\-]?[0-9]{1,8}$/.test(playback.impact.damageText))throw Error('ダメージ値は1〜8桁の整数（符号可）で指定してください');
   if(playback.frameCount>playback.columns*playback.rows)throw Error('フレーム数は行数×列数以内にしてください');
-  return {label:text(raw.label,'パターン'),visual:reference(raw.visual||{kind:'builtin',id:'slash'},'visual'),sound:reference(raw.sound||{kind:'builtin',id:'hit_heavy'},'sound'),playback};
+  const layers=raw.layers===undefined?[]:raw.layers;
+  if(!Array.isArray(layers)||layers.length>3)throw Error('追加映像レイヤーは最大3つです');
+  const parsedLayers=layers.map((l,n)=>{
+   object(l);const visual=reference(l.visual||{kind:'local',format:'image',files:[]},'visual');
+   if(visual.kind!=='local')throw Error('追加レイヤーにはローカル映像を選択してください');
+   return {label:text(l.label,'レイヤー '+(n+2),60),enabled:boolean(l.enabled,true),visual,
+    delayMs:number(l.delayMs,0,0,2000,true),x:number(l.x,0,-600,600),y:number(l.y,0,-600,600),
+    size:number(l.size,200,32,1000),speed:number(l.speed,1,.25,2),opacity:number(l.opacity,1,0,1),
+    rotation:number(l.rotation,0,-180,180),flipX:boolean(l.flipX,false),
+    fps:number(l.fps,24,1,120),columns:number(l.columns,4,1,32,true),rows:number(l.rows,4,1,32,true),
+    frameCount:number(l.frameCount,16,1,300,true),holdMs:number(l.holdMs,900,200,5000,true)};
+  });
+  for(const l of parsedLayers)if(l.frameCount>l.columns*l.rows)throw Error('追加レイヤーのフレーム指定が行×列を超えています');
+  return {label:text(raw.label,'パターン'),visual:reference(raw.visual||{kind:'builtin',id:'slash'},'visual'),sound:reference(raw.sound||{kind:'builtin',id:'hit_heavy'},'sound'),playback,layers:parsedLayers};
  }
  function normalize(raw){object(raw);if(raw.schema!=='keisei.fx-lab'||raw.version!==1)throw Error('FX Lab v1のJSONではありません');const patterns=object(raw.patterns);return {schema:'keisei.fx-lab',version:1,name:text(raw.name,'試作エフェクト'),scene:{boss:choice(raw.scene?.boss,'02_heavy_knight',BOSSES)},patterns:{A:profile(patterns.A),B:profile(patterns.B)}};}
  function defaults(){return normalize({schema:'keisei.fx-lab',version:1,name:'古城の試写',scene:{boss:BOSSES[0]},patterns:{A:{label:'本編・重い斬撃'},B:{label:'比較用（素材を選択）',visual:{kind:'builtin',id:'ward'},sound:{kind:'builtin',id:'ward'}}}});}
