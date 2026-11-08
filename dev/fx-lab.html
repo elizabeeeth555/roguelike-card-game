@@ -12,7 +12,7 @@
  <div id="fileBox" hidden><label class="file-picker">映像ファイルを選択<input id="visualFiles" type="file" accept=".png,.apng,.webp,image/png,image/apng,image/webp" multiple></label><button id="sampleImage" class="quiet">既存の公開PNGで試す</button></div>
  <p id="visualInfo" class="asset-info"></p>
  <fieldset id="frameSettings" hidden><legend>フレーム指定</legend><div class="two"><label id="columnsBox">列<input id="columns" type="number" min="1" max="32" value="4"></label><label id="rowsBox">行<input id="rows" type="number" min="1" max="32" value="4"></label><label id="countBox">フレーム数<input id="frameCount" type="number" min="1" max="300" value="16"></label><label>FPS<input id="fps" type="number" min="1" max="120" value="24"></label></div></fieldset>
- <label>効果音<select id="soundMode"></select></label><label id="soundFileBox" class="file-picker" hidden>SEファイルを選択<input id="soundFile" type="file" accept=".wav,.mp3,.ogg,audio/wav,audio/mpeg,audio/ogg"></label><p id="soundInfo" class="asset-info"></p><button id="soundOnly" class="wide quiet">SEだけ試聴</button>
+ <label>効果音<select id="soundMode"></select></label><label id="soundFileBox" class="file-picker" hidden>SEファイルを選択<input id="soundFile" type="file" accept=".wav,.mp3,.ogg,audio/wav,audio/mpeg,audio/ogg"></label><p id="soundInfo" class="asset-info"></p><button id="soundOnly" class="wide quiet">SEだけ試聴（全レイヤー）</button><fieldset class="audio-layers"><legend>追加の効果音</legend><div id="soundLayers"></div></fieldset>
  <div class="presets"><h3>公開素材の組み合わせ</h3><div><button data-preset="slash">斬撃</button><button data-preset="heavy">重攻撃</button><button data-preset="poison">毒</button><button data-preset="ward">結界</button><button data-preset="heal">回復</button></div></div>
  </aside>
  <section class="preview-column"><div class="preview-heading"><h2>02 試写する</h2><label>ボス<select id="bossSelect"></select></label></div>
@@ -62,5 +62,5 @@
  <fieldset class="impact-controls"><legend>06 素材の重ね合わせ</legend><div id="layerControls"></div></fieldset>
  </aside>
 </main>
-<script src="../assets/asset-map.js"></script><script src="fx-lab/core.js"></script><script src="fx-lab/media.js"></script><script src="../src/ui/combat-fx.js"></script><script src="fx-lab/impact.js"></script><script src="fx-lab/layers.js"></script><script src="fx-lab/lab.js"></script>
+<script src="../assets/asset-map.js"></script><script src="fx-lab/core.js"></script><script src="fx-lab/media.js"></script><script src="../src/ui/combat-fx.js"></script><script src="fx-lab/impact.js"></script><script src="fx-lab/layers.js"></script><script src="fx-lab/sound-layers.js"></script><script src="fx-lab/lab.js"></script>
 </body></html>
