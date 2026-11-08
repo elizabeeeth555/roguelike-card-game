@@ -51,12 +51,28 @@
     frameCount:number(l.frameCount,16,1,300,true),holdMs:number(l.holdMs,900,200,5000,true)};
   });
   for(const l of parsedLayers)if(l.frameCount>l.columns*l.rows)throw Error('追加レイヤーのフレーム指定が行×列を超えています');
-  return {label:text(raw.label,'パターン'),visual:reference(raw.visual||{kind:'builtin',id:'slash'},'visual'),sound:reference(raw.sound||{kind:'builtin',id:'hit_heavy'},'sound'),playback,layers:parsedLayers};
+
+  const soundLayers=raw.soundLayers===undefined?[]:raw.soundLayers;
+  if(!Array.isArray(soundLayers)||soundLayers.length>3)throw Error('追加SEは最大3音です');
+  const parsedSounds=soundLayers.map((l,n)=>{
+   object(l);
+   return {label:text(l.label,'追加SE '+(n+1),60),enabled:boolean(l.enabled,true),
+    sound:reference(l.sound||{kind:'builtin',id:'hit_light'},'sound'),
+    volume:number(l.volume,.5,0,1),delayMs:number(l.delayMs,0,-1000,2000,true)};
+  });
+  return {label:text(raw.label,'パターン'),visual:reference(raw.visual||{kind:'builtin',id:'slash'},'visual'),sound:reference(raw.sound||{kind:'builtin',id:'hit_heavy'},'sound'),playback,layers:parsedLayers,soundLayers:parsedSounds};
  }
  function normalize(raw){object(raw);if(raw.schema!=='keisei.fx-lab'||raw.version!==1)throw Error('FX Lab v1のJSONではありません');const patterns=object(raw.patterns);return {schema:'keisei.fx-lab',version:1,name:text(raw.name,'試作エフェクト'),scene:{boss:choice(raw.scene?.boss,'02_heavy_knight',BOSSES)},patterns:{A:profile(patterns.A),B:profile(patterns.B)}};}
  function defaults(){return normalize({schema:'keisei.fx-lab',version:1,name:'古城の試写',scene:{boss:BOSSES[0]},patterns:{A:{label:'本編・重い斬撃'},B:{label:'比較用（素材を選択）',visual:{kind:'builtin',id:'ward'},sound:{kind:'builtin',id:'ward'}}}});}
  function frameAt(durations,elapsed,speed=1){let t=Math.max(0,elapsed)*speed;for(let i=0;i<durations.length;i++){t-=durations[i];if(t<0)return i;}return Math.max(0,durations.length-1);}
  function timeline(visualMs,audioMs,delayMs){const visualOffset=Math.max(0,-delayMs),audioOffset=Math.max(0,delayMs);return {visualOffset,audioOffset,duration:Math.max(visualOffset+visualMs,audioOffset+audioMs)};}
+ function mixTimeline(visualMs,tracks){
+  if(!Array.isArray(tracks))throw Error('SEタイムラインの指定が不正です');
+  const shift=Math.max(0,...tracks.map(t=>-t.delayMs));
+  const offsets=tracks.map(t=>shift+t.delayMs);
+  return {visualOffset:shift,audioOffsets:offsets,audioOffset:offsets[0]??0,
+   duration:Math.max(shift+visualMs,0,...tracks.map((t,i)=>offsets[i]+t.durationMs))};
+ }
  function natural(files){return [...files].sort((a,b)=>a.name.localeCompare(b.name,'en',{numeric:true}));}
- return Object.freeze({FX,SE,BOSSES,LIMITS,normalize,profile,defaults,frameAt,timeline,natural});
+ return Object.freeze({FX,SE,BOSSES,LIMITS,normalize,profile,defaults,frameAt,timeline,mixTimeline,natural});
 });
