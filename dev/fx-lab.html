@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob:; media-src 'self' blob:; connect-src 'self' blob:; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<link rel="icon" href="../assets/effects/kenney-particle.png"><title>FX Lab — 継世の戦闘</title><link rel="stylesheet" href="fx-lab/reference-fx.css"><link rel="stylesheet" href="fx-lab/lab.css"><link rel="stylesheet" href="fx-lab/battle-preview.css"></head>
+<body><header><div><h1>FX Lab <span>継世の戦闘</span></h1><p>素材を選ぶ → 試す → 比べる。戦闘を起動しない、小さな試写室。</p></div><span class="local-badge">LOCAL ONLY · 外部送信なし</span></header>
+<div id="localOnly" role="alert" hidden>ローカル専用です。127.0.0.1 または localhost でサーバーを起動してください。</div>
+<main id="workspace">
+ <aside class="panel assets"><h2>01 素材を選ぶ</h2><div class="pattern-tabs" role="group" aria-label="比較パターン"><button id="patternA" aria-pressed="true">A 本編を基準に</button><button id="patternB" aria-pressed="false">B 比較する素材</button></div>
+ <label>パターン名<input id="patternLabel" maxlength="160"></label>
+ <label>映像の形式<select id="visualMode"><option value="builtin">本編の自作エフェクト</option><option value="image">PNG / APNG / WebP</option><option value="sequence">PNG連番</option><option value="sheet">スプライトシート</option></select></label>
+ <label id="builtinBox">自作FX<select id="builtinFx"></select></label>
+ <div id="fileBox" hidden><label class="file-picker">映像ファイルを選択<input id="visualFiles" type="file" accept=".png,.apng,.webp,image/png,image/apng,image/webp" multiple></label><button id="sampleImage" class="quiet">既存の公開PNGで試す</button></div>
+ <p id="visualInfo" class="asset-info"></p>
+ <fieldset id="frameSettings" hidden><legend>フレーム指定</legend><div class="two"><label id="columnsBox">列<input id="columns" type="number" min="1" max="32" value="4"></label><label id="rowsBox">行<input id="rows" type="number" min="1" max="32" value="4"></label><label id="countBox">フレーム数<input id="frameCount" type="number" min="1" max="300" value="16"></label><label>FPS<input id="fps" type="number" min="1" max="120" value="24"></label></div></fieldset>
+ <label>効果音<select id="soundMode"></select></label><label id="soundFileBox" class="file-picker" hidden>SEファイルを選択<input id="soundFile" type="file" accept=".wav,.mp3,.ogg,audio/wav,audio/mpeg,audio/ogg"></label><p id="soundInfo" class="asset-info"></p><button id="soundOnly" class="wide quiet">SEだけ試聴（全レイヤー）</button><fieldset class="audio-layers"><legend>追加の効果音</legend><div id="soundLayers"></div></fieldset>
+ <div class="presets"><h3>公開素材の組み合わせ</h3><div><button data-preset="slash">斬撃</button><button data-preset="heavy">重攻撃</button><button data-preset="poison">毒</button><button data-preset="ward">結界</button><button data-preset="heal">回復</button></div></div>
+ </aside>
+ <section class="preview-column"><div class="preview-heading"><h2>02 実戦画面で試写</h2><div class="preview-tools"><label>ボス<select id="bossSelect"></select></label><button id="previewExpand" type="button" class="quiet" aria-expanded="false" aria-controls="sceneShell">⛶ 拡大して確認</button></div></div>
+ <div id="sceneShell" class="stage battle-preview"><div id="arena">
+   <div class="stage-vignette"></div>
+   <div class="mock-round"><span>FIRST ERA · BATTLE DEMO</span><strong>TURN <span>01</span></strong></div>
+   <section id="bossHudMock" class="mock-boss-hud" aria-label="敵のHP表示（試写用）"><div class="mock-hud-head"><strong id="bossCaption">蒼鋼の守護騎士</strong><span>HP <b>20 / 20</b></span></div><div class="mock-hp-track"><div class="mock-hp-boss"></div></div><div class="mock-status"><span class="mock-mana">♦♦♦</span><span>◆ 固有能力：未解放</span></div></section>
+   <section class="mock-enemy-deck" aria-label="敵のスキルセット（ダミー）"><div class="mock-deck-heading"><span>ENEMY SKILLS / 5種公開</span><span>使用順の予告なし</span></div><div class="mock-enemy-skills"><span>⚔ 斬撃</span><span>⚔ 重斬</span><span>⬡ 結界</span><span>⚔ 牽制</span><span>✦ 戦意</span></div></section>
+   <div id="enemyShadow" class="mock-boss-figure"><img id="bossPortrait" alt="ボス"></div>
+   <section id="playerHudMock" class="mock-player-hud" aria-label="プレイヤーのHP表示（試写用）"><div class="mock-player-face"><img id="heroFace" alt="夜刃の剣士"></div><div class="mock-player-body"><div class="mock-hud-head"><strong>夜刃の剣士</strong><span>HP <b>20 / 20</b></span></div><div id="playerHpTrack" class="mock-hp-track"><div class="mock-hp-player"></div></div><div class="mock-status"><span class="mock-mana">♦♦</span><span>◇ パッシブ：未解放</span></div></div></section>
+   <section class="mock-hand" aria-label="スキルと操作（レイアウト確認用のダミー）"><div class="mock-skills"><div class="mock-skill attack"><strong>斬撃</strong><b>♦ 1</b><p>敵に2ダメージ</p><small>⌛ 0</small></div><div class="mock-skill attack"><strong>重斬</strong><b>♦ 2</b><p>敵に4ダメージ</p><small>⌛ 0</small></div><div class="mock-skill attack"><strong>大振り</strong><b>♦ 3</b><p>敵に6ダメージ</p><small>⌛ 0</small></div><div class="mock-skill defense"><strong>結界</strong><b>♦ 1</b><p>バリア3を得る</p><small>⌛ 1</small></div><div class="mock-skill heal"><strong>手当</strong><b>♦ 1</b><p>HPを2回復</p><small>⌛ 1</small></div></div><div class="mock-legacy">◇<small>継承専用</small><span>🔒 0/1</span></div><div class="mock-actions"><span>✧ マナ加速<br><small>2マナ</small></span><strong>ターン終了 →</strong></div></section>
+   <div class="mock-turn">YOUR TURN</div>
+   <div id="combatFxLayer" class="combat-fx-layer"></div><canvas id="fxCanvas" aria-label="選択したエフェクトのプレビュー"></canvas><img id="nativeFx" alt="アニメーション素材" hidden><div id="targetMarker" aria-hidden="true">＋</div><div id="layerStage" aria-hidden="true"></div><div id="impactFlash" aria-hidden="true"></div><div id="damagePreview" aria-hidden="true" hidden></div>
+   <p class="preview-watermark">戦闘UIは試写用の固定サンプル。HP・マナ・スキルはゲーム本編と連動しません。</p>
+   <div id="previewOverlayControls" class="preview-overlay-controls" hidden><label>演出対象<select id="previewTarget"><option value="boss">敵（ボス）</option><option value="player">自分（プレイヤー）</option></select></label><button id="previewPlay" type="button">▶ 再生</button><button id="previewStop" type="button">■ 停止</button><button id="previewExit" type="button" class="preview-exit">× 戻る（Esc）</button></div>
+  </div><span id="previewBadge">パターン A</span></div>
+ <div class="transport"><button id="play" class="primary">▶ 再生 / 最初から</button><button id="stop">■ 停止</button><button id="repeat">3回試聴</button><button id="compare">A → B 比較</button></div>
+ <div class="play-options"><label class="check"><input id="loop" type="checkbox">ループ</label><label>間隔 <input id="gapMs" type="number" min="100" max="3000" step="100"> ms</label><button id="matchSettings" class="quiet">位置・速度・音量をA/Bで揃える</button></div>
+ <p id="capability" class="notice"></p><div id="status" class="status" role="status" aria-live="polite">準備完了。再生で映像とSEを確認できます。</div>
+ <p class="hint">Space：再生 / 停止。購入素材はファイル選択で開きます。素材本体は保存・送信しません。</p>
+ <section class="save-panel"><h2>03 設定を持ち帰る</h2><label>設定名<input id="configName" maxlength="160"></label><div><button id="exportConfig">JSONを書き出す</button><button id="importConfig">JSONを読み込む</button><input id="configFile" type="file" accept=".json,application/json" hidden></div></section>
+ </section>
+ <aside class="panel adjust"><h2>調整 <span id="activePattern">A</span></h2>
+ <label>演出の対象（JSONに保存）<select id="target"><option value="boss">敵（ボス）</option><option value="player">自分（プレイヤー）</option></select></label><p class="target-hint" id="targetInfo">対象は手動指定・JSONの playback.target に保存</p>
+ <label>再生速度 <output id="speedOut"></output><input id="speed" type="range" min="0.25" max="2" step="0.05"></label><div class="speed-presets"><button data-speed="0.5">0.5×</button><button data-speed="0.75">0.75×</button><button data-speed="1">1×</button><button data-speed="1.5">1.5×</button></div>
+ <label>表示サイズ <output id="sizeOut"></output><input id="size" type="range" min="32" max="1000" step="1"></label>
+ <label>X座標 <output id="xOut"></output><input id="x" type="range" min="-600" max="600" step="1"></label>
+ <label>Y座標 <output id="yOut"></output><input id="y" type="range" min="-600" max="600" step="1"></label>
+ <label>透明度 <output id="opacityOut"></output><input id="opacity" type="range" min="0" max="1" step="0.01"></label>
+ <label>回転 <output id="rotationOut"></output><input id="rotation" type="range" min="-180" max="180" step="1"></label><label class="check"><input id="flipX" type="checkbox">左右反転</label>
+ <label>SE音量 <output id="volumeOut"></output><input id="volume" type="range" min="0" max="1" step="0.01"></label>
+ <label>SEの遅延 <output id="audioDelayMsOut"></output><input id="audioDelayMs" type="range" min="-1000" max="1000" step="10"></label><small>＋：映像の後 / −：音を先に再生。音の速さ・音程は変更しません。</small>
+ <label>静止画 / ネイティブ表示時間（ms）<input id="holdMs" type="number" min="200" max="5000" step="100"></label>
+ <fieldset class="impact-controls"><legend>04 命中時の画面演出</legend>
+ <label>命中タイミング <output id="hitDelayMsImpactOut"></output><input id="hitDelayMs" type="range" min="0" max="2000" step="10"></label>
+ <label>ヒットストップ <output id="hitStopMsImpactOut"></output><input id="hitStopMs" type="range" min="0" max="200" step="5"></label>
+ <label>画面揺れの強さ <output id="shakePxImpactOut"></output><input id="shakePx" type="range" min="0" max="32" step="1"></label>
+ <label>画面揺れの長さ <output id="shakeMsImpactOut"></output><input id="shakeMs" type="range" min="0" max="800" step="10"></label>
+ <label>フラッシュの強さ <output id="flashOpacityImpactOut"></output><input id="flashOpacity" type="range" min="0" max="1" step=".05"></label>
+ <label>フラッシュ時間 <output id="flashMsImpactOut"></output><input id="flashMs" type="range" min="0" max="600" step="10"></label>
+ <small>ヒットストップは本編自作FXとPNG連番・シートで確認できます。ネイティブ画像の内部アニメーションは一時停止できません。</small>
+ </fieldset>
+ <fieldset class="impact-controls"><legend>05 ダメージ数値</legend>
+ <label class="check"><input id="damageEnabled" type="checkbox">数値を表示する</label>
+ <label>プレビュー値 <input id="damageText" maxlength="10" inputmode="numeric" value="128"></label>
+ <label>X位置 <output id="damageXImpactOut"></output><input id="damageX" type="range" min="-400" max="400" step="2"></label>
+ <label>Y位置 <output id="damageYImpactOut"></output><input id="damageY" type="range" min="-400" max="400" step="2"></label>
+ <label>文字サイズ <output id="damageSizeImpactOut"></output><input id="damageSize" type="range" min="12" max="160" step="1"></label>
+ <label>表示タイミング（命中を基準） <output id="damageDelayMsImpactOut"></output><input id="damageDelayMs" type="range" min="-500" max="1500" step="10"></label>
+ <label>表示時間 <output id="damageDurationMsImpactOut"></output><input id="damageDurationMs" type="range" min="100" max="2500" step="25"></label>
+ <label>動き<select id="damageMotion"><option value="pop">ポップ＋浮遊</option><option value="rise">上昇</option><option value="static">静止＋フェード</option></select></label>
+ <label>フォント<select id="damageFont"><option value="impact">太字・インパクト系</option><option value="serif">明朝系</option><option value="sans">ゴシック系</option><option value="mono">等幅</option><option value="local">ローカルフォント</option></select></label>
+ <label class="file-picker">外部フォントを選ぶ（WOFF2 / WOFF / TTF / OTF）<input id="damageFontFile" type="file" accept=".woff2,.woff,.ttf,.otf,font/woff2,font/woff"></label>
+ <p id="damageFontInfo" class="asset-info"></p>
+ <label>文字色 <input id="damageColor" type="color"></label>
+ <label>縁取り色 <input id="damageStrokeColor" type="color"></label>
+ <label>縁取り太さ <output id="damageStrokePxImpactOut"></output><input id="damageStrokePx" type="range" min="0" max="10" step=".5"></label>
+ </fieldset>
+ <fieldset class="impact-controls"><legend>06 素材の重ね合わせ</legend><div id="layerControls"></div></fieldset>
+ </aside>
+</main>
+<script src="../assets/asset-map.js"></script><script src="fx-lab/core.js"></script><script src="fx-lab/media.js"></script><script src="../src/ui/combat-fx.js"></script><script src="fx-lab/impact.js"></script><script src="fx-lab/layers.js"></script><script src="fx-lab/sound-layers.js"></script><script src="fx-lab/lab.js"></script>
+</body></html>

@@ -10,7 +10,7 @@ function files(directory){
   });
 }
 const root=resolve(__dirname,'..');
-for(const file of ['src','assets','scripts','tests'].flatMap(dir=>files(join(root,dir)))){
+for(const file of ['src','assets','scripts','tests','dev'].flatMap(dir=>files(join(root,dir)))){
   const result=spawnSync(process.execPath,['--check',file],{stdio:'inherit'});
   if(result.error){console.error(result.error);process.exit(1);}
   if(result.status!==0)process.exit(result.status||1);
