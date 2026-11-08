@@ -16,7 +16,7 @@
  <div class="presets"><h3>公開素材の組み合わせ</h3><div><button data-preset="slash">斬撃</button><button data-preset="heavy">重攻撃</button><button data-preset="poison">毒</button><button data-preset="ward">結界</button><button data-preset="heal">回復</button></div></div>
  </aside>
  <section class="preview-column"><div class="preview-heading"><h2>02 試写する</h2><label>ボス<select id="bossSelect"></select></label></div>
- <div id="sceneShell" class="stage"><div id="arena"><div class="stage-vignette"></div><figure class="player"><img id="heroFace" alt="夜刃の剣士"><figcaption>PLAYER</figcaption></figure><figure id="enemyShadow" class="boss"><img id="bossPortrait" alt="ボス"><figcaption id="bossCaption"></figcaption></figure><div id="playerHpTrack" aria-hidden="true"></div><div id="combatFxLayer" class="combat-fx-layer"></div><canvas id="fxCanvas" aria-label="選択したエフェクトのプレビュー"></canvas><img id="nativeFx" alt="アニメーション素材" hidden><div id="targetMarker" aria-hidden="true">＋</div></div><span id="previewBadge">パターン A</span></div>
+ <div id="sceneShell" class="stage"><div id="arena"><div class="stage-vignette"></div><figure class="player"><img id="heroFace" alt="夜刃の剣士"><figcaption>PLAYER</figcaption></figure><figure id="enemyShadow" class="boss"><img id="bossPortrait" alt="ボス"><figcaption id="bossCaption"></figcaption></figure><div id="playerHpTrack" aria-hidden="true"></div><div id="combatFxLayer" class="combat-fx-layer"></div><canvas id="fxCanvas" aria-label="選択したエフェクトのプレビュー"></canvas><img id="nativeFx" alt="アニメーション素材" hidden><div id="targetMarker" aria-hidden="true">＋</div><div id="impactFlash" aria-hidden="true"></div><div id="damagePreview" aria-hidden="true" hidden></div></div><span id="previewBadge">パターン A</span></div>
  <div class="transport"><button id="play" class="primary">▶ 再生 / 最初から</button><button id="stop">■ 停止</button><button id="repeat">3回試聴</button><button id="compare">A → B 比較</button></div>
  <div class="play-options"><label class="check"><input id="loop" type="checkbox">ループ</label><label>間隔 <input id="gapMs" type="number" min="100" max="3000" step="100"> ms</label><button id="matchSettings" class="quiet">位置・速度・音量をA/Bで揃える</button></div>
  <p id="capability" class="notice"></p><div id="status" class="status" role="status" aria-live="polite">準備完了。再生で映像とSEを確認できます。</div>
@@ -34,7 +34,32 @@
  <label>SE音量 <output id="volumeOut"></output><input id="volume" type="range" min="0" max="1" step="0.01"></label>
  <label>SEの遅延 <output id="audioDelayMsOut"></output><input id="audioDelayMs" type="range" min="-1000" max="1000" step="10"></label><small>＋：映像の後 / −：音を先に再生。音の速さ・音程は変更しません。</small>
  <label>静止画 / ネイティブ表示時間（ms）<input id="holdMs" type="number" min="200" max="5000" step="100"></label>
+ <fieldset class="impact-controls"><legend>04 命中時の画面演出</legend>
+ <label>命中タイミング <output id="hitDelayMsImpactOut"></output><input id="hitDelayMs" type="range" min="0" max="2000" step="10"></label>
+ <label>ヒットストップ <output id="hitStopMsImpactOut"></output><input id="hitStopMs" type="range" min="0" max="200" step="5"></label>
+ <label>画面揺れの強さ <output id="shakePxImpactOut"></output><input id="shakePx" type="range" min="0" max="32" step="1"></label>
+ <label>画面揺れの長さ <output id="shakeMsImpactOut"></output><input id="shakeMs" type="range" min="0" max="800" step="10"></label>
+ <label>フラッシュの強さ <output id="flashOpacityImpactOut"></output><input id="flashOpacity" type="range" min="0" max="1" step=".05"></label>
+ <label>フラッシュ時間 <output id="flashMsImpactOut"></output><input id="flashMs" type="range" min="0" max="600" step="10"></label>
+ <small>ヒットストップは本編自作FXとPNG連番・シートで確認できます。ネイティブ画像の内部アニメーションは一時停止できません。</small>
+ </fieldset>
+ <fieldset class="impact-controls"><legend>05 ダメージ数値</legend>
+ <label class="check"><input id="damageEnabled" type="checkbox">数値を表示する</label>
+ <label>プレビュー値 <input id="damageText" maxlength="10" inputmode="numeric" value="128"></label>
+ <label>X位置 <output id="damageXImpactOut"></output><input id="damageX" type="range" min="-400" max="400" step="2"></label>
+ <label>Y位置 <output id="damageYImpactOut"></output><input id="damageY" type="range" min="-400" max="400" step="2"></label>
+ <label>文字サイズ <output id="damageSizeImpactOut"></output><input id="damageSize" type="range" min="12" max="160" step="1"></label>
+ <label>表示タイミング（命中を基準） <output id="damageDelayMsImpactOut"></output><input id="damageDelayMs" type="range" min="-500" max="1500" step="10"></label>
+ <label>表示時間 <output id="damageDurationMsImpactOut"></output><input id="damageDurationMs" type="range" min="100" max="2500" step="25"></label>
+ <label>動き<select id="damageMotion"><option value="pop">ポップ＋浮遊</option><option value="rise">上昇</option><option value="static">静止＋フェード</option></select></label>
+ <label>フォント<select id="damageFont"><option value="impact">太字・インパクト系</option><option value="serif">明朝系</option><option value="sans">ゴシック系</option><option value="mono">等幅</option><option value="local">ローカルフォント</option></select></label>
+ <label class="file-picker">外部フォントを選ぶ（WOFF2 / WOFF / TTF / OTF）<input id="damageFontFile" type="file" accept=".woff2,.woff,.ttf,.otf,font/woff2,font/woff"></label>
+ <p id="damageFontInfo" class="asset-info"></p>
+ <label>文字色 <input id="damageColor" type="color"></label>
+ <label>縁取り色 <input id="damageStrokeColor" type="color"></label>
+ <label>縁取り太さ <output id="damageStrokePxImpactOut"></output><input id="damageStrokePx" type="range" min="0" max="10" step=".5"></label>
+ </fieldset>
  </aside>
 </main>
-<script src="../assets/asset-map.js"></script><script src="fx-lab/core.js"></script><script src="fx-lab/media.js"></script><script src="../src/ui/combat-fx.js"></script><script src="fx-lab/lab.js"></script>
+<script src="../assets/asset-map.js"></script><script src="fx-lab/core.js"></script><script src="fx-lab/media.js"></script><script src="../src/ui/combat-fx.js"></script><script src="fx-lab/impact.js"></script><script src="fx-lab/lab.js"></script>
 </body></html>
