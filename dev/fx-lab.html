@@ -16,7 +16,7 @@
  <div class="presets"><h3>公開素材の組み合わせ</h3><div><button data-preset="slash">斬撃</button><button data-preset="heavy">重攻撃</button><button data-preset="poison">毒</button><button data-preset="ward">結界</button><button data-preset="heal">回復</button></div></div>
  </aside>
  <section class="preview-column"><div class="preview-heading"><h2>02 試写する</h2><label>ボス<select id="bossSelect"></select></label></div>
- <div id="sceneShell" class="stage"><div id="arena"><div class="stage-vignette"></div><figure class="player"><img id="heroFace" alt="夜刃の剣士"><figcaption>PLAYER</figcaption></figure><figure id="enemyShadow" class="boss"><img id="bossPortrait" alt="ボス"><figcaption id="bossCaption"></figcaption></figure><div id="playerHpTrack" aria-hidden="true"></div><div id="combatFxLayer" class="combat-fx-layer"></div><canvas id="fxCanvas" aria-label="選択したエフェクトのプレビュー"></canvas><img id="nativeFx" alt="アニメーション素材" hidden><div id="targetMarker" aria-hidden="true">＋</div><div id="impactFlash" aria-hidden="true"></div><div id="damagePreview" aria-hidden="true" hidden></div></div><span id="previewBadge">パターン A</span></div>
+ <div id="sceneShell" class="stage"><div id="arena"><div class="stage-vignette"></div><figure class="player"><img id="heroFace" alt="夜刃の剣士"><figcaption>PLAYER</figcaption></figure><figure id="enemyShadow" class="boss"><img id="bossPortrait" alt="ボス"><figcaption id="bossCaption"></figcaption></figure><div id="playerHpTrack" aria-hidden="true"></div><div id="combatFxLayer" class="combat-fx-layer"></div><canvas id="fxCanvas" aria-label="選択したエフェクトのプレビュー"></canvas><img id="nativeFx" alt="アニメーション素材" hidden><div id="targetMarker" aria-hidden="true">＋</div><div id="layerStage" aria-hidden="true"></div><div id="impactFlash" aria-hidden="true"></div><div id="damagePreview" aria-hidden="true" hidden></div></div><span id="previewBadge">パターン A</span></div>
  <div class="transport"><button id="play" class="primary">▶ 再生 / 最初から</button><button id="stop">■ 停止</button><button id="repeat">3回試聴</button><button id="compare">A → B 比較</button></div>
  <div class="play-options"><label class="check"><input id="loop" type="checkbox">ループ</label><label>間隔 <input id="gapMs" type="number" min="100" max="3000" step="100"> ms</label><button id="matchSettings" class="quiet">位置・速度・音量をA/Bで揃える</button></div>
  <p id="capability" class="notice"></p><div id="status" class="status" role="status" aria-live="polite">準備完了。再生で映像とSEを確認できます。</div>
@@ -59,7 +59,8 @@
  <label>縁取り色 <input id="damageStrokeColor" type="color"></label>
  <label>縁取り太さ <output id="damageStrokePxImpactOut"></output><input id="damageStrokePx" type="range" min="0" max="10" step=".5"></label>
  </fieldset>
+ <fieldset class="impact-controls"><legend>06 素材の重ね合わせ</legend><div id="layerControls"></div></fieldset>
  </aside>
 </main>
-<script src="../assets/asset-map.js"></script><script src="fx-lab/core.js"></script><script src="fx-lab/media.js"></script><script src="../src/ui/combat-fx.js"></script><script src="fx-lab/impact.js"></script><script src="fx-lab/lab.js"></script>
+<script src="../assets/asset-map.js"></script><script src="fx-lab/core.js"></script><script src="fx-lab/media.js"></script><script src="../src/ui/combat-fx.js"></script><script src="fx-lab/impact.js"></script><script src="fx-lab/layers.js"></script><script src="fx-lab/lab.js"></script>
 </body></html>
