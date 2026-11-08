@@ -3,3 +3,22 @@
 .reference-transform{position:absolute;width:0;height:0;pointer-events:none}.notice{height:64px;overflow:auto;flex-shrink:0}.status{height:38px;overflow:auto;flex-shrink:0}
 /* Keep transport and JSON controls on one screen at 1366x768. */
 .stage{min-height:245px}
+
+/* Additional impact controls / damage-number preview */
+#impactFlash{position:absolute;inset:0;background:#fff;opacity:0;z-index:12;pointer-events:none}
+#damagePreview{position:absolute;z-index:13;pointer-events:none;font-weight:900;line-height:1;white-space:nowrap;paint-order:stroke fill;transform:translate(-50%,-50%);font-variant-numeric:tabular-nums}
+.impact-controls{margin:13px 0 16px;padding:10px;border-color:#49536a}
+.impact-controls legend{color:#e4cd9e;font-weight:700;font-size:12px}
+.impact-controls label{margin-bottom:10px}
+.impact-controls input[type=color]{padding:2px;width:100%;height:36px;cursor:pointer}
+.impact-controls .file-picker{margin-top:7px}
+#layerControls .layer-card{border:1px solid #4d5a72;border-radius:7px;padding:10px;margin:9px 0;background:#1c2633}
+#layerControls .layer-heading{display:flex;align-items:center;gap:6px;justify-content:space-between}
+#layerControls .layer-heading input{flex:1;min-width:0}
+#layerControls .layer-heading button{font-size:11px;padding:2px 7px;min-height:30px}
+#layerControls .layer-card label{margin-bottom:8px}
+#layerControls .layer-meta{font-size:11px;color:#aeb9cb;overflow-wrap:anywhere}
+#layerControls input[type=range]{display:block}
+#layerControls .two{gap:8px}
+#layerStage{position:absolute;inset:0;pointer-events:none;z-index:11}
+#layerStage .layer-image{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
