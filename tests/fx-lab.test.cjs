@@ -18,3 +18,35 @@ test('private-assetsをGit除外し、本編からFX Labへ依存を追加しな
  assert(!fs.readFileSync('index.html','utf8').includes('fx-lab'));assert(!fs.readFileSync('dev/fx-lab.html','utf8').includes('https://'));assert(fs.readFileSync('dev/fx-lab.html','utf8').includes("connect-src 'self' blob:"));
  const result=spawnSync(process.execPath,['--check','dev/fx-lab/lab.js']);assert.equal(result.status,0);for(const file of ['media.js','core.js'])assert.equal(spawnSync(process.execPath,['--check','dev/fx-lab/'+file]).status,0);
 });
+
+test('新しい命中演出と外部画像レイヤーは旧JSONを壊さずに保存・再読込できる',()=>{
+ const old={schema:'keisei.fx-lab',version:1,name:'旧版',patterns:{A:{},B:{}}};
+ const imported=Core.normalize(old);
+ assert.equal(imported.patterns.A.layers.length,0);
+ assert.equal(imported.patterns.A.playback.impact.damageText,'128');
+ const model=Core.defaults();
+ model.patterns.A.playback.impact.damageSize=72;
+ model.patterns.A.playback.impact.damageFont='local';
+ model.patterns.A.playback.impact.fontFile={name:'damage.woff2',size:350,lastModified:10};
+ model.patterns.A.layers.push({
+   label:'火花',enabled:true,visual:{kind:'local',format:'image',files:[{name:'spark.png',size:1600,lastModified:10}]},
+   delayMs:120,x:14,y:-20,size:260,speed:.85,opacity:.75,rotation:15,flipX:false
+ });
+ const normalized=Core.normalize(model);
+ assert.equal(normalized.patterns.A.layers[0].delayMs,120);
+ assert.equal(normalized.patterns.A.playback.impact.damageSize,72);
+ assert.deepEqual(Core.normalize(JSON.parse(JSON.stringify(normalized))),normalized);
+ assert(!JSON.stringify(normalized).includes('data:'));
+});
+test('追加レイヤー数・素材参照・数値設定の不正値を拒否する',()=>{
+ const layer={label:'火花',visual:{kind:'local',format:'image',files:[]}};
+ for(const mutate of [
+  m=>m.patterns.A.layers=Array(4).fill(layer),
+  m=>m.patterns.A.layers=[{...layer,delayMs:-1}],
+  m=>m.patterns.A.layers=[{...layer,opacity:1.5}],
+  m=>m.patterns.A.layers=[{...layer,visual:{kind:'builtin',id:'slash'}}],
+  m=>m.patterns.A.playback.impact.damageSize=999,
+  m=>m.patterns.A.playback.impact.damageText='<script>',
+  m=>m.patterns.A.playback.impact.damageColor='red'
+ ]){const model=Core.defaults();mutate(model);assert.throws(()=>Core.normalize(model));}
+});
