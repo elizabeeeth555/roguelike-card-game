@@ -84,7 +84,7 @@ scripts/check.cjs
 tests/
 ```
 
-ゲームルールとブラウザの進行・表示を分離しています。ReactやNode.jsへの移行に向けた共通コアの使い方は [docs/architecture.md](docs/architecture.md) を参照してください。現在もビルド不要で、直接起動できます。
+ゲームルールとブラウザの進行・表示を分離しています。ReactやNode.jsへの移行に向けた共通コアの使い方は [docs/architecture.md](../../docs/architecture.md) を参照してください。現在もビルド不要で、直接起動できます。
 
 BGMは道中 **Whispers in the Fog**（Ruhinre）、ボス戦 **Determined Pursuit**（Emma_MA）。サウンド素材の参照先は `assets/asset-map.js` に集約しているため、画像・BGM・SEを後から入れ替えられます。著作権・配布条件については原配布元と `assets/sounds/README.md` を参照してください。
 

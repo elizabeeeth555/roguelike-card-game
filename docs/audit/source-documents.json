@@ -1,0 +1,212 @@
+[
+  {
+    "old": "docs/README.md",
+    "sha256": "c993497d4353bc848ed0065a9e619ecee129e690274e19fc35c4d3a61450803e",
+    "destination": "docs/README.md",
+    "action": "再構成",
+    "reason": "現行入口／構造へ集約"
+  },
+  {
+    "old": "docs/architecture.md",
+    "sha256": "5f19501f06a06a7c6fd37ae8a26b23ae9f177357e8a68bc87354b9a015019254",
+    "destination": "docs/architecture.md",
+    "action": "再構成",
+    "reason": "現行入口／構造へ集約"
+  },
+  {
+    "old": "docs/art/character-art-prompts-reference.md",
+    "sha256": "6f0fb34d1784b42842534d4e8b4faf43803e51d991db625ab80a3c0e84288e7b",
+    "destination": "docs/reference/character-art-prompts.md",
+    "action": "移管後削除",
+    "reason": "重複する仕様本文・完了済み依頼。固有の草案数値はbacklog、制作文はreferenceへ保存"
+  },
+  {
+    "old": "docs/first-era-architecture.md",
+    "sha256": "d7ce7c1b9cda92497a8a5f7df44b6213319eae9887a0bb8f33b8987006c45ea6",
+    "destination": "docs/architecture.md、docs/history/first-era-baseline-2026-11-06.md",
+    "action": "本文統合・案内のみ保持",
+    "reason": "変更禁止の過去レポートに旧パスが記載されているため"
+  },
+  {
+    "old": "docs/first-era-decisions.md",
+    "sha256": "0c80c45739d91e7bbe2c0b25c886653f532576f364923ea7f5161456fdda17cf",
+    "destination": "docs/features/combat.md、docs/features/skills.md、docs/features/progression.md、docs/features/world-assets.md、docs/features/ui.md",
+    "action": "本文統合・案内のみ保持",
+    "reason": "変更禁止の過去レポートに旧パスが記載されているため"
+  },
+  {
+    "old": "docs/future/deferred-card-pool-E-H.md",
+    "sha256": "06d1caf5e3138d81098c37555723b695f23ff68ef7e73b3159ba40f4049903f8",
+    "destination": "docs/backlog.md",
+    "action": "移管後削除",
+    "reason": "重複する仕様本文・完了済み依頼。固有の草案数値はbacklog、制作文はreferenceへ保存"
+  },
+  {
+    "old": "docs/future/future-upgrades-draft.md",
+    "sha256": "5385311f18d8a19799e85506814f83c524f98ccfe10cb0c524075b236e1b521f",
+    "destination": "docs/backlog.md",
+    "action": "移管後削除",
+    "reason": "重複する仕様本文・完了済み依頼。固有の草案数値はbacklog、制作文はreferenceへ保存"
+  },
+  {
+    "old": "docs/future/inheritance-and-progression.md",
+    "sha256": "997787e14ba140189bcc2e67db3df78606d31b81bcd0f398fa2e28761fa77f07",
+    "destination": "docs/features/progression.md、docs/backlog.md",
+    "action": "移管後削除",
+    "reason": "重複する仕様本文・完了済み依頼。固有の草案数値はbacklog、制作文はreferenceへ保存"
+  },
+  {
+    "old": "docs/game-design.md",
+    "sha256": "d3cf8b45e8f055d38a4d609d1eb751900c34c1cc9670393e9b7b993169e998e5",
+    "destination": "docs/README.md、docs/features/combat.md、docs/features/progression.md、docs/backlog.md",
+    "action": "本文統合・案内のみ保持",
+    "reason": "変更禁止の過去レポートに旧パスが記載されているため"
+  },
+  {
+    "old": "docs/history/architecture-v0.9.5.md",
+    "sha256": "24ec59024e04545f2f36c421a2eea614fa462c4a6c4166f47baf32eed076d551",
+    "destination": "docs/history/architecture-v0.9.5.md",
+    "action": "保持",
+    "reason": "旧世代・受領時の固有条件を当時の記録として保持"
+  },
+  {
+    "old": "docs/history/first-era-input/01-decisions-and-scope.md",
+    "sha256": "61c21b528e2fd4a09c6c4ec7d15d38c910bf253173bdacf41c3f11b0cb2aeb4c",
+    "destination": "docs/history/first-era-input/01-decisions-and-scope.md",
+    "action": "保持",
+    "reason": "旧世代・受領時の固有条件を当時の記録として保持"
+  },
+  {
+    "old": "docs/history/first-era-input/08-migration-checklist.md",
+    "sha256": "4a29aa0e7f160c9c2218786c0ebdbd62fe3a32645952c54d8a395a5546c9f1e8",
+    "destination": "docs/history/first-era-input/08-migration-checklist.md",
+    "action": "保持",
+    "reason": "旧世代・受領時の固有条件を当時の記録として保持"
+  },
+  {
+    "old": "docs/history/first-era-input/09-open-items.md",
+    "sha256": "b7d6fb70aff76e9923ebc12580a8236f9ed86ae0c0d42bd1cd57381a1933aa32",
+    "destination": "docs/history/first-era-input/09-open-items.md",
+    "action": "保持",
+    "reason": "旧世代・受領時の固有条件を当時の記録として保持"
+  },
+  {
+    "old": "docs/history/game-design-v0.9.5.md",
+    "sha256": "70efd8be544eb50a24e62151245e4dae22d21c39afb4eeb5b50196a6984928f6",
+    "destination": "docs/history/game-design-v0.9.5.md",
+    "action": "保持",
+    "reason": "旧世代・受領時の固有条件を当時の記録として保持"
+  },
+  {
+    "old": "docs/history/roadmap-v0.9.5.md",
+    "sha256": "9c45a18a88ee4648405611c4a0f9aa377d38359ef704d134724203ecaa4cdd60",
+    "destination": "docs/history/roadmap-v0.9.5.md",
+    "action": "保持",
+    "reason": "旧世代・受領時の固有条件を当時の記録として保持"
+  },
+  {
+    "old": "docs/package-migration.md",
+    "sha256": "b91dac53ec134abe3e7e1fdd8abd19a3205a514eaabbe7f226602e42d1fa35ae",
+    "destination": "docs/architecture.md",
+    "action": "移管後削除",
+    "reason": "重複する仕様本文・完了済み依頼。固有の草案数値はbacklog、制作文はreferenceへ保存"
+  },
+  {
+    "old": "docs/roadmap.md",
+    "sha256": "d4a6f83ee4b2874fbc402e2ab4886e430df35a76c887f5d0b47384f72eebe34a",
+    "destination": "docs/status.md、docs/backlog.md",
+    "action": "本文統合・案内のみ保持",
+    "reason": "変更禁止の過去レポートに旧パスが記載されているため"
+  },
+  {
+    "old": "docs/specs/first-era/02-combat-rules.md",
+    "sha256": "e07260d73848e8bcd6e262b2c1d0d0b296e0c174774515b3e9cda43965836f9d",
+    "destination": "docs/features/combat.md",
+    "action": "本文統合・案内のみ保持",
+    "reason": "変更禁止の過去レポートに旧パスが記載されているため"
+  },
+  {
+    "old": "docs/specs/first-era/03-card-pool-A-D.md",
+    "sha256": "6520a3afa15df2f893e506914acb11df44c3a1cbf4c67164c850bb0392604694",
+    "destination": "docs/features/skills.md",
+    "action": "本文統合・案内のみ保持",
+    "reason": "変更禁止の過去レポートに旧パスが記載されているため"
+  },
+  {
+    "old": "docs/specs/first-era/04-progress-and-boss-presets.md",
+    "sha256": "68f2c183458c73cd2adb4b571ad4df78e6fde7105bcfafbf19c3f848f119c222",
+    "destination": "docs/features/progression.md、docs/features/bosses.md、docs/features/ai.md",
+    "action": "本文統合・案内のみ保持",
+    "reason": "変更禁止の過去レポートに旧パスが記載されているため"
+  },
+  {
+    "old": "docs/specs/first-era/05-battle-ui-spec.md",
+    "sha256": "8f062ffde591313a29343d4b2f840f15dc1c5fd3258a24513789a6463d9e002d",
+    "destination": "docs/features/ui.md",
+    "action": "本文統合・案内のみ保持",
+    "reason": "変更禁止の過去レポートに旧パスが記載されているため"
+  },
+  {
+    "old": "docs/specs/first-era/06-assets-and-characters.md",
+    "sha256": "fbd90ca7c2ef55bd3aa0a42a1bea44c2624eec1e5bab703ff34a84613108a11f",
+    "destination": "docs/features/world-assets.md",
+    "action": "本文統合・案内のみ保持",
+    "reason": "変更禁止の過去レポートに旧パスが記載されているため"
+  },
+  {
+    "old": "docs/specs/first-era/07-acceptance-tests.md",
+    "sha256": "f9f6877bf78e16187c675c11e350b77ec42fad0ff53af14acd2ecc5db3a7a430",
+    "destination": "docs/features/ui.md、docs/history/first-era-acceptance-original.md",
+    "action": "本文統合・案内のみ保持",
+    "reason": "変更禁止の過去レポートに旧パスが記載されているため"
+  },
+  {
+    "old": "docs/specs/first-era/08-pc-battle-ui.md",
+    "sha256": "7c5e454beadf161bd2e62efebbc8500ccd59f61ad3741ff8487dcfc3f045ba83",
+    "destination": "docs/features/ui.md",
+    "action": "本文統合・案内のみ保持",
+    "reason": "変更禁止の過去レポートに旧パスが記載されているため"
+  },
+  {
+    "old": "docs/specs/first-era/09-castle-ui-request.md",
+    "sha256": "ab27f9cf5694082ea9e622d92ffccee92ce1e025bc155fb49ff0b699a2b80411",
+    "destination": "docs/features/ui.md、docs/features/world-assets.md",
+    "action": "本文統合・案内のみ保持",
+    "reason": "変更禁止の過去レポートに旧パスが記載されているため"
+  },
+  {
+    "old": "docs/specs/first-era/10-png-compact-enemy-ui.md",
+    "sha256": "8214fc9c0120fb303862ef4a90fb05530ea5f20b3e6fc458e3ca8c524f051d60",
+    "destination": "docs/features/world-assets.md、docs/features/ui.md",
+    "action": "本文統合・案内のみ保持",
+    "reason": "変更禁止の過去レポートに旧パスが記載されているため"
+  },
+  {
+    "old": "docs/specs/first-era/11-ai-exhaustion-draft.md",
+    "sha256": "49572ca0863308f99f67af8ebec508a1aa11a6ac95a331835f2db30ed2db4345",
+    "destination": "docs/features/combat.md、docs/features/ai.md、docs/features/progression.md",
+    "action": "本文統合・案内のみ保持",
+    "reason": "変更禁止の過去レポートに旧パスが記載されているため"
+  },
+  {
+    "old": "docs/specs/first-era/12-skill-ui.md",
+    "sha256": "e809a108a2595575a24640d23b29ec61e8a392d0cb8e9e7551e556b54a68c699",
+    "destination": "docs/features/ui.md",
+    "action": "本文統合・案内のみ保持",
+    "reason": "変更禁止の過去レポートに旧パスが記載されているため"
+  },
+  {
+    "old": "docs/specs/first-era/13-combat-presentation.md",
+    "sha256": "675beff319d33437537eb5a018960f443220e595aeaa865a1372a69f5b7bade6",
+    "destination": "docs/features/ui.md、docs/features/world-assets.md",
+    "action": "移管後削除",
+    "reason": "重複する仕様本文・完了済み依頼。固有の草案数値はbacklog、制作文はreferenceへ保存"
+  },
+  {
+    "old": "docs/specs/first-era/14-tempo-readability.md",
+    "sha256": "54f6a70dc7f0f003883c990769d157c4cf15c53d0602681a20d35cde8876bfac",
+    "destination": "docs/features/ui.md",
+    "action": "移管後削除",
+    "reason": "重複する仕様本文・完了済み依頼。固有の草案数値はbacklog、制作文はreferenceへ保存"
+  }
+]
