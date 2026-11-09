@@ -63,4 +63,4 @@ A〜Dはプールのグループ、分類・タグは実装タグ。全行に共
 ## 要確認・関連結果
 
 新2種の倍率・MP・CD、分類タグと攻撃相互作用は未確定。研究用実装が存在することを正式追加と解釈しない。
-[新スキル研究](../../reports/two-boss-defense-skills-study/REPORT.md) / [構築最適化](../../reports/two-boss-build-optimization/REPORT.md)
+新スキル研究（`reports/two-boss-defense-skills-study/REPORT.md`、GitHub未収録） / 構築最適化（`reports/two-boss-build-optimization/REPORT.md`、GitHub未収録）

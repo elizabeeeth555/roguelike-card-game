@@ -35,4 +35,4 @@
 ## 実装と根拠
 
 [構築ルール](../../src/game/progression.js)、[進行制御](../../src/app/draft-controller.js)、[スキル定義](../../src/game/card-data.js)。
-[継承6枚研究](../../reports/first-era-inheritance-cd-study/REPORT.md)。AI勝率は人間の攻略可能性を保証しない。
+継承6枚研究（`reports/first-era-inheritance-cd-study/REPORT.md`、GitHub未収録）。AI勝率は人間の攻略可能性を保証しない。

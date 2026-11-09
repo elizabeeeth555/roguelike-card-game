@@ -49,4 +49,4 @@
 [戦闘コア](../../src/game/battle-engine.js)、[効果](../../src/game/card-effects.js)、[計算](../../src/game/combat-math.js)。本編と研究のスナップショットは互換と決めつけない。
 新スキルと老王補正の相互作用は検証中。初手MP3を承認済みと読み替えない。
 
-[追加比較レポート](../../reports/first-era-additional-2026-11-06/REPORT.md) / [初手MP比較](../../reports/two-boss-opening-mp-study/REPORT.md)
+追加比較レポート（`reports/first-era-additional-2026-11-06/REPORT.md`、GitHub未収録） / 初手MP比較（`reports/two-boss-opening-mp-study/REPORT.md`、GitHub未収録）

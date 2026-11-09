@@ -55,5 +55,5 @@
 
 ## 参照・要確認
 
-[2ボス研究](../../research/two-boss/README.md)、[合同検証](../../reports/two-boss-study/REPORT.md)、[初手MP](../../reports/two-boss-opening-mp-study/REPORT.md)。
+2ボス研究（`research/two-boss/README.md`、GitHub未収録）、合同検証（`reports/two-boss-study/REPORT.md`、GitHub未収録）、初手MP（`reports/two-boss-opening-mp-study/REPORT.md`、GitHub未収録）。
 本編へ追加する承認、仮数値、召喚コスト、予告UI、構え適用順は未決。新しい専用画像の実在は[素材資料](world-assets.md)で区別する。

@@ -15,7 +15,7 @@ AI-3の結果には重複除去と幅24が混ざるため、重複除去単独�
 
 ## 研究モデルと限界
 
-2ボスの合理モデルは本編AI-2そのものではなく、旗対象・構えを扱う有限探索モデル。[研究planner](../../research/two-boss/planner.js)の現在値は自手幅12・予算1800、候補上位4＋加速／布石各1、応答幅6・予算600、次自手幅4・予算300。新2スキル版は同じロジックを別エンジンへ接続する。数学的最適を保証しない。
+2ボスの合理モデルは本編AI-2そのものではなく、旗対象・構えを扱う有限探索モデル。研究planner（`research/two-boss/planner.js`、GitHub未収録）の現在値は自手幅12・予算1800、候補上位4＋加速／布石各1、応答幅6・予算600、次自手幅4・予算300。新2スキル版は同じロジックを別エンジンへ接続する。数学的最適を保証しない。
 雑モデルも合法手だが最適を狙わない比較操作であり、人間の下手さを定量的に再現するモデルではない。
 新スキルの遅延利益の専用評価・候補確保が十分でない場合がある。スキルを追加すると旧有効手が探索から落ち、勝てた試合が負ける事例がある。
 マナ加速の将来利益、防御と回復の周期、準備と即時火力の比較に限界がある。消耗で決着しても不自然な防御判断が解決したとは限らない。
@@ -30,4 +30,4 @@ AI-3の結果には重複除去と幅24が混ざるため、重複除去単独�
 
 ## 関連結果
 
-[AI改善](../../reports/first-era-ai-improvement-study/REPORT.md)、[軽量AI比較](../../reports/first-era-lightweight-ai-study/REPORT.md)、[防御スキル](../../reports/two-boss-defense-skills-study/REPORT.md)。過去報告の承認前という記述は当時の状態として保持する。
+AI改善（`reports/first-era-ai-improvement-study/REPORT.md`、GitHub未収録）、軽量AI比較（`reports/first-era-lightweight-ai-study/REPORT.md`、GitHub未収録）、防御スキル（`reports/two-boss-defense-skills-study/REPORT.md`、GitHub未収録）。過去報告の承認前という記述は当時の状態として保持する。

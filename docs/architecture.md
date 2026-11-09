@@ -20,7 +20,7 @@
 | [src/styles.css](../src/styles.css)、[castle-ui.css](../src/castle-ui.css)、[readability.css](../src/readability.css) | 基本配置→城内UI→最新可読性の上書き |
 | [assets/](../assets/) | 素材マップとAudioエンジン、同梱素材 |
 | [tests/](../tests/)、[scripts/](../scripts/) | 自動・ブラウザ・静的検査、計測 |
-| [research/two-boss/](../research/two-boss/) | 独立した世代ボス比較。公開本編に読み込ませない |
+| research/two-boss/（`research/two-boss`、GitHub未収録） | 独立した世代ボス比較。公開本編に読み込ませない |
 | [reports/](../reports/) | 条件・生データ・代表ログ・結果。過去結果を上書きしない |
 | [src/game/legacy/](../src/game/legacy/)、[archive/v0.9.5/](../archive/v0.9.5/) | 旧三世代ルールと旧画面の隔離。現行導線に戻さない |
 
