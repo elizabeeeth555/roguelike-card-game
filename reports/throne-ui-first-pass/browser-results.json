@@ -1,0 +1,484 @@
+{
+  "url": "http://127.0.0.1:18080/",
+  "checks": [
+    {
+      "name": "正式タイトル",
+      "passed": true
+    },
+    {
+      "name": "交換中リロール・スキップ非表示",
+      "passed": true
+    },
+    {
+      "name": "画面内 1280x720",
+      "passed": true,
+      "metrics": {
+        "w": 1280,
+        "h": 720,
+        "scrollW": 1280,
+        "scrollH": 720,
+        "field": 336.203125,
+        "enemyHeight": 70,
+        "handHeight": 148,
+        "controls": true,
+        "enemy": 5
+      }
+    },
+    {
+      "name": "敵概要非表示 1280",
+      "passed": true
+    },
+    {
+      "name": "設定 1280",
+      "passed": true
+    },
+    {
+      "name": "ログ 1280",
+      "passed": true
+    },
+    {
+      "name": "端詳細 1280 #hand 0",
+      "passed": true
+    },
+    {
+      "name": "端詳細 1280 #hand 4",
+      "passed": true
+    },
+    {
+      "name": "端詳細 1280 #enemyDeck 0",
+      "passed": true
+    },
+    {
+      "name": "端詳細 1280 #enemyDeck 4",
+      "passed": true
+    },
+    {
+      "name": "選択だけで不変 1280",
+      "passed": true
+    },
+    {
+      "name": "確定で1回のみ使用 1280",
+      "passed": true
+    },
+    {
+      "name": "画面内 1366x768",
+      "passed": true,
+      "metrics": {
+        "w": 1366,
+        "h": 768,
+        "scrollW": 1366,
+        "scrollH": 768,
+        "field": 384.203125,
+        "enemyHeight": 70,
+        "handHeight": 148,
+        "controls": true,
+        "enemy": 5
+      }
+    },
+    {
+      "name": "敵概要非表示 1366",
+      "passed": true
+    },
+    {
+      "name": "設定 1366",
+      "passed": true
+    },
+    {
+      "name": "ログ 1366",
+      "passed": true
+    },
+    {
+      "name": "端詳細 1366 #hand 0",
+      "passed": true
+    },
+    {
+      "name": "端詳細 1366 #hand 4",
+      "passed": true
+    },
+    {
+      "name": "端詳細 1366 #enemyDeck 0",
+      "passed": true
+    },
+    {
+      "name": "端詳細 1366 #enemyDeck 4",
+      "passed": true
+    },
+    {
+      "name": "選択だけで不変 1366",
+      "passed": true
+    },
+    {
+      "name": "確定で1回のみ使用 1366",
+      "passed": true
+    },
+    {
+      "name": "画面内 1920x1080",
+      "passed": true,
+      "metrics": {
+        "w": 1920,
+        "h": 1080,
+        "scrollW": 1920,
+        "scrollH": 1080,
+        "field": 696.203125,
+        "enemyHeight": 70,
+        "handHeight": 148,
+        "controls": true,
+        "enemy": 5
+      }
+    },
+    {
+      "name": "敵概要非表示 1920",
+      "passed": true
+    },
+    {
+      "name": "設定 1920",
+      "passed": true
+    },
+    {
+      "name": "ログ 1920",
+      "passed": true
+    },
+    {
+      "name": "端詳細 1920 #hand 0",
+      "passed": true
+    },
+    {
+      "name": "端詳細 1920 #hand 4",
+      "passed": true
+    },
+    {
+      "name": "端詳細 1920 #enemyDeck 0",
+      "passed": true
+    },
+    {
+      "name": "端詳細 1920 #enemyDeck 4",
+      "passed": true
+    },
+    {
+      "name": "選択だけで不変 1920",
+      "passed": true
+    },
+    {
+      "name": "確定で1回のみ使用 1920",
+      "passed": true
+    },
+    {
+      "name": "画面内 390x844",
+      "passed": true,
+      "metrics": {
+        "w": 390,
+        "h": 844,
+        "scrollW": 390,
+        "scrollH": 844,
+        "field": 344.40625,
+        "enemyHeight": 77,
+        "handHeight": 132,
+        "controls": true,
+        "enemy": 5
+      }
+    },
+    {
+      "name": "敵概要非表示 390",
+      "passed": true
+    },
+    {
+      "name": "設定 390",
+      "passed": true
+    },
+    {
+      "name": "ログ 390",
+      "passed": true
+    },
+    {
+      "name": "端詳細 390 #hand 0",
+      "passed": true
+    },
+    {
+      "name": "端詳細 390 #hand 4",
+      "passed": true
+    },
+    {
+      "name": "端詳細 390 #enemyDeck 0",
+      "passed": true
+    },
+    {
+      "name": "端詳細 390 #enemyDeck 4",
+      "passed": true
+    },
+    {
+      "name": "選択だけで不変 390",
+      "passed": true
+    },
+    {
+      "name": "確定で1回のみ使用 390",
+      "passed": true
+    },
+    {
+      "name": "画面内 375x812",
+      "passed": true,
+      "metrics": {
+        "w": 375,
+        "h": 812,
+        "scrollW": 375,
+        "scrollH": 812,
+        "field": 312.40625,
+        "enemyHeight": 77,
+        "handHeight": 132,
+        "controls": true,
+        "enemy": 5
+      }
+    },
+    {
+      "name": "敵概要非表示 375",
+      "passed": true
+    },
+    {
+      "name": "設定 375",
+      "passed": true
+    },
+    {
+      "name": "ログ 375",
+      "passed": true
+    },
+    {
+      "name": "端詳細 375 #hand 0",
+      "passed": true
+    },
+    {
+      "name": "端詳細 375 #hand 4",
+      "passed": true
+    },
+    {
+      "name": "端詳細 375 #enemyDeck 0",
+      "passed": true
+    },
+    {
+      "name": "端詳細 375 #enemyDeck 4",
+      "passed": true
+    },
+    {
+      "name": "選択だけで不変 375",
+      "passed": true
+    },
+    {
+      "name": "確定で1回のみ使用 375",
+      "passed": true
+    },
+    {
+      "name": "画面内 320x740",
+      "passed": true,
+      "metrics": {
+        "w": 320,
+        "h": 740,
+        "scrollW": 320,
+        "scrollH": 740,
+        "field": 240.40625,
+        "enemyHeight": 77,
+        "handHeight": 132,
+        "controls": true,
+        "enemy": 5
+      }
+    },
+    {
+      "name": "敵概要非表示 320",
+      "passed": true
+    },
+    {
+      "name": "設定 320",
+      "passed": true
+    },
+    {
+      "name": "ログ 320",
+      "passed": true
+    },
+    {
+      "name": "端詳細 320 #hand 0",
+      "passed": true
+    },
+    {
+      "name": "端詳細 320 #hand 4",
+      "passed": true
+    },
+    {
+      "name": "端詳細 320 #enemyDeck 0",
+      "passed": true
+    },
+    {
+      "name": "端詳細 320 #enemyDeck 4",
+      "passed": true
+    },
+    {
+      "name": "選択だけで不変 320",
+      "passed": true
+    },
+    {
+      "name": "確定で1回のみ使用 320",
+      "passed": true
+    },
+    {
+      "name": "ホバー hand 0",
+      "passed": true
+    },
+    {
+      "name": "ホバー不変 hand 0",
+      "passed": true
+    },
+    {
+      "name": "ホバー hand 4",
+      "passed": true
+    },
+    {
+      "name": "ホバー不変 hand 4",
+      "passed": true
+    },
+    {
+      "name": "ホバー enemyDeck 0",
+      "passed": true
+    },
+    {
+      "name": "ホバー不変 enemyDeck 0",
+      "passed": true
+    },
+    {
+      "name": "ホバー enemyDeck 4",
+      "passed": true
+    },
+    {
+      "name": "ホバー不変 enemyDeck 4",
+      "passed": true
+    },
+    {
+      "name": "キーボード詳細",
+      "passed": true
+    },
+    {
+      "name": "使用済MP不足も閲覧",
+      "passed": true
+    },
+    {
+      "name": "CD中も閲覧",
+      "passed": true
+    },
+    {
+      "name": "敵演出中閲覧・発動不可",
+      "passed": true
+    },
+    {
+      "name": "敵演出中使用ボタン無効",
+      "passed": true
+    },
+    {
+      "name": "全画面開始",
+      "passed": true
+    },
+    {
+      "name": "全画面設定",
+      "passed": true
+    },
+    {
+      "name": "全画面ログ",
+      "passed": true
+    },
+    {
+      "name": "全画面詳細",
+      "passed": true
+    },
+    {
+      "name": "全画面終了",
+      "passed": true
+    },
+    {
+      "name": "ブラウザ起点終了への追従",
+      "passed": true
+    },
+    {
+      "name": "再戦初期化",
+      "passed": true
+    },
+    {
+      "name": "全画面非対応フォールバック",
+      "passed": true
+    },
+    {
+      "name": "JS例外なし",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "HTTP読込エラーなし",
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "metrics": [
+    {
+      "w": 1280,
+      "h": 720,
+      "scrollW": 1280,
+      "scrollH": 720,
+      "field": 336.203125,
+      "enemyHeight": 70,
+      "handHeight": 148,
+      "controls": true,
+      "enemy": 5
+    },
+    {
+      "w": 1366,
+      "h": 768,
+      "scrollW": 1366,
+      "scrollH": 768,
+      "field": 384.203125,
+      "enemyHeight": 70,
+      "handHeight": 148,
+      "controls": true,
+      "enemy": 5
+    },
+    {
+      "w": 1920,
+      "h": 1080,
+      "scrollW": 1920,
+      "scrollH": 1080,
+      "field": 696.203125,
+      "enemyHeight": 70,
+      "handHeight": 148,
+      "controls": true,
+      "enemy": 5
+    },
+    {
+      "w": 390,
+      "h": 844,
+      "scrollW": 390,
+      "scrollH": 844,
+      "field": 344.40625,
+      "enemyHeight": 77,
+      "handHeight": 132,
+      "controls": true,
+      "enemy": 5
+    },
+    {
+      "w": 375,
+      "h": 812,
+      "scrollW": 375,
+      "scrollH": 812,
+      "field": 312.40625,
+      "enemyHeight": 77,
+      "handHeight": 132,
+      "controls": true,
+      "enemy": 5
+    },
+    {
+      "w": 320,
+      "h": 740,
+      "scrollW": 320,
+      "scrollH": 740,
+      "field": 240.40625,
+      "enemyHeight": 77,
+      "handHeight": 132,
+      "controls": true,
+      "enemy": 5
+    }
+  ],
+  "errors": [],
+  "http_errors": [],
+  "environment": "Linux Chromium headless / Playwright; no physical mobile or listening test"
+}

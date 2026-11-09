@@ -1,7 +1,7 @@
 'use strict';
 let dialogReturnFocus=null;
 let clearInfoTooltip=()=>{};
-function canInspectBattle(){return app.mode==='battle'&&app.battle&&!app.battle.end&&app.battle.active==='player'&&(!app.busy||app.playerAnimating)&&$('endTurnOverlay').hidden;}
+function canInspectBattle(){return app.mode==='battle'&&!!app.battle&&$('endTurnOverlay').hidden&&$('resultOverlay').hidden;}
 function canChangeBattle(){return app.mode==='battle'&&app.battle&&!app.battle.end&&app.battle.active==='player'&&!app.busy&&$('endTurnOverlay').hidden;}
 function activateDialog(overlay){dialogReturnFocus=document.activeElement;const target=overlay.querySelector('button:not([disabled])');if(target)target.focus();}
 function closeCardDetail(side){
@@ -114,3 +114,42 @@ function positionCardDetails(){
  }
 }
 window.addEventListener('resize',()=>{if(app.mode==='battle')positionCardDetails();});
+
+// Read-only inspection never selects or executes a skill. Delegation survives render().
+function setupSkillInspection(){
+ const tip=$('skillTooltip');let anchor=null;
+ const hide=()=>{if(anchor)anchor.removeAttribute('aria-describedby');anchor=null;tip.hidden=true;};
+ const show=button=>{
+  const card=button.closest('.game-card'),side=card?.dataset.side,id=card?.dataset.cardId;
+  if(!['player','boss'].includes(side)||!canInspectBattle())return;
+  hide();anchor=button;button.setAttribute('aria-describedby','skillTooltip');
+  const spec=GameData.CARDS[id];
+  const title=document.createElement('strong');title.textContent=`${spec.name}　♦ ${spec.cost}　⌛ ${spec.cd}`;
+  const effect=document.createElement('p');effect.textContent=cardDescription(id);
+  const condition=document.createElement('p');condition.textContent=spec.tags.includes('poison_reference')?'使用条件：対象に毒が1以上':'使用条件：MP・CD・同ターン使用制限を満たす';
+  const state=document.createElement('p');state.textContent=cardStatusText(id,side)+(app.busy?' ／ 演出中（使用不可）':'');
+  tip.replaceChildren(title,effect,condition,state);tip.hidden=false;
+  const r=button.getBoundingClientRect(),t=tip.getBoundingClientRect();
+  tip.style.left=Math.max(8,Math.min(innerWidth-t.width-8,r.left+r.width/2-t.width/2))+'px';
+  const y=side==='player'?r.top-t.height-10:r.bottom+10;
+  tip.style.top=Math.max(8,Math.min(innerHeight-t.height-8,y))+'px';
+ };
+ document.addEventListener('pointerover',e=>{const b=e.target.closest('.card-open');if(b&&e.pointerType!=='touch'&&matchMedia('(hover:hover)').matches)show(b);});
+ document.addEventListener('pointerout',e=>{if(anchor?.contains(e.target)&&!anchor.contains(e.relatedTarget))hide();});
+ document.addEventListener('focusin',e=>{const b=e.target.closest('.card-open');if(b)show(b);});
+ document.addEventListener('focusout',hide);document.addEventListener('click',hide);
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')hide();});
+ window.addEventListener('resize',hide);document.addEventListener('scroll',hide,true);
+ // Hide obsolete inspection when a render replaces its anchor or a modal opens.
+ if(typeof MutationObserver==='function')new MutationObserver(()=>{if(anchor&&(!anchor.isConnected||!canInspectBattle()))hide();}).observe($('sceneShell'),{childList:true,subtree:true,attributes:true,attributeFilter:['hidden']});
+}
+function setupFullscreen(){
+ const button=$('fullscreenButton'),supported=!!document.documentElement?.requestFullscreen&&document.fullscreenEnabled!==false;
+ const update=()=>{const active=!!document.fullscreenElement;button.setAttribute('aria-pressed',String(active));button.setAttribute('aria-label',active?'全画面を終了':'全画面表示');const label=button.querySelector('span');if(label)label.textContent=active?'戻す':'全画面';positionCardDetails();};
+ if(!supported){button.disabled=true;button.title='この環境では全画面APIを利用できません。ブラウザの全画面機能をご利用ください。';}
+ button.addEventListener('click',async()=>{
+  try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();update();}
+  catch(error){button.title='全画面に切り替えられませんでした。ブラウザの全画面機能も利用できます。';}
+ });
+ document.addEventListener('fullscreenchange',update);update();
+}

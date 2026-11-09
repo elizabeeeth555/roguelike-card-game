@@ -1,0 +1,30 @@
+[
+  {
+    "width": 1280,
+    "height": 720,
+    "field": 216.203125,
+    "enemyHeight": 122,
+    "handHeight": 188
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "field": 257.203125,
+    "enemyHeight": 122,
+    "handHeight": 195
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "field": 569.203125,
+    "enemyHeight": 122,
+    "handHeight": 195
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "field": 302.40625,
+    "enemyHeight": 96,
+    "handHeight": 143
+  }
+]

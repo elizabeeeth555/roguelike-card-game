@@ -17,7 +17,7 @@
 | [src/app-state.js](../src/app-state.js) | ブラウザ側状態 |
 | [src/app/](../src/app/) | 戦闘／習得制御、タスク世代、演出時間 |
 | [src/ui/](../src/ui/) | DOM更新、操作、詳細、結果、FX、ログ |
-| [src/styles.css](../src/styles.css)、[castle-ui.css](../src/castle-ui.css)、[readability.css](../src/readability.css) | 基本配置→城内UI→最新可読性の上書き |
+| [src/styles.css](../src/styles.css)、[castle-ui.css](../src/castle-ui.css)、[readability.css](../src/readability.css)、[battle-layout.css](../src/battle-layout.css) | 基本配置→城内UI→可読性→戦闘寸法の最終レイヤー |
 | [assets/](../assets/) | 素材マップとAudioエンジン、同梱素材 |
 | [tests/](../tests/)、[scripts/](../scripts/) | 自動・ブラウザ・静的検査、計測 |
 | research/two-boss/（`research/two-boss`、GitHub未収録） | 独立した世代ボス比較。公開本編に読み込ませない |
@@ -65,3 +65,5 @@ npm run simulate -- 10
 静的なリポジトリルートを公開する運用。公開URL： https://elizabeeeth555.github.io/roguelike-card-game/ 。originはelizabeeeth555/roguelike-card-game。
 現在のmainにPages workflowはない。GitHub側の公開元ブランチ・ディレクトリ設定は今回リモート照会していないため**未確認**。ローカルmainを根拠に設定確認済みとは書かない。
 公開作業ではGitHub側設定、対象コミット、リモート差分を別途確認し、明示指示なしにpush/deployしない。
+
+2026-11-10公開設定確認：GitHub Pagesはlegacy方式、mainブランチのルート（/）から自動公開。今回もこの設定を維持する。

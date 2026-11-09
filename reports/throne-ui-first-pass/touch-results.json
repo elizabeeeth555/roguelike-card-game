@@ -1,0 +1,129 @@
+{
+  "checks": [
+    {
+      "name": "タップ選択のみ 390/0",
+      "passed": true
+    },
+    {
+      "name": "ホバー依存なし 390/0",
+      "passed": true
+    },
+    {
+      "name": "使用と加速の重なりなし 390/0",
+      "passed": true
+    },
+    {
+      "name": "タップ選択のみ 390/4",
+      "passed": true
+    },
+    {
+      "name": "ホバー依存なし 390/4",
+      "passed": true
+    },
+    {
+      "name": "使用と加速の重なりなし 390/4",
+      "passed": true
+    },
+    {
+      "name": "タップ確定で1回発動 390",
+      "passed": true
+    },
+    {
+      "name": "高速設定 390",
+      "passed": true
+    },
+    {
+      "name": "軽量設定 390",
+      "passed": true
+    },
+    {
+      "name": "タップ選択のみ 375/0",
+      "passed": true
+    },
+    {
+      "name": "ホバー依存なし 375/0",
+      "passed": true
+    },
+    {
+      "name": "使用と加速の重なりなし 375/0",
+      "passed": true
+    },
+    {
+      "name": "タップ選択のみ 375/4",
+      "passed": true
+    },
+    {
+      "name": "ホバー依存なし 375/4",
+      "passed": true
+    },
+    {
+      "name": "使用と加速の重なりなし 375/4",
+      "passed": true
+    },
+    {
+      "name": "タップ確定で1回発動 375",
+      "passed": true
+    },
+    {
+      "name": "高速設定 375",
+      "passed": true
+    },
+    {
+      "name": "軽量設定 375",
+      "passed": true
+    },
+    {
+      "name": "タップ選択のみ 320/0",
+      "passed": true
+    },
+    {
+      "name": "ホバー依存なし 320/0",
+      "passed": true
+    },
+    {
+      "name": "使用と加速の重なりなし 320/0",
+      "passed": true
+    },
+    {
+      "name": "タップ選択のみ 320/4",
+      "passed": true
+    },
+    {
+      "name": "ホバー依存なし 320/4",
+      "passed": true
+    },
+    {
+      "name": "使用と加速の重なりなし 320/4",
+      "passed": true
+    },
+    {
+      "name": "タップ確定で1回発動 320",
+      "passed": true
+    },
+    {
+      "name": "高速設定 320",
+      "passed": true
+    },
+    {
+      "name": "軽量設定 320",
+      "passed": true
+    },
+    {
+      "name": "全画面終了確認モーダル",
+      "passed": true
+    },
+    {
+      "name": "全画面勝利モーダル",
+      "passed": true
+    },
+    {
+      "name": "全画面再戦継続",
+      "passed": true
+    },
+    {
+      "name": "全画面拒否から安全復帰",
+      "passed": true
+    }
+  ],
+  "environment": "Chromium touch emulation, not physical hardware"
+}
