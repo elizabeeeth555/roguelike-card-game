@@ -1,45 +1,51 @@
-# 設計資料の入口
+# 継世の戦闘 — 設計資料
 
-## 現行仕様（第一紀・新戦闘ルール検証版）
+スキル構築型ローグライクRPGの仕様管理入口。最終整理日：2026-11-09。
+現行の第一紀Webデモと、第二紀・新スキルの研究を分離する。
 
-| 文書 | 用途 |
+| 資料 | 管理する内容 |
 |---|---|
-| [宣言・敵行動テンポと可読性](specs/first-era/14-tempo-readability.md) | 最新：宣言2秒・敵初動700ms・可読性 |
-| [戦闘テンポ・交換・FX/SE](specs/first-era/13-combat-presentation.md) | 最新表示仕様。追加BGM4曲は権利確認待ち |
-| [game-design.md](game-design.md) | 現行仕様と対象外機能の全体像 |
-| [first-era-decisions.md](first-era-decisions.md) | 実装前にユーザー確認した9項目と最新の画像指示 |
-| [first-era-architecture.md](first-era-architecture.md) | 実装構成、API、テスト、実測結果 |
-| [roadmap.md](roadmap.md) | 完了事項と今後の確認項目 |
-| [戦闘ルール](specs/first-era/02-combat-rules.md) | マナ・CD・バリア・毒・妨害・終了順 |
-| [19スキル表](specs/first-era/03-card-pool-A-D.md) | コスト、効果、CD、タグ |
-| [進行とボス](specs/first-era/04-progress-and-boss-presets.md) | 初期ビルド、獲得、固定5組、AI、再戦 |
-| [正式PNG・敵スキルセット小型化](specs/first-era/10-png-compact-enemy-ui.md) | 最新差分：PNG原本・個別倍率・敵スキル44px |
-| [最新の古城UI指示](specs/first-era/09-castle-ui-request.md) | UI・背景・6キャラの最新指示。旧UIの同時拡大・画像除外を置換 |
-| [UI仕様](specs/first-era/05-battle-ui-spec.md) | PC／スマホ、予約UI、色と文字、操作 |
-| [素材仕様](specs/first-era/06-assets-and-characters.md) | 採用12PNG、除外画像、フォールバック |
-| [受け入れ項目](specs/first-era/07-acceptance-tests.md) | 自動・実機テストとバランス観察 |
+| [現在の状態](status.md) | 実装範囲、研究、未反映事項、次の候補 |
+| [実装構造](architecture.md) | モジュール、API、起動・テスト・公開 |
+| [戦闘](features/combat.md) | HP、MP、CD、ダメージ、消耗 |
+| [スキル](features/skills.md) | 現行19種と新規2種の項目別状態 |
+| [構築・世代進行](features/progression.md) | 習得、交換、継承、最大所持数 |
+| [ボス](features/bosses.md) | 固定5体と研究中の世代ボス |
+| [AI](features/ai.md) | 本編AI-2と研究モデル、限界 |
+| [UI・演出](features/ui.md) | 操作、表示、音声、今後のツール |
+| [世界観・素材](features/world-assets.md) | 物語、採用デザイン、実ファイル |
+| [保留案](backlog.md) | 旧16種、35種強化、将来構想 |
+| [移管台帳](migration.md) | 旧文書の移管先、矛盾、検証結果 |
 
-優先順位は最新ユーザー指示 → 確認済み事項 → 現行仕様 → 履歴・未承認案。
-機械可読な検証値は `tests/fixtures/first-era-cards.json` と `first-era-bosses.json`、
-実行時の定義は `src/game/card-data.js`。初期ビルドは同ファイルの `STARTERS`。
+## 参照優先順位
 
-## 将来仕様（現行導線には入れない）
+1. ユーザーが後から明示的に承認・変更した最新仕様。
+2. 承認済みの確定仕様。
+3. 実装済みだが調整中の仕様。
+4. 暫定仕様・研究条件。
+5. 過去の未承認案・履歴。
 
-- [E〜Hの16スキル](future/deferred-card-pool-E-H.md)：未強化効果の保留記録。
-- [35種の強化草案](future/future-upgrades-draft.md)：未承認。実装を確約しない。
-- [継承・強化・能力・後続世代](future/inheritance-and-progression.md)：合意済みの方向と未決事項を区別。
-- [キャラ制作プロンプト](art/character-art-prompts-reference.md)：再制作の参考。現存素材の完成保証ではない。
+今回の整理依頼に記された決定は、旧GitHub文書より新しい根拠である。
+コードは「実際の挙動」の根拠であり、承認の証明ではない。不一致を独断でコードへ反映しない。
 
-## 履歴
+## 二つの状態軸
 
-- [旧ゲーム設計](history/game-design-v0.9.5.md)
-- [旧ロードマップ](history/roadmap-v0.9.5.md)
-- [旧構成とAPI](history/architecture-v0.9.5.md)
-- [受領時の実装範囲](history/first-era-input/01-decisions-and-scope.md)、[移行案](history/first-era-input/08-migration-checklist.md)、[当時の未確定事項](history/first-era-input/09-open-items.md)
+| 軸 | 値と意味 |
+|---|---|
+| 仕様状態 | **確定**：ユーザー承認。**暫定**：試作で採用した仮仕様。**検証中**：複数案を比較。**保留**：将来検討。**廃止**：撤回・置換済み。 |
+| 実装状態 | **本編実装済**：現行導線に存在。**研究環境のみ**：独立実験に存在。**未実装**：該当機能なし。**未確認**：実装・登録を照合できていない。 |
 
-これらは当時の承認状況・数値・ファイル配置を保存する資料。現行仕様へ逆適用しない。
-入力パッケージの内容は必要な資料・素材・検証値へ移管済みで、入力フォルダは削除した。
+機能単位で断定せず、効果・数値・対象選択・UIを分ける。「要確認」は状態の代用品ではなく、解決すべき疑問として併記する。
+確定は永久に調整禁止という意味ではなく、変更には次のユーザー承認が必要という意味。
 
-最新採用仕様：[AI・消耗・デモ構築](specs/first-era/11-ai-exhaustion-draft.md)。正式戦闘仕様とデモ暫定構築を区別する。
+## 更新ルール
 
-最新UI：[スキル構築型RPGのUI](specs/first-era/12-skill-ui.md)。過去UI仕様より優先。
+- 新セッションではこの入口、status、対象の機能資料、実コードを読む。
+- 決定の根拠・日付、仕様状態、実装状態を併記する。根拠が不明なら確定にしない。
+- 同じ規則の全文を複製せず、所有する機能資料へリンクする。
+- 新スキルはID・MP・CD・条件・タグ、新ボスは能力・仮数値・UIを登録する。
+- 数値の研究結果は当時の条件とともにreportsへ残し、承認前に現行仕様へ昇格しない。
+- 削除前に移管先と固有情報、参照元を確認し、移管台帳へ記録する。
+- 過去の研究報告は改訂しない。未コミット研究・非公開素材を保護する。
+
+[履歴の扱い](history/README.md) / [ルートの起動案内](../README.md)

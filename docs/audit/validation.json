@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-09",
+  "branch": "main",
+  "head": "3eeb48628ae3c6043899204b92e94fa4a76d29da",
+  "scope": "documents only; no commit/push/PR/merge/deploy",
+  "protected_files_checked": 3695,
+  "protected_files_changed": [],
+  "cards_checked": 19,
+  "card_table_errors": [],
+  "markdown_local_links_checked": 282,
+  "broken_local_links": [],
+  "broken_fragments": [],
+  "external_url_reachability": "not tested",
+  "npm_test": {
+    "result": "passed",
+    "tests": 106
+  },
+  "npm_run_check": "passed",
+  "browser_and_audio": "not rerun; documentation-only task",
+  "remote_pages_and_pr_status": "not queried"
+}
