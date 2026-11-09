@@ -66,7 +66,10 @@ function createCardView(id,side){
  if(selected){
   const detail=document.createElement('div');detail.className='inline-card-details';
   const full=document.createElement('p');full.textContent=cardDescription(id);
-  detail.append(full);view.append(detail);
+  const requirement=document.createElement('p');requirement.className='skill-requirement';
+  requirement.textContent=`♦ ${spec.cost} ／ 基本CD ${spec.cd}。`+(spec.tags.includes('poison_reference')?'条件：対象に毒が1以上。':'条件：MP・CD・同ターン使用制限。')+cardStatusText(id,side)+(app.busy?' ／ 演出中（使用不可）':'');
+  const close=document.createElement('button');close.type='button';close.className='skill-detail-close';close.textContent='詳細を閉じる ×';close.addEventListener('click',e=>{e.stopPropagation();closeCardDetail(side);});
+  detail.append(full,requirement,close);view.append(detail);
  }
  if(side==='player'){
   const use=document.createElement('button');use.type='button';use.className='card-use';use.textContent=app.playerAnimating?'演出中':'使用する';use.hidden=!selected;

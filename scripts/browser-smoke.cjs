@@ -61,7 +61,7 @@ async function main(){
       const resetSafe=app.mode==='draft'&&app.battle===null;
       applyStarter('rush');for(let i=0;i<3;i++)acquireDraft(app.draftOptions[0]);skipDraft();skipDraft();while(app.busy){hideTransitions();await new Promise(r=>setTimeout(r,80));}
       const preset=app.retryPreset,deck=JSON.stringify(app.draftCards);
-      app.battle.actors.boss.hp=1;app.battle.actors.player.mana=5;openCardDetail('slash','player');useCard('slash');await new Promise(r=>setTimeout(r,950));
+      app.battle.actors.boss.hp=1;app.battle.actors.player.mana=5;openCardDetail('slash','player');useCard('slash');for(let i=0;i<80&&document.getElementById('resultOverlay').hidden;i++)await new Promise(r=>setTimeout(r,80));
       const resultShown=!document.getElementById('resultOverlay').hidden;
       document.getElementById('retryButton').click();while(app.busy){hideTransitions();await new Promise(r=>setTimeout(r,80));}
       const replay=app.retryPreset===preset&&JSON.stringify(app.draftCards)===deck&&app.battle.actors.player.hp===20&&app.battle.actors.player.mana===2;

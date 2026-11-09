@@ -96,13 +96,13 @@ test('自カード演出中に次を選べるが使用・加速・ターン終�
  assert.equal(b.evaluate('app.battle.actors.player.accelerationPending'),false);assert.equal(b.evaluate('app.battle.active'),'player');
  await b.settle(animation);assert.equal(b.evaluate('app.busy'),false);
 });
-test('敵味方を通じて拡大1枚のみ、敵ターン禁止、予測はバリアとHPを分け不変',async()=>{
+test('敵味方を通じて選択1枚、敵ターンも情報確認可・使用不可、予測は不変',async()=>{
  const b=browser();await b.build();
  b.evaluate("app.battle.actors.boss.barrier=1;openCardDetail('slash','player');openCardDetail(app.battle.actors.boss.deck[0],'boss')");
  assert.equal(b.evaluate('app.selectedPlayer'),null);assert(b.evaluate('app.selectedBoss'));
  b.evaluate("openCardDetail('slash','player')");assert.equal(b.evaluate('app.selectedPlayer'),'slash');assert.equal(b.evaluate('app.selectedBoss'),null);
  const before=b.evaluate('JSON.stringify(app.battle)');assert.equal(b.evaluate("cardDamagePreview('slash').damage"),1);assert.equal(b.evaluate("cardDamagePreview('slash').blocked"),1);assert.equal(b.evaluate('JSON.stringify(app.battle)'),before);
- const turn=b.evaluate('endTurn(true)');b.evaluate("openCardDetail('slash','player')");assert.equal(b.evaluate('app.selectedPlayer'),null);assert.equal(b.evaluate('app.selectedBoss'),null);
+ const turn=b.evaluate('endTurn(true)');b.evaluate("openCardDetail('slash','player')");assert.equal(b.evaluate('app.selectedPlayer'),'slash');assert.equal(b.evaluate('app.selectedBoss'),null);assert.equal(b.evaluate('canChangeBattle()'),false);
  b.evaluate('resetGame()');await turn;
 });
 test('終了確認は合法な未使用操作がある時だけ、確認中の重複実行を防ぐ',async()=>{
@@ -161,7 +161,7 @@ test('スキル表示：MP/CD独立、使用済とCD中は排他、詳細は効�
   const root=side==='player'?'hand':'enemyDeck';let view=b.get(root).children[0];assert.equal(view.querySelector('.card-status').textContent,'使用済');assert.equal(view.querySelector('.remaining-cd'),null);assert.match(view.querySelector('.card-cost').textContent,/♦/);assert.equal(view.querySelector('.card-cd').textContent,`⌛ ${cd}`);
   b.evaluate("GameBattle.execute(app.battle,{type:'endTurn'});render()");view=b.get(root).children[0];assert.equal(view.querySelector('.card-status').textContent,cd?`CD中（残${cd}T）`:'');
  }
- b.evaluate("app.battle=GameBattle.createState({playerDeck:['setup'],bossPresetId:'boss_knight_defense'});app.battle.actors.player.mana=0;app.busy=false;openCardDetail('setup','player')");const v=b.get('hand').children[0];assert.equal(v.querySelector('.inline-card-reason'),null);assert.equal(v.querySelector('.inline-card-details').children.length,1);assert.equal(v.querySelector('.inline-card-details').children[0].textContent,b.evaluate("cardDescription('setup')"));assert.equal(v.querySelector('.card-use').disabled,true);
+ b.evaluate("app.battle=GameBattle.createState({playerDeck:['setup'],bossPresetId:'boss_knight_defense'});app.battle.actors.player.mana=0;app.busy=false;openCardDetail('setup','player')");const v=b.get('hand').children[0];assert.equal(v.querySelector('.inline-card-reason'),null);assert.equal(v.querySelector('.inline-card-details').children.length,3);assert.equal(v.querySelector('.inline-card-details').children[0].textContent,b.evaluate("cardDescription('setup')"));assert.equal(v.querySelector('.card-use').disabled,true);
 });
 test('習得詳細は効果と習得のみ、数値演出はハートなしでダメージ/回復を分離',()=>{
  const b=browser();b.get('draftOptions').children[0].click();b.evaluate("openCardDetail(app.draftOptions[0],'draft')");assert.equal(b.get('cardDetailMeta').hidden,true);assert.equal(b.get('cardDetailStatus').hidden,true);assert.match(b.get('confirmCard').textContent,/スキル/);
@@ -201,4 +201,15 @@ test('勝敗宣言を全て見せてから結果を表示し、途中リセッ�
  const pause=[...b.timers].find(([,t])=>t.ms===700);assert(pause);b.timers.delete(pause[0]);pause[1].fn();await new Promise(setImmediate);assert.equal(b.get('transitionText').textContent,winner==='player'?'VICTORY':'DEFEAT');assert(b.get('resultOverlay').hidden);assert([...b.timers.values()].some(t=>t.ms===2000));b.evaluate('hideTransitions()');await end;assert.equal(b.get('resultOverlay').hidden,false);
  const reset=b.evaluate(`finishBattle('${winner}')`);b.evaluate('resetGame()');await reset;assert(b.get('resultOverlay').hidden);
  }
+});
+test('情報確認と発動可否を分離し、演出・MP不足・CD中でも詳細を確認できる',async()=>{
+ const b=browser();await b.build();
+ b.evaluate("app.battle.actors.player.mana=0;app.battle.actors.player.readyOn.slash=app.battle.actors.player.ownTurn+2;app.busy=true;app.battle.active='boss';openCardDetail('slash','player')");
+ assert.equal(b.evaluate('app.selectedPlayer'),'slash');assert.equal(b.evaluate('canInspectBattle()'),true);assert.equal(b.evaluate('canChangeBattle()'),false);
+ const before=b.evaluate('JSON.stringify(app.battle)');b.get('hand').children[0].querySelector('.card-use').click();assert.equal(b.evaluate('JSON.stringify(app.battle)'),before);
+ assert(b.get('hand').children[0].querySelector('.inline-card-details').children[1].textContent.includes('CD中'));
+});
+test('正式タイトル・読取専用ホバー・全画面導線を本編に登録する',()=>{
+ const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');assert(html.includes('<title>継世の王座'));assert(html.includes('王を討て。そして、王となれ。'));assert(html.includes('id="fullscreenButton"'));assert(html.includes('id="skillTooltip"'));
+ const b=browser();assert.equal(b.get('fullscreenButton').disabled,true); // APIなしでも起動可能
 });
