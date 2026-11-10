@@ -8,6 +8,8 @@
 | 資料 | 管理する内容 |
 |---|---|
 | [現在の状態](status.md) | 実装範囲、研究、未反映事項、次の候補 |
+| [開発・GitHub運用](development-workflow.md) | ブランチ、命名、承認、素材・研究の保護 |
+| [ブランチ・PR棚卸し](repository-inventory-2026-11-10.md) | 2026-11-10時点の目的・マージ状況・維持／削除候補 |
 | [実装構造](architecture.md) | モジュール、API、起動・テスト・公開 |
 | [戦闘](features/combat.md) | HP、MP、CD、ダメージ、消耗 |
 | [スキル](features/skills.md) | 現行19種と新規2種の項目別状態 |
