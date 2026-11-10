@@ -4,3 +4,19 @@ node_modules/
 .DS_Store
 Thumbs.db
 .vscode/.history/
+
+# Private/local-only media and editor settings. Never force-add these files.
+/private-assets/
+*.fx-lab.local.json
+*.studio.local.json
+
+# Secret environment settings at any depth.
+.env
+.env.*
+# Samples may be tracked only with placeholder values.
+!.env.example
+!.env.*.example
+!.env.sample
+!.env.*.sample
+!.env.template
+!.env.*.template

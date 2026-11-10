@@ -1,8 +1,8 @@
 # 現在の開発状態
 
-最終更新：2026-11-10（STEP 1レビュー指摘と王座工房の最新承認を反映）。今回確認した最新mainの基点：`8b5539021e62a2bc56d0de8561c6e23b86bdf81c`（`8b55390`、PR #4マージ後）。作業ブランチは`chore/repository-workflow`。
+最終更新：2026-11-10（STEP 2-A・非公開素材保護）。今回確認した最新mainの基点：`c519470124712098e8a8d0cdaadc415679297fc2`（`c519470`、PR #5マージ後）。作業ブランチは`chore/private-asset-protection`。
 
-過去の調査基点は、2026-11-09の本編実装調査が`3eeb486`、第1弾UI実装開始時が`06b4a34`。これらは履歴上の基点であり、今回の最新mainを表すものではない。第1弾UIは2026-11-10に実装・公開済み。
+過去の調査基点は、2026-11-09の本編実装調査が`3eeb486`、第1弾UI実装開始時が`06b4a34`。STEP 1調査時点のmainは`8b55390`。これらは履歴上の基点であり、今回の最新mainを表すものではない。第1弾UIは2026-11-10に実装・公開済み。
 
 ## 本編
 
@@ -91,7 +91,21 @@ PC全画面、上下UI圧縮、既存6人の個別縮小、敵通常表示の概
 
 ## STEP 1：GitHub運用・命名整理（2026-11-10）
 
-運用規則はユーザー承認済みの[development-workflow](development-workflow.md)へ集約。文書は専用ブランチ`chore/repository-workflow`上でレビュー待ち、未コミット・未push。新しい運用を自動強制する仕組みは未実装。
+運用規則はユーザー承認済みの[development-workflow](development-workflow.md)へ集約。STEP 1は[PR #5](https://github.com/elizabeeeth555/roguelike-card-game/pull/5)でmainへマージ済み（merge `c519470`）。新しい運用を自動強制する仕組みは未実装。
 [棚卸し](repository-inventory-2026-11-10.md)ではPR #1を保護し、PR #3/#4のブランチとworkを削除候補とした。削除・既存PR操作は未承認で、今回実行しない。
 次工程はSTEP 2の構造調査、STEP 3の王座工房（Throne Studio）React + TypeScript + Vite基盤、STEP 4以降のUI／FX／Story編集。今回導入・統合・リファクタリングは行わない。
-mainにはprivate-assets除外がまだなく、PR #1側に存在する。素材を置く前に、次工程の承認範囲で安全対策とツールの公開対象を検討する。
+STEP 1時点でmainに未反映だった素材除外は、以下のSTEP 2-Aで対応する。PR #1自体は変更しない。
+
+## STEP 2-A：非公開素材・ローカル設定の保護（2026-11-10）
+
+安全対策の方針は確定。`.gitignore`の追加規則は専用ブランチ`chore/private-asset-protection`の作業ツリーへ反映済み、未コミット・未push・main未反映。既存除外規則と公開画像・音声の追跡は維持する。
+
+- リポジトリ直下`private-assets/`、全階層の`*.fx-lab.local.json`／`*.studio.local.json`、`.env`／`.env.*`を除外する。
+- `.env.example`／`.env.sample`／`.env.template`と環境名付きの同種サンプルは例外。サンプルに実際の秘密値を入れてよいという意味ではない。
+- 調査時点のmain・作業index・PR #1の先端には、上記の非公開素材／ローカル設定パターンに該当する追跡ファイルはない。パスによる確認であり、全ファイル内容・Git全履歴・外部購入状況を監査した保証ではない。
+- `.gitignore`は既に追跡されたファイル、強制追加、将来のビルド出力への混入、ローカルHTTPサーバーによる配信を防がない。**Git除外と公開除外は別**。
+- Pagesはmainのルート（/）を公開する。非公開素材はリポジトリ外管理とローカルファイル選択を基本とし、公開するディレクトリへ配置しない。`assets/`や将来の`public/`・`dist/`等へコピーしない。`/private-assets/`除外は誤登録対策であり、安全な公開保管場所の認定ではない。
+
+既存FX Lab PR #1から必要な除外規則だけを参照し、そのブランチ・機能・成果物には触れない。運用・承認の正本は[開発運用規約](development-workflow.md)。
+
+**STEP 2-BのUI構造整理は未着手**。次工程では公開素材とローカル素材の参照経路、将来のビルド／配信対象を切り分ける。React/Vite導入、FX Lab統合、研究成果物の移動・変更は今回行わない。
