@@ -79,7 +79,7 @@ npm run simulate -- 10
 
 ## React移行とSteam将来対応の設計方針（2026-11-10承認）
 
-**方針確定／React版は未実装**。上記のclassic JavaScript構造とGitHub Pages公開設定は現状説明であり、今後の到達形ではない。UIの本格制作開始に合わせて本編UIをReact＋TypeScript＋Viteへ段階移行し、王座工房も同じ技術を用いる。戦闘・スキル・AI・習得のロジックと検証成果は再利用し、ゲームルールを移行作業の都合で変更しない。
+**方針確定／STEP 3-Aの独立技術検証のみローカル実装済み、本編全体のReact移行・王座工房・本番切替は未実装**。上記のclassic JavaScript構造とGitHub Pages公開設定は現状説明であり、今後の到達形ではない。UIの本格制作開始に合わせて本編UIをReact＋TypeScript＋Viteへ段階移行し、王座工房も同じ技術を用いる。戦闘・スキル・AI・習得のロジックと検証成果は再利用し、ゲームルールを移行作業の都合で変更しない。
 
 依存方向の目標：
 
@@ -91,6 +91,14 @@ npm run simulate -- 10
 
 **Steamでの正式発売は保留／未決定**。Steam向けパッケージ方式（Electron／Tauri等）、必要なストア機能と具体的なSDKは未決定。家庭用ゲーム機への移植は対象外。Web・スマホ表示の品質を落とさず、プラットフォーム依存コードをゲームコアへ混入させないことで将来の選択肢を残す。
 
-移行は旧版を保持した並行導線で段階的に検証する。STEP 3-AでVite／TypeScript基盤とコア接続を調査、3-Bで戦闘・習得UI、3-CでFX／SEと入力、3-Dで旧版同等性と本番切替を確認する。現行Pagesは`main`ルートから静的公開されるため、React版のビルド成果物や配信経路を勝手に公開ルートへ上書きしない。公開方式変更・PRマージ・deployは個別承認が必要。以後、STEP 4で王座工房基盤とUI編集、STEP 5でFX編集、STEP 6でStory編集を進める。
+移行は旧版を保持した並行導線で段階的に検証する。STEP 3-AのVite／TypeScript技術検証基盤とコア接続はローカル実装・検証済み。以降は3-Bで戦闘・習得UI、3-CでFX／SEと入力、3-Dで旧版同等性と本番切替を確認する。現行Pagesは`main`ルートから静的公開されるため、React版のビルド成果物や配信経路を勝手に公開ルートへ上書きしない。公開方式変更・PRマージ・deployは個別承認が必要。以後、STEP 4で王座工房基盤とUI編集、STEP 5でFX編集、STEP 6でStory編集を進める。
 
 本方針の実装状況・ロードマップは[status](status.md#本編react移行将来のsteam対応方針2026-11-10承認)を参照。
+
+## STEP 3-A：独立React本編の技術検証
+
+`apps/game-web/`にReact＋TypeScript＋Viteの実験アプリを分離する（ローカル実装／未公開）。ルートindex.html、既存classic UI、戦闘コア・AIは維持する。本編全体の移植ではない。
+
+`React入力・状態 → battle-adapter.ts → 既存GameBattle / GamePlanner`。SkillCard・HealthBarはpropsベースの表示専用部品であり、工房との共有パッケージ化は未実施。保存・音声・OS入力などはホスト側の責務とし、コアへ持ち込まない。
+
+Viteアダプターが公開コア5ファイルだけを依存順のclassic scriptとして配信／同梱する。コピー先はアプリ内dist/engineで、元ソースは変更しない。publicDir無効、devのファイル許可範囲も分離。React版distはGit除外・Pagesルートへの出力なし。起動・固定依存・検証手順は[アプリREADME](../apps/game-web/README.md)。
