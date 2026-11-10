@@ -1,4 +1,8 @@
 'use strict';
+// Optional presentation modules: CSS fallbacks preserve layout if loading fails.
+if(window.GamePresentationConfig&&window.GamePresentationAdapter&&document.documentElement){
+  GamePresentationAdapter.apply(GamePresentationConfig.normalize(),document.documentElement.style);
+}
 setupCombatFx();setupAudioMenu();setupLogToggle();setupInfoTooltips();setupDialogs();setupSkillInspection();setupFullscreen();
 $('resetButton').addEventListener('click',()=>{if(window.confirm('現在の進行を終了し、最初から始めますか？'))resetGame();});$('restartButton').addEventListener('click',resetGame);
 $('retryButton').addEventListener('click',retryBattle);$('endTurn').addEventListener('click',endTurn);
