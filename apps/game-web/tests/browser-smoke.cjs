@@ -1,8 +1,7 @@
 'use strict';
 // Optional real-Chrome test using CDP and Node's built-in WebSocket.
 const fs=require('node:fs'),path=require('node:path'),{spawn}=require('node:child_process');
-const {pathToFileURL}=require('node:url');
-const root=path.resolve(__dirname,'../../..'),out=path.join(root,'.test-artifacts','game-web',process.env.REACT_GAME_BUILD==='1'?'preview':'dev');
+const root=path.resolve(__dirname,'../../..'),out=path.join(root,'.test-artifacts','react-battle-ui',process.env.REACT_GAME_BUILD==='1'?'preview':'dev');
 const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 async function main(){
   fs.mkdirSync(out,{recursive:true});
@@ -39,29 +38,117 @@ async function main(){
       return r.result.value;
     }
 
+
     await call('Page.navigate',{url:process.env.REACT_GAME_URL||'http://127.0.0.1:5173/'});
-    for(let i=0;i<100;i++){if(await evaluate("!!document.querySelector('[aria-label=プレイヤー]')"))break;await sleep(100);}
-    const reports=[];
-    for(const [width,height] of [[1366,768],[390,844],[320,812]]){
-      await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<761});
-      await evaluate("[...document.querySelectorAll('button')].find(b=>b.textContent==='再戦').click()");await sleep(100);
-      const before=await evaluate("[...document.querySelectorAll('progress')].map(x=>x.value)");
-      await evaluate("document.querySelector('[aria-label=プレイヤー] button').click()");await sleep(70);
-      const selectedOnly=await evaluate("[...document.querySelectorAll('progress')].map(x=>x.value)");
-      await evaluate("[...document.querySelectorAll('button')].find(b=>b.textContent==='使用する').click()");await sleep(100);
-      const after=await evaluate("[...document.querySelectorAll('progress')].map(x=>x.value)");
-      const mana=await evaluate("document.querySelector('[aria-label=プレイヤー]').textContent.includes('MP 1 / 3')");
-      await evaluate("document.querySelector('[aria-label=プレイヤー] button').click()");await sleep(60);
-      const repeatBlocked=await evaluate("[...document.querySelectorAll('button')].find(b=>b.textContent==='使用する').disabled");
-      await evaluate("[...document.querySelectorAll('button')].find(b=>b.textContent==='ターン終了').click()");await sleep(250);
-      const turnAdvanced=await evaluate("document.body.textContent.includes('ラウンド 2')");
-      const overflow=await evaluate('document.documentElement.scrollWidth>innerWidth');
-      reports.push({width,height,before,selectedOnly,after,mana,repeatBlocked,turnAdvanced,overflow});
-      const shot=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});fs.writeFileSync(path.join(out,`react-game-${width}.png`),Buffer.from(shot.data,'base64'));
-      if(JSON.stringify(before)!==JSON.stringify(selectedOnly)||after[0]!==18||!mana||!repeatBlocked||!turnAdvanced||overflow)throw Error('React UI regression '+JSON.stringify(reports.at(-1)));
+    for(let i=0;i<100;i++){if(await evaluate("!!document.querySelector('.player-area')"))break;await sleep(100);}
+    if(process.env.REACT_GAME_ACCELERATION_ONLY==='1'){
+      const checks=[];
+      for(const width of [1366,390]){
+        await call('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:1,mobile:width<=760});
+        await evaluate("[...document.querySelectorAll('button')].find(b=>b.textContent==='再戦').click()");await sleep(60);
+        const read=()=>evaluate("({pending:document.querySelector('.player-area .status-effects').textContent.includes('加速予約'),mp:document.querySelector('.player-area .resource').textContent})");
+        const before=await read();
+        await evaluate("document.querySelector('.battle-controls button').click()");await sleep(60);
+        const pending=await read();
+        await evaluate("[...document.querySelectorAll('button')].find(b=>b.textContent==='ターン終了').click()");await sleep(100);
+        const next=await read();
+        if(before.pending||!pending.pending||!pending.mp.includes('0 / 3')||next.pending||!next.mp.includes('4 / 4'))throw Error('Acceleration view '+JSON.stringify({width,before,pending,next}));
+        checks.push({width,before,pending,next});
+      }
+      fs.writeFileSync(path.join(out,'acceleration-review.json'),JSON.stringify({checks,errors},null,2));console.log(JSON.stringify({checks,errors},null,2));
+      if(errors.length)process.exitCode=1;await send('Browser.close');return;
     }
-    fs.writeFileSync(path.join(out,'react-game-browser.json'),JSON.stringify({reports,errors},null,2));
-    console.log(JSON.stringify({reports,errors},null,2));if(errors.length)process.exitCode=1;
+    const reports=[];
+    const snapshot=()=>evaluate("JSON.stringify({hp:[...document.querySelectorAll('progress')].map(n=>n.value),mp:[...document.querySelectorAll('.resource')].map(n=>n.textContent),round:document.querySelector('.turn-label').textContent})");
+    const clickText=async(text,scope='document')=>{await evaluate(`[...${scope}.querySelectorAll('button')].find(b=>b.textContent===${JSON.stringify(text)}).click()`);await sleep(60);};
+    async function tap(selector,mobile){
+      const point=await evaluate(`(()=>{const e=document.querySelector(${JSON.stringify(selector)});e.scrollIntoView({block:'center'});const r=e.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2};})()`);
+      if(mobile){await call('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[point]});await call('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});}
+      else {await call('Input.dispatchMouseEvent',{type:'mousePressed',button:'left',clickCount:1,...point});await call('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',clickCount:1,...point});}
+      await sleep(70);
+    }
+    for(const [width,height] of [[1366,768],[1280,720],[761,900],[320,812],[375,812],[390,844],[430,932],[760,900]]){
+      const mobile=width<=760;
+      await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile});
+      if(mobile)await call('Emulation.setTouchEmulationEnabled',{enabled:true});await sleep(80);
+      await clickText('再戦');await evaluate('scrollTo(0,0)');
+      const initial=await snapshot();
+      if(width===1366){
+        await evaluate('document.activeElement?.blur()');
+        for(const [key,code,vk] of [['1','Digit1',49],['Escape','Escape',27],[' ','Space',32],['Escape','Escape',27]]){
+          await call('Input.dispatchKeyEvent',{type:'keyDown',key,code,windowsVirtualKeyCode:vk});await call('Input.dispatchKeyEvent',{type:'keyUp',key,code,windowsVirtualKeyCode:vk});await sleep(60);
+          if(key==='1'&&!await evaluate("!!document.querySelector('dialog[open]')"))throw Error('Keyboard selection');
+          if(code==='Space'&&!await evaluate("!!document.querySelector('dialog[aria-label=ターン終了の確認][open]')"))throw Error('Keyboard end confirmation');
+          if(key==='Escape'&&await evaluate("!!document.querySelector('dialog[open]')"))throw Error('Escape cancel');
+        }
+        if(initial!==await snapshot())throw Error('Keyboard inspection changed battle');
+      }
+      // Focus is read-only on both sides, including unavailable enemy skills.
+      await evaluate("document.querySelector('.enemy-area .skill-open').focus()");await sleep(60);
+      const focus=await evaluate("!!document.querySelector('[role=tooltip]')");
+      if(!focus||initial!==await snapshot())throw Error('Focus changed state '+width);
+      if(!mobile){
+        const point=await evaluate("(()=>{const r=document.querySelector('.player-area .skill-open').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2};})()");
+        await call('Input.dispatchMouseEvent',{type:'mouseMoved',x:0,y:0});await call('Input.dispatchMouseEvent',{type:'mouseMoved',...point});await sleep(60);
+        if(!await evaluate("!!document.querySelector('[role=tooltip]')")||initial!==await snapshot())throw Error('Hover '+width+' '+JSON.stringify(await evaluate("({hover:matchMedia('(hover:hover)').matches,dialog:!!document.querySelector('dialog[open]'),tip:!!document.querySelector('[role=tooltip]'),rect:document.querySelector('.player-area .skill-open').getBoundingClientRect().toJSON(),scrollY,at:document.elementFromPoint(320,600)?.outerHTML.slice(0,200)})")));
+      }
+      await tap('.enemy-area .skill:last-child .skill-open',mobile);
+      const enemyReadOnly=await evaluate("!!document.querySelector('dialog[open]')&&![...document.querySelectorAll('dialog button')].some(b=>b.textContent==='使用する')");
+      if(!enemyReadOnly||initial!==await snapshot())throw Error('Enemy inspection '+width);
+      await clickText('閉じる');
+      await tap('.player-area .skill-open',mobile);
+      const modal=await evaluate("(()=>{const r=document.querySelector('dialog[open]').getBoundingClientRect();return {inside:r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight,description:document.querySelector('dialog').textContent.includes('敵に2ダメージ')};})()");
+      if(!modal.inside||!modal.description||initial!==await snapshot())throw Error('Selection modified state '+width);
+      if(width===390){const shot=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});fs.writeFileSync(path.join(out,'skill-detail-390.png'),Buffer.from(shot.data,'base64'));}
+      await clickText('閉じる');if(initial!==await snapshot())throw Error('Cancel '+width);
+      await clickText('ターン終了');
+      if(!await evaluate("!!document.querySelector('dialog[open][aria-label=ターン終了の確認]')"))throw Error('Missing confirmation '+width);
+      await clickText('戻る');if(initial!==await snapshot())throw Error('End cancel '+width);
+      await tap('.player-area .skill-open',mobile);await clickText('使用する');
+      const used=await evaluate("document.querySelector('.player-area .skill-state').textContent==='使用済'");
+      const after=JSON.parse(await snapshot());if(!used||after.hp[0]!==18||!after.mp[1].includes('1 / 3'))throw Error('Card action '+width+JSON.stringify(after));
+      await tap('.player-area .skill-open',mobile);
+      if(!await evaluate("[...document.querySelectorAll('dialog button')].find(b=>b.textContent==='使用する').disabled"))throw Error('Repeat allowed '+width);
+      await clickText('閉じる');await clickText('ターン終了');await clickText('終了する');
+      if(!await evaluate("document.querySelector('.turn-label').textContent.includes('ROUND 2')"))throw Error('AI turn '+width);
+      await clickText('再戦');if(initial!==await snapshot())throw Error('Replay '+width);
+      const layout=await evaluate(`(()=>{document.activeElement?.blur();scrollTo(0,0);const cards=[...document.querySelectorAll('.skill-open')],fields=[...document.querySelectorAll('.skill-name,.skill-cost,.skill-cd')];return {overflow:document.documentElement.scrollWidth>innerWidth,cardsInside:cards.every(n=>{const r=n.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth}),images:[...document.images].every(i=>i.complete&&i.naturalWidth>0),desktopFits:innerWidth<=760||document.documentElement.scrollHeight<=innerHeight,fieldsInside:fields.every(n=>{const r=n.getBoundingClientRect();return r.width>0&&r.left>=0&&r.right<=innerWidth})};})()`);
+      const shot=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});fs.writeFileSync(path.join(out,`react-battle-${width}.png`),Buffer.from(shot.data,'base64'));
+      if(layout.overflow||!layout.cardsInside||!layout.images||!layout.desktopFits||!layout.fieldsInside)throw Error('Layout '+width+JSON.stringify(layout));
+      reports.push({width,height,focus,enemyReadOnly,modal,used,...layout});
+    }
+    // Browser-only initial-state fixtures. No production debug hook or core-file change.
+    const fixtures=[];
+    for(const kind of ['states','victory','defeat','no-actions']){
+      const fixture=await call('Page.addScriptToEvaluateOnNewDocument',{source:`(()=>{let api;Object.defineProperty(window,'GameBattle',{configurable:true,get:()=>api,set:original=>{api={...original,createState(options){const state=original.createState(${kind==='states'?"{...options,playerDeck:['slash','great_swing','barrier','battle_spirit','heart_corrosion']}":'options'});${kind==='states'?"Object.assign(state.actors.player,{barrier:4,poison:1,weak:2,attackBonus:1,setupBonus:2,manaPenalty:1});state.actors.player.readyOn.barrier=2;state.actors.player.readyOn.battle_spirit=3;":kind==='victory'?'state.actors.boss.hp=1;':kind==='defeat'?'state.actors.player.hp=1;':'state.actors.player.mana=0;'}return state;}};}});})();`});
+      await call('Page.navigate',{url:process.env.REACT_GAME_URL||'http://127.0.0.1:5173/'});
+      for(let i=0;i<100;i++){if(await evaluate("!!document.querySelector('.player-area')"))break;await sleep(50);}
+      await call('Emulation.setDeviceMetricsOverride',{width:320,height:812,deviceScaleFactor:1,mobile:true});await sleep(80);
+      let passed=false;
+      if(kind==='states'){
+        passed=await evaluate(`(()=>{const labels=[...document.querySelectorAll('.player-area .skill-state')].map(n=>n.textContent);const effects=document.querySelector('.player-area .status-effects').textContent;return labels.includes('CD中 1T')&&labels.includes('CD中 2T')&&labels.includes('MP不足')&&labels.includes('条件未達')&&['バリア 4','毒 1','弱体 2','攻撃強化 1','次ターン強化 2','MP妨害 1'].every(t=>effects.includes(t))&&document.querySelectorAll('.player-area .skill-open').length===5&&document.documentElement.scrollWidth===innerWidth;})()`);
+        const shot=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});fs.writeFileSync(path.join(out,'five-skill-states-320.png'),Buffer.from(shot.data,'base64'));
+        const statusBefore=await snapshot();
+        for(const id of ['great_swing','barrier','battle_spirit','heart_corrosion']){
+          await tap(`.player-area [data-skill-id="${id}"] .skill-open`,true);
+          passed=passed&&await evaluate("[...document.querySelectorAll('dialog button')].find(b=>b.textContent==='使用する').disabled");
+          await clickText('閉じる');
+        }
+        passed=passed&&statusBefore===await snapshot();
+      }else if(kind==='victory'){
+        await tap('.player-area .skill-open',true);await clickText('使用する');
+        passed=await evaluate("document.querySelector('.turn-label').textContent.includes('勝利')&&[...document.querySelectorAll('nav button')].every(b=>b.disabled)");
+        await clickText('再戦');passed=passed&&await evaluate("!document.querySelector('.turn-label').textContent.includes('勝利')");
+      }else{
+        await clickText('ターン終了');
+        if(kind==='defeat')await clickText('終了する');
+        passed=await evaluate(kind==='defeat'?"document.querySelector('.turn-label').textContent.includes('敗北')":"!document.querySelector('dialog[open]')&&document.querySelector('.turn-label').textContent.includes('ROUND 2')");
+      }
+      fixtures.push({kind,passed});await call('Page.removeScriptToEvaluateOnNewDocument',{identifier:fixture.identifier});
+      if(!passed)throw Error('Fixture '+kind);
+    }
+    fs.writeFileSync(path.join(out,'react-battle-browser.json'),JSON.stringify({reports,fixtures,errors},null,2));console.log(JSON.stringify({reports,fixtures,errors},null,2));
+    if(errors.length)process.exitCode=1;
     await send('Browser.close');
   }finally{if(ws)ws.close();child.kill();}
 }
