@@ -52,7 +52,7 @@ export function BattleScreen({ adapter }: { adapter: BattleAdapter }) {
     <section className="enemy-area" aria-label="敵情報"><BattleHUD label="蒼鋼の守護騎士" {...state.actors.boss} />{skillRow('boss')}</section>
     <BattleField portrait="./scene/boss.png" name="蒼鋼の守護騎士" round={state.round} turn={state.active === 'player' ? 'YOUR TURN' : 'ENEMY TURN'} result={result} />
     <section className="player-area" aria-label="プレイヤー領域"><BattleHUD label="夜刃の剣士" face="./scene/face.png" {...state.actors.player} />
-      <div className="player-skill-set">{skillRow('player')}<div className="legacy-slot" aria-label="継承専用スキル 未解放">継承専用<br />未解放</div></div>
+      <div className="player-skill-set">{skillRow('player')}</div>
       <nav className="battle-controls" aria-label="戦闘操作"><button disabled={!adapter.accelerateStatus(state).allowed} title={adapter.accelerateStatus(state).reason} onClick={() => act({ type: 'accelerate', side: 'player' })}>♦ マナ加速 <small>2MP</small></button><button disabled={!!state.end} onClick={endTurn}>ターン終了</button></nav>
     </section>
     <p className="battle-message" role="status">{result ? `${result} — 再戦できます` : view.message}</p>

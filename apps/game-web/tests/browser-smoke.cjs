@@ -41,23 +41,6 @@ async function main(){
 
     await call('Page.navigate',{url:process.env.REACT_GAME_URL||'http://127.0.0.1:5173/'});
     for(let i=0;i<100;i++){if(await evaluate("!!document.querySelector('.player-area')"))break;await sleep(100);}
-    if(process.env.REACT_GAME_ACCELERATION_ONLY==='1'){
-      const checks=[];
-      for(const width of [1366,390]){
-        await call('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:1,mobile:width<=760});
-        await evaluate("[...document.querySelectorAll('button')].find(b=>b.textContent==='再戦').click()");await sleep(60);
-        const read=()=>evaluate("({pending:document.querySelector('.player-area .status-effects').textContent.includes('加速予約'),mp:document.querySelector('.player-area .resource').textContent})");
-        const before=await read();
-        await evaluate("document.querySelector('.battle-controls button').click()");await sleep(60);
-        const pending=await read();
-        await evaluate("[...document.querySelectorAll('button')].find(b=>b.textContent==='ターン終了').click()");await sleep(100);
-        const next=await read();
-        if(before.pending||!pending.pending||!pending.mp.includes('0 / 3')||next.pending||!next.mp.includes('4 / 4'))throw Error('Acceleration view '+JSON.stringify({width,before,pending,next}));
-        checks.push({width,before,pending,next});
-      }
-      fs.writeFileSync(path.join(out,'acceleration-review.json'),JSON.stringify({checks,errors},null,2));console.log(JSON.stringify({checks,errors},null,2));
-      if(errors.length)process.exitCode=1;await send('Browser.close');return;
-    }
     const reports=[];
     const snapshot=()=>evaluate("JSON.stringify({hp:[...document.querySelectorAll('progress')].map(n=>n.value),mp:[...document.querySelectorAll('.resource')].map(n=>n.textContent),round:document.querySelector('.turn-label').textContent})");
     const clickText=async(text,scope='document')=>{await evaluate(`[...${scope}.querySelectorAll('button')].find(b=>b.textContent===${JSON.stringify(text)}).click()`);await sleep(60);};
@@ -112,11 +95,25 @@ async function main(){
       await clickText('閉じる');await clickText('ターン終了');await clickText('終了する');
       if(!await evaluate("document.querySelector('.turn-label').textContent.includes('ROUND 2')"))throw Error('AI turn '+width);
       await clickText('再戦');if(initial!==await snapshot())throw Error('Replay '+width);
-      const layout=await evaluate(`(()=>{document.activeElement?.blur();scrollTo(0,0);const cards=[...document.querySelectorAll('.skill-open')],fields=[...document.querySelectorAll('.skill-name,.skill-cost,.skill-cd')];return {overflow:document.documentElement.scrollWidth>innerWidth,cardsInside:cards.every(n=>{const r=n.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth}),images:[...document.images].every(i=>i.complete&&i.naturalWidth>0),desktopFits:innerWidth<=760||document.documentElement.scrollHeight<=innerHeight,fieldsInside:fields.every(n=>{const r=n.getBoundingClientRect();return r.width>0&&r.left>=0&&r.right<=innerWidth})};})()`);
+      const layout=await evaluate(`(()=>{document.activeElement?.blur();scrollTo(0,0);const row=document.querySelector('.player-skills').getBoundingClientRect(),set=document.querySelector('.player-skill-set').getBoundingClientRect();const slots=document.querySelectorAll('.player-skills>.skill,.player-skills>.empty-skill-slot').length;const cards=[...document.querySelectorAll('.skill-open')],fields=[...document.querySelectorAll('.skill-name,.skill-cost,.skill-cd')];return {normalSlots:slots,legacyAbsent:!document.querySelector('.legacy-slot')&&!document.body.textContent.includes('継承専用'),rowUsesFullWidth:Math.abs(row.width-set.width)<1,overflow:document.documentElement.scrollWidth>innerWidth,cardsInside:cards.every(n=>{const r=n.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth}),images:[...document.images].every(i=>i.complete&&i.naturalWidth>0),desktopFits:innerWidth<=760||document.documentElement.scrollHeight<=innerHeight,fieldsInside:fields.every(n=>{const r=n.getBoundingClientRect();return r.width>0&&r.left>=0&&r.right<=innerWidth})};})()`);
       const shot=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});fs.writeFileSync(path.join(out,`react-battle-${width}.png`),Buffer.from(shot.data,'base64'));
-      if(layout.overflow||!layout.cardsInside||!layout.images||!layout.desktopFits||!layout.fieldsInside)throw Error('Layout '+width+JSON.stringify(layout));
+      if(layout.normalSlots!==5||!layout.legacyAbsent||!layout.rowUsesFullWidth||layout.overflow||!layout.cardsInside||!layout.images||!layout.desktopFits||!layout.fieldsInside)throw Error('Layout '+width+JSON.stringify(layout));
       reports.push({width,height,focus,enemyReadOnly,modal,used,...layout});
     }
+    const accelerationChecks=[];
+    for(const width of [1366,390]){
+      await call('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:1,mobile:width<=760});
+      await evaluate("[...document.querySelectorAll('button')].find(b=>b.textContent==='再戦').click()");await sleep(60);
+      const read=()=>evaluate("({pending:document.querySelector('.player-area .status-effects').textContent.includes('加速予約'),mp:document.querySelector('.player-area .resource').textContent})");
+      const before=await read();
+      await evaluate("document.querySelector('.battle-controls button').click()");await sleep(60);
+      const pending=await read();
+      await evaluate("[...document.querySelectorAll('button')].find(b=>b.textContent==='ターン終了').click()");await sleep(100);
+      const next=await read();
+      if(before.pending||!pending.pending||!pending.mp.includes('0 / 3')||next.pending||!next.mp.includes('4 / 4'))throw Error('Acceleration view '+JSON.stringify({width,before,pending,next}));
+      accelerationChecks.push({width,before,pending,next});
+    }
+
     // Browser-only initial-state fixtures. No production debug hook or core-file change.
     const fixtures=[];
     for(const kind of ['states','victory','defeat','no-actions']){
@@ -147,7 +144,7 @@ async function main(){
       fixtures.push({kind,passed});await call('Page.removeScriptToEvaluateOnNewDocument',{identifier:fixture.identifier});
       if(!passed)throw Error('Fixture '+kind);
     }
-    fs.writeFileSync(path.join(out,'react-battle-browser.json'),JSON.stringify({reports,fixtures,errors},null,2));console.log(JSON.stringify({reports,fixtures,errors},null,2));
+    fs.writeFileSync(path.join(out,'react-battle-browser.json'),JSON.stringify({reports,accelerationChecks,fixtures,errors},null,2));console.log(JSON.stringify({reports,accelerationChecks,fixtures,errors},null,2));
     if(errors.length)process.exitCode=1;
     await send('Browser.close');
   }finally{if(ws)ws.close();child.kill();}

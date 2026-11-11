@@ -40,8 +40,7 @@ button:focus-visible{outline:3px solid #c5deff;outline-offset:2px}
 .boss-portrait{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 7px 14px #000a)}
 .turn-label{position:absolute;right:10px;bottom:8px;border:1px solid #a5c8e8;background:#092036ed;padding:6px 12px;border-radius:5px;color:#d0eaff;font-weight:700;letter-spacing:.08em}
 .player-area{display:grid;grid-template-columns:220px minmax(0,1fr) 130px;gap:12px;z-index:2;align-items:stretch}
-.player-skill-set{display:grid;grid-template-columns:minmax(0,1fr) 65px;gap:7px;min-width:0}
-.legacy-slot{border:1px dashed #9e8b61;border-radius:6px;color:#dbcca8;background:#111d31c9;font-size:12px;display:grid;place-content:center;text-align:center}
+.player-skill-set{display:grid;grid-template-columns:minmax(0,1fr);min-width:0}
 .battle-controls{display:grid;gap:8px}
 .battle-controls small{display:block}
 .battle-message{font-size:13px;background:#0b1525d9;padding:2px 8px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
@@ -54,7 +53,6 @@ dialog p,.skill-tooltip p{margin:8px 0}
 .skill-tooltip{position:fixed;z-index:20;width:min(340px,calc(100vw - 16px));max-height:calc(100dvh - 16px);overflow:auto;padding:14px;border:1px solid #c6aa70;border-radius:8px;background:#0b1424fa;color:#f5eddf;pointer-events:none;font-size:14px;box-shadow:0 6px 20px #0009}
 
 @media(max-width:1000px) and (min-width:761px){.player-area{grid-template-columns:175px minmax(0,1fr) 105px;gap:6px}
-.player-skill-set{grid-template-columns:minmax(0,1fr) 45px}
 .skills{gap:4px}
 .skill-name{font-size:12px;right:35px}
 .skill-cost{font-size:11px;right:3px}
@@ -81,7 +79,6 @@ dialog p,.skill-tooltip p{margin:8px 0}
 .compact .skill-cd{bottom:3px;right:4px;font-size:11px}
 .player-area{grid-template-columns:minmax(0,1fr);gap:8px}
 .player-area .battle-hud{align-items:center}
-.player-skill-set{grid-template-columns:minmax(0,1fr) 42px;gap:4px}
 .player-skills{grid-template-columns:repeat(5,minmax(0,1fr))}
 .player-area .skill-open{height:150px}
 .player-area .skill-name{top:31px;left:3px;right:3px;font-size:12px;line-height:18px}
@@ -92,7 +89,6 @@ dialog p,.skill-tooltip p{margin:8px 0}
 .battle-controls{grid-template-columns:1fr 1fr;gap:8px}
 .battle-controls button{min-height:52px}
 .battle-controls small{display:inline}
-.legacy-slot{font-size:10px}
 .turn-label{font-size:12px;right:4px;bottom:4px}
 .battle-message{white-space:normal;min-height:26px}
 .skill-tooltip{max-width:calc(100vw - 16px)}
