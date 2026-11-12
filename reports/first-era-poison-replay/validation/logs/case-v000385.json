@@ -1,0 +1,3673 @@
+{
+  "caseId": "v000385",
+  "result": {
+    "seed": 1,
+    "deck": [
+      "barrier",
+      "corrosion",
+      "finisher_slash",
+      "fortress",
+      "r_venom_blade"
+    ],
+    "config": {
+      "openingMP": 3,
+      "ultCost": 1,
+      "ultimate": true,
+      "bladeCost": 1,
+      "bladeCD": 1,
+      "bladeRounding": "floor",
+      "bladeConsume": 0,
+      "bladeNeedsPoison": true,
+      "bladeConsumeTiming": "after",
+      "releaseCost": 3,
+      "releaseCD": 2,
+      "endOrder": "poison-first",
+      "replayHistory": true,
+      "neutral": false
+    },
+    "winner": "player",
+    "cause": "attack",
+    "round": 6,
+    "remainingHP": 1,
+    "bossHP": 0,
+    "actionHash": "7be9af9d6a729649",
+    "damage": 20,
+    "taken": 19,
+    "poisonDamage": 8,
+    "releaseDamage": 0,
+    "bladeDamage": 0,
+    "ultimateDamage": 0,
+    "ultimatePoison": 0,
+    "poisonApplied": 6,
+    "maxPoison": 2,
+    "barrier": 26,
+    "blocked": 26,
+    "wastedBarrier": 0,
+    "healed": 0,
+    "breaks": 0,
+    "breakAttempts": 3,
+    "flashes": 3,
+    "prevented": 0,
+    "accelerations": 0,
+    "spentMana": 17,
+    "ultimateUsed": 1,
+    "ultimateRound": 1,
+    "ultimateTarget": "fortress",
+    "attackActions": 5,
+    "defenseActions": 5,
+    "healActions": 0,
+    "buffActions": 0,
+    "cdWaitTurns": 5,
+    "halfTurns": 11,
+    "skillUses": {
+      "fortress": 3,
+      "corrosion": 3,
+      "r_venom_blade": 2,
+      "finisher_slash": 3,
+      "barrier": 2
+    },
+    "aiNodes": 1551,
+    "aiLimited": 0,
+    "aiCalls": 11,
+    "aiMs": 26.372252000008302
+  },
+  "initial": {
+    "schemaVersion": 2,
+    "ruleset": "first-era-poison-replay-research-v1",
+    "round": 1,
+    "firstSide": "player",
+    "active": "player",
+    "bossPresetId": "boss_knight_defense",
+    "playerCharacterId": "01_black_swordsman",
+    "bossCharacterId": "02_heavy_knight",
+    "actors": {
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {},
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 0,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {},
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      }
+    },
+    "end": null,
+    "c": {
+      "openingMP": 3,
+      "ultCost": 1,
+      "ultimate": true,
+      "bladeCost": 1,
+      "bladeCD": 1,
+      "bladeRounding": "floor",
+      "bladeConsume": 0,
+      "bladeNeedsPoison": true,
+      "bladeConsumeTiming": "after",
+      "releaseCost": 3,
+      "releaseCD": 2,
+      "endOrder": "poison-first",
+      "replayHistory": true,
+      "neutral": false
+    },
+    "old": {
+      "stance": "steadfast",
+      "gauge": 0,
+      "broken": false
+    },
+    "hero": {
+      "available": true,
+      "last": null
+    }
+  },
+  "log": [
+    {
+      "round": 1,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "fortress"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "fortress",
+          "cost": 2
+        },
+        {
+          "type": "barrier",
+          "side": "player",
+          "amount": 5
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 1,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "fortress"
+        ],
+        "readyOn": {
+          "fortress": 3
+        },
+        "attacks": [],
+        "barrier": 5,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 0,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {},
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": true,
+        "last": "fortress"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 1,
+      "action": {
+        "type": "ultimate",
+        "side": "player"
+      },
+      "events": [
+        {
+          "type": "ultimate",
+          "side": "player",
+          "id": "fortress",
+          "cost": 1
+        },
+        {
+          "type": "barrier",
+          "side": "player",
+          "amount": 5
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "fortress"
+        ],
+        "readyOn": {
+          "fortress": 3
+        },
+        "attacks": [],
+        "barrier": 10,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 0,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {},
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": "fortress"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 1,
+      "action": {
+        "type": "endTurn",
+        "side": "player"
+      },
+      "events": [
+        {
+          "type": "flashTriggered"
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "@flash",
+          "replay": false,
+          "raw": 5,
+          "amount": 0,
+          "blocked": 5,
+          "kind": "flash"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "fortress"
+        ],
+        "readyOn": {
+          "fortress": 3
+        },
+        "attacks": [],
+        "barrier": 5,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {},
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 1,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "battle_spirit"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "battle_spirit",
+          "cost": 1
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "fortress"
+        ],
+        "readyOn": {
+          "fortress": 3
+        },
+        "attacks": [],
+        "barrier": 5,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 2,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit"
+        ],
+        "readyOn": {
+          "battle_spirit": 4
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 3,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 1,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "feint"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "feint",
+          "cost": 1
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "feint",
+          "replay": false,
+          "raw": 4,
+          "amount": 0,
+          "blocked": 4,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "fortress"
+        ],
+        "readyOn": {
+          "fortress": 3
+        },
+        "attacks": [],
+        "barrier": 1,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 1,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "feint"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3
+        },
+        "attacks": [
+          "feint"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 1,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "slash",
+          "cost": 1
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "slash",
+          "replay": false,
+          "raw": 2,
+          "amount": 1,
+          "blocked": 1,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 19,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "fortress"
+        ],
+        "readyOn": {
+          "fortress": 3
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "feint",
+          "slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2
+        },
+        "attacks": [
+          "feint",
+          "slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 1,
+      "action": {
+        "type": "endTurn",
+        "side": "boss"
+      },
+      "events": [],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 19,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {
+          "fortress": 3
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "feint",
+          "slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2
+        },
+        "attacks": [
+          "feint",
+          "slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 2,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "corrosion"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "corrosion",
+          "cost": 1
+        },
+        {
+          "type": "poisonApplied",
+          "side": "player",
+          "target": "boss",
+          "amount": 2,
+          "remaining": 2,
+          "id": "corrosion",
+          "replay": false
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 19,
+        "maxHp": 20,
+        "mana": 2,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "corrosion"
+        ],
+        "readyOn": {
+          "fortress": 3,
+          "corrosion": 4
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "feint",
+          "slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2
+        },
+        "attacks": [
+          "feint",
+          "slash"
+        ],
+        "barrier": 0,
+        "poison": 2,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": "corrosion"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 2,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "r_venom_blade"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "r_venom_blade",
+          "cost": 1
+        },
+        {
+          "type": "damage",
+          "source": "player",
+          "target": "boss",
+          "id": "r_venom_blade",
+          "replay": false,
+          "raw": 0,
+          "amount": 0,
+          "blocked": 0,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 19,
+        "maxHp": 20,
+        "mana": 1,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "corrosion",
+          "r_venom_blade"
+        ],
+        "readyOn": {
+          "fortress": 3,
+          "corrosion": 4,
+          "r_venom_blade": 4
+        },
+        "attacks": [
+          "r_venom_blade"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "feint",
+          "slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2
+        },
+        "attacks": [
+          "feint",
+          "slash"
+        ],
+        "barrier": 0,
+        "poison": 2,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": "r_venom_blade"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 2,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "finisher_slash"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "finisher_slash",
+          "cost": 1
+        },
+        {
+          "type": "damage",
+          "source": "player",
+          "target": "boss",
+          "id": "finisher_slash",
+          "replay": false,
+          "raw": 2,
+          "amount": 3,
+          "blocked": 0,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 19,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "corrosion",
+          "r_venom_blade",
+          "finisher_slash"
+        ],
+        "readyOn": {
+          "fortress": 3,
+          "corrosion": 4,
+          "r_venom_blade": 4,
+          "finisher_slash": 4
+        },
+        "attacks": [
+          "r_venom_blade",
+          "finisher_slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 17,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "feint",
+          "slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2
+        },
+        "attacks": [
+          "feint",
+          "slash"
+        ],
+        "barrier": 0,
+        "poison": 2,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": "finisher_slash"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 2,
+      "action": {
+        "type": "endTurn",
+        "side": "player"
+      },
+      "events": [
+        {
+          "type": "stanceReset"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 19,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "corrosion",
+          "r_venom_blade",
+          "finisher_slash"
+        ],
+        "readyOn": {
+          "fortress": 3,
+          "corrosion": 4,
+          "r_venom_blade": 4,
+          "finisher_slash": 4
+        },
+        "attacks": [
+          "r_venom_blade",
+          "finisher_slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 17,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 2,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 2,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "slash",
+          "cost": 1
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "slash",
+          "replay": false,
+          "raw": 2,
+          "amount": 2,
+          "blocked": 0,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 17,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "corrosion",
+          "r_venom_blade",
+          "finisher_slash"
+        ],
+        "readyOn": {
+          "fortress": 3,
+          "corrosion": 4,
+          "r_venom_blade": 4,
+          "finisher_slash": 4
+        },
+        "attacks": [
+          "r_venom_blade",
+          "finisher_slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 17,
+        "maxHp": 20,
+        "mana": 2,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 3
+        },
+        "attacks": [
+          "slash"
+        ],
+        "barrier": 0,
+        "poison": 2,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 2,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "heavy_slash",
+          "cost": 2
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "heavy_slash",
+          "replay": false,
+          "raw": 4,
+          "amount": 4,
+          "blocked": 0,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 13,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "corrosion",
+          "r_venom_blade",
+          "finisher_slash"
+        ],
+        "readyOn": {
+          "fortress": 3,
+          "corrosion": 4,
+          "r_venom_blade": 4,
+          "finisher_slash": 4
+        },
+        "attacks": [
+          "r_venom_blade",
+          "finisher_slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 17,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "slash",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 3,
+          "heavy_slash": 3
+        },
+        "attacks": [
+          "slash",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 2,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 2,
+      "action": {
+        "type": "endTurn",
+        "side": "boss"
+      },
+      "events": [
+        {
+          "type": "damage",
+          "source": "player",
+          "target": "boss",
+          "kind": "poison",
+          "amount": 2,
+          "remaining": 1
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 13,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {
+          "fortress": 3,
+          "corrosion": 4,
+          "r_venom_blade": 4,
+          "finisher_slash": 4
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 15,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "slash",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 3,
+          "heavy_slash": 3
+        },
+        "attacks": [
+          "slash",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 1,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 3,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "fortress"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "fortress",
+          "cost": 2
+        },
+        {
+          "type": "barrier",
+          "side": "player",
+          "amount": 5
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 13,
+        "maxHp": 20,
+        "mana": 1,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "fortress"
+        ],
+        "readyOn": {
+          "fortress": 5,
+          "corrosion": 4,
+          "r_venom_blade": 4,
+          "finisher_slash": 4
+        },
+        "attacks": [],
+        "barrier": 5,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 15,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "slash",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 3,
+          "heavy_slash": 3
+        },
+        "attacks": [
+          "slash",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 1,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": "fortress"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 3,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "barrier"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "barrier",
+          "cost": 1
+        },
+        {
+          "type": "barrier",
+          "side": "player",
+          "amount": 3
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 13,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "fortress",
+          "barrier"
+        ],
+        "readyOn": {
+          "fortress": 5,
+          "corrosion": 4,
+          "r_venom_blade": 4,
+          "finisher_slash": 4,
+          "barrier": 5
+        },
+        "attacks": [],
+        "barrier": 8,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 15,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "slash",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 3,
+          "heavy_slash": 3
+        },
+        "attacks": [
+          "slash",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 1,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": "barrier"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 3,
+      "action": {
+        "type": "endTurn",
+        "side": "player"
+      },
+      "events": [
+        {
+          "type": "flashTriggered"
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "@flash",
+          "replay": false,
+          "raw": 5,
+          "amount": 0,
+          "blocked": 5,
+          "kind": "flash"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 13,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "fortress",
+          "barrier"
+        ],
+        "readyOn": {
+          "fortress": 5,
+          "corrosion": 4,
+          "r_venom_blade": 4,
+          "finisher_slash": 4,
+          "barrier": 5
+        },
+        "attacks": [],
+        "barrier": 3,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 15,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 3,
+          "heavy_slash": 3
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 1,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 3,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "feint"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "feint",
+          "cost": 1
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "feint",
+          "replay": false,
+          "raw": 1,
+          "amount": 0,
+          "blocked": 1,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 13,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "fortress",
+          "barrier"
+        ],
+        "readyOn": {
+          "fortress": 5,
+          "corrosion": 4,
+          "r_venom_blade": 4,
+          "finisher_slash": 4,
+          "barrier": 5
+        },
+        "attacks": [],
+        "barrier": 2,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 15,
+        "maxHp": 20,
+        "mana": 2,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "feint"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 3
+        },
+        "attacks": [
+          "feint"
+        ],
+        "barrier": 0,
+        "poison": 1,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 3,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "heavy_slash",
+          "cost": 2
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "heavy_slash",
+          "replay": false,
+          "raw": 4,
+          "amount": 2,
+          "blocked": 2,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 11,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "fortress",
+          "barrier"
+        ],
+        "readyOn": {
+          "fortress": 5,
+          "corrosion": 4,
+          "r_venom_blade": 4,
+          "finisher_slash": 4,
+          "barrier": 5
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 15,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "feint",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 4
+        },
+        "attacks": [
+          "feint",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 1,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 3,
+      "action": {
+        "type": "endTurn",
+        "side": "boss"
+      },
+      "events": [
+        {
+          "type": "damage",
+          "source": "player",
+          "target": "boss",
+          "kind": "poison",
+          "amount": 2,
+          "remaining": 0
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 11,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {
+          "fortress": 5,
+          "corrosion": 4,
+          "r_venom_blade": 4,
+          "finisher_slash": 4,
+          "barrier": 5
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 13,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "feint",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 4
+        },
+        "attacks": [
+          "feint",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 4,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "corrosion"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "corrosion",
+          "cost": 1
+        },
+        {
+          "type": "poisonApplied",
+          "side": "player",
+          "target": "boss",
+          "amount": 2,
+          "remaining": 2,
+          "id": "corrosion",
+          "replay": false
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 11,
+        "maxHp": 20,
+        "mana": 2,
+        "manaCap": 3,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "corrosion"
+        ],
+        "readyOn": {
+          "fortress": 5,
+          "corrosion": 6,
+          "r_venom_blade": 4,
+          "finisher_slash": 4,
+          "barrier": 5
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 13,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "feint",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 4
+        },
+        "attacks": [
+          "feint",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 2,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": "corrosion"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 4,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "r_venom_blade"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "r_venom_blade",
+          "cost": 1
+        },
+        {
+          "type": "damage",
+          "source": "player",
+          "target": "boss",
+          "id": "r_venom_blade",
+          "replay": false,
+          "raw": 0,
+          "amount": 0,
+          "blocked": 0,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 11,
+        "maxHp": 20,
+        "mana": 1,
+        "manaCap": 3,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "corrosion",
+          "r_venom_blade"
+        ],
+        "readyOn": {
+          "fortress": 5,
+          "corrosion": 6,
+          "r_venom_blade": 6,
+          "finisher_slash": 4,
+          "barrier": 5
+        },
+        "attacks": [
+          "r_venom_blade"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 13,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "feint",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 4
+        },
+        "attacks": [
+          "feint",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 2,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": "r_venom_blade"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 4,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "finisher_slash"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "finisher_slash",
+          "cost": 1
+        },
+        {
+          "type": "damage",
+          "source": "player",
+          "target": "boss",
+          "id": "finisher_slash",
+          "replay": false,
+          "raw": 2,
+          "amount": 3,
+          "blocked": 0,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 11,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "corrosion",
+          "r_venom_blade",
+          "finisher_slash"
+        ],
+        "readyOn": {
+          "fortress": 5,
+          "corrosion": 6,
+          "r_venom_blade": 6,
+          "finisher_slash": 6,
+          "barrier": 5
+        },
+        "attacks": [
+          "r_venom_blade",
+          "finisher_slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 10,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "feint",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 4
+        },
+        "attacks": [
+          "feint",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 2,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": "finisher_slash"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 4,
+      "action": {
+        "type": "endTurn",
+        "side": "player"
+      },
+      "events": [
+        {
+          "type": "stanceReset"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 11,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "corrosion",
+          "r_venom_blade",
+          "finisher_slash"
+        ],
+        "readyOn": {
+          "fortress": 5,
+          "corrosion": 6,
+          "r_venom_blade": 6,
+          "finisher_slash": 6,
+          "barrier": 5
+        },
+        "attacks": [
+          "r_venom_blade",
+          "finisher_slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 10,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 4
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 2,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 4,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "battle_spirit"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "battle_spirit",
+          "cost": 1
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 11,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "corrosion",
+          "r_venom_blade",
+          "finisher_slash"
+        ],
+        "readyOn": {
+          "fortress": 5,
+          "corrosion": 6,
+          "r_venom_blade": 6,
+          "finisher_slash": 6,
+          "barrier": 5
+        },
+        "attacks": [
+          "r_venom_blade",
+          "finisher_slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 10,
+        "maxHp": 20,
+        "mana": 2,
+        "manaCap": 3,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit"
+        ],
+        "readyOn": {
+          "battle_spirit": 7,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 4
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 2,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 3,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 4,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "heavy_slash",
+          "cost": 2
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "heavy_slash",
+          "replay": false,
+          "raw": 7,
+          "amount": 7,
+          "blocked": 0,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 4,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "corrosion",
+          "r_venom_blade",
+          "finisher_slash"
+        ],
+        "readyOn": {
+          "fortress": 5,
+          "corrosion": 6,
+          "r_venom_blade": 6,
+          "finisher_slash": 6,
+          "barrier": 5
+        },
+        "attacks": [
+          "r_venom_blade",
+          "finisher_slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 10,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 7,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 5
+        },
+        "attacks": [
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 2,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 4,
+      "action": {
+        "type": "endTurn",
+        "side": "boss"
+      },
+      "events": [
+        {
+          "type": "damage",
+          "source": "player",
+          "target": "boss",
+          "kind": "poison",
+          "amount": 2,
+          "remaining": 1
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 4,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 5,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {
+          "fortress": 5,
+          "corrosion": 6,
+          "r_venom_blade": 6,
+          "finisher_slash": 6,
+          "barrier": 5
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 8,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 7,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 5
+        },
+        "attacks": [
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 1,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 5,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "barrier"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "barrier",
+          "cost": 1
+        },
+        {
+          "type": "barrier",
+          "side": "player",
+          "amount": 3
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 4,
+        "maxHp": 20,
+        "mana": 2,
+        "manaCap": 3,
+        "ownTurn": 5,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "barrier"
+        ],
+        "readyOn": {
+          "fortress": 5,
+          "corrosion": 6,
+          "r_venom_blade": 6,
+          "finisher_slash": 6,
+          "barrier": 7
+        },
+        "attacks": [],
+        "barrier": 3,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 8,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 7,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 5
+        },
+        "attacks": [
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 1,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": "barrier"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 5,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "fortress"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "fortress",
+          "cost": 2
+        },
+        {
+          "type": "barrier",
+          "side": "player",
+          "amount": 5
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 4,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 5,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "barrier",
+          "fortress"
+        ],
+        "readyOn": {
+          "fortress": 7,
+          "corrosion": 6,
+          "r_venom_blade": 6,
+          "finisher_slash": 6,
+          "barrier": 7
+        },
+        "attacks": [],
+        "barrier": 8,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 8,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 7,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 5
+        },
+        "attacks": [
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 1,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": "fortress"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 5,
+      "action": {
+        "type": "endTurn",
+        "side": "player"
+      },
+      "events": [
+        {
+          "type": "flashTriggered"
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "@flash",
+          "replay": false,
+          "raw": 5,
+          "amount": 0,
+          "blocked": 5,
+          "kind": "flash"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 4,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 5,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "barrier",
+          "fortress"
+        ],
+        "readyOn": {
+          "fortress": 7,
+          "corrosion": 6,
+          "r_venom_blade": 6,
+          "finisher_slash": 6,
+          "barrier": 7
+        },
+        "attacks": [],
+        "barrier": 3,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 8,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 5,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {
+          "battle_spirit": 7,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 5
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 1,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 5,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "slash",
+          "cost": 1
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "slash",
+          "replay": false,
+          "raw": 2,
+          "amount": 0,
+          "blocked": 2,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 4,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 5,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "barrier",
+          "fortress"
+        ],
+        "readyOn": {
+          "fortress": 7,
+          "corrosion": 6,
+          "r_venom_blade": 6,
+          "finisher_slash": 6,
+          "barrier": 7
+        },
+        "attacks": [],
+        "barrier": 1,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 8,
+        "maxHp": 20,
+        "mana": 2,
+        "manaCap": 3,
+        "ownTurn": 5,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 7,
+          "feint": 5,
+          "slash": 6,
+          "heavy_slash": 5
+        },
+        "attacks": [
+          "slash"
+        ],
+        "barrier": 0,
+        "poison": 1,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 5,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "heavy_slash",
+          "cost": 2
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "heavy_slash",
+          "replay": false,
+          "raw": 4,
+          "amount": 3,
+          "blocked": 1,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 1,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 5,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "barrier",
+          "fortress"
+        ],
+        "readyOn": {
+          "fortress": 7,
+          "corrosion": 6,
+          "r_venom_blade": 6,
+          "finisher_slash": 6,
+          "barrier": 7
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 8,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 5,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "slash",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 7,
+          "feint": 5,
+          "slash": 6,
+          "heavy_slash": 6
+        },
+        "attacks": [
+          "slash",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 1,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 5,
+      "action": {
+        "type": "endTurn",
+        "side": "boss"
+      },
+      "events": [
+        {
+          "type": "damage",
+          "source": "player",
+          "target": "boss",
+          "kind": "poison",
+          "amount": 2,
+          "remaining": 0
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 1,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 6,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {
+          "fortress": 7,
+          "corrosion": 6,
+          "r_venom_blade": 6,
+          "finisher_slash": 6,
+          "barrier": 7
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 6,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 5,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "slash",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 7,
+          "feint": 5,
+          "slash": 6,
+          "heavy_slash": 6
+        },
+        "attacks": [
+          "slash",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 6,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "corrosion"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "corrosion",
+          "cost": 1
+        },
+        {
+          "type": "poisonApplied",
+          "side": "player",
+          "target": "boss",
+          "amount": 2,
+          "remaining": 2,
+          "id": "corrosion",
+          "replay": false
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 1,
+        "maxHp": 20,
+        "mana": 2,
+        "manaCap": 3,
+        "ownTurn": 6,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "corrosion"
+        ],
+        "readyOn": {
+          "fortress": 7,
+          "corrosion": 8,
+          "r_venom_blade": 6,
+          "finisher_slash": 6,
+          "barrier": 7
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 6,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 5,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "slash",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 7,
+          "feint": 5,
+          "slash": 6,
+          "heavy_slash": 6
+        },
+        "attacks": [
+          "slash",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 2,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": "corrosion"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 6,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "finisher_slash"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "finisher_slash",
+          "cost": 1
+        },
+        {
+          "type": "damage",
+          "source": "player",
+          "target": "boss",
+          "id": "finisher_slash",
+          "replay": false,
+          "raw": 4,
+          "amount": 6,
+          "blocked": 0,
+          "kind": "attack"
+        },
+        {
+          "type": "finish",
+          "winner": "player",
+          "cause": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "barrier",
+          "corrosion",
+          "finisher_slash",
+          "fortress",
+          "r_venom_blade"
+        ],
+        "hp": 1,
+        "maxHp": 20,
+        "mana": 1,
+        "manaCap": 3,
+        "ownTurn": 6,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "corrosion",
+          "finisher_slash"
+        ],
+        "readyOn": {
+          "fortress": 7,
+          "corrosion": 8,
+          "r_venom_blade": 6,
+          "finisher_slash": 8,
+          "barrier": 7
+        },
+        "attacks": [
+          "finisher_slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 0,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 5,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "slash",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 7,
+          "feint": 5,
+          "slash": 6,
+          "heavy_slash": 6
+        },
+        "attacks": [
+          "slash",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 2,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": "finisher_slash"
+      },
+      "active": "player",
+      "end": "player"
+    }
+  ]
+}

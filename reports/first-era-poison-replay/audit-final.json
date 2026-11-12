@@ -1,0 +1,5286 @@
+{
+  "schemaVersion": 2,
+  "purpose": "R-001 final-source read-only verification",
+  "generatedAt": "2026-11-12T13:52:37.695Z",
+  "gitWorktreeBase": "7bfe4e861d8db20ff0f820cd9ff55024b3f8cdea",
+  "reviewedHead": "7bfe4e861d8db20ff0f820cd9ff55024b3f8cdea",
+  "reviewedHeadSourceSHA256": {
+    "researchSourceSHA256": {
+      "research/first-era-poison-replay/report.cjs": "1630d45b6ec4ea5f301ae83eed5b858096b8ad2c3aa33390d3223cc6ea379a7f",
+      "research/first-era-poison-replay/confirm.cjs": "85701e0df8257d6cfdd7521af640588eded211b42cfcca3bb1ee56a0f8662d6b",
+      "research/first-era-poison-replay/README.md": "fb972a8a4a545961e86c4732ff3166bc94934c47dfc5a8697a62190fd8d19acd",
+      "research/first-era-poison-replay/reproducibility.test.cjs": "041483fd8a8da7582042dd63a76c074cf6f4ad67592e963957c853172104d7e3",
+      "research/first-era-poison-replay/probes.cjs": "23045cd0be18371b308d5fd454c2df060c8d89cf6f60dc07466e96444f2f7a05",
+      "research/first-era-poison-replay/planner.cjs": "690dbc3491fb6b6a8572562b2bd4cb3aa7540b752b7d4f13ea2545271ff79186",
+      "research/first-era-poison-replay/focus.cjs": "ba999897a6b87d3e5281278e41cd50741596cfdea29bb2d5bff205414df67523",
+      "research/first-era-poison-replay/engine.test.cjs": "e8a4ac73af45ebe1add21a2feb73764cb3e9b48d67f044800e4473365ad7c71b",
+      "research/first-era-poison-replay/replay.cjs": "1b51e8ce60b8bf5c0a18b54ecad84c42dba1c94d74ab8c0e43c5abf5463e23d1",
+      "research/first-era-poison-replay/audit.cjs": "3f06b27e09dced416c8be340c48a287cee428a79a0f40e19a7fd428ee9b58fe4",
+      "research/first-era-poison-replay/validate.cjs": "0a83a24f23327a7f0c623379a309647095fec5612f5dd1d8e0839e08ffad5d63",
+      "research/first-era-poison-replay/representatives.cjs": "7302c9beeb96ec0b63c38cb8fd75ebbb49ee0cc58bd4416e9994f26f4afe363f",
+      "research/first-era-poison-replay/pairs.py": "3af116a0ed9627e54fc26526ef232c3e1a753d326c3fbf8e346dfe0ab4024836",
+      "research/first-era-poison-replay/counterfactual.cjs": "4535205a5a6981cdd58ab50a5491be6fbd81a5cf8384f892c07d20de00f34dfd",
+      "research/first-era-poison-replay/engine.cjs": "a1e021a9c7d93c29547e1fe9f947c564ec4dd0cfdddc63ec967c8a94cc2d90db",
+      "research/first-era-poison-replay/simulator.cjs": "91f00204235160913034371273a342950a2679f635383c53da9d0a4164b8a6e5",
+      "research/first-era-poison-replay/run.cjs": "0ed3cfb3f2de10533ded09b8ad186e4996758f7bb6a0e165e9d42e9d9fc44bb0"
+    },
+    "productionCoreSHA256": {
+      "src/game/progression.js": "0d206c0f8f25e4fa6822003c97a5908352e90b7c14fdd8fd1b4fed8de2ef35c6",
+      "src/game/boss-planner.js": "ec4b88dd6b49cf1f9a391202aa5c161783461b485d1f7d294064460e9368aa80",
+      "src/game/combat-math.js": "2b3098d6366d1434660bcfee3757dde7477b0d8c71b512fd2a4399915924f41f",
+      "src/game/card-data.js": "d03395fe0b08de017ab9cd8f1dcbcf5671b108b76bb524e20fd0991368e0da07",
+      "src/game/card-effects.js": "f0d4865768863085b72fc2551ca5da4f017caa2ac862da62deb79dab4ca53130",
+      "src/game/battle-engine.js": "553d13e2b38b29a05bbe277ce8750a57a4dbfef8aac2dacbbc8ec387916b820d"
+    }
+  },
+  "sourceIdentity": "Hashes identify the exact current worktree source bytes; the containing commit is assigned after this record is generated.",
+  "statisticalTrials": 17903,
+  "controlledWitnesses": 1,
+  "artificialProbes": 7,
+  "stages": {
+    "broad-screen": 609,
+    "broad-shortlist": 180,
+    "blade-matrix": 512,
+    "broad-final": 1440,
+    "pool-legacy": 182,
+    "pool-break": 202,
+    "pool-dot": 232,
+    "pool-sustain": 232,
+    "pool-final-legacy": 384,
+    "pool-final-break": 576,
+    "pool-final-dot": 480,
+    "pool-final-sustain": 480,
+    "sensitivity": 1440,
+    "deeper-ai": 80,
+    "defensive-poison-screen": 1986,
+    "poison-focused-final": 1728,
+    "poison-aware-ai": 384,
+    "pool-fortress": 232,
+    "pool-fortressBreak": 202,
+    "pool-focused-final-fortress": 480,
+    "pool-focused-final-fortressBreak": 480,
+    "focused-no-ultimate": 72,
+    "focused-blade-matrix": 64,
+    "qualified-final": 1248,
+    "qualified-no-ultimate": 264,
+    "genuine-blade-swap": 256,
+    "qualified-deeper-ai": 144,
+    "pool-threePoison": 202,
+    "pool-confirmed-final-threePoison": 480,
+    "pool-withoutRelease": 217,
+    "pool-confirmed-final-withoutRelease": 288,
+    "blade-validation": 768,
+    "release-validation": 192,
+    "tuned-pool-threePoison": 202,
+    "tuned-pool-final-threePoison": 480,
+    "tuned-pool-withoutRelease": 217,
+    "tuned-pool-final-withoutRelease": 288
+  },
+  "uniqueDecks": 2325,
+  "uniqueSequences": 8974,
+  "long": 1,
+  "exhaustion": 0,
+  "draws": 0,
+  "maxRound": 11,
+  "aiMs": 376534.69922100136,
+  "aiCalls": 151334,
+  "aiLimited": 0,
+  "logs": [
+    "data/logs/case-001302.json",
+    "data/logs/case-001782.json",
+    "data/logs/case-002262.json",
+    "focused/logs/case-f002131.json",
+    "focused/logs/case-f003187.json",
+    "focused/logs/case-f003283.json",
+    "confirmation/logs/case-c000049.json",
+    "confirmation/logs/case-c001105.json",
+    "validation/logs/case-v000385.json"
+  ],
+  "files": {
+    "research/first-era-poison-replay/README.md": "7e608589310613d4bef061f32636536cea5c0404ebd75e3dad74babdfe516179",
+    "research/first-era-poison-replay/audit.cjs": "406f2d4f2d26ac53f1589e4c9090fcc8f58628f4715e54b52a97ae37970cb847",
+    "research/first-era-poison-replay/audit.test.cjs": "619df6fbe5738bbb25564b15f2d87351ae802f014a0900443b75d078ac7fa151",
+    "research/first-era-poison-replay/confirm.cjs": "85701e0df8257d6cfdd7521af640588eded211b42cfcca3bb1ee56a0f8662d6b",
+    "research/first-era-poison-replay/counterfactual.cjs": "4535205a5a6981cdd58ab50a5491be6fbd81a5cf8384f892c07d20de00f34dfd",
+    "research/first-era-poison-replay/engine.cjs": "a1e021a9c7d93c29547e1fe9f947c564ec4dd0cfdddc63ec967c8a94cc2d90db",
+    "research/first-era-poison-replay/engine.test.cjs": "e8a4ac73af45ebe1add21a2feb73764cb3e9b48d67f044800e4473365ad7c71b",
+    "research/first-era-poison-replay/focus.cjs": "ba999897a6b87d3e5281278e41cd50741596cfdea29bb2d5bff205414df67523",
+    "research/first-era-poison-replay/pairs.py": "3af116a0ed9627e54fc26526ef232c3e1a753d326c3fbf8e346dfe0ab4024836",
+    "research/first-era-poison-replay/planner.cjs": "690dbc3491fb6b6a8572562b2bd4cb3aa7540b752b7d4f13ea2545271ff79186",
+    "research/first-era-poison-replay/probes.cjs": "23045cd0be18371b308d5fd454c2df060c8d89cf6f60dc07466e96444f2f7a05",
+    "research/first-era-poison-replay/replay.cjs": "1b51e8ce60b8bf5c0a18b54ecad84c42dba1c94d74ab8c0e43c5abf5463e23d1",
+    "research/first-era-poison-replay/report.cjs": "1630d45b6ec4ea5f301ae83eed5b858096b8ad2c3aa33390d3223cc6ea379a7f",
+    "research/first-era-poison-replay/representatives.cjs": "7302c9beeb96ec0b63c38cb8fd75ebbb49ee0cc58bd4416e9994f26f4afe363f",
+    "research/first-era-poison-replay/reproducibility.test.cjs": "041483fd8a8da7582042dd63a76c074cf6f4ad67592e963957c853172104d7e3",
+    "research/first-era-poison-replay/run.cjs": "0ed3cfb3f2de10533ded09b8ad186e4996758f7bb6a0e165e9d42e9d9fc44bb0",
+    "research/first-era-poison-replay/simulator.cjs": "91f00204235160913034371273a342950a2679f635383c53da9d0a4164b8a6e5",
+    "research/first-era-poison-replay/validate.cjs": "0a83a24f23327a7f0c623379a309647095fec5612f5dd1d8e0839e08ffad5d63",
+    "src/game/battle-engine.js": "553d13e2b38b29a05bbe277ce8750a57a4dbfef8aac2dacbbc8ec387916b820d",
+    "src/game/boss-planner.js": "ec4b88dd6b49cf1f9a391202aa5c161783461b485d1f7d294064460e9368aa80",
+    "src/game/card-data.js": "d03395fe0b08de017ab9cd8f1dcbcf5671b108b76bb524e20fd0991368e0da07",
+    "src/game/card-effects.js": "f0d4865768863085b72fc2551ca5da4f017caa2ac862da62deb79dab4ca53130",
+    "src/game/combat-math.js": "2b3098d6366d1434660bcfee3757dde7477b0d8c71b512fd2a4399915924f41f",
+    "src/game/progression.js": "0d206c0f8f25e4fa6822003c97a5908352e90b7c14fdd8fd1b4fed8de2ef35c6"
+  },
+  "inputFilesSHA256": {
+    "reports/first-era-poison-replay/data/manifest.json": "2c6345f3d94aceffa5e6630030a4cffcefa6e89f265d877a70d0e5f9f53ef8b2",
+    "reports/first-era-poison-replay/data/battles.csv": "1db85f40b25d2ba812a9bbe5806ff7d3f2feaeb0c6620579823ac2ea068edf5c",
+    "reports/first-era-poison-replay/data/summary.json": "6c0998e9bfdc4dafb55d197348262c213153f2b066d6ccb81316e9e096d66166",
+    "reports/first-era-poison-replay/data/logs/case-001302.json": "8f93b6f4e5ff271c2ec4f2c657d160c7b9080efdef62002d026384a83dec58a6",
+    "reports/first-era-poison-replay/data/logs/case-001782.json": "97e98d9aeb5ff9420a180f9dd12721b759bb47aced741f86a62c3a0d9b70c328",
+    "reports/first-era-poison-replay/data/logs/case-002262.json": "d049443a984a09af7f95cb4b1d82ac8494a301830efc621ea3cb535462b9816d",
+    "reports/first-era-poison-replay/focused/manifest.json": "faebfbf625a25549e5094b501da66a935f4fd07f83d0e0930459c9a7fca08aea",
+    "reports/first-era-poison-replay/focused/battles.csv": "cfa8041832d70212b79a3cb6f039e898f8713039723c565bd105bc4b535c82b1",
+    "reports/first-era-poison-replay/focused/summary.json": "40b9100f7ee88a6f0a8dcfb3fe734105b33cde3bb500adb655808b28af4a3118",
+    "reports/first-era-poison-replay/focused/logs/case-f002131.json": "4f68990048880b9cc1e5a0a5a24e5f17bdc36785548bdd42bb5db57eee9b826a",
+    "reports/first-era-poison-replay/focused/logs/case-f003187.json": "ff611169674bcbf2a6f7f5a54091e86f8a75e5e4af23812af76d3877a70a311f",
+    "reports/first-era-poison-replay/focused/logs/case-f003283.json": "dfb3afa00f237c5d27e48cd73369f1bac831a206fabbea34de49277f65b206ac",
+    "reports/first-era-poison-replay/confirmation/manifest.json": "19477fcbfa1ab0854fd0b20c119d1795ae7673b4118f74aa209f5bf674b5d710",
+    "reports/first-era-poison-replay/confirmation/battles.csv": "4de13a4d5f60e15c851e305f99db884113a97f47c0793e727d59c4c582c1908a",
+    "reports/first-era-poison-replay/confirmation/summary.json": "1655fa0a4b2ecea9e248ad1dd88e394dacdf536b3dc1aea93e2b56de066da82d",
+    "reports/first-era-poison-replay/confirmation/logs/case-c000049.json": "f3017cf70d164798815fe09975a9025200c3d3798e07a3d7b1a82c256bdeb359",
+    "reports/first-era-poison-replay/confirmation/logs/case-c001105.json": "29d26215352353389e808a219f778e75dc7f5eef9dac2e727dee1abe1b6ec591",
+    "reports/first-era-poison-replay/validation/manifest.json": "374fad0645a39aa3f21c343eeea339400bc50ecb0b62299795acd38a16ac4af5",
+    "reports/first-era-poison-replay/validation/battles.csv": "c3f1f310341ceb8cae241a97b03445d62dd8f107a2935a4626f8dabe3e4abe27",
+    "reports/first-era-poison-replay/validation/summary.json": "c34a38d6cbc109c1905b62b841d51bbdeed4b93b4a9c2a4d29f8f17e5b2a9d79",
+    "reports/first-era-poison-replay/validation/logs/case-v000385.json": "df9a0475b055682fad6c85ed0c7e31e438641d3b704289122ab21264a57108c4",
+    "reports/first-era-poison-replay/counterfactual-mp3-first-turn.json": "f6fb8ecb07c6ef4c80613f8e1f883f38b47da0e183aab5fa5ce141242431f652",
+    "reports/first-era-poison-replay/interaction-probes.json": "93f2ef68caf5c8ffe191699f13acb4d20522f9cd37cf332b3ef6f29c3665afd5",
+    "reports/first-era-poison-replay/audit.json": "d6d424a342d246727966f24a48dfec8999e97f8cbf3dbdd4d1e33a27e5e1dd67",
+    "reports/first-era-poison-replay/audit-final-pre-r001.json": "0bfc42ddb18729c55409f9e7eede0af224b024705a73a3a3691fc921db6ec249"
+  },
+  "verification": {
+    "rowsCompared": 17903,
+    "uniqueSimulations": 15398,
+    "duplicateRowsReused": 2505,
+    "deterministicFieldMismatches": 565,
+    "numericOutcomeMismatches": 0,
+    "diagnosticDiscrepancies": [
+      {
+        "dataset": "data",
+        "caseId": "000061",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000081",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000189",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000205",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000213",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000280",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000301",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000325",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000352",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000420",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000424",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000468",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000499",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000522",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000546",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000553",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000557",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000572",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000586",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "000609",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "002818",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "002825",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "002909",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "002914",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "002920",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003177",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003181",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003309",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003315",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003317",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003318",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003320",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003321",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003340",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003352",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003406",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003536",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003539",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003570",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003571",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003574",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003579",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003580",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003581",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003582",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003586",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "data",
+        "caseId": "003589",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000116",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000140",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000141",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000142",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000147",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000149",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000155",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000174",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000176",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000178",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000180",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000182",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000184",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000186",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000447",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000463",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000464",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000465",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000471",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000481",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000482",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000483",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000484",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000489",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000491",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000827",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000974",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000976",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000982",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000985",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000986",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f000990",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001005",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001008",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001052",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001057",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001060",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001062",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001063",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001075",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001083",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001089",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001091",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001095",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001097",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001099",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001111",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001213",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001214",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001216",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001220",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001221",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001223",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001225",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001230",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001236",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001243",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001251",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001254",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001256",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001269",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001271",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001285",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001286",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001296",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001304",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001323",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001325",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001327",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001331",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001333",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001337",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001339",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001366",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001372",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001374",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001386",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001389",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001420",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001424",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001429",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001440",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001441",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001449",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001455",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001458",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001460",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001468",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001473",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001474",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001475",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001477",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001479",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001481",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001483",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001485",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001491",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001493",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001495",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001497",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001499",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001500",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001503",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001504",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001507",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001509",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001510",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001511",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001512",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001513",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001514",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001516",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001517",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001519",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001521",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001523",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001524",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001525",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001526",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001534",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001538",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001546",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001551",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001552",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001559",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001560",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001561",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001562",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001563",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001564",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001612",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001668",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001725",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001782",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001787",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001788",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001789",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001800",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001817",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001818",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001838",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001839",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001840",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001845",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001856",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001858",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001899",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001929",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001931",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f001937",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003523",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003524",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003525",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003526",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003527",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003528",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003529",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003530",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003531",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003532",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003533",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003534",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003535",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003536",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003537",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003538",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003539",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003540",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003541",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003542",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003543",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003544",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003545",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003546",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003571",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003572",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003573",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003574",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003575",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003576",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003577",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003578",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003579",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003580",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003581",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003582",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003583",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003584",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003585",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003586",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003587",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003588",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003589",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003590",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003591",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003592",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003593",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003594",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003619",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003620",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003621",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003622",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003623",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003624",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003625",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003626",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003627",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003628",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003629",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003630",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003631",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003632",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003633",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003634",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003635",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003636",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003637",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003638",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003639",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003640",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003641",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003642",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003667",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003668",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003669",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003670",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003671",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003672",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003673",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003674",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003675",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003676",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003677",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003678",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003679",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003680",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003681",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003682",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003683",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003684",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003685",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003686",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003687",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003688",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003689",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003690",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003915",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003916",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003917",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003918",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003919",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003920",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003921",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003922",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003931",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003932",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003933",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003934",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003935",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003936",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003937",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003938",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003939",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003940",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003941",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003942",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003943",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003944",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003945",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003946",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003947",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003948",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003949",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003950",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003951",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003952",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003953",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f003954",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004177",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004213",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004214",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004230",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004236",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004282",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004293",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004294",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004299",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004310",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004314",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004316",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004319",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004456",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004457",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004467",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004513",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004516",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004517",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004529",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f004531",
+        "field": "halfTurns",
+        "saved": 5,
+        "recomputed": 6,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005397",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005398",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005399",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005402",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005403",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005404",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005405",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005407",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005414",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005415",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005420",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005469",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005470",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005471",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005472",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005473",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005474",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005475",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005476",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005477",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005478",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005479",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005480",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005481",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005482",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005483",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005484",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005485",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005486",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005487",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005488",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005489",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005490",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005491",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005492",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005517",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005518",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005519",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005520",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005521",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005522",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005523",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005524",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005525",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005526",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005527",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005528",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005529",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005530",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005531",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005532",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005533",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005534",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005535",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005536",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005537",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005538",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005539",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005540",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005557",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005558",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005559",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005560",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005561",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005562",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005563",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005564",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005565",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005566",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005567",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005568",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005569",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005570",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005571",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005572",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005573",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005574",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005575",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005576",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005577",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005578",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005579",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005580",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005581",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005582",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005583",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005584",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005585",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005586",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005587",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005588",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005605",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005606",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005607",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005608",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005609",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005610",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005611",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005612",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005613",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005614",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005615",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005616",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005617",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005618",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005619",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005620",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005621",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005622",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005623",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005624",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005625",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005626",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005627",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "focused",
+        "caseId": "f005628",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c000799",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c000800",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c000801",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c000810",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c000811",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c000813",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c000815",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c000816",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c001620",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c001633",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c001635",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c001636",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c001810",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c001811",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c001812",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002058",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002098",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002099",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002499",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002500",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002501",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002504",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002505",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002506",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002507",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002509",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002516",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002517",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002522",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002571",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002572",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002573",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002574",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002575",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002576",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002577",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002578",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002579",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002580",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002581",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002582",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002583",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002584",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002585",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002586",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002587",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002588",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002589",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002590",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002591",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002592",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002593",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002594",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002680",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002763",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002773",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002782",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "confirmation",
+        "caseId": "c002795",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001097",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001146",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001147",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001157",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001547",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001548",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001549",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001552",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001553",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001554",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001555",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001557",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001564",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001565",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001570",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001619",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001620",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001621",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001622",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001623",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001624",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001625",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001626",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001627",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001628",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001629",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001630",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001631",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001632",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001633",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001634",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001635",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001636",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001637",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001638",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001639",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001640",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001641",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001642",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001728",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001811",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001821",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001830",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001843",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001854",
+        "field": "halfTurns",
+        "saved": 9,
+        "recomputed": 10,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      },
+      {
+        "dataset": "validation",
+        "caseId": "v001856",
+        "field": "halfTurns",
+        "saved": 13,
+        "recomputed": 14,
+        "cause": "flash",
+        "reason": "Archived correction inferred the damage victim instead of the active boss-start phase"
+      }
+    ],
+    "logDiagnosticDiscrepancies": [],
+    "aggregateRecordsCompared": 6488,
+    "logsReplanned": 9,
+    "controlledWitnessesReplanned": 1,
+    "excludedNondeterministicFields": [
+      "aiMs"
+    ],
+    "runtimeAndConditionsUnchangedFromReviewedHead": true,
+    "savedResultsRewritten": false
+  },
+  "aiMeanMs": 2.4881037917520277,
+  "aiLimitedRate": 0,
+  "researchSourceSHA256": {
+    "research/first-era-poison-replay/README.md": "7e608589310613d4bef061f32636536cea5c0404ebd75e3dad74babdfe516179",
+    "research/first-era-poison-replay/audit.cjs": "406f2d4f2d26ac53f1589e4c9090fcc8f58628f4715e54b52a97ae37970cb847",
+    "research/first-era-poison-replay/audit.test.cjs": "619df6fbe5738bbb25564b15f2d87351ae802f014a0900443b75d078ac7fa151",
+    "research/first-era-poison-replay/confirm.cjs": "85701e0df8257d6cfdd7521af640588eded211b42cfcca3bb1ee56a0f8662d6b",
+    "research/first-era-poison-replay/counterfactual.cjs": "4535205a5a6981cdd58ab50a5491be6fbd81a5cf8384f892c07d20de00f34dfd",
+    "research/first-era-poison-replay/engine.cjs": "a1e021a9c7d93c29547e1fe9f947c564ec4dd0cfdddc63ec967c8a94cc2d90db",
+    "research/first-era-poison-replay/engine.test.cjs": "e8a4ac73af45ebe1add21a2feb73764cb3e9b48d67f044800e4473365ad7c71b",
+    "research/first-era-poison-replay/focus.cjs": "ba999897a6b87d3e5281278e41cd50741596cfdea29bb2d5bff205414df67523",
+    "research/first-era-poison-replay/pairs.py": "3af116a0ed9627e54fc26526ef232c3e1a753d326c3fbf8e346dfe0ab4024836",
+    "research/first-era-poison-replay/planner.cjs": "690dbc3491fb6b6a8572562b2bd4cb3aa7540b752b7d4f13ea2545271ff79186",
+    "research/first-era-poison-replay/probes.cjs": "23045cd0be18371b308d5fd454c2df060c8d89cf6f60dc07466e96444f2f7a05",
+    "research/first-era-poison-replay/replay.cjs": "1b51e8ce60b8bf5c0a18b54ecad84c42dba1c94d74ab8c0e43c5abf5463e23d1",
+    "research/first-era-poison-replay/report.cjs": "1630d45b6ec4ea5f301ae83eed5b858096b8ad2c3aa33390d3223cc6ea379a7f",
+    "research/first-era-poison-replay/representatives.cjs": "7302c9beeb96ec0b63c38cb8fd75ebbb49ee0cc58bd4416e9994f26f4afe363f",
+    "research/first-era-poison-replay/reproducibility.test.cjs": "041483fd8a8da7582042dd63a76c074cf6f4ad67592e963957c853172104d7e3",
+    "research/first-era-poison-replay/run.cjs": "0ed3cfb3f2de10533ded09b8ad186e4996758f7bb6a0e165e9d42e9d9fc44bb0",
+    "research/first-era-poison-replay/simulator.cjs": "91f00204235160913034371273a342950a2679f635383c53da9d0a4164b8a6e5",
+    "research/first-era-poison-replay/validate.cjs": "0a83a24f23327a7f0c623379a309647095fec5612f5dd1d8e0839e08ffad5d63"
+  },
+  "productionCoreSHA256": {
+    "src/game/battle-engine.js": "553d13e2b38b29a05bbe277ce8750a57a4dbfef8aac2dacbbc8ec387916b820d",
+    "src/game/boss-planner.js": "ec4b88dd6b49cf1f9a391202aa5c161783461b485d1f7d294064460e9368aa80",
+    "src/game/card-data.js": "d03395fe0b08de017ab9cd8f1dcbcf5671b108b76bb524e20fd0991368e0da07",
+    "src/game/card-effects.js": "f0d4865768863085b72fc2551ca5da4f017caa2ac862da62deb79dab4ca53130",
+    "src/game/combat-math.js": "2b3098d6366d1434660bcfee3757dde7477b0d8c71b512fd2a4399915924f41f",
+    "src/game/progression.js": "0d206c0f8f25e4fa6822003c97a5908352e90b7c14fdd8fd1b4fed8de2ef35c6"
+  },
+  "status": "verified-with-reported-diagnostic-discrepancies"
+}
