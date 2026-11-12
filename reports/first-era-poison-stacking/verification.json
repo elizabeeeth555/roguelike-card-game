@@ -3,7 +3,7 @@
   "commands": [
     {
       "command": "node --test research/first-era-poison-stacking/*.test.cjs",
-      "passed": 6,
+      "passed": 11,
       "failed": 0
     },
     {
@@ -29,14 +29,19 @@
       "result": "passed"
     },
     {
-      "command": "node research/first-era-poison-stacking/audit.cjs reports/first-era-poison-stacking /tmp/poison-stacking-audit.json",
-      "result": "passed: 3596 primary/sensitivity/pattern rows +568 initial-turn enumerations, 34 logs,72 prior CSV rows"
+      "command": "node research/first-era-poison-stacking/audit.cjs reports/first-era-poison-stacking /tmp/stacking-log-review-audit.json",
+      "result": "Full read-only audit; execution status recorded in audit.json"
     }
   ],
   "additionalChecks": {
     "manifestVsConditions": true,
     "everyRowConfigSeedPlannerDeck": true,
-    "onlyNewResearchAndReportPaths": true
+    "onlyNewResearchAndReportPaths": true,
+    "representativeCategoryAndCaseMapping": true,
+    "reportAndTurnTableRegeneration": true,
+    "wrongLogSwapRejected": true,
+    "reviewedHead": "ce27009e43dd1ad6bc746502a44b207f885378df",
+    "statisticalResultsUnchanged": "All saved numerical trial files and original runtime modules are compared byte-for-byte to review HEAD in audit.json"
   },
   "notPerformed": [
     "human playtest",

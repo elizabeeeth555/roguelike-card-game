@@ -1,7 +1,161 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "baseMain": "d0c4f72db22fcaa2013140a145745df24f621786",
-  "generatedAt": "2026-11-12T15:30:30.017Z",
+  "reviewedHead": "ce27009e43dd1ad6bc746502a44b207f885378df",
+  "unchangedStatisticalSHA256": {
+    "reports/first-era-poison-stacking/battles.jsonl": "daa573c8a93757c814e92fbd65efba7720e25a3e4d04ca4fa109cb57ba3dd855",
+    "reports/first-era-poison-stacking/opening-search.jsonl": "3b0bb697fdeff3cea1c917735ae18b69886dbcf72149be1ac3f8601285a173f0",
+    "reports/first-era-poison-stacking/manifest.json": "e6f82dece976ced4de26418329d04959c0acfa325d60f77fc919794bf34aaf75",
+    "reports/first-era-poison-stacking/summary.json": "43b3ea5599f8bb5ec8aff493a89650f631ef29cfb30fae7bb21f8183731de2c7",
+    "reports/first-era-poison-stacking/theoretical.json": "2229f43213c7ec133bc99b08287d6fc37a82f53228f4a8a88570d4c2b0e539b8"
+  },
+  "representativeMappings": {
+    "pure-attack-A.json": {
+      "caseId": "000145",
+      "deckId": "pure_attack",
+      "plannerId": "legacy",
+      "label": "pure-attack",
+      "poisonDamage": 0,
+      "damage": 20,
+      "round": 4,
+      "remainingHP": 2,
+      "ultimateTarget": "charge"
+    },
+    "pure-attack-B.json": {
+      "caseId": "000169",
+      "deckId": "pure_attack",
+      "plannerId": "legacy",
+      "label": "pure-attack",
+      "poisonDamage": 0,
+      "damage": 20,
+      "round": 4,
+      "remainingHP": 2,
+      "ultimateTarget": "charge"
+    },
+    "pure-attack-C.json": {
+      "caseId": "000193",
+      "deckId": "pure_attack",
+      "plannerId": "legacy",
+      "label": "pure-attack",
+      "poisonDamage": 0,
+      "damage": 20,
+      "round": 4,
+      "remainingHP": 2,
+      "ultimateTarget": "charge"
+    },
+    "pure-attack-D.json": {
+      "caseId": "000217",
+      "deckId": "pure_attack",
+      "plannerId": "legacy",
+      "label": "pure-attack",
+      "poisonDamage": 0,
+      "damage": 20,
+      "round": 4,
+      "remainingHP": 2,
+      "ultimateTarget": "charge"
+    },
+    "hybrid-win-A.json": {
+      "caseId": "000248",
+      "deckId": "pure_corrosion",
+      "plannerId": "legacy",
+      "label": "hybrid-win",
+      "poisonDamage": 2,
+      "damage": 20,
+      "round": 4,
+      "remainingHP": 2,
+      "ultimateTarget": "follow_up"
+    },
+    "hybrid-win-B.json": {
+      "caseId": "000272",
+      "deckId": "pure_corrosion",
+      "plannerId": "legacy",
+      "label": "hybrid-win",
+      "poisonDamage": 3,
+      "damage": 20,
+      "round": 4,
+      "remainingHP": 2,
+      "ultimateTarget": "follow_up"
+    },
+    "hybrid-win-C.json": {
+      "caseId": "000296",
+      "deckId": "pure_corrosion",
+      "plannerId": "legacy",
+      "label": "hybrid-win",
+      "poisonDamage": 2,
+      "damage": 20,
+      "round": 4,
+      "remainingHP": 2,
+      "ultimateTarget": "follow_up"
+    },
+    "hybrid-win-D.json": {
+      "caseId": "000320",
+      "deckId": "pure_corrosion",
+      "plannerId": "legacy",
+      "label": "hybrid-win",
+      "poisonDamage": 2,
+      "damage": 20,
+      "round": 4,
+      "remainingHP": 2,
+      "ultimateTarget": "follow_up"
+    },
+    "poison-loss-A.json": {
+      "caseId": "000337",
+      "deckId": "previous_poison",
+      "plannerId": "legacy",
+      "label": "poison-loss",
+      "poisonDamage": 4,
+      "damage": 16,
+      "round": 4,
+      "remainingHP": 0,
+      "ultimateTarget": "finisher_slash"
+    },
+    "poison-loss-B.json": {
+      "caseId": "000361",
+      "deckId": "previous_poison",
+      "plannerId": "legacy",
+      "label": "poison-loss",
+      "poisonDamage": 6,
+      "damage": 18,
+      "round": 4,
+      "remainingHP": 0,
+      "ultimateTarget": "finisher_slash"
+    },
+    "poison-loss-C.json": {
+      "caseId": "000385",
+      "deckId": "previous_poison",
+      "plannerId": "legacy",
+      "label": "poison-loss",
+      "poisonDamage": 4,
+      "damage": 16,
+      "round": 4,
+      "remainingHP": 0,
+      "ultimateTarget": "finisher_slash"
+    },
+    "poison-loss-D.json": {
+      "caseId": "000409",
+      "deckId": "previous_poison",
+      "plannerId": "legacy",
+      "label": "poison-loss",
+      "poisonDamage": 4,
+      "damage": 16,
+      "round": 4,
+      "remainingHP": 0,
+      "ultimateTarget": "finisher_slash"
+    },
+    "poison-win-B.json": {
+      "caseId": "002953",
+      "deckId": "blade_defense",
+      "plannerId": "deep",
+      "label": "poison-win",
+      "poisonDamage": 11,
+      "damage": 20,
+      "round": 4,
+      "remainingHP": 5,
+      "ultimateTarget": "barrier"
+    }
+  },
+  "generatedDocumentsVerified": true,
+  "generatedAt": "2026-11-12T15:47:17.957Z",
   "status": "verified",
   "rows": 3596,
   "supplementaryOpeningTrials": 568,
@@ -15,19 +169,21 @@
     "aiMs"
   ],
   "sourceSHA256": {
-    "research/first-era-poison-stacking/README.md": "68e09afcaf5b5f7414c52d13f3e91d1054646771ab8bb5fee4debcfc86ed7016",
-    "research/first-era-poison-stacking/audit.cjs": "cf7fc26d3539778f79fe4fe8edb4bcebceeff817479c4a79bd47b94f791ef98f",
+    "research/first-era-poison-stacking/README.md": "f137bcc3c2574a9b13fba35ccd10cd99da514d16b4b029dd1a5340b24b118394",
+    "research/first-era-poison-stacking/audit.cjs": "40cd4ab005608075e730bea62bfbdc3412f371f60c279c10d949178978b7c6e0",
     "research/first-era-poison-stacking/conditions.cjs": "9390bd4a3039d544913a91aa5a63cb87eb94cf1dc07bcdfdeb01758e0677efb8",
     "research/first-era-poison-stacking/engine.cjs": "012bd582b7cd3ae383a66f80b6d732695e07898271c3589a55751f2a63fb7f90",
-    "research/first-era-poison-stacking/extract.cjs": "f12807f3ba32a59f6cb772df73afa0403c81215675707668b4dede0cc85bfa93",
+    "research/first-era-poison-stacking/extract.cjs": "8b7c951780b42755bd6ac936a9ca2ca6ece94b1e81c281335d8153611ac4510b",
     "research/first-era-poison-stacking/openings.cjs": "9a05abcc276dc792b4e3c4e750c8146e9e371147bb673c51817b64a6286c90af",
     "research/first-era-poison-stacking/patterns.cjs": "152235454f77bcd6fe0d91afe0092d2b8b9bc858361c694938b8c425c0a556f7",
     "research/first-era-poison-stacking/planner.cjs": "fefb3fbe6f8a569a14f775b1bbf94edf8d269e0bc1cfbc0be8bcfd9babc53f2b",
     "research/first-era-poison-stacking/poison-rules.cjs": "71d4b64c736a1a15af2b32a3216cb23917e424f986c4e65769e92af4ffb4aaa4",
     "research/first-era-poison-stacking/poison.test.cjs": "ee0fa0261065eef93dcb6015b23dbbfddf1543380d1217ab95ad000c385b3f5d",
     "research/first-era-poison-stacking/replay.cjs": "1b51e8ce60b8bf5c0a18b54ecad84c42dba1c94d74ab8c0e43c5abf5463e23d1",
-    "research/first-era-poison-stacking/report.cjs": "1fe28ee0a98a7189ad31866a8b93b160932f16eff22dc4442f86b56af4dfa515",
-    "research/first-era-poison-stacking/run.cjs": "284a6e729894488f980f9360fa13803dbee215d273332fa2e6bb74630a81bfad",
+    "research/first-era-poison-stacking/report.cjs": "1c56941aafe604a049c59e5a594abdf1552bf06d1211223ee9c4e0ed1e62fc76",
+    "research/first-era-poison-stacking/representatives.cjs": "fc295552e5c80d512676d11ad421edb0806e29c75edd5f7b7450ef752f6c4331",
+    "research/first-era-poison-stacking/representatives.test.cjs": "3c59b4b123f738c05cd36a8f2fdbfc10d73c12e624b8a6b20907a4e5972dc611",
+    "research/first-era-poison-stacking/run.cjs": "3d077f0a930919aa7b36a623e759f4741ee71cfc9f1c7d959c8fe3eb64b33df4",
     "research/first-era-poison-stacking/simulator.cjs": "ae2790e43e743edcb1d2d6817cc29a53c4ba67e14e19b38221eb07f696ff17d9"
   },
   "protectedSHA256": {
@@ -94,7 +250,7 @@
     "src/game/progression.js": "0d206c0f8f25e4fa6822003c97a5908352e90b7c14fdd8fd1b4fed8de2ef35c6"
   },
   "inputSHA256": {
-    "reports/first-era-poison-stacking/REPORT.md": "4c216a201f5b0b9c32e894ab42da4f785de4b8b673f85b20450bb6e0640a6142",
+    "reports/first-era-poison-stacking/REPORT.md": "1748ba9ea4c2bcaafde23a5a84d85204219f0f1dd80a170e3d072a955b6b3a2c",
     "reports/first-era-poison-stacking/battles.jsonl": "daa573c8a93757c814e92fbd65efba7720e25a3e4d04ca4fa109cb57ba3dd855",
     "reports/first-era-poison-stacking/logs/hybrid-win-A.json": "9a1c2cb577f71232d0a653c920503edaea0274833d36a48d80f11ac838c7e47a",
     "reports/first-era-poison-stacking/logs/hybrid-win-B.json": "54813bbd82fda0d302bcb04361cb4d93b1d66644d746d938015efa0cd92e2f17",
@@ -104,7 +260,7 @@
     "reports/first-era-poison-stacking/logs/poison-loss-B.json": "311055c2b1af72394c2e28400b9230e96e72c143b095ebf461bb18b0d83d14d0",
     "reports/first-era-poison-stacking/logs/poison-loss-C.json": "075bc844f979ad42bfbc82671a9a08d5b8ab40659ff500f0f0147f0ce87ad49c",
     "reports/first-era-poison-stacking/logs/poison-loss-D.json": "e03b63748c080808834fe25242ed50bfc5209459b98cf51c5520d4c039ad1bc6",
-    "reports/first-era-poison-stacking/logs/poison-win-B.json": "49f316d418cb2429b0c2bc95ad59ffd22e83a3866cd35db09a5e78bd23a0830d",
+    "reports/first-era-poison-stacking/logs/poison-win-B.json": "f68d326c80a6674fe87405b59fd5e86b2c3be6a2ec9c08e91a1bab384707566b",
     "reports/first-era-poison-stacking/logs/pure-attack-A.json": "7a3f1c21f0b5b9b0bc7fe0170f6b70b57b2e6c4894c11e6b2cd2d93da4e13d63",
     "reports/first-era-poison-stacking/logs/pure-attack-B.json": "6bf936b43e09bf4e3fa43744c9cf9c559f003cca49527d9f9478acd8090fdadd",
     "reports/first-era-poison-stacking/logs/pure-attack-C.json": "443be6bb3f9a0056cdb32d8c0da0281c15a01eba1c0bea635c6b9fc32722caea",
@@ -132,9 +288,10 @@
     "reports/first-era-poison-stacking/pattern-logs/corrosion_thrust-B.json": "3eb63ebe0ba129898d142907f94049a2a0601c0093b4d904e7f6d91820acf38d",
     "reports/first-era-poison-stacking/pattern-logs/corrosion_thrust-C.json": "6ea403a0693cd9443a8f52c59fe38d74a08a61d4f2e6e521f598ace6355c545a",
     "reports/first-era-poison-stacking/pattern-logs/corrosion_thrust-D.json": "47520fb77493fae76eba438b1758c7ddc4d558e39963197cec0f970a77818525",
-    "reports/first-era-poison-stacking/representative-turns.md": "e7144eef0c80e9d88e51983eab4234910455e36dae2959ed106efec4c67df516",
+    "reports/first-era-poison-stacking/representative-turns.md": "c0003e6d70f777511cb57065e619e6df113ece8d880e7ace77ad966fd1b0cba9",
     "reports/first-era-poison-stacking/summary.json": "43b3ea5599f8bb5ec8aff493a89650f631ef29cfb30fae7bb21f8183731de2c7",
-    "reports/first-era-poison-stacking/theoretical.json": "2229f43213c7ec133bc99b08287d6fc37a82f53228f4a8a88570d4c2b0e539b8"
+    "reports/first-era-poison-stacking/theoretical.json": "2229f43213c7ec133bc99b08287d6fc37a82f53228f4a8a88570d4c2b0e539b8",
+    "reports/first-era-poison-stacking/verification.json": "6af1164276e1ee945f69df8040d861d29b6a4a503cf897e05f3d82d03652a917"
   },
   "notes": [
     "Historical halfTurns discrepancies are recognized, never written back",

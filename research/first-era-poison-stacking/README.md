@@ -44,3 +44,9 @@ legacyの毒評価を保持した比較と、matched（最大6tickの各式の�
 監査のsourceSHA256が最終研究ファイル、protectedSHA256が元研究・全保存データ・戦闘コア、inputSHA256が今回の保存データを識別する。provenanceは監査JSONのSHAと基点を記録する。監査自身を含むcommit SHAの循環は作らず、Gitで確認する。旧halfTurns565件は過去監査に残る。今回のA一致は実行コードとの一致と既存保存値との一致（既知診断差を別記）を分ける。
 
 実機の面白さ・ブラウザ描画・本番切替は今回対象外。採用候補はレビューと人間の試遊を経て別途決定する。
+
+## 代表ログの分類とレビュー修正
+
+代表抽出と毒主軸の定義は`representatives.cjs`で共有する。総与HPダメージが正で、毒継続ダメージが50%以上の勝利をpoison-winとする（6/20は該当しない、10/20は該当）。hybrid-winは毒主軸以外で毒と直接攻撃が寄与する勝利。先頭の該当main行を採用し、他stageを混ぜない。レポートの毒勝利の編成・数値・再演対象は実際の参照ログと行から生成する。
+
+レビューHEAD `ce27009`の誤抽出をcase 002953（blade_defense/deep/B）へ修正。試行JSONL・manifest・summary・理論値、戦闘実行コード・探索条件は変更しない。元のログはGit履歴で確認できる。監査はこの不変性と全代表のcase/category対応、文書の再生成一致を検証する。監査入力ハッシュは循環を避けるためaudit/provenance自身を除外し、verificationを含む。provenanceは監査JSONのSHAを記録する。

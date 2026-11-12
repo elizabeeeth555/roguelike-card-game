@@ -1,5 +1,6 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),B=require('./engine.cjs'),{simulate}=require('./simulator.cjs'),C=require('./conditions.cjs');
+const {selectRepresentatives}=require('./representatives.cjs');
 const {aggregate}=require('../first-era-poison-replay/run.cjs');
 const groupKey=r=>[r.stage,r.deckId,r.mode,r.plannerId,r.variant||'main'].join('/');
 function summarize(rows){const groups=new Map();for(const row of rows){const key=groupKey(row);if(!groups.has(key))groups.set(key,[]);groups.get(key).push(row);}
@@ -26,9 +27,7 @@ function main(){const root=path.resolve(process.argv[2]||'reports/first-era-pois
  fs.writeFileSync(path.join(root,'battles.jsonl'),rows.map(r=>JSON.stringify(r)).join('\n')+'\n');
  fs.writeFileSync(path.join(root,'summary.json'),JSON.stringify(summarize(rows),null,2)+'\n');
  // Every mode × each required actual behavior category, with traces selected from main only.
- const select=new Map();for(const r of rows.filter(r=>r.stage==='main')){
- const labels=[];if(r.winner==='player'&&r.poisonDamage>=6)labels.push('poison-win');if(r.winner==='boss'&&r.poisonApplied)labels.push('poison-loss');if(r.winner==='player'&&r.ultimateTarget==='corrosion')labels.push('corrosion-replay-win');if(r.winner==='player'&&r.poisonDamage>0&&r.damage-r.poisonDamage>=6)labels.push('hybrid-win');if(r.deckId==='pure_attack')labels.push('pure-attack');
- for(const label of labels){const key=label+'-'+r.mode;if(!select.has(key))select.set(key,{...r,label});}}
+ const select=selectRepresentatives(rows);
  for(const r of select.values()){const trace=simulate(C.decks[r.deckId],{...r.options,trace:true});fs.writeFileSync(path.join(root,'logs',r.label+'-'+r.mode+'.json'),JSON.stringify({caseId:r.caseId,label:r.label,...trace})+'\n');}
  console.log('COMPLETE',rows.length,'rows',select.size,'logs');
 }

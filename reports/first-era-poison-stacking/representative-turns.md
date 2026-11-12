@@ -243,33 +243,32 @@ HP/MP/毒は各行動後。毒ダメージと一閃はeventsから記載。全JS
 
 ## logs/poison-win-B.json
 
-[完全ログ](logs/poison-win-B.json)：case 001129、player、R4、毒実ダメージ6。
+[完全ログ](logs/poison-win-B.json)：case 002953、player、R4、毒実ダメージ11。
 
 | R | 行動 | 英雄HP/MP | 王HP/MP | 王の毒残数 | 構え/ゲージ | 毒ダメージ・一閃 |
 |---|---|---|---|---|---|---|
-| 1 | player:dash_slash | 20/1 | 20/3 | 0 | steadfast/3 |  |
-| 1 | player:feint | 20/0 | 20/3 | 0 | steadfast/4 |  |
-| 1 | player:endTurn | 20/0 | 20/3 | 0 | rupture/4 | 一閃阻止 |
-| 1 | boss:battle_spirit | 20/0 | 20/2 | 0 | rupture/4 |  |
-| 1 | boss:feint | 18/0 | 20/1 | 0 | rupture/4 |  |
-| 1 | boss:slash | 16/0 | 20/0 | 0 | rupture/4 |  |
-| 1 | boss:endTurn | 16/3 | 20/0 | 0 | rupture/4 |  |
-| 2 | player:corrosion | 16/2 | 20/0 | 2 | rupture/4 | 付与2 |
-| 2 | player:finisher_slash | 16/1 | 20/0 | 2 | rupture/4 |  |
-| 2 | player:slash | 16/0 | 17/0 | 2 | rupture/4 |  |
-| 2 | player:endTurn | 16/0 | 17/3 | 2 | steadfast/0 |  |
-| 2 | boss:slash | 14/0 | 17/2 | 2 | steadfast/0 |  |
-| 2 | boss:heavy_slash | 10/0 | 17/0 | 2 | steadfast/0 |  |
-| 2 | boss:endTurn | 10/3 | 14/0 | 1 | steadfast/0 | 毒3 |
-| 3 | player:dash_slash | 10/2 | 14/0 | 1 | steadfast/3 |  |
-| 3 | player:feint | 10/1 | 14/0 | 1 | steadfast/4 |  |
-| 3 | player:slash | 10/0 | 12/0 | 1 | steadfast/4 |  |
-| 3 | player:endTurn | 10/0 | 12/3 | 1 | rupture/4 | 一閃阻止 |
-| 3 | boss:feint | 10/0 | 12/2 | 1 | rupture/4 |  |
-| 3 | boss:heavy_slash | 6/0 | 12/0 | 1 | rupture/4 |  |
-| 3 | boss:endTurn | 6/3 | 9/0 | 0 | rupture/4 | 毒3 |
-| 4 | player:finisher_slash | 6/2 | 6/0 | 0 | rupture/4 |  |
-| 4 | player:ultimate | 6/1 | 0/0 | 0 | rupture/4 |  |
+| 1 | player:corrosion | 20/1 | 20/3 | 2 | steadfast/0 | 付与2 |
+| 1 | player:barrier | 20/0 | 20/3 | 2 | steadfast/0 |  |
+| 1 | player:endTurn | 18/0 | 20/3 | 2 | rupture/0 | 一閃発動 |
+| 1 | boss:battle_spirit | 18/0 | 20/2 | 2 | rupture/0 |  |
+| 1 | boss:heavy_slash | 11/0 | 20/0 | 2 | rupture/0 |  |
+| 1 | boss:endTurn | 11/3 | 17/0 | 1 | rupture/0 | 毒3 |
+| 2 | player:finisher_slash | 11/2 | 14/0 | 1 | rupture/0 |  |
+| 2 | player:fortress | 11/0 | 14/0 | 1 | rupture/0 |  |
+| 2 | player:endTurn | 11/0 | 14/3 | 1 | steadfast/0 |  |
+| 2 | boss:slash | 11/0 | 14/2 | 1 | steadfast/0 |  |
+| 2 | boss:heavy_slash | 10/0 | 14/0 | 1 | steadfast/0 |  |
+| 2 | boss:endTurn | 10/3 | 11/0 | 0 | steadfast/0 | 毒3 |
+| 3 | player:corrosion | 10/2 | 11/0 | 2 | steadfast/0 | 付与2 |
+| 3 | player:barrier | 10/1 | 11/0 | 2 | steadfast/0 |  |
+| 3 | player:ultimate | 10/0 | 11/0 | 2 | steadfast/0 |  |
+| 3 | player:endTurn | 10/0 | 11/3 | 2 | rupture/0 | 一閃発動 |
+| 3 | boss:great_swing | 5/0 | 11/0 | 2 | rupture/0 |  |
+| 3 | boss:endTurn | 5/3 | 8/0 | 1 | rupture/0 | 毒3 |
+| 4 | player:fortress | 5/1 | 8/0 | 1 | rupture/0 |  |
+| 4 | player:finisher_slash | 5/0 | 2/0 | 1 | rupture/0 |  |
+| 4 | player:endTurn | 5/0 | 2/3 | 1 | steadfast/0 |  |
+| 4 | boss:endTurn | 5/0 | 0/3 | 0 | steadfast/0 | 毒2 |
 
 ## logs/pure-attack-A.json
 

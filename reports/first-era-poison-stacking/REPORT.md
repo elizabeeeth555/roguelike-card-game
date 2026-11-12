@@ -309,7 +309,7 @@ previous_attack/previous_poisonは前回代表。pure_corrosionはpure_attackの
 
 [行動ごとのHP・MP・毒・構え・一閃](representative-turns.md)から全JSONへ移動できる。
 
-- 毒主軸の勝利：[Bの毒勝利](logs/poison-win-B.json)。新版毒刃・防御・深い探索で毒11ダメージ、R4・HP5。毒を大量に重ねる勝利ではなく固定3の継続型。防御再演が選ばれた。
+- 毒主軸の勝利：[Bの毒勝利](logs/poison-win-B.json)。case 002953、blade_defense（結界／腐蝕／切り込み／堅守／毒刃（新版候補））、探索deep。毒11ダメージ／総与HPダメージ20、R4・残HP5。再演対象は結界。毒を大量に重ねる勝利ではなく固定3の継続型。
 - 毒型の敗北：[Aの敗北](logs/poison-loss-A.json)。死亡ラウンド・王残HP・毒ダメージをJSONで確認可能。
 - 腐蝕＋再演：[Cの固定初手](pattern-logs/corrosion_replay-C.json)。持続4により初回tick4へ伸びるが、MPを全消費して防御・崩しができず、勝利へ結び付くとは限らない。
 - 攻毒混合：[Bの混合勝利](logs/hybrid-win-B.json)。分類名だけでなく実毒量と直接量を参照する。
@@ -331,4 +331,4 @@ MP2では腐蝕＋再演は可能だが同時の防御が困難。AIの毒見込
 
 [研究README](../../research/first-era-poison-stacking/README.md)に実行順と指標定義を記載。[audit.json](audit.json)は保存行の再シミュレーション・集計再構成・ログ再探索/合法再生・旧研究/コアの不変確認を記録する。最終ソースのSHAと入力SHAを保存し、provenanceが監査JSONのSHAを指す。過去565行のhalfTurns差異は既存研究の残件として認識し、旧CSVへ書き戻さない。新データのhalfTurnsは現行simulatorの最終行動者に基づく診断値で、勝率・R集計には用いない。
 
-[verification.json](verification.json)に実行コマンドと結果を保存。新規研究テスト6件・前回研究テスト21件・ルート97件・npm run check・新規CJS構文検査・diffチェックを実行。ブラウザ・人間による実プレイ・CI・別環境での再現は未実施。AI時間は実測で、再シミュレーションとの一致対象外。
+[verification.json](verification.json)に実行コマンドと結果を保存。新規研究テスト11件・前回研究テスト21件・ルート97件・npm run check・新規CJS構文検査・diffチェックを実行。ブラウザ・人間による実プレイ・CI・別環境での再現は未実施。AI時間は実測で、再シミュレーションとの一致対象外。
