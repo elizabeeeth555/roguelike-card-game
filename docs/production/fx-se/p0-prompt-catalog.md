@@ -998,3 +998,7 @@ Generate a very brief subtle cooldown-ready tick, non-intrusive. Keep the main a
 - [Runway](https://runwayml.com/)
 - [Adobe Firefly](https://firefly.adobe.com/)
 - [ElevenLabs Sound Effects](https://elevenlabs.io/sound-effects)
+- [スキル正本](https://github.com/elizabeeeth555/roguelike-card-game/blob/main/docs/features/skills.md)
+- [UI・演出正本](https://github.com/elizabeeeth555/roguelike-card-game/blob/main/docs/features/ui.md)
+
+**注意：** 料金・クレジット・商用利用・透過出力の可否は本書では保証しない。生成物の権利条件は生成時のプランとサービス規約で確認する。GitHubや実装への変更は行っていない。
