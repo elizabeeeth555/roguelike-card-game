@@ -1,15 +1,32 @@
-// Small, provisional appearance boundary, not the Studio JSON schema.
+// Provisional appearance boundary. CSS defaults remain authoritative when keys are omitted.
 export interface BattleDesign { hudBackground?: string; skillBorderColor?: string; skillGap?: number; bossScale?: number }
-const color = (value: unknown) => typeof value === 'string' && /^#(?:[\da-f]{3}|[\da-f]{4}|[\da-f]{6}|[\da-f]{8})$/i.test(value) ? value : undefined;
-const numberIn = (value: unknown, min: number, max: number) => typeof value === 'number' && Number.isFinite(value) && value >= min && value <= max ? value : undefined;
+export const BATTLE_DESIGN_FIELDS = [
+  { key: 'hudBackground', label: 'HUD背景色', kind: 'color', hint: '#RGB / #RGBA / #RRGGBB / #RRGGBBAA' },
+  { key: 'skillBorderColor', label: 'スキル枠線色', kind: 'color', hint: '#RGB / #RGBA / #RRGGBB / #RRGGBBAA' },
+  { key: 'skillGap', label: 'スキル間隔', kind: 'number', min: 0, max: 12, hint: '0〜12px' },
+  { key: 'bossScale', label: 'ボス画像倍率', kind: 'number', min: 0.5, max: 1.25, hint: '0.5〜1.25倍' }
+] as const;
+export type BattleDesignKey = typeof BATTLE_DESIGN_FIELDS[number]['key'];
+export function validateBattleDesign(input: unknown): { design: BattleDesign; invalidKeys: string[] } {
+  if (!input || typeof input !== 'object' || Array.isArray(input)) return { design: {}, invalidKeys: ['設定オブジェクト'] };
+  const data = input as Record<string, unknown>, design: Record<string, string | number> = {};
+  const invalidKeys = Object.keys(data).filter(key => !BATTLE_DESIGN_FIELDS.some(field => field.key === key));
+  for (const field of BATTLE_DESIGN_FIELDS) {
+    if (!Object.hasOwn(data, field.key)) continue;
+    const value = data[field.key];
+    const valid = field.kind === 'color'
+      ? typeof value === 'string' && /^#(?:[\da-f]{3}|[\da-f]{4}|[\da-f]{6}|[\da-f]{8})$/i.test(value)
+      : typeof value === 'number' && Number.isFinite(value) && value >= field.min && value <= field.max;
+    if (valid) design[field.key] = value as string | number;
+    else invalidKeys.push(field.key);
+  }
+  return { design, invalidKeys };
+}
 export function battleDesignStyle(input?: unknown): Record<string, string> {
-  if (!input || typeof input !== 'object' || Array.isArray(input)) return {};
-  const data = input as Record<string, unknown>, style: Record<string, string> = {};
-  const hud = color(data.hudBackground), border = color(data.skillBorderColor);
-  const gap = numberIn(data.skillGap, 0, 12), scale = numberIn(data.bossScale, 0.5, 1.25);
-  if (hud) style['--battle-hud-background'] = hud;
-  if (border) style['--battle-skill-border'] = border;
-  if (gap !== undefined) style['--battle-skill-gap'] = `${gap}px`;
-  if (scale !== undefined) style['--battle-boss-scale'] = String(scale);
+  const { design } = validateBattleDesign(input), style: Record<string, string> = {};
+  if (design.hudBackground) style['--battle-hud-background'] = design.hudBackground;
+  if (design.skillBorderColor) style['--battle-skill-border'] = design.skillBorderColor;
+  if (design.skillGap !== undefined) style['--battle-skill-gap'] = `${design.skillGap}px`;
+  if (design.bossScale !== undefined) style['--battle-boss-scale'] = String(design.bossScale);
   return style;
 }

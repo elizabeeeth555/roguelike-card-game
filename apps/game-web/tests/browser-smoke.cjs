@@ -144,7 +144,7 @@ async function main(){
       fixtures.push({kind,passed});await call('Page.removeScriptToEvaluateOnNewDocument',{identifier:fixture.identifier});
       if(!passed)throw Error('Fixture '+kind);
     }
-    const previewChecks=[],designChecks=[];
+    const previewChecks=[],designChecks=[],studioChecks=[];
     if(process.env.REACT_GAME_BUILD!=='1'){
       // A separate entry: no classic core scripts, host, session or planner needed.
       const previewURL=new URL('dev-preview.html',process.env.REACT_GAME_URL||'http://127.0.0.1:5173/').href;
@@ -168,7 +168,73 @@ async function main(){
           if([1366,390,320].includes(width)){const shot=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});fs.writeFileSync(path.join(out,`preview-${preset==='通常戦闘'?'normal':'special'}-${width}.png`),Buffer.from(shot.data,'base64'));}
           previewChecks.push({width,preset,noCore,...layout});
         }
+        await evaluate("(()=>{const e=document.getElementById('studio-skillGap');e.scrollIntoView({block:'center'});e.focus();e.select();})()");
+        await call('Input.insertText',{text:'8'});await sleep(80);
+        const editorResponsive=await evaluate("({gap:getComputedStyle(document.querySelector('.studio-preview .player-skills')).gap,inside:[...document.querySelectorAll('.studio-panel input')].every(e=>{const r=e.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth}),overflow:document.documentElement.scrollWidth>innerWidth})");
+        if(editorResponsive.gap!=='8px'||!editorResponsive.inside||editorResponsive.overflow)throw Error('Responsive editor '+width+JSON.stringify(editorResponsive));
+        await evaluate("document.querySelector('button[aria-label=スキル間隔を既定に戻す]').click()");await sleep(60);
+        if(!await evaluate("getComputedStyle(document.querySelector('.studio-preview .player-skills')).gap===(innerWidth>1000?'7px':'4px')"))throw Error('Responsive default reset '+width);
+        studioChecks.push({width,responsiveEdit:true,...editorResponsive});
       }
+      // Studio editing, persistence and actual file export/import on the shared view.
+      const downloadDir=fs.mkdtempSync(path.join(out,'studio-download-'));
+      await send('Browser.setDownloadBehavior',{behavior:'allow',downloadPath:downloadDir,eventsEnabled:true});
+      const setInput=async(key,text)=>{
+        await evaluate(`(()=>{const e=document.getElementById('studio-'+${JSON.stringify(key)});e.scrollIntoView({block:'center'});e.focus();e.select();})()`);
+        await call('Input.insertText',{text});await sleep(80);
+      };
+      const designStyle=()=>evaluate("({hud:getComputedStyle(document.querySelector('.studio-preview .battle-hud')).backgroundColor,border:getComputedStyle(document.querySelector('.studio-preview .skill')).borderColor,gap:getComputedStyle(document.querySelector('.studio-preview .player-skills')).gap,scale:getComputedStyle(document.querySelector('.studio-preview .boss-portrait')).transform})");
+      const upload=async(file)=>{
+        const {root:doc}=await call('DOM.getDocument');const {nodeId}=await call('DOM.querySelector',{nodeId:doc.nodeId,selector:'input[type=file]'});
+        await call('DOM.setFileInputFiles',{nodeId,files:[file]});await sleep(150);
+      };
+      for(const width of [1366,390]){
+        await call('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:1,mobile:width<=760});
+        await call('Page.navigate',{url:previewURL});await sleep(250);
+        await clickText('すべて既定に戻す');
+        await evaluate("localStorage.setItem('game-progress','preserved')");
+        const defaults=await designStyle();
+        for(const [key,value] of Object.entries({hudBackground:'#123456',skillBorderColor:'#abcdef',skillGap:'9',bossScale:'0.8'}))await setInput(key,value);
+        const edited=await designStyle();
+        if(edited.hud!=='rgb(18, 52, 86)'||edited.border!=='rgb(171, 205, 239)'||edited.gap!=='9px'||!edited.scale.startsWith('matrix(0.8,'))throw Error('Editor settings '+JSON.stringify(edited));
+        await clickText('特殊状態');if(JSON.stringify(await designStyle())!==JSON.stringify(edited))throw Error('Preset lost design');
+        await call('Page.reload');await sleep(300);
+        if(JSON.stringify(await designStyle())!==JSON.stringify(edited))throw Error('Autosave reload');
+        await setInput('skillGap','99');
+        if(!await evaluate("document.getElementById('studio-skillGap').getAttribute('aria-invalid')==='true'")||JSON.stringify(await designStyle())!==JSON.stringify(edited))throw Error('Invalid edit applied');
+        await clickText('ローカル保存');
+        await clickText('JSONを書き出す');
+        for(let i=0;i<50&&!fs.readdirSync(downloadDir).some(f=>f.endsWith('.json'));i++)await sleep(100);
+        const exported=fs.readdirSync(downloadDir).filter(f=>f.endsWith('.json')).map(f=>path.join(downloadDir,f)).sort((a,b)=>fs.statSync(b).mtimeMs-fs.statSync(a).mtimeMs)[0];
+        if(!exported)throw Error('JSON download missing');
+        const document=JSON.parse(fs.readFileSync(exported,'utf8'));
+        if(document.format!=='throne-studio.battle-design'||document.version!==1||document.settings.skillGap!==9)throw Error('Export envelope');
+        await clickText('すべて既定に戻す');if(JSON.stringify(await designStyle())!==JSON.stringify(defaults))throw Error('Editor reset');
+        await upload(exported);if(JSON.stringify(await designStyle())!==JSON.stringify(edited))throw Error('JSON import roundtrip');
+        await call('Page.reload');await sleep(300);if(JSON.stringify(await designStyle())!==JSON.stringify(edited))throw Error('Imported settings not autosaved');
+        for(const [index,text] of ['{',JSON.stringify({...document,format:'fx-lab'}),JSON.stringify({...document,version:2}),JSON.stringify({...document,settings:{skillGap:99}}),JSON.stringify({...document,settings:{css:'display:none'}})].entries()){
+          const file=path.join(downloadDir,`bad-${width}-${index}.json`);fs.writeFileSync(file,text);await upload(file);
+          if(!await evaluate("!!document.querySelector('[role=alert]')")||JSON.stringify(await designStyle())!==JSON.stringify(edited))throw Error('Invalid import discarded edits');
+        }
+        await evaluate("document.querySelector('button[aria-label=HUD背景色を既定に戻す]').click()");await sleep(80);
+        const individual=await designStyle();if(individual.hud!==defaults.hud||individual.gap!=='9px')throw Error('Per-field reset');
+        // Clear a numeric field, respecting the current responsive CSS default.
+        await setInput('skillGap','');if((await designStyle()).gap!==defaults.gap)throw Error('Responsive CSS default');
+        await clickText('特殊状態');await evaluate("document.activeElement?.blur();document.querySelector('.studio-panel').scrollTop=0;scrollTo(0,0)");
+        const shot=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});fs.writeFileSync(path.join(out,`studio-edit-${width}.png`),Buffer.from(shot.data,'base64'));
+        if(await evaluate("localStorage.getItem('game-progress')")!=='preserved')throw Error('Game save overwritten');
+        studioChecks.push({width,edited,reload:true,jsonRoundtrip:true,invalidImportPreserves:true,individualReset:true,gameSavePreserved:true});
+      }
+      await evaluate("localStorage.setItem('throne-studio.battle-design.v1','{')");await call('Page.reload');await sleep(250);
+      if(!await evaluate("!!document.querySelector('[role=alert]')&&localStorage.getItem('throne-studio.battle-design.v1')==='{'"))throw Error('Corrupt startup document overwritten');
+      await setInput('skillGap','6');if((await designStyle()).gap!=='6px')throw Error('Corrupt storage prevents editing');
+      studioChecks.push({corruptStartupPreserved:true,editingWorks:true});
+      // Storage failures must not block the editor or shared renderer.
+      const blocked=await call('Page.addScriptToEvaluateOnNewDocument',{source:"Object.defineProperty(window,'localStorage',{configurable:true,get(){throw new DOMException('blocked','SecurityError')}})"});
+      await call('Page.navigate',{url:previewURL});await sleep(250);await setInput('skillGap','8');
+      if((await designStyle()).gap!=='8px'||!await evaluate("document.querySelector('[role=alert]').textContent.includes('ローカル保存')"))throw Error('Blocked storage prevents editing');
+      studioChecks.push({storageUnavailable:true,editingWorks:true});
+      await call('Page.removeScriptToEvaluateOnNewDocument',{identifier:blocked.identifier});
       // Mount the very same view in a test-only host; no production debug hook.
       await evaluate("import('/tests/view-browser-harness.tsx')");
       for(const width of [1366,761,760,390,320]){
@@ -210,7 +276,7 @@ async function main(){
         designChecks.push({host:'game',width,defaults,changed,reset});
       }
     }
-    fs.writeFileSync(path.join(out,'react-battle-browser.json'),JSON.stringify({reports,accelerationChecks,fixtures,previewChecks,designChecks,errors},null,2));console.log(JSON.stringify({reports,accelerationChecks,fixtures,previewChecks,designChecks,errors},null,2));
+    fs.writeFileSync(path.join(out,'react-battle-browser.json'),JSON.stringify({reports,accelerationChecks,fixtures,previewChecks,designChecks,studioChecks,errors},null,2));console.log(JSON.stringify({reports,accelerationChecks,fixtures,previewChecks,designChecks,studioChecks,errors},null,2));
     if(errors.length)process.exitCode=1;
     await send('Browser.close');
   }finally{if(ws)ws.close();child.kill();}
