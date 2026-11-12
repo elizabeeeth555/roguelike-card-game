@@ -1,30 +1,39 @@
 {
   "baseMain": "b5ba25d6dfcd292bd08f5245b94b012c276c4074",
   "researchSourceSHA256": {
-    "research/first-era-poison-replay/report.cjs": "1630d45b6ec4ea5f301ae83eed5b858096b8ad2c3aa33390d3223cc6ea379a7f",
+    "research/first-era-poison-replay/README.md": "7e608589310613d4bef061f32636536cea5c0404ebd75e3dad74babdfe516179",
+    "research/first-era-poison-replay/audit.cjs": "406f2d4f2d26ac53f1589e4c9090fcc8f58628f4715e54b52a97ae37970cb847",
+    "research/first-era-poison-replay/audit.test.cjs": "619df6fbe5738bbb25564b15f2d87351ae802f014a0900443b75d078ac7fa151",
     "research/first-era-poison-replay/confirm.cjs": "85701e0df8257d6cfdd7521af640588eded211b42cfcca3bb1ee56a0f8662d6b",
-    "research/first-era-poison-replay/README.md": "fb972a8a4a545961e86c4732ff3166bc94934c47dfc5a8697a62190fd8d19acd",
-    "research/first-era-poison-replay/reproducibility.test.cjs": "041483fd8a8da7582042dd63a76c074cf6f4ad67592e963957c853172104d7e3",
-    "research/first-era-poison-replay/probes.cjs": "23045cd0be18371b308d5fd454c2df060c8d89cf6f60dc07466e96444f2f7a05",
-    "research/first-era-poison-replay/planner.cjs": "690dbc3491fb6b6a8572562b2bd4cb3aa7540b752b7d4f13ea2545271ff79186",
-    "research/first-era-poison-replay/focus.cjs": "ba999897a6b87d3e5281278e41cd50741596cfdea29bb2d5bff205414df67523",
-    "research/first-era-poison-replay/engine.test.cjs": "e8a4ac73af45ebe1add21a2feb73764cb3e9b48d67f044800e4473365ad7c71b",
-    "research/first-era-poison-replay/replay.cjs": "1b51e8ce60b8bf5c0a18b54ecad84c42dba1c94d74ab8c0e43c5abf5463e23d1",
-    "research/first-era-poison-replay/audit.cjs": "3f06b27e09dced416c8be340c48a287cee428a79a0f40e19a7fd428ee9b58fe4",
-    "research/first-era-poison-replay/validate.cjs": "0a83a24f23327a7f0c623379a309647095fec5612f5dd1d8e0839e08ffad5d63",
-    "research/first-era-poison-replay/representatives.cjs": "7302c9beeb96ec0b63c38cb8fd75ebbb49ee0cc58bd4416e9994f26f4afe363f",
-    "research/first-era-poison-replay/pairs.py": "3af116a0ed9627e54fc26526ef232c3e1a753d326c3fbf8e346dfe0ab4024836",
     "research/first-era-poison-replay/counterfactual.cjs": "4535205a5a6981cdd58ab50a5491be6fbd81a5cf8384f892c07d20de00f34dfd",
     "research/first-era-poison-replay/engine.cjs": "a1e021a9c7d93c29547e1fe9f947c564ec4dd0cfdddc63ec967c8a94cc2d90db",
+    "research/first-era-poison-replay/engine.test.cjs": "e8a4ac73af45ebe1add21a2feb73764cb3e9b48d67f044800e4473365ad7c71b",
+    "research/first-era-poison-replay/focus.cjs": "ba999897a6b87d3e5281278e41cd50741596cfdea29bb2d5bff205414df67523",
+    "research/first-era-poison-replay/pairs.py": "3af116a0ed9627e54fc26526ef232c3e1a753d326c3fbf8e346dfe0ab4024836",
+    "research/first-era-poison-replay/planner.cjs": "690dbc3491fb6b6a8572562b2bd4cb3aa7540b752b7d4f13ea2545271ff79186",
+    "research/first-era-poison-replay/probes.cjs": "23045cd0be18371b308d5fd454c2df060c8d89cf6f60dc07466e96444f2f7a05",
+    "research/first-era-poison-replay/replay.cjs": "1b51e8ce60b8bf5c0a18b54ecad84c42dba1c94d74ab8c0e43c5abf5463e23d1",
+    "research/first-era-poison-replay/report.cjs": "1630d45b6ec4ea5f301ae83eed5b858096b8ad2c3aa33390d3223cc6ea379a7f",
+    "research/first-era-poison-replay/representatives.cjs": "7302c9beeb96ec0b63c38cb8fd75ebbb49ee0cc58bd4416e9994f26f4afe363f",
+    "research/first-era-poison-replay/reproducibility.test.cjs": "041483fd8a8da7582042dd63a76c074cf6f4ad67592e963957c853172104d7e3",
+    "research/first-era-poison-replay/run.cjs": "0ed3cfb3f2de10533ded09b8ad186e4996758f7bb6a0e165e9d42e9d9fc44bb0",
     "research/first-era-poison-replay/simulator.cjs": "91f00204235160913034371273a342950a2679f635383c53da9d0a4164b8a6e5",
-    "research/first-era-poison-replay/run.cjs": "0ed3cfb3f2de10533ded09b8ad186e4996758f7bb6a0e165e9d42e9d9fc44bb0"
+    "research/first-era-poison-replay/validate.cjs": "0a83a24f23327a7f0c623379a309647095fec5612f5dd1d8e0839e08ffad5d63"
   },
   "productionCoreSHA256": {
-    "src/game/progression.js": "0d206c0f8f25e4fa6822003c97a5908352e90b7c14fdd8fd1b4fed8de2ef35c6",
+    "src/game/battle-engine.js": "553d13e2b38b29a05bbe277ce8750a57a4dbfef8aac2dacbbc8ec387916b820d",
     "src/game/boss-planner.js": "ec4b88dd6b49cf1f9a391202aa5c161783461b485d1f7d294064460e9368aa80",
-    "src/game/combat-math.js": "2b3098d6366d1434660bcfee3757dde7477b0d8c71b512fd2a4399915924f41f",
     "src/game/card-data.js": "d03395fe0b08de017ab9cd8f1dcbcf5671b108b76bb524e20fd0991368e0da07",
     "src/game/card-effects.js": "f0d4865768863085b72fc2551ca5da4f017caa2ac862da62deb79dab4ca53130",
-    "src/game/battle-engine.js": "553d13e2b38b29a05bbe277ce8750a57a4dbfef8aac2dacbbc8ec387916b820d"
+    "src/game/combat-math.js": "2b3098d6366d1434660bcfee3757dde7477b0d8c71b512fd2a4399915924f41f",
+    "src/game/progression.js": "0d206c0f8f25e4fa6822003c97a5908352e90b7c14fdd8fd1b4fed8de2ef35c6"
+  },
+  "recordVersion": 2,
+  "reviewedHead": "7bfe4e861d8db20ff0f820cd9ff55024b3f8cdea",
+  "sourceIdentity": "Hashes identify the exact current worktree source bytes; the containing commit is assigned after this record is generated.",
+  "verifiedBy": {
+    "path": "reports/first-era-poison-replay/audit-final.json",
+    "sha256": "1e313533c92663b7544d3c577a300c5f62df74e6b0e0a5ed4b7b531b0b41b9de",
+    "status": "verified-with-reported-diagnostic-discrepancies"
   }
 }

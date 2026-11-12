@@ -66,3 +66,20 @@ CSVの`halfTurns`は実際の最終行動者から数えた経過行動フェー
 `representatives.cjs <新規レポートルート>`は保存済みログからターン別の抜粋を生成する。REPORT生成前に実行すると、概要と全行動JSONを行き来できる。
 
 保存JSONは差分量を抑えるため集計1件／構成1件を1行へ整形している。再現対象は数値・データ構造・行動列であり、空白・改行や実測処理時間は含めない。
+
+## R-001：最終コードと監査の照合
+
+`provenance.json`と`audit-final.json`のソースSHA-256は同じ最終ファイル一式を指す。`provenance.verifiedBy.sha256`は最終監査JSON自体を指し、相互ハッシュの循環は作らない。最終commit SHAはGit側で確認する。監査内の`gitWorktreeBase`は記録生成前の基点であり、生成後のcommitを意味しない。
+
+```bash
+# 確認専用。既存CSV・集計・ログ・監査記録には書き込まない。
+node research/first-era-poison-replay/audit.cjs reports/first-era-poison-replay --check
+```
+
+この確認は、現在のソースハッシュを先に照合したうえで、保存17,903行の構成・seed・全条件・探索設定を用いて再計算し、`aiMs`だけを比較対象外とし、他の全保存フィールドを比較する。一閃決着時の保存`halfTurns`に既存の1差異が見つかったため、この値は比較結果をケース別に記録し、無条件の完全一致とは扱わない。勝敗等の他フィールドや未分類の診断差異があれば監査は失敗する。同一条件の重複行は同じ結果を再利用するが、各行は個別照合する。CSVから全集計セクションを再計算し、保存実戦ログ9本を再探索・再生、初手置換の反実仮想1戦と人工状態7例も再生成して照合する。実測時間は再現対象ではなく、過去の計測値を保存したまま集計整合を確認する。
+
+監査を新規ファイルへ出す場合は第3引数に未使用のパスを指定する。例：`node research/first-era-poison-replay/audit.cjs reports/first-era-poison-replay /tmp/r001-audit-new.json`。既存出力の上書きは拒否する。ソース・入力が監査中に変わっても失敗する。研究の実行コード／条件はレビュー対象`7bfe4e8`から変更していないことも照合する。
+
+履歴の位置づけと日時の制約は[診断値・監査記録の説明](../../reports/first-era-poison-replay/metric-note.md)を参照。`audit.json`は補正前、`audit-final-pre-r001.json`はR-001前の監査をそのまま保存した履歴で、現在コードの証明には使用しない。`audit-final.json`がR-001の最終監査。今回CSV・manifest・集計・行動ログは更新しない。過去ハッシュのソース本文が全て保存されていないため、過去版との意味的同値を推測する代わりに最終コードで全件の結果照合を行った。
+
+R-001の監査は一閃決着の`halfTurns`不一致を`verified-with-reported-diagnostic-discrepancies`として明示する。CSVは修正せず、再計算された値と保存値を併記する。元の集計はこの診断値を用いないため、勝率・ラウンド等の分析と診断値の不一致を区別する。
