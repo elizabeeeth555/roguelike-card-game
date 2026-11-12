@@ -1,0 +1,4 @@
+.preview-tools{height:52px;display:flex;align-items:center;gap:8px;padding:4px 8px;font-size:12px}
+.preview-tools button{padding:4px 8px}
+.preview-host .battle-screen{height:calc(100dvh - 52px)}
+@media(max-width:760px){.preview-host .battle-screen{height:auto}}

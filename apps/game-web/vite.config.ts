@@ -19,7 +19,8 @@ export default defineConfig({
     name: 'existing-classic-battle-core',
     transformIndexHtml: {
       order: 'post',
-      handler() {
+      handler(_html, context) {
+        if (context.path === '/dev-preview.html') return [];
         return engineFiles.map(name => ({ tag: 'script', attrs: { src: './engine/' + name }, injectTo: 'body-prepend' as const }));
       }
     },
