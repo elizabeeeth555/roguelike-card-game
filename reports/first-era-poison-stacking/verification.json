@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "commands": [
+    {
+      "command": "node --test research/first-era-poison-stacking/*.test.cjs",
+      "passed": 11,
+      "failed": 0
+    },
+    {
+      "command": "node --test research/first-era-poison-replay/*.test.cjs",
+      "passed": 21,
+      "failed": 0
+    },
+    {
+      "command": "npm test",
+      "passed": 97,
+      "failed": 0
+    },
+    {
+      "command": "npm run check",
+      "result": "all JavaScript syntax checks passed"
+    },
+    {
+      "command": "node --check each new research/*.cjs",
+      "result": "passed"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    },
+    {
+      "command": "node research/first-era-poison-stacking/audit.cjs reports/first-era-poison-stacking /tmp/stacking-log-review-audit.json",
+      "result": "Full read-only audit; execution status recorded in audit.json"
+    }
+  ],
+  "additionalChecks": {
+    "manifestVsConditions": true,
+    "everyRowConfigSeedPlannerDeck": true,
+    "onlyNewResearchAndReportPaths": true,
+    "representativeCategoryAndCaseMapping": true,
+    "reportAndTurnTableRegeneration": true,
+    "wrongLogSwapRejected": true,
+    "reviewedHead": "ce27009e43dd1ad6bc746502a44b207f885378df",
+    "statisticalResultsUnchanged": "All saved numerical trial files and original runtime modules are compared byte-for-byte to review HEAD in audit.json"
+  },
+  "notPerformed": [
+    "human playtest",
+    "browser UI verification",
+    "CI",
+    "full-battle exhaustive optimal search"
+  ]
+}

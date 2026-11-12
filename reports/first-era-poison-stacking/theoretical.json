@@ -1,0 +1,266 @@
+[
+  {
+    "pattern": "corrosion",
+    "mode": "A",
+    "duration": 2,
+    "mana": 1,
+    "ticks": [
+      2,
+      2
+    ],
+    "total": 4,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion",
+    "mode": "B",
+    "duration": 2,
+    "mana": 1,
+    "ticks": [
+      3,
+      3
+    ],
+    "total": 6,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion",
+    "mode": "C",
+    "duration": 2,
+    "mana": 1,
+    "ticks": [
+      2,
+      2
+    ],
+    "total": 4,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion",
+    "mode": "D",
+    "duration": 2,
+    "mana": 1,
+    "ticks": [
+      2,
+      2
+    ],
+    "total": 4,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion_replay",
+    "mode": "A",
+    "duration": 4,
+    "mana": 2,
+    "ultimate": true,
+    "ticks": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "total": 8,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion_replay",
+    "mode": "B",
+    "duration": 4,
+    "mana": 2,
+    "ultimate": true,
+    "ticks": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "total": 12,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion_replay",
+    "mode": "C",
+    "duration": 4,
+    "mana": 2,
+    "ultimate": true,
+    "ticks": [
+      4,
+      3,
+      2,
+      2
+    ],
+    "total": 11,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion_replay",
+    "mode": "D",
+    "duration": 4,
+    "mana": 2,
+    "ultimate": true,
+    "ticks": [
+      4,
+      3,
+      2,
+      2
+    ],
+    "total": 11,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion_thrust",
+    "mode": "A",
+    "duration": 3,
+    "mana": 2,
+    "requiresHP": true,
+    "ticks": [
+      2,
+      2,
+      2
+    ],
+    "total": 6,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion_thrust",
+    "mode": "B",
+    "duration": 3,
+    "mana": 2,
+    "requiresHP": true,
+    "ticks": [
+      3,
+      3,
+      3
+    ],
+    "total": 9,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion_thrust",
+    "mode": "C",
+    "duration": 3,
+    "mana": 2,
+    "requiresHP": true,
+    "ticks": [
+      3,
+      2,
+      2
+    ],
+    "total": 7,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion_thrust",
+    "mode": "D",
+    "duration": 3,
+    "mana": 2,
+    "requiresHP": true,
+    "ticks": [
+      3,
+      2,
+      2
+    ],
+    "total": 7,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion_blade",
+    "mode": "A",
+    "duration": 2,
+    "mana": 2,
+    "bladeCost": 1,
+    "ticks": [
+      2,
+      2
+    ],
+    "total": 4,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion_blade",
+    "mode": "B",
+    "duration": 2,
+    "mana": 2,
+    "bladeCost": 1,
+    "ticks": [
+      3,
+      3
+    ],
+    "total": 6,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion_blade",
+    "mode": "C",
+    "duration": 2,
+    "mana": 2,
+    "bladeCost": 1,
+    "ticks": [
+      2,
+      2
+    ],
+    "total": 4,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion_blade",
+    "mode": "D",
+    "duration": 2,
+    "mana": 2,
+    "bladeCost": 1,
+    "ticks": [
+      2,
+      2
+    ],
+    "total": 4,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion_guard",
+    "mode": "A",
+    "duration": 2,
+    "mana": 2,
+    "ticks": [
+      2,
+      2
+    ],
+    "total": 4,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion_guard",
+    "mode": "B",
+    "duration": 2,
+    "mana": 2,
+    "ticks": [
+      3,
+      3
+    ],
+    "total": 6,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion_guard",
+    "mode": "C",
+    "duration": 2,
+    "mana": 2,
+    "ticks": [
+      2,
+      2
+    ],
+    "total": 4,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  },
+  {
+    "pattern": "corrosion_guard",
+    "mode": "D",
+    "duration": 2,
+    "mana": 2,
+    "ticks": [
+      2,
+      2
+    ],
+    "total": 4,
+    "scope": "Hypothetical full duration with no further application/purge and no early battle end; thrust requires HP passage, which fails in initial steadfast stance"
+  }
+]
