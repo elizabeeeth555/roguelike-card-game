@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "commands": [
+    {
+      "command": "node --test research/first-era-poison-stacking/*.test.cjs",
+      "passed": 6,
+      "failed": 0
+    },
+    {
+      "command": "node --test research/first-era-poison-replay/*.test.cjs",
+      "passed": 21,
+      "failed": 0
+    },
+    {
+      "command": "npm test",
+      "passed": 97,
+      "failed": 0
+    },
+    {
+      "command": "npm run check",
+      "result": "all JavaScript syntax checks passed"
+    },
+    {
+      "command": "node --check each new research/*.cjs",
+      "result": "passed"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    },
+    {
+      "command": "node research/first-era-poison-stacking/audit.cjs reports/first-era-poison-stacking /tmp/poison-stacking-audit.json",
+      "result": "passed: 3596 primary/sensitivity/pattern rows +568 initial-turn enumerations, 34 logs,72 prior CSV rows"
+    }
+  ],
+  "additionalChecks": {
+    "manifestVsConditions": true,
+    "everyRowConfigSeedPlannerDeck": true,
+    "onlyNewResearchAndReportPaths": true
+  },
+  "notPerformed": [
+    "human playtest",
+    "browser UI verification",
+    "CI",
+    "full-battle exhaustive optimal search"
+  ]
+}

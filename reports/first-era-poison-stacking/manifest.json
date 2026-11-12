@@ -1,0 +1,177 @@
+{
+  "baseMain": "d0c4f72db22fcaa2013140a145745df24f621786",
+  "decks": {
+    "previous_attack": [
+      "barrier",
+      "battle_spirit",
+      "feint",
+      "finisher_slash",
+      "heavy_slash"
+    ],
+    "pure_attack": [
+      "slash",
+      "dash_slash",
+      "follow_up",
+      "heavy_slash",
+      "charge"
+    ],
+    "pure_corrosion": [
+      "corrosion",
+      "dash_slash",
+      "follow_up",
+      "heavy_slash",
+      "charge"
+    ],
+    "previous_poison": [
+      "barrier",
+      "corrosion",
+      "finisher_slash",
+      "fortress",
+      "slash"
+    ],
+    "corrosion_replay": [
+      "barrier",
+      "corrosion",
+      "first_aid",
+      "fortress",
+      "heavy_slash"
+    ],
+    "thrust_defense": [
+      "barrier",
+      "corrosion",
+      "fortress",
+      "r_poison_thrust",
+      "slash"
+    ],
+    "blade_defense": [
+      "barrier",
+      "corrosion",
+      "finisher_slash",
+      "fortress",
+      "r_venom_blade"
+    ],
+    "poison_stack": [
+      "barrier",
+      "corrosion",
+      "first_aid",
+      "fortress",
+      "plague"
+    ],
+    "hybrid": [
+      "battle_spirit",
+      "corrosion",
+      "feint",
+      "heavy_slash",
+      "slash"
+    ],
+    "thrust_hybrid": [
+      "corrosion",
+      "feint",
+      "heavy_slash",
+      "r_poison_thrust",
+      "slash"
+    ],
+    "release": [
+      "barrier",
+      "corrosion",
+      "fortress",
+      "plague",
+      "r_poison_release"
+    ],
+    "minimum_poison": [
+      "corrosion",
+      "dash_slash",
+      "feint",
+      "finisher_slash",
+      "slash"
+    ]
+  },
+  "config": {
+    "openingMP": 2,
+    "ultCost": 1,
+    "bladeCost": 1,
+    "bladeCD": 1,
+    "bladeRounding": "floor",
+    "bladeConsume": 0,
+    "bladeNeedsPoison": true
+  },
+  "planners": {
+    "legacy": {},
+    "matched": {
+      "poisonModel": "matched"
+    },
+    "deep": {
+      "poisonModel": "matched",
+      "width": 18,
+      "budget": 1800,
+      "candidates": 8,
+      "replyBudget": 600
+    }
+  },
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "stages": {
+    "screen": "12 fixed representative decks ×4 modes ×seed1, legacy",
+    "main": "same12 ×4 ×3 planners ×24 seeds",
+    "sensitivity": "two blade decks/settings; MP/ultimate unchanged"
+  },
+  "notes": [
+    "All actual boss decisions use original legacy planner options {}",
+    "Seed controls existing tie selection only",
+    "No population win-rate inference",
+    "New halfTurns uses actual final actor; archived 565 rows untouched"
+  ],
+  "patterns": {
+    "corrosion": [
+      "corrosion"
+    ],
+    "corrosion_replay": [
+      "corrosion",
+      "@ultimate"
+    ],
+    "corrosion_thrust": [
+      "corrosion",
+      "r_poison_thrust"
+    ],
+    "corrosion_blade": [
+      "corrosion",
+      "r_venom_blade"
+    ],
+    "corrosion_guard": [
+      "corrosion",
+      "barrier"
+    ]
+  },
+  "patternDecks": {
+    "corrosion": "previous_poison",
+    "corrosion_replay": "previous_poison",
+    "corrosion_thrust": "thrust_defense",
+    "corrosion_blade": "blade_defense",
+    "corrosion_guard": "previous_poison"
+  },
+  "cases": 3596
+}
