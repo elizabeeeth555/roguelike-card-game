@@ -44,10 +44,11 @@ test('shared view dependency graph cannot import game hosts or core; both entrie
  function visit(file){if(visited.has(file))return;visited.add(file);const text=fs.readFileSync(file,'utf8');
   assert.doesNotMatch(text,/GameBattle|GamePlanner|createBattleSession|from ['"].*(?:battle-adapter|battle-session|battle-presentation|BattleScreen)/);
   for(const match of text.matchAll(/(?:import|export)\s+(?!type\b)[^;]*?from\s+['"](\.[^'"]+)['"]/g)){
-   const base=path.resolve(path.dirname(file),match[1]);const next=['.ts','.tsx'].map(ext=>base+ext).find(fs.existsSync);if(next)visit(next);
+   const base=path.resolve(path.dirname(file),match[1]);const next=[base,...['.ts','.tsx'].map(ext=>base+ext)].find(file=>fs.existsSync(file)&&fs.statSync(file).isFile());if(next)visit(next);
   }
  }
  visit(path.join(src,'BattleView.tsx'));visit(path.join(src,'preview-main.tsx'));
  assert.match(fs.readFileSync(path.join(src,'BattleScreen.tsx'),'utf8'),/<BattleView\b/);
- assert.match(fs.readFileSync(path.join(src,'preview-main.tsx'),'utf8'),/<BattleView\b/);
+ assert.match(fs.readFileSync(path.join(src,'preview-main.tsx'),'utf8'),/<StudioScreen\b/);
+ assert.match(fs.readFileSync(path.join(src,'studio/StudioScreen.tsx'),'utf8'),/<BattleView\b/);
 });
