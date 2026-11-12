@@ -1,0 +1,2540 @@
+{
+  "caseId": "c001105",
+  "result": {
+    "seed": 1,
+    "deck": [
+      "battle_spirit",
+      "feint",
+      "plague",
+      "r_poison_release",
+      "slash"
+    ],
+    "config": {
+      "openingMP": 3,
+      "ultCost": 1,
+      "ultimate": true,
+      "bladeCost": 2,
+      "bladeCD": 1,
+      "bladeRounding": "floor",
+      "bladeConsume": 0,
+      "bladeNeedsPoison": true,
+      "bladeConsumeTiming": "after",
+      "releaseCost": 3,
+      "releaseCD": 2,
+      "endOrder": "poison-first",
+      "replayHistory": true,
+      "neutral": false
+    },
+    "winner": "boss",
+    "cause": "attack",
+    "round": 4,
+    "remainingHP": 0,
+    "bossHP": 6,
+    "actionHash": "264c1cae6f365fa3",
+    "damage": 14,
+    "taken": 20,
+    "poisonDamage": 4,
+    "releaseDamage": 7,
+    "bladeDamage": 0,
+    "ultimateDamage": 0,
+    "ultimatePoison": 3,
+    "poisonApplied": 6,
+    "maxPoison": 6,
+    "barrier": 0,
+    "blocked": 0,
+    "wastedBarrier": 0,
+    "healed": 0,
+    "breaks": 1,
+    "breakAttempts": 3,
+    "flashes": 1,
+    "prevented": 1,
+    "accelerations": 1,
+    "spentMana": 13,
+    "ultimateUsed": 1,
+    "ultimateRound": 2,
+    "ultimateTarget": "plague",
+    "attackActions": 4,
+    "defenseActions": 0,
+    "healActions": 0,
+    "buffActions": 4,
+    "cdWaitTurns": 3,
+    "halfTurns": 8,
+    "skillUses": {
+      "battle_spirit": 2,
+      "feint": 2,
+      "slash": 1,
+      "plague": 1,
+      "r_poison_release": 1
+    },
+    "aiNodes": 1086,
+    "aiLimited": 0,
+    "aiCalls": 8,
+    "aiMs": 16.127531000005547
+  },
+  "initial": {
+    "schemaVersion": 2,
+    "ruleset": "first-era-poison-replay-research-v1",
+    "round": 1,
+    "firstSide": "player",
+    "active": "player",
+    "bossPresetId": "boss_knight_defense",
+    "playerCharacterId": "01_black_swordsman",
+    "bossCharacterId": "02_heavy_knight",
+    "actors": {
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {},
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 0,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {},
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      }
+    },
+    "end": null,
+    "c": {
+      "openingMP": 3,
+      "ultCost": 1,
+      "ultimate": true,
+      "bladeCost": 2,
+      "bladeCD": 1,
+      "bladeRounding": "floor",
+      "bladeConsume": 0,
+      "bladeNeedsPoison": true,
+      "bladeConsumeTiming": "after",
+      "releaseCost": 3,
+      "releaseCD": 2,
+      "endOrder": "poison-first",
+      "replayHistory": true,
+      "neutral": false
+    },
+    "old": {
+      "stance": "steadfast",
+      "gauge": 0,
+      "broken": false
+    },
+    "hero": {
+      "available": true,
+      "last": null
+    }
+  },
+  "log": [
+    {
+      "round": 1,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "battle_spirit"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "battle_spirit",
+          "cost": 1
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 2,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit"
+        ],
+        "readyOn": {
+          "battle_spirit": 4
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 3,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 0,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {},
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": true,
+        "last": "battle_spirit"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 1,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "feint"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "feint",
+          "cost": 1
+        },
+        {
+          "type": "breakDamage",
+          "amount": 4,
+          "raw": 4
+        },
+        {
+          "type": "stanceBreak"
+        },
+        {
+          "type": "damage",
+          "source": "player",
+          "target": "boss",
+          "id": "feint",
+          "replay": false,
+          "raw": 4,
+          "amount": 1,
+          "blocked": 0,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 1,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "feint"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3
+        },
+        "attacks": [
+          "feint"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 19,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 0,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {},
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 4,
+        "broken": true
+      },
+      "hero": {
+        "available": true,
+        "last": "feint"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 1,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "slash"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "slash",
+          "cost": 1
+        },
+        {
+          "type": "damage",
+          "source": "player",
+          "target": "boss",
+          "id": "slash",
+          "replay": false,
+          "raw": 2,
+          "amount": 2,
+          "blocked": 0,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "feint",
+          "slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2
+        },
+        "attacks": [
+          "feint",
+          "slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 17,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 0,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {},
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 4,
+        "broken": true
+      },
+      "hero": {
+        "available": true,
+        "last": "slash"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 1,
+      "action": {
+        "type": "endTurn",
+        "side": "player"
+      },
+      "events": [
+        {
+          "type": "flashPrevented"
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "feint",
+          "slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2
+        },
+        "attacks": [
+          "feint",
+          "slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 17,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {},
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 4,
+        "broken": true
+      },
+      "hero": {
+        "available": true,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 1,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "battle_spirit"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "battle_spirit",
+          "cost": 1
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 20,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "feint",
+          "slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2
+        },
+        "attacks": [
+          "feint",
+          "slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 17,
+        "maxHp": 20,
+        "mana": 2,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit"
+        ],
+        "readyOn": {
+          "battle_spirit": 4
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 3,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 4,
+        "broken": true
+      },
+      "hero": {
+        "available": true,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 1,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "feint"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "feint",
+          "cost": 1
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "feint",
+          "replay": false,
+          "raw": 2,
+          "amount": 2,
+          "blocked": 0,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 18,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "feint",
+          "slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2
+        },
+        "attacks": [
+          "feint",
+          "slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 17,
+        "maxHp": 20,
+        "mana": 1,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "feint"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3
+        },
+        "attacks": [
+          "feint"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 4,
+        "broken": true
+      },
+      "hero": {
+        "available": true,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 1,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "slash",
+          "cost": 1
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "slash",
+          "replay": false,
+          "raw": 2,
+          "amount": 2,
+          "blocked": 0,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 16,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "feint",
+          "slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2
+        },
+        "attacks": [
+          "feint",
+          "slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 17,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "feint",
+          "slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2
+        },
+        "attacks": [
+          "feint",
+          "slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 4,
+        "broken": true
+      },
+      "hero": {
+        "available": true,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 1,
+      "action": {
+        "type": "endTurn",
+        "side": "boss"
+      },
+      "events": [],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 16,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 17,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "feint",
+          "slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2
+        },
+        "attacks": [
+          "feint",
+          "slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 4,
+        "broken": true
+      },
+      "hero": {
+        "available": true,
+        "last": null
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 2,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "plague"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "plague",
+          "cost": 2
+        },
+        {
+          "type": "poisonApplied",
+          "side": "player",
+          "target": "boss",
+          "amount": 3,
+          "remaining": 3,
+          "id": "plague",
+          "replay": false
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 16,
+        "maxHp": 20,
+        "mana": 1,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "plague"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2,
+          "plague": 4
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 17,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "feint",
+          "slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2
+        },
+        "attacks": [
+          "feint",
+          "slash"
+        ],
+        "barrier": 0,
+        "poison": 3,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 4,
+        "broken": true
+      },
+      "hero": {
+        "available": true,
+        "last": "plague"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 2,
+      "action": {
+        "type": "ultimate",
+        "side": "player"
+      },
+      "events": [
+        {
+          "type": "ultimate",
+          "side": "player",
+          "id": "plague",
+          "cost": 1
+        },
+        {
+          "type": "poisonApplied",
+          "side": "player",
+          "target": "boss",
+          "amount": 3,
+          "remaining": 6,
+          "id": "plague",
+          "replay": true
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 16,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "plague"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2,
+          "plague": 4
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 17,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 1,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "feint",
+          "slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2
+        },
+        "attacks": [
+          "feint",
+          "slash"
+        ],
+        "barrier": 0,
+        "poison": 6,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 4,
+        "broken": true
+      },
+      "hero": {
+        "available": false,
+        "last": "plague"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 2,
+      "action": {
+        "type": "endTurn",
+        "side": "player"
+      },
+      "events": [
+        {
+          "type": "stanceReset"
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 16,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "plague"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2,
+          "plague": 4
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 17,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 6,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 2,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "slash"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "slash",
+          "cost": 1
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "slash",
+          "replay": false,
+          "raw": 2,
+          "amount": 2,
+          "blocked": 0,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 14,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "plague"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2,
+          "plague": 4
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 17,
+        "maxHp": 20,
+        "mana": 2,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 3
+        },
+        "attacks": [
+          "slash"
+        ],
+        "barrier": 0,
+        "poison": 6,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 2,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "heavy_slash",
+          "cost": 2
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "heavy_slash",
+          "replay": false,
+          "raw": 4,
+          "amount": 4,
+          "blocked": 0,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 10,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "plague"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2,
+          "plague": 4
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 17,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "slash",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 3,
+          "heavy_slash": 3
+        },
+        "attacks": [
+          "slash",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 6,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 2,
+      "action": {
+        "type": "endTurn",
+        "side": "boss"
+      },
+      "events": [
+        {
+          "type": "damage",
+          "source": "player",
+          "target": "boss",
+          "kind": "poison",
+          "amount": 2,
+          "remaining": 5
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 10,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2,
+          "plague": 4
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 15,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "slash",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 3,
+          "heavy_slash": 3
+        },
+        "attacks": [
+          "slash",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 5,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 3,
+      "action": {
+        "type": "accelerate",
+        "side": "player"
+      },
+      "events": [
+        {
+          "type": "accelerate",
+          "side": "player",
+          "cost": 2
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 10,
+        "maxHp": 20,
+        "mana": 1,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": true,
+        "accelerated": true,
+        "used": [],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 2,
+          "plague": 4
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 15,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "slash",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 3,
+          "heavy_slash": 3
+        },
+        "attacks": [
+          "slash",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 5,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 3,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "feint"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "feint",
+          "cost": 1
+        },
+        {
+          "type": "breakDamage",
+          "amount": 0,
+          "raw": 0
+        },
+        {
+          "type": "damage",
+          "source": "player",
+          "target": "boss",
+          "id": "feint",
+          "replay": false,
+          "raw": 0,
+          "amount": 0,
+          "blocked": 0,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 10,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": true,
+        "accelerated": true,
+        "used": [
+          "feint"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 2,
+          "plague": 4
+        },
+        "attacks": [
+          "feint"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 15,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 2,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "slash",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 3,
+          "heavy_slash": 3
+        },
+        "attacks": [
+          "slash",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 5,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": "feint"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 3,
+      "action": {
+        "type": "endTurn",
+        "side": "player"
+      },
+      "events": [
+        {
+          "type": "flashTriggered"
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "@flash",
+          "replay": false,
+          "raw": 3,
+          "amount": 3,
+          "blocked": 0,
+          "kind": "flash"
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 7,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": true,
+        "accelerated": true,
+        "used": [
+          "feint"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 2,
+          "plague": 4
+        },
+        "attacks": [
+          "feint"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 15,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 3,
+          "slash": 3,
+          "heavy_slash": 3
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 5,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 3,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "feint"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "feint",
+          "cost": 1
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "feint",
+          "replay": false,
+          "raw": 1,
+          "amount": 1,
+          "blocked": 0,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 6,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": true,
+        "accelerated": true,
+        "used": [
+          "feint"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 2,
+          "plague": 4
+        },
+        "attacks": [
+          "feint"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 15,
+        "maxHp": 20,
+        "mana": 2,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "feint"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 3
+        },
+        "attacks": [
+          "feint"
+        ],
+        "barrier": 0,
+        "poison": 5,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 3,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "heavy_slash",
+          "cost": 2
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "heavy_slash",
+          "replay": false,
+          "raw": 4,
+          "amount": 4,
+          "blocked": 0,
+          "kind": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 2,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": true,
+        "accelerated": true,
+        "used": [
+          "feint"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 2,
+          "plague": 4
+        },
+        "attacks": [
+          "feint"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 15,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "feint",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 4
+        },
+        "attacks": [
+          "feint",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 5,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 3,
+      "action": {
+        "type": "endTurn",
+        "side": "boss"
+      },
+      "events": [
+        {
+          "type": "damage",
+          "source": "player",
+          "target": "boss",
+          "kind": "poison",
+          "amount": 2,
+          "remaining": 4
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 2,
+        "maxHp": 20,
+        "mana": 4,
+        "manaCap": 4,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 2,
+          "plague": 4
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 13,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "feint",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 4
+        },
+        "attacks": [
+          "feint",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 4,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 4,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "battle_spirit"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "battle_spirit",
+          "cost": 1
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 2,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 4,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit"
+        ],
+        "readyOn": {
+          "battle_spirit": 7,
+          "feint": 5,
+          "slash": 2,
+          "plague": 4
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 2,
+        "manaPenalty": 0,
+        "attackBonus": 3,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 13,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "feint",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 4
+        },
+        "attacks": [
+          "feint",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 4,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": "battle_spirit"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 4,
+      "action": {
+        "type": "card",
+        "side": "player",
+        "id": "r_poison_release"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "r_poison_release",
+          "cost": 3
+        },
+        {
+          "type": "damage",
+          "source": "player",
+          "target": "boss",
+          "id": "r_poison_release",
+          "replay": false,
+          "raw": 5,
+          "amount": 7,
+          "blocked": 0,
+          "kind": "attack"
+        },
+        {
+          "type": "poisonPurged",
+          "remaining": 4
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 2,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 4,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "r_poison_release"
+        ],
+        "readyOn": {
+          "battle_spirit": 7,
+          "feint": 5,
+          "slash": 2,
+          "plague": 4,
+          "r_poison_release": 7
+        },
+        "attacks": [
+          "r_poison_release"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 6,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 3,
+        "ownTurn": 3,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "feint",
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 4
+        },
+        "attacks": [
+          "feint",
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "rupture",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": "r_poison_release"
+      },
+      "active": "player",
+      "end": null
+    },
+    {
+      "round": 4,
+      "action": {
+        "type": "endTurn",
+        "side": "player"
+      },
+      "events": [
+        {
+          "type": "stanceReset"
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 2,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 4,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "r_poison_release"
+        ],
+        "readyOn": {
+          "battle_spirit": 7,
+          "feint": 5,
+          "slash": 2,
+          "plague": 4,
+          "r_poison_release": 7
+        },
+        "attacks": [
+          "r_poison_release"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 6,
+        "maxHp": 20,
+        "mana": 3,
+        "manaCap": 3,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 4
+        },
+        "attacks": [],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": null
+    },
+    {
+      "round": 4,
+      "action": {
+        "type": "card",
+        "side": "boss",
+        "id": "heavy_slash"
+      },
+      "events": [
+        {
+          "type": "card",
+          "side": "boss",
+          "id": "heavy_slash",
+          "cost": 2
+        },
+        {
+          "type": "damage",
+          "source": "boss",
+          "target": "player",
+          "id": "heavy_slash",
+          "replay": false,
+          "raw": 4,
+          "amount": 2,
+          "blocked": 0,
+          "kind": "attack"
+        },
+        {
+          "type": "finish",
+          "winner": "boss",
+          "cause": "attack"
+        }
+      ],
+      "player": {
+        "deck": [
+          "battle_spirit",
+          "feint",
+          "plague",
+          "r_poison_release",
+          "slash"
+        ],
+        "hp": 0,
+        "maxHp": 20,
+        "mana": 0,
+        "manaCap": 4,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "battle_spirit",
+          "r_poison_release"
+        ],
+        "readyOn": {
+          "battle_spirit": 7,
+          "feint": 5,
+          "slash": 2,
+          "plague": 4,
+          "r_poison_release": 7
+        },
+        "attacks": [
+          "r_poison_release"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "boss": {
+        "deck": [
+          "slash",
+          "heavy_slash",
+          "great_swing",
+          "feint",
+          "battle_spirit"
+        ],
+        "hp": 6,
+        "maxHp": 20,
+        "mana": 1,
+        "manaCap": 3,
+        "ownTurn": 4,
+        "accelerationPending": false,
+        "accelerated": false,
+        "used": [
+          "heavy_slash"
+        ],
+        "readyOn": {
+          "battle_spirit": 4,
+          "feint": 5,
+          "slash": 3,
+          "heavy_slash": 5
+        },
+        "attacks": [
+          "heavy_slash"
+        ],
+        "barrier": 0,
+        "poison": 0,
+        "weak": 0,
+        "manaPenalty": 0,
+        "attackBonus": 0,
+        "setupBonus": 0
+      },
+      "old": {
+        "stance": "steadfast",
+        "gauge": 0,
+        "broken": false
+      },
+      "hero": {
+        "available": false,
+        "last": null
+      },
+      "active": "boss",
+      "end": "boss"
+    }
+  ]
+}

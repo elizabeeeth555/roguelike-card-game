@@ -1,0 +1,1360 @@
+[
+  {
+    "name": "double-buff-current-state",
+    "artificialState": true,
+    "config": {
+      "openingMP": 2,
+      "ultCost": 1,
+      "ultimate": true,
+      "bladeCost": 2,
+      "bladeCD": 1,
+      "bladeRounding": "floor",
+      "bladeConsume": 0,
+      "bladeNeedsPoison": true,
+      "bladeConsumeTiming": "after",
+      "releaseCost": 3,
+      "releaseCD": 2,
+      "endOrder": "poison-first",
+      "replayHistory": true,
+      "neutral": false
+    },
+    "steps": [
+      {
+        "action": {
+          "type": "card",
+          "side": "player",
+          "id": "battle_spirit"
+        },
+        "before": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 100,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 5,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "events": [
+          {
+            "type": "card",
+            "side": "player",
+            "id": "battle_spirit",
+            "cost": 1
+          }
+        ],
+        "after": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 100,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 5,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "mana": 4
+      },
+      {
+        "action": {
+          "type": "ultimate",
+          "side": "player"
+        },
+        "before": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 100,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 5,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "events": [
+          {
+            "type": "ultimate",
+            "side": "player",
+            "id": "battle_spirit",
+            "cost": 1
+          }
+        ],
+        "after": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 100,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 5,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "mana": 3
+      },
+      {
+        "action": {
+          "type": "card",
+          "side": "player",
+          "id": "slash"
+        },
+        "before": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 100,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 5,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "events": [
+          {
+            "type": "card",
+            "side": "player",
+            "id": "slash",
+            "cost": 1
+          },
+          {
+            "type": "damage",
+            "source": "player",
+            "target": "boss",
+            "id": "slash",
+            "replay": false,
+            "raw": 8,
+            "amount": 12,
+            "blocked": 0,
+            "kind": "attack"
+          }
+        ],
+        "after": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 88,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 5,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "mana": 2
+      }
+    ]
+  },
+  {
+    "name": "attack-buff-is-not-copied",
+    "artificialState": true,
+    "config": {
+      "openingMP": 2,
+      "ultCost": 1,
+      "ultimate": true,
+      "bladeCost": 2,
+      "bladeCD": 1,
+      "bladeRounding": "floor",
+      "bladeConsume": 0,
+      "bladeNeedsPoison": true,
+      "bladeConsumeTiming": "after",
+      "releaseCost": 3,
+      "releaseCD": 2,
+      "endOrder": "poison-first",
+      "replayHistory": true,
+      "neutral": false
+    },
+    "steps": [
+      {
+        "action": {
+          "type": "card",
+          "side": "player",
+          "id": "battle_spirit"
+        },
+        "before": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 100,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 5,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "events": [
+          {
+            "type": "card",
+            "side": "player",
+            "id": "battle_spirit",
+            "cost": 1
+          }
+        ],
+        "after": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 100,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 5,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "mana": 4
+      },
+      {
+        "action": {
+          "type": "card",
+          "side": "player",
+          "id": "slash"
+        },
+        "before": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 100,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 5,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "events": [
+          {
+            "type": "card",
+            "side": "player",
+            "id": "slash",
+            "cost": 1
+          },
+          {
+            "type": "damage",
+            "source": "player",
+            "target": "boss",
+            "id": "slash",
+            "replay": false,
+            "raw": 5,
+            "amount": 7,
+            "blocked": 0,
+            "kind": "attack"
+          }
+        ],
+        "after": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 93,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 5,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "mana": 3
+      },
+      {
+        "action": {
+          "type": "ultimate",
+          "side": "player"
+        },
+        "before": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 93,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 5,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "events": [
+          {
+            "type": "ultimate",
+            "side": "player",
+            "id": "slash",
+            "cost": 1
+          },
+          {
+            "type": "damage",
+            "source": "player",
+            "target": "boss",
+            "id": "slash",
+            "replay": true,
+            "raw": 2,
+            "amount": 3,
+            "blocked": 0,
+            "kind": "attack"
+          }
+        ],
+        "after": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 90,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 5,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "mana": 2
+      }
+    ]
+  },
+  {
+    "name": "release-then-replay-zero",
+    "artificialState": true,
+    "config": {
+      "openingMP": 2,
+      "ultCost": 1,
+      "ultimate": true,
+      "bladeCost": 2,
+      "bladeCD": 1,
+      "bladeRounding": "floor",
+      "bladeConsume": 0,
+      "bladeNeedsPoison": true,
+      "bladeConsumeTiming": "after",
+      "releaseCost": 3,
+      "releaseCD": 2,
+      "endOrder": "poison-first",
+      "replayHistory": true,
+      "neutral": false
+    },
+    "steps": [
+      {
+        "action": {
+          "type": "card",
+          "side": "player",
+          "id": "r_poison_release"
+        },
+        "before": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 100,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 6,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "events": [
+          {
+            "type": "card",
+            "side": "player",
+            "id": "r_poison_release",
+            "cost": 3
+          },
+          {
+            "type": "damage",
+            "source": "player",
+            "target": "boss",
+            "id": "r_poison_release",
+            "replay": false,
+            "raw": 6,
+            "amount": 9,
+            "blocked": 0,
+            "kind": "attack"
+          },
+          {
+            "type": "poisonPurged",
+            "remaining": 6
+          }
+        ],
+        "after": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 91,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "mana": 2
+      },
+      {
+        "action": {
+          "type": "ultimate",
+          "side": "player"
+        },
+        "before": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 91,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "events": [
+          {
+            "type": "ultimate",
+            "side": "player",
+            "id": "r_poison_release",
+            "cost": 1
+          },
+          {
+            "type": "damage",
+            "source": "player",
+            "target": "boss",
+            "id": "r_poison_release",
+            "replay": true,
+            "raw": 0,
+            "amount": 0,
+            "blocked": 0,
+            "kind": "attack"
+          },
+          {
+            "type": "poisonPurged",
+            "remaining": 0
+          }
+        ],
+        "after": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 91,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "mana": 1
+      }
+    ]
+  },
+  {
+    "name": "blade-floor-consume-current-state",
+    "artificialState": true,
+    "config": {
+      "openingMP": 2,
+      "ultCost": 1,
+      "ultimate": true,
+      "bladeCost": 1,
+      "bladeCD": 1,
+      "bladeRounding": "floor",
+      "bladeConsume": 1,
+      "bladeNeedsPoison": true,
+      "bladeConsumeTiming": "after",
+      "releaseCost": 3,
+      "releaseCD": 2,
+      "endOrder": "poison-first",
+      "replayHistory": true,
+      "neutral": false
+    },
+    "steps": [
+      {
+        "action": {
+          "type": "card",
+          "side": "player",
+          "id": "r_venom_blade"
+        },
+        "before": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 100,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 5,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "events": [
+          {
+            "type": "card",
+            "side": "player",
+            "id": "r_venom_blade",
+            "cost": 1
+          },
+          {
+            "type": "damage",
+            "source": "player",
+            "target": "boss",
+            "id": "r_venom_blade",
+            "replay": false,
+            "raw": 3,
+            "amount": 4,
+            "blocked": 0,
+            "kind": "attack"
+          }
+        ],
+        "after": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 96,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 4,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "mana": 4
+      },
+      {
+        "action": {
+          "type": "ultimate",
+          "side": "player"
+        },
+        "before": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 96,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 4,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "events": [
+          {
+            "type": "ultimate",
+            "side": "player",
+            "id": "r_venom_blade",
+            "cost": 1
+          },
+          {
+            "type": "damage",
+            "source": "player",
+            "target": "boss",
+            "id": "r_venom_blade",
+            "replay": true,
+            "raw": 3,
+            "amount": 4,
+            "blocked": 0,
+            "kind": "attack"
+          }
+        ],
+        "after": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 92,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 3,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "mana": 3
+      }
+    ]
+  },
+  {
+    "name": "blade-ceil-consume-current-state",
+    "artificialState": true,
+    "config": {
+      "openingMP": 2,
+      "ultCost": 1,
+      "ultimate": true,
+      "bladeCost": 1,
+      "bladeCD": 1,
+      "bladeRounding": "ceil",
+      "bladeConsume": 1,
+      "bladeNeedsPoison": true,
+      "bladeConsumeTiming": "after",
+      "releaseCost": 3,
+      "releaseCD": 2,
+      "endOrder": "poison-first",
+      "replayHistory": true,
+      "neutral": false
+    },
+    "steps": [
+      {
+        "action": {
+          "type": "card",
+          "side": "player",
+          "id": "r_venom_blade"
+        },
+        "before": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 100,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 5,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "events": [
+          {
+            "type": "card",
+            "side": "player",
+            "id": "r_venom_blade",
+            "cost": 1
+          },
+          {
+            "type": "damage",
+            "source": "player",
+            "target": "boss",
+            "id": "r_venom_blade",
+            "replay": false,
+            "raw": 4,
+            "amount": 6,
+            "blocked": 0,
+            "kind": "attack"
+          }
+        ],
+        "after": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 94,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 4,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "mana": 4
+      },
+      {
+        "action": {
+          "type": "ultimate",
+          "side": "player"
+        },
+        "before": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 94,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 4,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "events": [
+          {
+            "type": "ultimate",
+            "side": "player",
+            "id": "r_venom_blade",
+            "cost": 1
+          },
+          {
+            "type": "damage",
+            "source": "player",
+            "target": "boss",
+            "id": "r_venom_blade",
+            "replay": true,
+            "raw": 3,
+            "amount": 4,
+            "blocked": 0,
+            "kind": "attack"
+          }
+        ],
+        "after": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 90,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 3,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "mana": 3
+      }
+    ]
+  },
+  {
+    "name": "corrosion-replay-duration",
+    "artificialState": true,
+    "config": {
+      "openingMP": 2,
+      "ultCost": 1,
+      "ultimate": true,
+      "bladeCost": 2,
+      "bladeCD": 1,
+      "bladeRounding": "floor",
+      "bladeConsume": 0,
+      "bladeNeedsPoison": true,
+      "bladeConsumeTiming": "after",
+      "releaseCost": 3,
+      "releaseCD": 2,
+      "endOrder": "poison-first",
+      "replayHistory": true,
+      "neutral": false
+    },
+    "steps": [
+      {
+        "action": {
+          "type": "card",
+          "side": "player",
+          "id": "corrosion"
+        },
+        "before": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 100,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "events": [
+          {
+            "type": "card",
+            "side": "player",
+            "id": "corrosion",
+            "cost": 1
+          },
+          {
+            "type": "poisonApplied",
+            "side": "player",
+            "target": "boss",
+            "amount": 2,
+            "remaining": 2,
+            "id": "corrosion",
+            "replay": false
+          }
+        ],
+        "after": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 100,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 2,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "mana": 4
+      },
+      {
+        "action": {
+          "type": "ultimate",
+          "side": "player"
+        },
+        "before": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 100,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 2,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "events": [
+          {
+            "type": "ultimate",
+            "side": "player",
+            "id": "corrosion",
+            "cost": 1
+          },
+          {
+            "type": "poisonApplied",
+            "side": "player",
+            "target": "boss",
+            "amount": 2,
+            "remaining": 4,
+            "id": "corrosion",
+            "replay": true
+          }
+        ],
+        "after": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 100,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 4,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "mana": 3
+      }
+    ]
+  },
+  {
+    "name": "release-empty-replay-can-pay-two",
+    "artificialState": true,
+    "config": {
+      "openingMP": 2,
+      "ultCost": 2,
+      "ultimate": true,
+      "bladeCost": 2,
+      "bladeCD": 1,
+      "bladeRounding": "floor",
+      "bladeConsume": 0,
+      "bladeNeedsPoison": true,
+      "bladeConsumeTiming": "after",
+      "releaseCost": 3,
+      "releaseCD": 2,
+      "endOrder": "poison-first",
+      "replayHistory": true,
+      "neutral": false
+    },
+    "steps": [
+      {
+        "action": {
+          "type": "card",
+          "side": "player",
+          "id": "r_poison_release"
+        },
+        "before": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 100,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 6,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "events": [
+          {
+            "type": "card",
+            "side": "player",
+            "id": "r_poison_release",
+            "cost": 3
+          },
+          {
+            "type": "damage",
+            "source": "player",
+            "target": "boss",
+            "id": "r_poison_release",
+            "replay": false,
+            "raw": 6,
+            "amount": 9,
+            "blocked": 0,
+            "kind": "attack"
+          },
+          {
+            "type": "poisonPurged",
+            "remaining": 6
+          }
+        ],
+        "after": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 91,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "mana": 2
+      },
+      {
+        "action": {
+          "type": "ultimate",
+          "side": "player"
+        },
+        "before": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 91,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "events": [
+          {
+            "type": "ultimate",
+            "side": "player",
+            "id": "r_poison_release",
+            "cost": 2
+          },
+          {
+            "type": "damage",
+            "source": "player",
+            "target": "boss",
+            "id": "r_poison_release",
+            "replay": true,
+            "raw": 0,
+            "amount": 0,
+            "blocked": 0,
+            "kind": "attack"
+          },
+          {
+            "type": "poisonPurged",
+            "remaining": 0
+          }
+        ],
+        "after": {
+          "deck": [
+            "slash",
+            "heavy_slash",
+            "great_swing",
+            "feint",
+            "battle_spirit"
+          ],
+          "hp": 91,
+          "maxHp": 100,
+          "mana": 3,
+          "manaCap": 3,
+          "ownTurn": 0,
+          "accelerationPending": false,
+          "accelerated": false,
+          "used": [],
+          "readyOn": {},
+          "attacks": [],
+          "barrier": 0,
+          "poison": 0,
+          "weak": 0,
+          "manaPenalty": 0,
+          "attackBonus": 0,
+          "setupBonus": 0
+        },
+        "mana": 0
+      }
+    ]
+  }
+]

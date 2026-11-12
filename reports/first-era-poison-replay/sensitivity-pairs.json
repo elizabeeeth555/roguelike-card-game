@@ -1,0 +1,26 @@
+{
+  "endOrder": {
+    "matchedUniquePairs": 151,
+    "baselineWins": 144,
+    "alternateWins": 144,
+    "outcomeChanges": 0
+  },
+  "history": {
+    "matchedUniquePairs": 151,
+    "baselineWins": 144,
+    "alternateWins": 144,
+    "outcomeChanges": 0
+  },
+  "noUltimate": {
+    "matchedUniquePairs": 487,
+    "baselineWins": 386,
+    "alternateWins": 68,
+    "outcomeChanges": 443
+  },
+  "releaseCost": {
+    "matchedUniquePairs": 247,
+    "baselineWins": 144,
+    "alternateWins": 144,
+    "outcomeChanges": 0
+  }
+}
