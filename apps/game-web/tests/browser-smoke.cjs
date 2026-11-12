@@ -144,7 +144,73 @@ async function main(){
       fixtures.push({kind,passed});await call('Page.removeScriptToEvaluateOnNewDocument',{identifier:fixture.identifier});
       if(!passed)throw Error('Fixture '+kind);
     }
-    fs.writeFileSync(path.join(out,'react-battle-browser.json'),JSON.stringify({reports,accelerationChecks,fixtures,errors},null,2));console.log(JSON.stringify({reports,accelerationChecks,fixtures,errors},null,2));
+    const previewChecks=[],designChecks=[];
+    if(process.env.REACT_GAME_BUILD!=='1'){
+      // A separate entry: no classic core scripts, host, session or planner needed.
+      const previewURL=new URL('dev-preview.html',process.env.REACT_GAME_URL||'http://127.0.0.1:5173/').href;
+      for(const width of [1366,1280,761,760,430,390,375,320]){
+        await call('Emulation.setDeviceMetricsOverride',{width,height:width>760?768:844,deviceScaleFactor:1,mobile:width<=760});
+        await call('Page.navigate',{url:previewURL});
+        for(let i=0;i<100;i++){if(await evaluate("!!document.querySelector('.preview-tools')"))break;await sleep(50);}
+        const noCore=await evaluate("typeof GameBattle==='undefined'&&typeof GamePlanner==='undefined'&&!performance.getEntriesByType('resource').some(r=>r.name.includes('/engine/'))");
+        if(!noCore)throw Error('Preview loaded battle core');
+        for(const preset of ['通常戦闘','特殊状態']){
+          await clickText(preset);await evaluate('scrollTo(0,0)');
+          const before=await snapshot();
+          const layout=await evaluate(`({overflow:document.documentElement.scrollWidth>innerWidth,slots:document.querySelectorAll('.player-skills>.skill,.player-skills>.empty-skill-slot').length,disabled:[...document.querySelectorAll('.battle-controls button,.battle-header button')].every(b=>b.disabled),images:[...document.images].every(i=>i.complete&&i.naturalWidth>0),labels:[...document.querySelectorAll('.player-area .skill-state')].map(e=>e.textContent)})`);
+          if(layout.overflow||layout.slots!==5||!layout.disabled||!layout.images)throw Error('Preview layout '+width+JSON.stringify(layout));
+          if(preset==='特殊状態'&&!['MP不足','CD中 1T','使用済'].every(t=>layout.labels.includes(t)))throw Error('Special preset states');
+          await tap('.player-area .skill-open',width<=760);
+          if(!await evaluate("!!document.querySelector('dialog[open]')&&![...document.querySelectorAll('dialog button')].some(b=>b.textContent==='使用する')"))throw Error('Preview execution control');
+          await clickText('閉じる');
+          if(before!==await snapshot())throw Error('Preview changed battle');
+          await evaluate('scrollTo(0,0)');
+          if([1366,390,320].includes(width)){const shot=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});fs.writeFileSync(path.join(out,`preview-${preset==='通常戦闘'?'normal':'special'}-${width}.png`),Buffer.from(shot.data,'base64'));}
+          previewChecks.push({width,preset,noCore,...layout});
+        }
+      }
+      // Mount the very same view in a test-only host; no production debug hook.
+      await evaluate("import('/tests/view-browser-harness.tsx')");
+      for(const width of [1366,761,760,390,320]){
+        await call('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:1,mobile:width<=760});
+        const render=async expression=>{await evaluate(`import('/tests/view-browser-harness.tsx').then(m=>m.render(${expression}))`);await sleep(80);};
+        const measure=()=>evaluate(`(()=>{const hud=document.querySelector('.battle-hud'),skill=document.querySelector('.skill'),row=document.querySelector('.player-skills'),boss=document.querySelector('.boss-portrait'),r=document.querySelector('.battle-field').getBoundingClientRect();return {hud:getComputedStyle(hud).backgroundColor,border:getComputedStyle(skill).borderColor,gap:getComputedStyle(row).gap,scale:getComputedStyle(boss).transform,width:r.width,height:r.height,overflow:document.documentElement.scrollWidth>innerWidth};})()`);
+        await render("'normal'");const defaults=await measure();
+        // Compare the four pre-refactor declarations on the same DOM (no Git/runtime dependency).
+        await evaluate(`(()=>{const e=document.createElement('style');e.id='baseline-css';e.textContent=${JSON.stringify('.battle-hud{background:#0b1525d9}.skill{border-color:#8897ab}.skills{gap:7px}.boss-portrait{transform:none}@media(max-width:1000px){.skills{gap:4px}}')};document.head.append(e)})()`);
+        const baseline=await measure();await evaluate("document.getElementById('baseline-css').remove()");
+        for(const key of ['hud','border','gap','width','height','overflow'])if(defaults[key]!==baseline[key])throw Error('Default style parity '+width+' '+key);
+        await render("'normal',{hudBackground:'#123456',skillBorderColor:'#abcdef',skillGap:9,bossScale:0.75},'変更した仮データ'");
+        const changed=await measure();
+        if(changed.hud!=='rgb(18, 52, 86)'||changed.border!=='rgb(171, 205, 239)'||changed.gap!=='9px'||!changed.scale.startsWith('matrix(0.75,')||changed.overflow)throw Error('Design settings '+JSON.stringify(changed));
+        if(!await evaluate("document.querySelector('.player-area h2').textContent==='変更した仮データ'"))throw Error('View data did not update');
+        await render("'normal',{hudBackground:'url(https://invalid.example)',skillGap:-5,bossScale:0,skillBorderColor:'red;display:none'}");
+        const invalid=await measure();if(JSON.stringify(invalid)!==JSON.stringify(defaults))throw Error('Invalid settings did not fallback');
+        await render("'normal'");const reset=await measure();if(JSON.stringify(reset)!==JSON.stringify(defaults))throw Error('Default reset');
+        for(const [skillGap,bossScale] of [[0,0.5],[12,1.25]]){
+          await render(`'normal',{skillGap:${skillGap},bossScale:${bossScale}}`);
+          if((await measure()).overflow)throw Error('Design bounds overflow '+width);
+        }
+        designChecks.push({host:'preview',width,defaults,baseline,changed,invalid,reset});
+      }
+    }
+    if(process.env.REACT_GAME_BUILD!=='1'){
+      await call('Page.navigate',{url:process.env.REACT_GAME_URL||'http://127.0.0.1:5173/'});
+      for(let i=0;i<100;i++){if(await evaluate("!!document.querySelector('.player-area')"))break;await sleep(50);}
+      await evaluate("import('/tests/view-browser-harness.tsx')");
+      for(const width of [1366,390]){
+        await call('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:1,mobile:width<=760});
+        const render=async setting=>{await evaluate(`import('/tests/view-browser-harness.tsx').then(m=>m.renderGame(${setting}))`);await sleep(80);};
+        const measure=()=>evaluate("({hud:getComputedStyle(document.querySelector('.battle-hud')).backgroundColor,border:getComputedStyle(document.querySelector('.skill')).borderColor,gap:getComputedStyle(document.querySelector('.player-skills')).gap,scale:getComputedStyle(document.querySelector('.boss-portrait')).transform})");
+        await render('undefined');const defaults=await measure();
+        await render("{hudBackground:'#123456',skillBorderColor:'#abcdef',skillGap:9,bossScale:0.75}");const changed=await measure();
+        if(changed.hud!=='rgb(18, 52, 86)'||changed.border!=='rgb(171, 205, 239)'||changed.gap!=='9px'||!changed.scale.startsWith('matrix(0.75,'))throw Error('Game host settings');
+        await render('undefined');const reset=await measure();
+        if(JSON.stringify(reset)!==JSON.stringify(defaults))throw Error('Game host default reset');
+        designChecks.push({host:'game',width,defaults,changed,reset});
+      }
+    }
+    fs.writeFileSync(path.join(out,'react-battle-browser.json'),JSON.stringify({reports,accelerationChecks,fixtures,previewChecks,designChecks,errors},null,2));console.log(JSON.stringify({reports,accelerationChecks,fixtures,previewChecks,designChecks,errors},null,2));
     if(errors.length)process.exitCode=1;
     await send('Browser.close');
   }finally{if(ws)ws.close();child.kill();}
