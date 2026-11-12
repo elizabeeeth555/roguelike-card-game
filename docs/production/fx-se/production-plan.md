@@ -73,7 +73,7 @@
 
 ### 3.3 命名と保存案（既存規約確認後に確定）
 ```text
-assets-private/
+private-assets/
   originals/video/       # AI生成原本、非公開
   originals/audio/
   processed/vfx/         # 透過・圧縮後
