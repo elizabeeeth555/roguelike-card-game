@@ -20,7 +20,7 @@ function browser(){
     closest(){return this;}
   }
   const get=id=>{if(!elements.has(id))elements.set(id,new El());return elements.get(id);};
-  const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
+  const html=fs.readFileSync(path.join(__dirname,'../classic/index.html'),'utf8');
   for(const match of html.matchAll(/<[^>]+id="([^"]+)"[^>]*>/g)){const el=get(match[1]);el.hidden=/\shidden(?:[\s>])/.test(match[0]);const cls=match[0].match(/class="([^"]+)"/);if(cls)el.className=cls[1];}
   doc={getElementById:get,createElement:tag=>new El(tag),addEventListener(){},activeElement:null};
   for(const id of ['bossPortrait','heroPortrait','heroFace']){const parent=new El(),fallback=new El();fallback.className='portrait-fallback';parent.append(get(id),fallback);}
@@ -210,6 +210,6 @@ test('情報確認と発動可否を分離し、演出・MP不足・CD中でも�
  assert(b.get('hand').children[0].querySelector('.inline-card-details').children[1].textContent.includes('CD中'));
 });
 test('正式タイトル・読取専用ホバー・全画面導線を本編に登録する',()=>{
- const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');assert(html.includes('<title>継世の王座'));assert(html.includes('王を討て。そして、王となれ。'));assert(html.includes('id="fullscreenButton"'));assert(html.includes('id="skillTooltip"'));
+ const html=fs.readFileSync(path.join(__dirname,'../classic/index.html'),'utf8');assert(html.includes('<title>継世の王座'));assert(html.includes('王を討て。そして、王となれ。'));assert(html.includes('id="fullscreenButton"'));assert(html.includes('id="skillTooltip"'));
  const b=browser();assert.equal(b.get('fullscreenButton').disabled,true); // APIなしでも起動可能
 });

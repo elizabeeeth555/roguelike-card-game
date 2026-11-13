@@ -19,10 +19,10 @@ const publicMedia: Record<string, string> = {
 };
 const mediaSource = (path: string) => readFileSync(new URL('../../' + path, import.meta.url));
 const engineSource = (name: string) => readFileSync(new URL('../../src/game/' + name, import.meta.url), 'utf8');
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   base: './', publicDir: false, envPrefix: 'GAME_WEB_PUBLIC_',
   server: { fs: { allow: [fileURLToPath(new URL('.', import.meta.url))], deny: ['**/.git/**', '**/.env*', '**/private-assets/**', '**/research/**'] } },
-  build: { outDir: 'dist', emptyOutDir: true, rollupOptions: { input: { index: fileURLToPath(new URL('index.html', import.meta.url)), 'first-era': fileURLToPath(new URL('first-era.html', import.meta.url)) } } },
+  build: { outDir: 'dist', emptyOutDir: true, rollupOptions: { input: (mode === 'first-era-production' ? { 'first-era': fileURLToPath(new URL('first-era.html', import.meta.url)) } : { index: fileURLToPath(new URL('index.html', import.meta.url)), 'first-era': fileURLToPath(new URL('first-era.html', import.meta.url)) }) as Record<string, string> } },
   plugins: [{
     name: 'existing-classic-battle-core',
     transformIndexHtml: {
@@ -46,8 +46,8 @@ export default defineConfig({
       });
     },
     generateBundle() {
-      for (const [fileName, source] of Object.entries(publicMedia)) this.emitFile({ type: 'asset', fileName, source: mediaSource(source) });
+      for (const [fileName, source] of Object.entries(publicMedia).filter(([name]) => mode !== 'first-era-production' || name.startsWith('first-era/'))) this.emitFile({ type: 'asset', fileName, source: mediaSource(source) });
       for (const name of firstEraEngine) this.emitFile({ type: 'asset', fileName: 'engine/' + name, source: engineSource(name) });
     }
   }]
-});
+}));

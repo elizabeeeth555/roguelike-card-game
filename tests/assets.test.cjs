@@ -7,12 +7,14 @@ const vm = require('node:vm');
 const { createHash } = require('node:crypto');
 const root = join(__dirname, '..');
 
-test('index.htmlから参照するJS・CSSファイルがすべて存在する', () => {
-  const html=readFileSync(join(root,'index.html'),'utf8');
-  const referenced=[...html.matchAll(/<(?:script|link)\s+[^>]*(?:src|href)="([^"]+)"/g)].map(m=>m[1]);
-  assert.ok(referenced.some(x=>x==='src/main.js'));
-  assert.ok(referenced.some(x=>x==='src/styles.css'));
-  for(const uri of referenced) assert.ok(existsSync(join(root,uri)),`${uri} がありません`);
+test('Reactトップとclassicから参照するJS・CSSファイルが存在する', () => {
+  for(const file of ['index.html','classic/index.html']){
+    const html=readFileSync(join(root,file),'utf8'),base=html.match(/<base[^>]+href="([^"]+)"/)?.[1]??'./';
+    const referenced=[...html.matchAll(/<(?:script|link)\s+[^>]*(?:src|href)="([^"]+)"/g)].map(m=>m[1]).filter(p=>!p.startsWith('data:'));
+    if(file.startsWith('classic')||!html.includes('type="module"')){assert.ok(referenced.includes('src/main.js'));assert.ok(referenced.includes('src/styles.css'));}
+    else {assert.ok(html.includes('type="module"'));assert.ok(!html.includes('.tsx'));}
+    for(const uri of referenced)assert.ok(existsSync(join(root,file,'..',base,uri)),`${file}: ${uri} がありません`);
+  }
 });
 
 test('BGM・SE・英雄素材の参照が有効', () => {

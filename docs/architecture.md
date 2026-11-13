@@ -2,12 +2,15 @@
 
 ## 入口と依存方向
 
-現行公開デモはビルド不要のclassic JavaScriptで、`index.html`が起動する。純粋コアはCommonJSでも読める。別の`apps/game-web/`にReact＋TypeScript＋Viteの技術検証アプリがPR #11でmain反映済み。API・DB・認証・React本番切替は未導入。
+このブランチの公開配置は、コンパイル済みReact第一紀を`index.html`、classicを`classic/index.html`とする。実際のPages切替はmainへの別途承認・マージ待ち。純粋コアはCommonJSでも読める。`apps/game-web/`は第一紀・技術検証・工房の開発元であり、API・DB・認証は不要。
 `UI/アプリ → 戦闘エンジン → 効果・数値・データ` の方向。`src/game/`からDOM、Audio、タイマー、共有appを参照しない。
 
 | ディレクトリ・ファイル | 責務 |
 |---|---|
-| [index.html](../index.html) | script/CSS読み込み・画面入口 |
+| [index.html](../index.html) | 第一紀専用ビルド由来の公開トップ（生TSXではない） |
+| [classic/index.html](../classic/index.html) | 旧トップHTMLを保持。親URLを基準に既存script/CSS・素材を参照 |
+| [public-game/](../public-game/) | manifestで所有範囲を限定したReact配布ファイル |
+| [prepare-pages.cjs](../scripts/prepare-pages.cjs) | 第一紀専用ビルド・配置・整合検査・ローカル旧版復帰 |
 | [src/game/card-data.js](../src/game/card-data.js) | 現行19種・初期3セット・固定5ボス |
 | [card-effects.js](../src/game/card-effects.js) | 状態とスキルから効果を構築 |
 | [combat-math.js](../src/game/combat-math.js) | HP・バリア・毒・回復等の計算 |
@@ -49,21 +52,22 @@ FX Labは別PR。現在mainの入口・コードへマージされていると�
 
 ```bash
 python -m http.server 8000 --bind 127.0.0.1
-# http://localhost:8000/
+# http://localhost:8000/ （React）、/classic/ （旧版）
+npm run check:pages
 npm test
 npm run check
 npm run test:browser
 npm run simulate -- 10
 ```
 
-ゲームはfile://でも起動可能。Nodeは検査用。ブラウザスモークにはChromeが必要で`CHROME_PATH`指定可、成果は`.test-artifacts/`へ。シミュレーションは3初期セット×5ボス×シード、双方AI、40R観測打切り。人間の勝率ではない。
+React公開配置はHTTPで確認する。classicのfile://対応は従来どおりで、今回の実機保証対象ではない。Nodeはソースのビルド・検査に利用する。ブラウザスモークにはChromeが必要で`CHROME_PATH`指定可、成果は`.test-artifacts/`へ。シミュレーションは3初期セット×5ボス×シード、双方AI、40R観測打切り。人間の勝率ではない。
 STEP 0は資料更新のみ。必要な静的・軽量テストに限定し、シミュレーション・ブラウザ演出・実機音声の再検証は行わない。
 `package.json`の0.9.5は旧管理値で、現行に旧ルールが復活した意味ではない。
 
 ## GitHub Pages
 
 静的なリポジトリルートを公開する運用。公開URL： https://elizabeeeth555.github.io/roguelike-card-game/ 。originはelizabeeeth555/roguelike-card-game。
-2026-11-11、GitHub APIで公開方式`legacy`、公開元`main`／`/`を確認。今回、設定・配信ファイルは変更しない。Reactのビルド出力を公開ルートへ置かない。
+2026-11-13にGitHub APIで公開方式`legacy`、公開元`main`／`/`を再確認。設定は変更せず、今回は専用ブランチで配信ファイルの配置を準備する。以前の「Reactビルド出力を置かない」という移行前の制約は今回の明示依頼で更新し、下記の限定された生成物だけを配置する。
 公開作業ではGitHub側設定、対象コミット、リモート差分を別途確認し、明示指示なしにpush/deployしない。
 
 2026-11-10公開設定確認：GitHub Pagesはlegacy方式、mainブランチのルート（/）から自動公開。今回もこの設定を維持する。
@@ -149,7 +153,7 @@ CommonJSは新モジュールを自動解決。ブラウザで将来新版を使
 
 ## 第一紀プレイ可能版のホスト（2026-11-13）
 
-`apps/game-web/first-era.html`を追加入口とし、既定indexと開発専用dev-previewを維持する。Viteは許可済みengineと原本4点だけを明示配信/ビルドし、リポジトリ全体やprivate-assetsを公開しない。Pagesのルート/公開設定は変更しない。
+`apps/game-web/first-era.html`を追加入口とし、既定indexと開発専用dev-previewを維持する。Viteは許可済みengine・画像・音源だけを明示配信/ビルドし、リポジトリ全体やprivate-assetsを公開しない。Pagesのルート/公開設定は変更しない。
 
 - `first-era/FirstEraApp.tsx`：画面進行・編成ドラフト・入力ロック・世代付き非同期演出・再戦を所有する。
 - `first-era/presentation.ts`：コアの状態と使用可否・読取専用previewを共通BattleViewModelへ変換する。
@@ -158,3 +162,24 @@ CommonJSは新モジュールを自動解決。ブラウザで将来新版を使
 - `first-era/ui.tsx`：ボタン・パネル・モーダルを共有する。フェードは画面切替だけで、モーダルは対象外。
 
 詳細な画面仕様は[UI](features/ui.md)、保存内容/契機は[進行](features/progression.md#playable-save-flow)。ゲームコア・ID・snapshot仕様・研究データはこの段階で変更しない。
+
+<a id="pages-production"></a>
+
+## React第一紀の公開配置（専用ブランチ／実公開は承認待ち）
+
+- `npm run build:pages`は`first-era-production`モードで`apps/game-web/first-era.html`だけをビルドし、生成HTMLをルート`index.html`へ配置する。通常モードの技術検証index・工房の入口・テストホストは含めない。通常のアプリビルド／開発サーバーは従来どおり。
+- トップの`<base href="./public-game/">`により、JS/CSS・engine・第一紀の画像／音声は専用ディレクトリ内を参照する。`/roguelike-card-game/`等の配信サブディレクトリをハードコードせず、トップの`index.html`指定・再読込でも同じ基準URLとなる。
+- `classic/index.html`は旧ルートHTMLを保持し、`<base href="../" data-classic-root>`で既存の`src/`・`assets/`を参照する。画像背景の動的URLもdocument.baseURIを使う既存処理のまま。JS/CSS/素材原本・戦闘・AI・進行をコピー改変せず、入口の基準URLだけを変更する。空のdata faviconで不要なfavicon要求を抑える。
+- `public-game/manifest.json`は生成形式・元入口・ビルド入力のダイジェスト・公開HTMLと各配布ファイルのSHA256を記録する。`npm run check:pages`は手編集・不足・未知ファイル・シンボリックリンク・未ビルドのソース変更を検出する。
+- 配布対象はハッシュ付きJS/CSS、明示したコア6ファイル、第一紀画像4点／音声3点のみ。`publicDir:false`を維持し、研究・非公開素材・工房・技術検証用scene素材は新しい配布ツリーへコピーしない。mainルート公開が既存の追跡ファイルも配信する方式である点は変更しない。
+- 更新前にmanifest所有ファイルの既存ハッシュとトップHTMLを検証する。未知・変更済みファイルがあれば無変更で停止する。新出力を一時ファイル経由で配置した後、古いmanifestが所有する不要ファイルだけを削除する。ディレクトリの一括削除は行わない。`apps/game-web/dist/`は従来どおり再生成可能なビルド出力で、非公開素材や手作業成果を置かない。
+- ソース・依存ロック・型設定・Vite設定・配置スクリプトを変更したら、`npm --prefix apps/game-web ci`と`npm run build:pages`で生成し直す。HTML・manifest・管理下の生成物も対象を確認してコミットする。生成物を手編集しない。
+- 進行セーブの形式・キーは変えない。第一紀は`keisei.first-era.progress.v1`、classicの演出設定は従来の`first-era-fx`等。工房保存にも干渉せず、同一オリジンで両入口を行き来しても相互に上書きしない。
+
+### 旧版へ戻す／Reactへ戻す
+
+`npm run pages:classic`で、保持したclassic HTML（基準URLタグを除く）をルートへ戻す。`npm run check:pages`でclassicが有効であることを確認する。生成物・研究・素材は削除しない。再びReactをトップにする場合は`npm run build:pages`を実行する。これらはローカルのファイル配置だけで、Git・Pages API・公開操作は呼ばない。公開に反映する際は、変更対象のレビューと個別承認後のmainマージが必要。
+
+### 検証
+
+ルートと`/classic/`をHTTP配信し、リポジトリ名を含むサブディレクトリでも検証する。公開版一周テストは`FIRST_ERA_URL`、classic試験は`BROWSER_TEST_URL`、同一オリジン往復は`PUBLIC_GAME_URL`を渡す`apps/game-web/tests/production-browser.cjs`で実行する。第一紀のテストは期待ログ用関数をNode側から注入し、配布先に生TS/TSXを要求しない。HTTP失敗・console error・実行例外と、画面・音声・保存を確認する。実機聴感・CI・実際のPages反映は別の確認事項。
