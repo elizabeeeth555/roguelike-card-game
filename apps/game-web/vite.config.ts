@@ -9,7 +9,10 @@ const publicMedia: Record<string, string> = {
   'first-era/hub.jpg': 'assets/first-era/backgrounds/outpost-hub-source.jpg',
   'first-era/deck.png': 'assets/first-era/backgrounds/deck-building-table-source.png',
   'first-era/battle.jpg': 'assets/first-era/backgrounds/throne-battle-source.jpg',
-  'first-era/boss.jpg': 'assets/first-era/boss/ashen-king-standing-source.jpg',
+  'first-era/boss.png': 'assets/first-era/boss/ashen-king-transparent.png',
+  'first-era/audio/bgm-first-era-hub-forest.mp3': 'assets/first-era/audio/bgm-first-era-hub-forest.mp3',
+  'first-era/audio/sfx-first-era-campfire.mp3': 'assets/first-era/audio/sfx-first-era-campfire.mp3',
+  'first-era/audio/bgm-first-era-old-king.mp3': 'assets/first-era/audio/bgm-first-era-old-king.mp3',
   'scene/background.webp': 'assets/backgrounds/castle_throne_room.webp',
   'scene/boss.png': 'assets/characters/castle/02_heavy_knight_boss.png',
   'scene/face.png': 'assets/characters/castle/01_black_swordsman_face.png'
@@ -33,7 +36,7 @@ export default defineConfig({
       server.middlewares.use((req, res, next) => {
         const media = req.url?.split('?')[0]?.replace(/^\//, '');
         if (media && Object.hasOwn(publicMedia, media)) {
-          res.setHeader('Content-Type', media.endsWith('.webp') ? 'image/webp' : media.endsWith('.jpg') ? 'image/jpeg' : 'image/png');
+          res.setHeader('Content-Type', media.endsWith('.mp3') ? 'audio/mpeg' : media.endsWith('.webp') ? 'image/webp' : media.endsWith('.jpg') ? 'image/jpeg' : 'image/png');
           res.end(mediaSource(publicMedia[media])); return;
         }
         const name = req.url?.split('?')[0]?.replace(/^\/engine\//, '');
