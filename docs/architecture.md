@@ -124,3 +124,25 @@ flowchart LR
 Viteアダプターが公開コア5ファイルだけを依存順のclassic scriptとして配信／同梱する。コピー先はアプリ内dist/engineで、元ソースは変更しない。publicDir無効、devのファイル許可範囲も分離。React版distはGit除外・Pagesルートへの出力なし。起動・固定依存・検証手順は[アプリREADME](../apps/game-web/README.md)。
 
 STEP 3-B①のより本編に近い戦闘画面・入力管理は元worktreeの別作業に存在し、mainには未反映。本資料更新へソース差分を取り込まない。既存部品を新プロトタイプと工房の共有表示へつなぐ際は、進行・編集操作と描画の境界を改めて確認する。
+
+## 新第一紀の明示選択API（2026-11-13）
+
+[first-era-rules.js](../src/game/first-era-rules.js)は採用カタログ・編成検証・効果命令・固有能力フックのみを所有する。既存battle-engineの実行/ターン/MP/CD/バリア/勝敗処理を共有し、別の研究エンジンを本編へ複製しない。boss-plannerのAI-2を共有し、新版の毒の残存価値計算だけを現在の毒tickに合わせる。研究plannerや探索パラメータを採用しない。
+
+```javascript
+const Battle = require('./src/game/battle-engine.js');
+const Rules = require('./src/game/first-era-rules.js');
+const state = Battle.createState({ruleset: Rules.RULESET,
+  playerDeck: ['slash','heavy_slash','barrier','first_era_corrosion','first_era_venom_blade']});
+const allowed = Battle.availability(state, 'player', 'heavy_slash');
+const next = Battle.transition(state, {type:'card',side:'player',id:'heavy_slash'});
+const echoAllowed = Battle.ultimateStatus(next.state, 'player');
+const result = Battle.transition(next.state, {type:'ultimate',side:'player'});
+// result: {state,ok,reason?,events}; executeは可変、transitionは元状態を保持
+```
+
+`Rules.pool`/`validateDeck`が編成の正、`Battle.getCard(state,id)`がプロファイルに対応する定義、`legalActions`が奥義を含む合法手一覧を返す。`poisonTickDamage(state,n)`は共通毒計算をAIと共有する。失敗時は状態を変更せずok:false。イベント配列は各操作の戻り値から取得し、コアにUI・保存・音声を混入させない。
+
+新版はschemaVersion3 / ruleset first-era-v1、bossPresetId ashen_king、`bossState`と`ultimate`で固有状態を保持。旧schema2/first-era-trialの既定生成・snapshot復元を維持する。新旧を自動変換しない。キャラクター素材IDは新版ではnull（今回素材・表示は未接続）。状態生成時に5つの採用IDを必ず渡す。
+
+CommonJSは新モジュールを自動解決。ブラウザで将来新版を使う場合はData/Effectsの後、battle-engineの前にfirst-era-rulesを読み込む。既存classic/Reactの入口は変更せず、旧ルールはこの追加scriptなしで動作する。Reactへのアダプター/型/画面接続、セーブは第2弾以降。
