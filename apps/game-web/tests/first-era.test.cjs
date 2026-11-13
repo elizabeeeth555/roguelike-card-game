@@ -29,3 +29,25 @@ test('all saved victory events project HP/barrier to the unchanged committed out
  const {presentEvent}=await import('../src/first-era/event-presentation.ts');const log=victory();let v=log.initial;
  for(const frame of log.frames){const before=structuredClone(frame);for(const e of frame.events)v=presentEvent(v,frame.after,e);for(const side of ['player','boss'])for(const key of ['hp','barrier','mana'])assert.equal(v.actors[side][key],frame.after.actors[side][key],`${frame.sequence} ${side} ${key}`);assert.deepEqual(frame,before);v=frame.after;}
 });
+test('selection preview uses legal core transitions, separates absorption, and never changes state',async()=>{
+ const {attackPreview,toFirstEraModel}=await import('../src/first-era/presentation.ts');
+ for(const stance of ['steadfast','rupture'])for(const barrier of [0,2]){
+  const s=core.createState({ruleset:rules.RULESET,playerDeck:deck});s.bossState.stance=stance;s.actors.boss.barrier=barrier;const before=core.snapshot(s),actual=core.transition(s,{type:'card',side:'player',id:'heavy_slash'}),hit=actual.events.find(e=>e.type==='damage');
+  assert.deepEqual(attackPreview(runtime,s,'heavy_slash'),{hpDamage:hit.amount,barrierAbsorbed:hit.blocked});assert.deepEqual(s,before);
+  assert.deepEqual(toFirstEraModel(runtime,s,false,'',{side:'player',id:'heavy_slash'}).damagePreview,{hpDamage:hit.amount,barrierAbsorbed:hit.blocked});
+  assert.equal(toFirstEraModel(runtime,s,true,'',{side:'player',id:'heavy_slash'}).damagePreview,undefined);assert.equal(toFirstEraModel(runtime,s,false,'',{side:'boss',id:'heavy_slash'}).damagePreview,undefined);assert.equal(toFirstEraModel(runtime,s,false,'').damagePreview,undefined);
+  assert.equal(attackPreview(runtime,s,'barrier'),null);assert.equal(attackPreview(runtime,actual.state,'heavy_slash'),null);
+ }
+ const s=core.createState({ruleset:rules.RULESET,playerDeck:deck});s.actors.player.mana=0;assert.equal(attackPreview(runtime,s,'heavy_slash'),null);s.active='boss';assert.equal(attackPreview(runtime,s,'slash'),null);
+});
+test('measured chains attach to each panel edge and follow changed field/boss geometry',async()=>{
+ const {chainSegment}=await import('../src/components/chain-geometry.ts');
+ const root={left:10,top:20,width:1000,height:700},boss={left:400,top:100,width:200,height:400};
+ const a=chainSegment(root,{left:20,top:210,width:200,height:70},boss,0);assert.deepEqual(a,{x1:210,y1:225,x2:490,y2:260});
+ const b=chainSegment(root,{left:750,top:300,width:180,height:70},boss,4);assert.equal(b.x1,740);assert.equal(b.y1,315);assert.ok(b.y2>a.y2);
+ const changed=chainSegment({...root,width:320},{left:20,top:250,width:80,height:60},{left:100,top:200,width:140,height:240},0);assert.equal(changed.x1,90);assert.equal(changed.x2,160);assert.equal(changed.y2,288);
+});
+test('cut-in budgets respect presentation speed and do not enter combat snapshots',async()=>{
+ const {DECLARATION_MS}=await import('../src/first-era/presentation-timing.ts');assert.ok(DECLARATION_MS.slow>DECLARATION_MS.normal&&DECLARATION_MS.normal>DECLARATION_MS.fast);
+ const s=core.createState({ruleset:rules.RULESET,playerDeck:deck});assert.equal(JSON.stringify(s).includes('cutIn'),false);
+});

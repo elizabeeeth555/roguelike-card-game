@@ -7,6 +7,8 @@ import { createSaveRepository, freshSave, recordFirstWin } from './save';
 import type { Save, StoragePort } from './save';
 import type { Action, Frame, Runtime, State } from './core';
 import { eventText } from './core';
+import type { CutIn } from '../components/BattleCutIn';
+import { DECLARATION_MS } from './presentation-timing';
 import { useFirstEraAudio } from './use-first-era-audio';
 import { presentEvent, eventImpact } from './event-presentation';
 import type { Impact } from './event-presentation';
@@ -27,11 +29,12 @@ export function FirstEraApp({ runtime, storage }: { runtime: Runtime; storage: (
  const [selected, setSelected] = useState<SkillSelection | null>(null), [confirmEnd, setConfirmEnd] = useState(false);
  const [busy, setBusy] = useState(false), locked = useRef(false), generation = useRef(0), alive = useRef(true);
  const [speed, setSpeed] = useState<Speed>('slow'), speedRef = useRef<Speed>('slow'), skipping = useRef(false);
+ const [cutIn, setCutIn] = useState<CutIn | null>(null), cutInSequence = useRef(0);
  const [impact, setImpact] = useState<Impact | null>(null);
  const [log, setLog] = useState<string[]>([]), [cue, setCue] = useState(''), [activeSkill, setActiveSkill] = useState<{ skillId?: string; side?: 'player' | 'boss' }>({});
  const delayRef = useRef<{ id: ReturnType<typeof setTimeout>; resolve: () => void } | null>(null);
  const fadeTimers = useRef(new Map<ReturnType<typeof setTimeout>, () => void>());
- const cancelCombat = () => { generation.current++; skipping.current = true; if (delayRef.current) { clearTimeout(delayRef.current.id); delayRef.current.resolve(); delayRef.current = null; } locked.current = false; setBusy(false); setImpact(null); };
+ const cancelCombat = () => { generation.current++; skipping.current = true; if (delayRef.current) { clearTimeout(delayRef.current.id); delayRef.current.resolve(); delayRef.current = null; } locked.current = false; setBusy(false); setImpact(null); setCutIn(null); setCue(''); setActiveSkill({}); };
  useEffect(() => () => { alive.current = false; generation.current++; if (delayRef.current) { clearTimeout(delayRef.current.id); delayRef.current.resolve(); } for (const [id, resolve] of fadeTimers.current) { clearTimeout(id); resolve(); } }, []);
  const pauseFade = () => new Promise<void>(resolve => { const id = setTimeout(() => { fadeTimers.current.delete(id); resolve(); }, 250); fadeTimers.current.set(id, resolve); });
  async function go(next: Screen) {
@@ -48,10 +51,28 @@ export function FirstEraApp({ runtime, storage }: { runtime: Runtime; storage: (
  function openDeck() { if (navigating.current) return; setDraft([...(save.deck ?? [])]); void go('deck'); }
  function leaveDeck() { if (navigating.current) return; if (JSON.stringify(draft) !== JSON.stringify(save.deck ?? [])) setConfirm({ title: '編成変更を破棄', text: '未確定の変更を破棄して拠点へ戻りますか？', accept: () => { setConfirm(null); void go('hub'); } }); else void go('hub'); }
  function commitDeck() { if (navigating.current) return; try { const deck = runtime.rules.validateDeck(draft); persist({ ...saveRef.current, deck }); void go('hub'); } catch { setWarning('異なる通常スキルを5種類選んでください。'); } }
- function startBattle() {
+ async function startBattle() {
   if (navigating.current) return;
-  try { const deck = runtime.rules.validateDeck(saveRef.current.deck ?? []); cancelCombat(); const next = runtime.core.createState({ ruleset: runtime.rules.RULESET, playerDeck: deck }); actual.current = next; initial.current = runtime.core.snapshot(next); frames.current = []; setState(next); setLog(['戦闘開始 — 英雄対灰鎖の老王']); setCue('スキルを選択してください'); setActiveSkill({}); setSelected(null); void go('battle'); } catch { setWarning('編成を確定してから挑戦してください。'); }
+  let token: number | undefined;
+  try {
+   const deck = runtime.rules.validateDeck(saveRef.current.deck ?? []); cancelCombat(); token = ++generation.current; skipping.current = false; locked.current = true; setBusy(true);
+   const next = runtime.core.createState({ ruleset: runtime.rules.RULESET, playerDeck: deck }); actual.current = next; initial.current = runtime.core.snapshot(next); frames.current = [];
+   setState(next); setLog(['戦闘開始 — 英雄対灰鎖の老王']); setCue(''); setActiveSkill({}); setSelected(null);
+   await go('battle');
+   if (!await declare('BATTLE START', token)) return;
+   await declare('YOUR TURN', token);
+  } catch { setWarning('編成を確定してから挑戦してください。'); }
+  finally { if (token === generation.current && alive.current) { locked.current = false; setBusy(false); setCutIn(null); setCue(''); } }
  }
+ async function declare(text: CutIn['text'], token: number) {
+  if (token !== generation.current || !alive.current) return false;
+  if (skipping.current) return true;
+  const milliseconds = DECLARATION_MS[speedRef.current]; setCue(''); setCutIn({ text, milliseconds, sequence: ++cutInSequence.current });
+  await wait(milliseconds);
+  if (token !== generation.current || !alive.current) return false;
+  setCutIn(null); return true;
+ }
+
  function wait(ms: number) { if (skipping.current) return Promise.resolve(); return new Promise<void>(resolve => { const id = setTimeout(() => { if (delayRef.current?.id === id) delayRef.current = null; resolve(); }, ms); delayRef.current = { id, resolve }; }); }
  async function step(action: Action, token: number) {
   if (token !== generation.current || !actual.current) return false;
@@ -68,6 +89,7 @@ export function FirstEraApp({ runtime, storage }: { runtime: Runtime; storage: (
    displayed = presentEvent(displayed, result.state, event); setState(displayed);
    const text = eventText(event, runtime); setCue(text); setLog(lines => [...lines, `${frame.sequence}.${i + 1} ${text}`]);
    setImpact(eventImpact(event, `${frame.sequence}.${i}`, text, displayed.actors[event.target ?? event.side ?? 'boss'].barrier));
+   if (event.type === 'turn' && !await declare(event.side === 'boss' ? 'ENEMY TURN' : 'YOUR TURN', token)) return false;
    if (event.kind === 'flash') setActiveSkill({ side: 'boss', skillId: '@oath_strike' });
    await wait(duration * .5 / Math.max(1, result.events.length));
   }
@@ -88,16 +110,18 @@ export function FirstEraApp({ runtime, storage }: { runtime: Runtime; storage: (
    if (token !== generation.current) return;
    if (actual.current?.end) {
     if (actual.current.end === 'player' && initial.current) persist(recordFirstWin(saveRef.current, { deck: [...initial.current.actors.player.deck], initial: initial.current, frames: frames.current, result: actual.current }));
+    setActiveSkill({}); setImpact(null);
+    if (!await declare(actual.current.end === 'player' ? 'VICTORY' : 'DEFEAT', token)) return;
     await audio.finishBattle();
     if (token !== generation.current || !alive.current) return;
     void go('result');
    }
   } catch { if (token === generation.current) setWarning('戦闘処理を継続できませんでした。状態を初期化して再挑戦してください。'); }
-  finally { if (token === generation.current && alive.current) { locked.current = false; setBusy(false); setActiveSkill({}); setImpact(null); } }
+  finally { if (token === generation.current && alive.current) { locked.current = false; setBusy(false); setActiveSkill({}); setImpact(null); setCutIn(null); setCue(''); } }
  }
  function endTurn() { if (locked.current || navigating.current || !actual.current) return; if (runtime.core.legalActions(actual.current).some(a => a.type !== 'endTurn')) setConfirmEnd(true); else void act({ type: 'endTurn', side: 'player' }); }
  function skip() { skipping.current = true; if (delayRef.current) { clearTimeout(delayRef.current.id); delayRef.current.resolve(); delayRef.current = null; } }
- useEffect(() => { const key = (e: KeyboardEvent) => { if (screen !== 'battle' || navigating.current || document.querySelector('dialog[open]') || (e.target instanceof HTMLElement && e.target.closest('button,input,select'))) return; const n = Number(e.key) - 1; if (n >= 0 && n < 5 && state) { setSelected({ side: 'player', id: state.actors.player.deck[n] }); e.preventDefault(); } if (e.code === 'Space') { endTurn(); e.preventDefault(); } }; window.addEventListener('keydown', key); return () => window.removeEventListener('keydown', key); });
+ useEffect(() => { const key = (e: KeyboardEvent) => { if (screen !== 'battle' || navigating.current || document.querySelector('dialog[open]') || (e.target instanceof HTMLElement && e.target.closest('button,input,select'))) return; if (cutIn && ['Space','Enter','Escape'].includes(e.code)) { skip(); e.preventDefault(); return; } const n = Number(e.key) - 1; if (n >= 0 && n < 5 && state) { setSelected({ side: 'player', id: state.actors.player.deck[n] }); e.preventDefault(); } if (e.code === 'Space') { endTurn(); e.preventDefault(); } }; window.addEventListener('keydown', key); return () => window.removeEventListener('keydown', key); });
  function skillInfo(id: string): SkillViewModel { const spec = id === runtime.rules.ultimate.id ? { ...runtime.rules.ultimate, cd: 0, tags: ['buff'] } : runtime.rules.card(id); return { ...spec, category: category(spec.tags), cd: spec.cd, allowed: false, reason: '', remaining: 0, used: false, stateLabel: '', condition: id === runtime.rules.ultimate.id ? 'この自ターンの再演元・戦闘中1回' : 'MP・CD・自ターンの使用制限' }; }
  const settingsButton = <ThroneButton disabled={!!fade} onClick={() => setSettings(true)}>設定</ThroneButton>;
  const speedSelect = <label>演出速度 <select aria-label="演出速度" value={speed} onChange={e => { const value = e.target.value as Speed; setSpeed(value); speedRef.current = value; }}><option value="slow">ゆっくり</option><option value="normal">通常</option><option value="fast">高速</option></select></label>;
@@ -105,7 +129,7 @@ export function FirstEraApp({ runtime, storage }: { runtime: Runtime; storage: (
   {screen === 'title' && <main className="story-screen title-screen" style={{ backgroundImage: 'url("./first-era/hub.jpg")' }}><h1>継世の王座</h1><div className="top-right">{settingsButton}</div><nav className="title-actions"><ThroneButton onClick={newGame}>はじめから</ThroneButton><ThroneButton disabled={!save.deck} onClick={() => void go('hub')}>続きから</ThroneButton></nav></main>}
   {screen === 'hub' && <main className="story-screen hub-screen" style={{ backgroundImage: 'url("./first-era/hub.jpg")' }}><ThroneButton className="top-left" onClick={() => void go('title')}>タイトルへ戻る</ThroneButton><div className="top-right">{settingsButton}</div><Panel className="hub-deck"><h1>出征の支度</h1><p>{save.deck ? '確定編成' : 'まず通常スキルを5種類編成してください'}</p><ol>{save.deck?.map(id => <li key={id}>{runtime.rules.card(id).name}</li>)}</ol><ThroneButton onClick={openDeck}>スキル編成</ThroneButton>{save.firstWin && <p>初回踏破記録あり（再戦では変更しません）</p>}</Panel><div className="hub-challenge"><ThroneButton disabled={!save.deck} onClick={startBattle}>王に挑む</ThroneButton><p>第一紀 — 灰鎖の老王</p></div></main>}
   {screen === 'deck' && <main className="deck-screen" style={{ backgroundImage: 'linear-gradient(#0008,#0009),url("./first-era/deck.png")' }}><header><ThroneButton onClick={leaveDeck}>拠点へ戻る</ThroneButton><h1>スキル編成</h1><ThroneButton disabled={draft.length !== 5} onClick={commitDeck}>編成を確定</ThroneButton></header><section className="deck-slots" aria-label="編成5枠"><h2>通常スキル {draft.length}/5</h2><ol>{Array.from({ length: 5 }, (_, i) => <li key={i} draggable={!!draft[i]} onDragStart={e => { setDragged(i); e.dataTransfer.setData('text/plain', String(i)); }} onDragOver={e => e.preventDefault()} onDrop={e => { e.preventDefault(); if (dragged !== null && draft[i]) setDraft(moveSkill(draft, dragged, i)); setDragged(null); }}><strong>{draft[i] ? runtime.rules.card(draft[i]).name : '空き枠'}</strong>{draft[i] && <div><button aria-label={`${i + 1}番を前へ`} disabled={i === 0} onClick={() => setDraft(moveSkill(draft, i, i - 1))}>←</button><button aria-label={`${i + 1}番を後へ`} disabled={i >= draft.length - 1} onClick={() => setDraft(moveSkill(draft, i, i + 1))}>→</button><button aria-label={`${i + 1}番を外す`} onClick={() => setDraft(draft.filter((_, n) => n !== i))}>外す</button></div>}</li>)}</ol><ThroneButton className="deck-ultimate" onClick={() => setDetail(runtime.rules.ultimate.id)}>固定奥義：戦技の残響（枠外）</ThroneButton></section><section className="deck-catalog" aria-label="採用10スキル">{runtime.rules.pool.map(id => { const skill = skillInfo(id), added = draft.includes(id); return <article key={id} className={`deck-card category-${skill.category}`}><button className="deck-card-choice" aria-pressed={added} aria-label={`${skill.name}を${added ? '解除' : '追加'}`} disabled={!added && draft.length >= 5} onClick={() => setDraft(added ? draft.filter(x => x !== id) : [...draft, id])}><div className="skill-art-placeholder">SKILL<br /><small>イラスト未登録</small></div><h2>{skill.name}</h2><p>♦ {skill.cost}　⌛ {skill.cd}</p><p>{skill.description}</p><strong>{added ? '編成中・解除' : '編成へ追加'}</strong></button><ThroneButton onClick={() => setDetail(id)}>{skill.name}の詳細</ThroneButton></article>; })}</section></main>}
-  {screen === 'battle' && state && <BattleView model={toFirstEraModel(runtime, state, busy, cue)} selected={selected} confirmEnd={confirmEnd} onSelect={setSelected} onClose={() => setSelected(null)} onUse={() => { if (selected?.side === 'player') void act({ type: 'card', side: 'player', id: selected.id }); }} onUltimate={() => void act({ type: 'ultimate', side: 'player' })} onAccelerate={() => void act({ type: 'accelerate', side: 'player' })} onEndTurn={endTurn} onCancelEnd={() => setConfirmEnd(false)} onConfirmEnd={() => void act({ type: 'endTurn', side: 'player' })} toolbar={<>{speedSelect}<ThroneButton disabled={!busy} onClick={skip}>演出スキップ</ThroneButton>{settingsButton}</>} log={log} presentation={{ ...activeSkill, cue, impact }} />}
+  {screen === 'battle' && state && <BattleView model={toFirstEraModel(runtime, state, busy, cue, selected)} selected={selected} confirmEnd={confirmEnd} onSelect={setSelected} onClose={() => setSelected(null)} onUse={() => { if (selected?.side === 'player') void act({ type: 'card', side: 'player', id: selected.id }); }} onUltimate={() => void act({ type: 'ultimate', side: 'player' })} onAccelerate={() => void act({ type: 'accelerate', side: 'player' })} onEndTurn={endTurn} onCancelEnd={() => setConfirmEnd(false)} onConfirmEnd={() => void act({ type: 'endTurn', side: 'player' })} toolbar={<>{speedSelect}<ThroneButton disabled={!busy} onClick={skip}>演出スキップ</ThroneButton>{settingsButton}</>} log={log} onSkipPresentation={skip} presentation={{ ...activeSkill, cue, impact, cutIn }} />}
   {screen === 'result' && state && <main className="story-screen result-screen" style={{ backgroundImage: 'url("./first-era/battle.jpg")' }}><Panel><h1>{state.end === 'player' ? '第一紀 踏破' : '敗北 — 拠点へ帰還'}</h1><p>決着ラウンド {state.round} ／ 英雄HP {state.actors.player.hp}</p><p>{state.end === 'player' ? '第二紀への進行は未実装です。初回勝利記録を保持して再戦できます。' : '同じ英雄で再挑戦できます。確定編成と進行は失われません。'}</p><ThroneButton onClick={() => void go(state.end === 'player' ? 'title' : 'hub')}>{state.end === 'player' ? 'タイトルに戻る' : '拠点へ戻る'}</ThroneButton><ThroneButton onClick={startBattle}>再戦する</ThroneButton></Panel></main>}
  </div>{audio.error && <aside className="audio-notice" role="status">{audio.error}<ThroneButton onClick={audio.retry}>音声を再試行</ThroneButton></aside>}{warning && <p className="save-warning" role="alert">{warning}<button onClick={() => setWarning('')} aria-label="保存案内を閉じる">×</button></p>}
  {detail && <Modal title="スキル詳細" onClose={() => setDetail(null)}><SkillInformation skill={skillInfo(detail)} illustrated /></Modal>}

@@ -1,7 +1,7 @@
 import type { Runtime, State, Action } from './core';
-import type { BattleViewModel, SkillViewModel } from '../battle-view-model';
+import type { BattleViewModel, SkillViewModel, SkillSelection } from '../battle-view-model';
 export function category(tags: string[]): string { return tags.includes('poison') || tags.includes('poison_reference') ? 'poison' : tags.includes('debuff') ? 'debuff' : tags.includes('defense') ? 'defense' : tags.includes('heal') ? 'heal' : tags.includes('buff') && !tags.includes('attack') ? 'buff' : 'attack'; }
-export function toFirstEraModel(runtime: Runtime, state: State, busy: boolean, message: string): BattleViewModel {
+export function toFirstEraModel(runtime: Runtime, state: State, busy: boolean, message: string, selected?: SkillSelection | null): BattleViewModel {
  const { core, rules } = runtime;
  function skill(side: 'player' | 'boss', id: string): SkillViewModel {
   const spec = core.getCard(state, id), status = core.availability(state, side, id), inspection = core.availability({ ...state, active: side }, side, id);
@@ -16,10 +16,20 @@ export function toFirstEraModel(runtime: Runtime, state: State, busy: boolean, m
  const actor = (side: 'player' | 'boss') => ({ ...state.actors[side], name: side === 'boss' ? '灰鎖の老王' : '望郷の復讐者', facePlaceholder: side === 'player', skills: state.actors[side].deck.map(id => skill(side, id)), emptySlots: 0 });
  const echo = core.ultimateStatus(state), accel = core.accelerationStatus(state, 'player');
  const last = state.ultimate.lastSkillId ? rules.card(state.ultimate.lastSkillId).name : 'なし';
- return { layout: 'first-era', player: actor('player'), boss: { ...actor('boss'), portrait: './first-era/boss.png' }, background: './first-era/battle.jpg', round: state.round, turn: state.active === 'player' ? 'Player' : 'Old King', result: state.end ? state.end === 'player' ? '第一紀 踏破' : '敗北' : null, message,
+ return { layout: 'first-era', damagePreview: !busy && selected?.side === 'player' ? attackPreview(runtime, state, selected.id) ?? undefined : undefined, player: actor('player'), boss: { ...actor('boss'), portrait: './first-era/boss.png' }, background: './first-era/battle.jpg', round: state.round, turn: state.active === 'player' ? 'Player' : 'Old King', result: state.end ? state.end === 'player' ? '第一紀 踏破' : '敗北' : null, message,
   stance: `${state.bossState.stance === 'steadfast' ? '不退' : '断誓'}の構え${state.bossState.broken ? '・崩壊' : ''}`, breakGauge: state.bossState.gauge,
   ultimate: { id: rules.ultimate.id, name: rules.ultimate.name, cost: rules.ultimate.cost, cd: 0, category: 'buff', description: rules.ultimate.description + `。再演対象：${last}`, condition: 'この自ターンに通常スキルを使用・戦闘中1回', allowed: !busy && echo.allowed, reason: busy ? '演出中' : echo.reason, used: !state.ultimate.available, remaining: 0, stateLabel: !state.ultimate.available ? '使用済' : `再演：${last}` },
   controls: { accelerate: { allowed: !busy && accel.allowed, reason: accel.reason, label: 'マナ加速' }, endTurn: !busy && !state.end && state.active === 'player', reset: false } };
 }
 export function moveSkill(deck: string[], from: number, to: number) { const next = [...deck]; if (from < 0 || to < 0 || from >= next.length || to >= next.length) return next; const [id] = next.splice(from, 1); next.splice(to, 0, id); return next; }
 export type { Action };
+
+export function attackPreview(runtime: Runtime, state: State, id: string) {
+ if (state.end || state.active !== 'player') return null;
+ const action: Action = id === runtime.rules.ultimate.id ? { type: 'ultimate', side: 'player' } : { type: 'card', side: 'player', id };
+ const status = action.type === 'ultimate' ? runtime.core.ultimateStatus(state) : runtime.core.availability(state, 'player', id);
+ if (!status.allowed) return null;
+ const result = runtime.core.transition(runtime.core.snapshot(state), action);
+ const hits = result.events.filter(e => e.type === 'damage' && e.target === 'boss' && e.kind === 'attack');
+ return result.ok && hits.length ? { hpDamage: hits.reduce((n, e) => n + (e.amount ?? 0), 0), barrierAbsorbed: hits.reduce((n, e) => n + (e.blocked ?? 0), 0) } : null;
+}
