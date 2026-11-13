@@ -5,15 +5,15 @@
   else root.GamePlanner=factory(root.GameBattle);
 })(typeof globalThis==='object'?globalThis:this,function(Battle){
   'use strict';
-  const poisonValue=n=>n*(n+1)/2;
+  const poisonValue=(n,state)=>state.ruleset==='first-era-v1'?Array.from({length:n},(_,i)=>Battle.poisonTickDamage(state,n-i)).reduce((a,b)=>a+b,0):n*(n+1)/2;
   function evaluate(state,side){
     if(state.end)return state.end===side?100000:-100000;
     const a=state.actors[side],b=state.actors[Battle.other(side)];
-    return (a.hp-b.hp)*5+(poisonValue(b.poison)-poisonValue(a.poison))*2+
+    return (a.hp-b.hp)*5+(poisonValue(b.poison,state)-poisonValue(a.poison,state))*2+
       (a.manaCap-b.manaCap)*3+(a.barrier-b.barrier)*1.2+(b.weak-a.weak)*1.2+
       (b.manaPenalty-a.manaPenalty)+(a.setupBonus+a.attackBonus-b.setupBonus-b.attackBonus)*1.5;
   }
-  const key=actions=>actions.map(a=>a.type==='card'?a.id:'~accelerate').join('/');
+  const key=actions=>actions.map(a=>a.type==='card'?a.id:a.type==='accelerate'?'~accelerate':'~'+a.type).join('/');
   function enumerate(state,side){
     const results=[];let nodes=0;
     function walk(current,actions){
