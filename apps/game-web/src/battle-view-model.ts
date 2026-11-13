@@ -12,6 +12,7 @@ export interface CharacterViewModel {
   skills: SkillViewModel[]; emptySlots: number;
 }
 export interface BattleViewModel {
+  damagePreview?: { hpDamage: number; barrierAbsorbed: number };
   layout?: 'first-era'; stance?: string; breakGauge?: number; ultimate?: SkillViewModel;
   player: CharacterViewModel; boss: CharacterViewModel;
   background: string; round: number; turn: string; result: string | null; message: string;
