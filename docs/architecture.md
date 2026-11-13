@@ -145,4 +145,16 @@ const result = Battle.transition(next.state, {type:'ultimate',side:'player'});
 
 新版はschemaVersion3 / ruleset first-era-v1、bossPresetId ashen_king、`bossState`と`ultimate`で固有状態を保持。旧schema2/first-era-trialの既定生成・snapshot復元を維持する。新旧を自動変換しない。キャラクター素材IDは新版ではnull（今回素材・表示は未接続）。状態生成時に5つの採用IDを必ず渡す。
 
-CommonJSは新モジュールを自動解決。ブラウザで将来新版を使う場合はData/Effectsの後、battle-engineの前にfirst-era-rulesを読み込む。既存classic/Reactの入口は変更せず、旧ルールはこの追加scriptなしで動作する。Reactへのアダプター/型/画面接続、セーブは第2弾以降。
+CommonJSは新モジュールを自動解決。ブラウザで将来新版を使う場合はData/Effectsの後、battle-engineの前にfirst-era-rulesを読み込む。既存classic/Reactの入口は変更せず、旧ルールはこの追加scriptなしで動作する。PR #25時点ではReactへのアダプター/型/画面接続、セーブは第2弾以降としていた。追加実装は下記ホスト節を参照。
+
+## 第一紀プレイ可能版のホスト（2026-11-13）
+
+`apps/game-web/first-era.html`を追加入口とし、既定indexと開発専用dev-previewを維持する。Viteは許可済みengineと原本4点だけを明示配信/ビルドし、リポジトリ全体やprivate-assetsを公開しない。Pagesのルート/公開設定は変更しない。
+
+- `first-era/FirstEraApp.tsx`：画面進行・編成ドラフト・入力ロック・世代付き非同期演出・再戦を所有する。
+- `first-era/presentation.ts`：コアの状態と使用可否・読取専用previewを共通BattleViewModelへ変換する。
+- 既存`BattleView`/表示部品：legacy/new layoutの両方を同じ描画ソースで扱う。Core/AI/保存・工房編集を呼び出さない。
+- `first-era/save.ts`：版付きゲーム進行の検証・保存先アダプター・初回勝利固定。保存先はentryから注入し、工房保存と分離する。
+- `first-era/ui.tsx`：ボタン・パネル・モーダルを共有する。フェードは画面切替だけで、モーダルは対象外。
+
+詳細な画面仕様は[UI](features/ui.md)、保存内容/契機は[進行](features/progression.md#playable-save-flow)。ゲームコア・ID・snapshot仕様・研究データはこの段階で変更しない。

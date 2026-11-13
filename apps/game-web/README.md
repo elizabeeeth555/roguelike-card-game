@@ -169,3 +169,30 @@ PCは編集パネルとプレビューを横並びにし、1100px以下は縦に
 既存の型チェック・ビルド・単体／ブラウザ試験に、編集の検証、既定値復帰、JSON往復・拒否、リロード復元、破損データ保持、保存失敗からの継続を追加。ブラウザ試験は実際のファイルダウンロードとローカルJSON読込も行う。`allowImportingTsExtensions`はNodeの直接TS試験で同じ保存処理を読むための型チェック設定であり、本編への新ビルド要件ではない。開発専用入口・工房コード・テストホストが標準distへ含まれないことも確認する。
 
 将来の新第一紀UI・拠点・編成では、画面固有の表示／設定検証を差し替えつつ、この保存ポート・JSONエンベロープ処理を再利用する。将来の素材管理・レイアウト編集・FX/Story用の巨大な共通スキーマは先行実装していない。
+
+## 第一紀プレイ可能版（別入口）
+
+```bash
+npm --prefix apps/game-web ci
+npm --prefix apps/game-web run dev -- --port 5181
+# http://127.0.0.1:5181/first-era.html
+```
+
+同じサーバーの`/`は旧React技術検証、`/dev-preview.html`は既存王座工房。ルートのclassic公開版は置換しない。新入口だけがfirst-era-v1へ接続する。ビルドはapps/game-web/dist内にindex/first-eraを出力し、公開ルートやPages設定には触れない。
+
+タイトルから新規開始し、拠点で10種から5種を選んで確定すると保存する。カードの追加/解除・詳細、ドラッグ並替・移動ボタンが使える。確定後に王へ挑戦し、スキル選択→詳細→使用で行動する。1〜5キーでも選択、Spaceで終了確認。奥義は独立ボタン。速度は初期ゆっくり、通常/高速/スキップを用意し、演出中も詳細を読める。勝敗後は承認済みの仮導線で再戦/拠点/タイトルへ進む。第二紀は未実装。
+
+保存・初回勝利の固定と確認付き初期化は[進行正本](../../docs/features/progression.md#playable-save-flow)を参照。localStorageは端末/ブラウザ内だけで同期しない。破損原文は確認なしに消さず、保存不可でもメモリ内で遊べる。途中戦闘は再開対象外。
+
+共通BattleViewに同じ表示部品/描画処理を追加し、ゲーム固有ホストがコアへ接続する。工房は同じコンポーネントへ模擬データを渡せるが、既存プリセットは技術検証用のまま保護する。編集操作をBattleViewへ混入させず、模倣画面の別実装は行わない。原本4点は登録済みファイルを加工せず配信。立ち絵の白背景と未登録スキル絵/英雄肖像は暫定表示である。
+
+```bash
+npm --prefix apps/game-web run typecheck
+npm --prefix apps/game-web test
+npm --prefix apps/game-web run build
+# Vite起動中。必要に応じてCHROME_PATH / FIRST_ERA_URLを指定
+npm --prefix apps/game-web run test:first-era:browser
+npm --prefix apps/game-web run test:browser
+```
+
+第一紀のブラウザテストはChromiumのPC1280/1366・スマホ390/320幅で導線、編成、モーダル、合法な勝利/敗北/再戦、保存復元、初回記録保護、イベント順、保存失敗、演出リセットを確認する。結果/スクリーンショットはGit対象外の`.test-artifacts/first-era-playable/`。これはエミュレーションであり、実機・聴感・人間の操作評価とは別。スロー演出は1行動約4.5秒の暫定値で、各コア操作の全イベント表示後に確定snapshotを反映する。

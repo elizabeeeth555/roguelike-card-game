@@ -99,3 +99,5 @@ dialog p,.skill-tooltip p{margin:8px 0}
 
 
 .empty-skill-slot{min-width:0;border:1px dashed #65748a;border-radius:6px;background:#10182799;color:#a5aebc;display:grid;place-items:center;font-size:12px;writing-mode:vertical-rl}
+
+.skill-symbol,.mana-crystals{display:none}
