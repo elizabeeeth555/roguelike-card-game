@@ -7,6 +7,8 @@ import { createSaveRepository, freshSave, recordFirstWin } from './save';
 import type { Save, StoragePort } from './save';
 import type { Action, Frame, Runtime, State } from './core';
 import { eventText } from './core';
+import { presentEvent, eventImpact } from './event-presentation';
+import type { Impact } from './event-presentation';
 import { category, moveSkill, toFirstEraModel } from './presentation';
 type Screen = 'title' | 'hub' | 'deck' | 'battle' | 'result';
 type Speed = 'slow' | 'normal' | 'fast';
@@ -23,7 +25,7 @@ export function FirstEraApp({ runtime, storage }: { runtime: Runtime; storage: (
  const [selected, setSelected] = useState<SkillSelection | null>(null), [confirmEnd, setConfirmEnd] = useState(false);
  const [busy, setBusy] = useState(false), locked = useRef(false), generation = useRef(0), alive = useRef(true);
  const [speed, setSpeed] = useState<Speed>('slow'), speedRef = useRef<Speed>('slow'), skipping = useRef(false);
- const [impact, setImpact] = useState<{ target: 'player' | 'boss'; text: string; sequence: string } | null>(null);
+ const [impact, setImpact] = useState<Impact | null>(null);
  const [log, setLog] = useState<string[]>([]), [cue, setCue] = useState(''), [activeSkill, setActiveSkill] = useState<{ skillId?: string; side?: 'player' | 'boss' }>({});
  const delayRef = useRef<{ id: ReturnType<typeof setTimeout>; resolve: () => void } | null>(null);
  const fadeTimers = useRef(new Map<ReturnType<typeof setTimeout>, () => void>());
@@ -51,6 +53,7 @@ export function FirstEraApp({ runtime, storage }: { runtime: Runtime; storage: (
  function wait(ms: number) { if (skipping.current) return Promise.resolve(); return new Promise<void>(resolve => { const id = setTimeout(() => { if (delayRef.current?.id === id) delayRef.current = null; resolve(); }, ms); delayRef.current = { id, resolve }; }); }
  async function step(action: Action, token: number) {
   if (token !== generation.current || !actual.current) return false;
+  let displayed = runtime.core.snapshot(actual.current);
   const result = runtime.core.transition(actual.current, action); if (!result.ok) { setCue(result.reason ?? '使用不可'); return false; }
   actual.current = result.state;
   const frame: Frame = { sequence: frames.current.length + 1, action, events: result.events, after: runtime.core.snapshot(result.state) }; frames.current.push(frame);
@@ -60,13 +63,14 @@ export function FirstEraApp({ runtime, storage }: { runtime: Runtime; storage: (
   await wait(duration * .2); if (token !== generation.current) return false;
   for (const [i, event] of result.events.entries()) {
    if (token !== generation.current) return false;
+   displayed = presentEvent(displayed, result.state, event); setState(displayed);
    const text = eventText(event, runtime); setCue(text); setLog(lines => [...lines, `${frame.sequence}.${i + 1} ${text}`]);
-   if (['damage', 'heal', 'barrier', 'poisonApplied', 'weak', 'stanceBreak'].includes(event.type)) setImpact({ target: event.target ?? event.side ?? 'boss', text: event.type === 'damage' ? `${event.amount}ダメージ${event.blocked ? `／吸収${event.blocked}` : ''}` : text, sequence: `${frame.sequence}.${i}` });
+   setImpact(eventImpact(event, `${frame.sequence}.${i}`, text, displayed.actors[event.target ?? event.side ?? 'boss'].barrier));
    if (event.kind === 'flash') setActiveSkill({ side: 'boss', skillId: '@oath_strike' });
    await wait(duration * .5 / Math.max(1, result.events.length));
   }
   if (token !== generation.current) return false;
-  // A core action is atomic. Display its committed snapshot after its ordered events; never recalculate combat in animation.
+  // Reconcile display-only event projection with the authoritative action snapshot.
   setState(result.state); await wait(duration * .3); return token === generation.current;
  }
  async function act(action: Action) {

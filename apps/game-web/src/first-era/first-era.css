@@ -32,3 +32,5 @@
 .first-era-battle .hud-heading{display:flex;justify-content:space-between;align-items:baseline;gap:5px}.first-era-battle .hud-heading h2{min-width:0}.first-era-battle .hud-heading>span{white-space:nowrap;font-size:15px}@media(max-width:760px){.first-era-battle .hud-heading>span{font-size:11px}.first-era-battle .player-area .status-effects{max-height:34px;overflow:auto}}
 
 .battle-impact{position:absolute;z-index:6;pointer-events:none;max-width:40%;padding:7px 10px;color:#fff2cb;font:bold clamp(16px,2vw,28px) Georgia,'Yu Mincho',serif;text-shadow:0 2px 4px #000,0 0 8px #000;animation:battle-impact 1.5s ease-out both}.battle-impact.target-boss{left:40%;top:45%}.battle-impact.target-player{left:4%;bottom:28%}@keyframes battle-impact{0%{opacity:1;translate:0 5px;scale:1.1}80%{opacity:1}100%{opacity:0;translate:0 -25px;scale:1}}@media(max-width:760px){.battle-impact.target-boss{left:30%;top:42%}.battle-impact.target-player{left:5%;bottom:28%}.battle-impact{max-width:65%;font-size:16px}}
+
+.battle-impact>span{display:block}.battle-impact .impact-damage{color:#ff8680}.battle-impact .impact-heal{color:#8ee6a5}.battle-impact .impact-barrier{color:#b5e4ff}

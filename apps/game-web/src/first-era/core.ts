@@ -1,6 +1,6 @@
 import type { Actor, Skill, Side } from '../battle-adapter';
 export type Action = { type: 'card'; side: Side; id: string } | { type: 'ultimate' | 'accelerate' | 'endTurn'; side: Side };
-export interface State { schemaVersion: number; ruleset: string; round: number; active: Side; end: Side | null; actors: Record<Side, Actor>; bossState: { stance: string; gauge: number; broken: boolean }; ultimate: { available: boolean; lastSkillId: string | null } }
+export interface State { schemaVersion: number; ruleset: string; round: number; active: Side; end: Side | null; actors: Record<Side, Actor & { accelerated: boolean; attacks: string[] }>; bossState: { stance: string; gauge: number; broken: boolean }; ultimate: { available: boolean; lastSkillId: string | null } }
 export interface Event { type: string; side?: Side; source?: Side; target?: Side; id?: string; kind?: string; amount?: number; blocked?: number; baseDamage?: number; rawAmount?: number; adjustedAmount?: number; remaining?: number; stance?: string; winner?: Side }
 export interface Frame { sequence: number; action: Action; events: Event[]; after: State }
 export interface RecordWin { deck: string[]; initial: State; frames: Frame[]; result: State }

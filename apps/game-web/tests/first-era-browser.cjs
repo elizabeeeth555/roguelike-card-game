@@ -59,6 +59,39 @@ assert.equal(await evaluate(`[...document.querySelectorAll('dialog button')].som
 await click('.player-skills .skill-open');await wait(`!!document.querySelector('dialog[open]')`);
 assert.equal(await evaluate(`[...document.querySelectorAll('dialog button')].find(b=>b.textContent==='使用する').disabled`),true);await textClick('閉じる');
 await textClick('設定');await textClick('最初からやり直す');await textClick('実行する');await settled();await sleep(4700);assert.ok(await evaluate(`!!document.querySelector('.hub-screen')&&!document.querySelector('.result-screen')`));assert.equal(await evaluate(`localStorage.getItem('keisei.first-era.progress.v1')`),null);
-assert.deepEqual(errors,[]);const report={passed:true,viewports:[1280,1366,390,320],victory:true,defeat:true,rematch:true,saveRestore:true,firstWinPreserved:true,eventOrderVerified:true,animationCancelledOnReset:true,failedWriteMemoryPlay:true,corruptDataPreserved:true,fadeDoubleInputBlocked:true,hoverFocusReadOnly:true,inspectionDuringAnimation:true,errors,screenshots:fs.readdirSync(out).filter(n=>n.endsWith('.png'))};fs.writeFileSync(path.join(out,'browser-results.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
+// Review regression: observe resolved events against the HUD while real animations run.
+for (const [w,h,speed] of [[1366,768,'slow'],[390,844,'normal']]) {
+ await reload();await evaluate(`localStorage.setItem('keisei.first-era.progress.v1',JSON.stringify({format:'keisei-first-era',version:1,deck:['heavy_slash','barrier','first_aid','battle_spirit','slash'],firstWin:null}))`);await reload();await viewport(w,h);await textClick('続きから');await settled();await textClick('王に挑む');await settled();
+ await evaluate(`(()=>{const n=document.querySelector('[aria-label="演出速度"]');n.value=${JSON.stringify(speed)};n.dispatchEvent(new Event('change',{bubbles:true}));window.__syncState=GameBattle.createState({ruleset:'first-era-v1',playerDeck:['heavy_slash','barrier','first_aid','battle_spirit','slash']});})()`);
+ assert.equal(await evaluate(`!!document.querySelector('.first-era-battle .resource-numbers')`),false);
+ assert.equal(await evaluate(`document.querySelector('.hud-heading>span').textContent.includes('HP')`),false);
+ assert.equal(await evaluate(`document.querySelectorAll('.player-area .mana-crystals i').length`),3);
+ await textClick('戦闘ログ');
+ async function animated(id) {
+  const data=await evaluate(`(()=>{const before=GameBattle.snapshot(window.__syncState),r=GameBattle.transition(before,{type:'card',side:'player',id:${JSON.stringify(id)}});if(!r.ok)throw Error('sync fixture illegal');window.__syncState=r.state;return {before,after:r.state,events:r.events,offset:document.querySelectorAll('.battle-log li').length};})()`);
+  await click(`.player-skills [data-skill-id="${id}"] .skill-open`);await textClick('使用する');
+  const values={boss:{hp:data.before.actors.boss.hp,barrier:data.before.actors.boss.barrier,mana:data.before.actors.boss.mana},player:{hp:data.before.actors.player.hp,barrier:data.before.actors.player.barrier,mana:data.before.actors.player.mana}};
+  for(let i=0;i<data.events.length;i++) {
+   const e=data.events[i];await wait(`document.querySelectorAll('.battle-log li').length>=${data.offset+i+1}`);
+   if(e.type==='card')values.player.mana=data.after.actors.player.mana;
+   if(e.type==='damage'){values[e.target].hp-=e.amount;values[e.target].barrier-=e.blocked;}
+   if(e.type==='heal')values[e.side].hp+=e.amount;
+   if(e.type==='barrier')values[e.side].barrier+=e.amount;
+   const shown=await evaluate(`(()=>{const result={};for(const [side,scope]of [['boss','.enemy-area'],['player','.player-area']]){const n=document.querySelector(scope+' .battle-hud');const b=[...n.querySelectorAll('.status-effects li')].find(n=>n.textContent.startsWith('バリア '));result[side]={hp:Number(n.querySelector('progress').value),mana:n.querySelectorAll('.mana-crystals .lit').length,barrier:b?Number(b.textContent.split(' ')[1]):0};}return result;})()`);
+   assert.deepEqual(shown,values,`${speed} ${w}px event ${e.type}`);
+   if(e.type==='damage')assert.ok(await evaluate(`!!document.querySelector('.impact-damage')`));
+   if(e.type==='heal')assert.ok(await evaluate(`!!document.querySelector('.impact-heal')`));
+   if(e.type==='barrier')assert.ok(await evaluate(`!!document.querySelector('.impact-barrier')`));
+  }
+  await wait(`document.querySelector('.battle-controls button:last-child')?.disabled===false`);
+ }
+ await animated('heavy_slash');await animated('barrier');
+ await textClick('ターン終了');if(await evaluate(`!!document.querySelector('dialog[open]')`))await textClick('終了する');await textClick('演出スキップ');await wait(`document.querySelector('.battle-controls button:last-child')?.disabled===false`);
+ await evaluate(`(()=>{let s=GameBattle.transition(window.__syncState,{type:'endTurn',side:'player'}).state;for(const a of GamePlanner.plan(s).actions){if(s.end)break;s=GameBattle.transition(s,a).state;}if(!s.end)s=GameBattle.transition(s,{type:'endTurn',side:'boss'}).state;window.__syncState=s;})()`);
+ await animated('first_aid');await shot('review-hud-'+w);
+ const health=await evaluate(`(()=>{const p=document.querySelector('.player-area progress');return {ratio:p.value/p.max,color:getComputedStyle(p).accentColor};})()`);
+ assert.equal(health.color,health.ratio>.5?'rgb(99, 133, 95)':health.ratio>.25?'rgb(211, 175, 79)':'rgb(188, 75, 69)');
+}
+assert.deepEqual(errors,[]);const report={passed:true,viewports:[1280,1366,390,320],victory:true,defeat:true,rematch:true,saveRestore:true,firstWinPreserved:true,eventOrderVerified:true,animationCancelledOnReset:true,failedWriteMemoryPlay:true,corruptDataPreserved:true,fadeDoubleInputBlocked:true,stagedHudSlowNormal:true,crystalOnlyMana:true,hoverFocusReadOnly:true,inspectionDuringAnimation:true,errors,screenshots:fs.readdirSync(out).filter(n=>n.endsWith('.png'))};fs.writeFileSync(path.join(out,'browser-results.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
 }finally{ws?.close();chrome.kill();}}
 main().catch(e=>{console.error(e);process.exitCode=1;});
