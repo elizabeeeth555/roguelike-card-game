@@ -13,5 +13,5 @@ export function useFirstEraAudio(scene: AudioScene) {
   document.addEventListener('pointerdown', unlock, true); document.addEventListener('keydown', unlock, true); document.addEventListener('visibilitychange', visibility); visibility();
   return () => { document.removeEventListener('pointerdown', unlock, true); document.removeEventListener('keydown', unlock, true); document.removeEventListener('visibilitychange', visibility); audio.dispose(); };
  }, [audio]);
- return { settings, setSettings, error, retry: audio.unlock };
+ return { settings, setSettings, error, retry: audio.unlock, finishBattle: audio.finishBattle };
 }

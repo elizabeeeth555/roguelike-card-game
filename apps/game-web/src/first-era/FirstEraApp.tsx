@@ -20,7 +20,7 @@ export function FirstEraApp({ runtime, storage }: { runtime: Runtime; storage: (
  const [exists, setExists] = useState(loaded.exists), [warning, setWarning] = useState(loaded.error);
  const writable = useRef(!loaded.error);
  const [screen, setScreen] = useState<Screen>('title'), [fade, setFade] = useState(''); const navigating = useRef(false);
- const audio = useFirstEraAudio(screen === 'battle' || screen === 'result' ? 'battle' : 'hub');
+ const audio = useFirstEraAudio(screen === 'result' ? 'silent' : screen === 'battle' ? 'battle' : 'hub');
  const [draft, setDraft] = useState<string[]>([]), [detail, setDetail] = useState<string | null>(null), [dragged, setDragged] = useState<number | null>(null);
  const [settings, setSettings] = useState(false), [confirm, setConfirm] = useState<{ title: string; text: string; accept: () => void } | null>(null);
  const [state, setState] = useState<State | null>(null), actual = useRef<State | null>(null), initial = useRef<State | null>(null), frames = useRef<Frame[]>([]);
@@ -88,6 +88,8 @@ export function FirstEraApp({ runtime, storage }: { runtime: Runtime; storage: (
    if (token !== generation.current) return;
    if (actual.current?.end) {
     if (actual.current.end === 'player' && initial.current) persist(recordFirstWin(saveRef.current, { deck: [...initial.current.actors.player.deck], initial: initial.current, frames: frames.current, result: actual.current }));
+    await audio.finishBattle();
+    if (token !== generation.current || !alive.current) return;
     void go('result');
    }
   } catch { if (token === generation.current) setWarning('戦闘処理を継続できませんでした。状態を初期化して再挑戦してください。'); }
@@ -107,7 +109,7 @@ export function FirstEraApp({ runtime, storage }: { runtime: Runtime; storage: (
   {screen === 'result' && state && <main className="story-screen result-screen" style={{ backgroundImage: 'url("./first-era/battle.jpg")' }}><Panel><h1>{state.end === 'player' ? '第一紀 踏破' : '敗北 — 拠点へ帰還'}</h1><p>決着ラウンド {state.round} ／ 英雄HP {state.actors.player.hp}</p><p>{state.end === 'player' ? '第二紀への進行は未実装です。初回勝利記録を保持して再戦できます。' : '同じ英雄で再挑戦できます。確定編成と進行は失われません。'}</p><ThroneButton onClick={() => void go(state.end === 'player' ? 'title' : 'hub')}>{state.end === 'player' ? 'タイトルに戻る' : '拠点へ戻る'}</ThroneButton><ThroneButton onClick={startBattle}>再戦する</ThroneButton></Panel></main>}
  </div>{audio.error && <aside className="audio-notice" role="status">{audio.error}<ThroneButton onClick={audio.retry}>音声を再試行</ThroneButton></aside>}{warning && <p className="save-warning" role="alert">{warning}<button onClick={() => setWarning('')} aria-label="保存案内を閉じる">×</button></p>}
  {detail && <Modal title="スキル詳細" onClose={() => setDetail(null)}><SkillInformation skill={skillInfo(detail)} illustrated /></Modal>}
- {settings && <Modal title="設定" onClose={() => setSettings(false)}>{speedSelect}<fieldset className="audio-settings"><legend>音声（このタブ内に適用）</legend><label><input type="checkbox" checked={audio.settings.muted} onChange={e => audio.setSettings({ ...audio.settings, muted: e.target.checked })} />すべてミュート</label><label>BGM音量 {Math.round(audio.settings.bgm * 100)}%<input aria-label="BGM音量" type="range" min="0" max="1" step="0.01" value={audio.settings.bgm} onChange={e => audio.setSettings({ ...audio.settings, bgm: Number(e.target.value) })} /></label><label>環境音量 {Math.round(audio.settings.ambience * 100)}%<input aria-label="環境音量" type="range" min="0" max="1" step="0.01" value={audio.settings.ambience} onChange={e => audio.setSettings({ ...audio.settings, ambience: Number(e.target.value) })} /></label><p>最初の操作後に音声を開始します。タイトル・拠点・編成は森林と焚き火、戦闘・結果・再戦は老王の曲を継続します。</p><ThroneButton onClick={audio.retry}>音声を再試行</ThroneButton></fieldset><ThroneButton onClick={() => { setSettings(false); setConfirm({ title: '最初からやり直す', text: '確定編成・初回勝利記録を初期化しますか？', accept: beginNew }); }}>最初からやり直す</ThroneButton></Modal>}
+ {settings && <Modal title="設定" onClose={() => setSettings(false)}>{speedSelect}<fieldset className="audio-settings"><legend>音声（このタブ内に適用）</legend><label><input type="checkbox" checked={audio.settings.muted} onChange={e => audio.setSettings({ ...audio.settings, muted: e.target.checked })} />すべてミュート</label><label>BGM音量 {Math.round(audio.settings.bgm * 100)}%<input aria-label="BGM音量" type="range" min="0" max="1" step="0.01" value={audio.settings.bgm} onChange={e => audio.setSettings({ ...audio.settings, bgm: Number(e.target.value) })} /></label><label>環境音量 {Math.round(audio.settings.ambience * 100)}%<input aria-label="環境音量" type="range" min="0" max="1" step="0.01" value={audio.settings.ambience} onChange={e => audio.setSettings({ ...audio.settings, ambience: Number(e.target.value) })} /></label><p>最初の操作後に音声を開始します。タイトル・拠点・編成は森林と焚き火、戦闘終了の演出後に曲を止め、結果は無音です。再戦は老王の曲を先頭から再生します。</p><ThroneButton onClick={audio.retry}>音声を再試行</ThroneButton></fieldset><ThroneButton onClick={() => { setSettings(false); setConfirm({ title: '最初からやり直す', text: '確定編成・初回勝利記録を初期化しますか？', accept: beginNew }); }}>最初からやり直す</ThroneButton></Modal>}
  {confirm && <Modal title={confirm.title} onClose={() => setConfirm(null)}><p>{confirm.text}</p><ThroneButton onClick={confirm.accept}>実行する</ThroneButton></Modal>}
  </div>;
 }
