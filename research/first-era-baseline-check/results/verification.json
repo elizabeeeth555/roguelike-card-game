@@ -1,0 +1,40 @@
+{
+  "commands": [
+    {
+      "command": "node --test research/first-era-baseline-check/baseline.test.cjs",
+      "passed": 5,
+      "failed": 0
+    },
+    {
+      "command": "npm test",
+      "passed": 97,
+      "failed": 0
+    },
+    {
+      "command": "node --test research/first-era-poison-stacking/*.test.cjs research/first-era-poison-replay/*.test.cjs",
+      "passed": 32,
+      "failed": 0
+    },
+    {
+      "command": "npm run check",
+      "result": "passed"
+    },
+    {
+      "command": "node --check each new .cjs",
+      "result": "passed"
+    },
+    {
+      "command": "git diff --check and staged diff --check",
+      "result": "see final Git verification"
+    }
+  ],
+  "notPerformed": [
+    "human playtest",
+    "browser tests",
+    "additional seeds",
+    "AI optimization",
+    "full-deck search",
+    "ultimate-off comparison",
+    "new unimplemented systems"
+  ]
+}

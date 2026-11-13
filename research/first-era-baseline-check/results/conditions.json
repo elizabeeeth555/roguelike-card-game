@@ -1,0 +1,200 @@
+{
+  "baseMain": "4a1b96b7fea8fd9e51c43d7c49126fa1e81b327d",
+  "config": {
+    "poisonMode": "baseline",
+    "openingMP": 3,
+    "ultCost": 1
+  },
+  "seed": 1,
+  "planner": {},
+  "cases": [
+    {
+      "id": "attack-basic",
+      "family": "攻撃特化",
+      "deck": [
+        "slash",
+        "heavy_slash",
+        "great_swing",
+        "charge",
+        "follow_up"
+      ]
+    },
+    {
+      "id": "attack-chain",
+      "family": "攻撃特化",
+      "deck": [
+        "slash",
+        "dash_slash",
+        "follow_up",
+        "finisher_slash",
+        "charge"
+      ]
+    },
+    {
+      "id": "attack-buff",
+      "family": "攻撃特化",
+      "deck": [
+        "slash",
+        "heavy_slash",
+        "charge",
+        "battle_spirit",
+        "setup"
+      ]
+    },
+    {
+      "id": "mixed-break",
+      "family": "攻守併用",
+      "deck": [
+        "barrier",
+        "battle_spirit",
+        "feint",
+        "finisher_slash",
+        "heavy_slash"
+      ]
+    },
+    {
+      "id": "mixed-heal",
+      "family": "攻守併用",
+      "deck": [
+        "slash",
+        "heavy_slash",
+        "barrier",
+        "fortress",
+        "first_aid"
+      ]
+    },
+    {
+      "id": "mixed-tempo",
+      "family": "攻守併用",
+      "deck": [
+        "slash",
+        "heavy_slash",
+        "barrier",
+        "feint",
+        "setup"
+      ]
+    },
+    {
+      "id": "poison-attack",
+      "family": "毒＋攻撃",
+      "deck": [
+        "corrosion",
+        "r_poison_thrust",
+        "heavy_slash",
+        "feint",
+        "slash"
+      ]
+    },
+    {
+      "id": "poison-guard",
+      "family": "毒＋攻撃",
+      "deck": [
+        "corrosion",
+        "barrier",
+        "fortress",
+        "finisher_slash",
+        "slash"
+      ]
+    },
+    {
+      "id": "poison-buff",
+      "family": "毒＋攻撃",
+      "deck": [
+        "corrosion",
+        "r_poison_thrust",
+        "heavy_slash",
+        "barrier",
+        "battle_spirit"
+      ]
+    },
+    {
+      "id": "opening-replay",
+      "family": "奥義速攻比較",
+      "deck": [
+        "slash",
+        "heavy_slash",
+        "great_swing",
+        "charge",
+        "follow_up"
+      ],
+      "opening": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "heavy_slash"
+        },
+        {
+          "type": "ultimate",
+          "side": "player"
+        },
+        {
+          "type": "endTurn",
+          "side": "player"
+        }
+      ]
+    },
+    {
+      "id": "opening-heavy",
+      "family": "奥義速攻比較",
+      "deck": [
+        "slash",
+        "heavy_slash",
+        "great_swing",
+        "charge",
+        "follow_up"
+      ],
+      "opening": [
+        {
+          "type": "card",
+          "side": "player",
+          "id": "great_swing"
+        },
+        {
+          "type": "endTurn",
+          "side": "player"
+        }
+      ]
+    },
+    {
+      "id": "opening-accelerate",
+      "family": "奥義速攻比較",
+      "deck": [
+        "slash",
+        "heavy_slash",
+        "great_swing",
+        "charge",
+        "follow_up"
+      ],
+      "opening": [
+        {
+          "type": "accelerate",
+          "side": "player"
+        },
+        {
+          "type": "card",
+          "side": "player",
+          "id": "slash"
+        },
+        {
+          "type": "endTurn",
+          "side": "player"
+        }
+      ]
+    }
+  ],
+  "heroHP": 34,
+  "bossHP": 40,
+  "initialMP": "both3/3",
+  "poison": {
+    "cap": 8,
+    "tick": "min(N,6)",
+    "order": "target turn end: damage then N-1",
+    "barrierBypass": true
+  },
+  "notes": [
+    "Prior legacy planner unchanged; no AI optimization",
+    "Forced openings are legal player choices, not rule changes",
+    "Exactly12 exploratory trials, no human-win-rate inference",
+    "Ultimate/acceleration causal optimality is not established"
+  ]
+}
