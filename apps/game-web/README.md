@@ -203,4 +203,4 @@ npm --prefix apps/game-web run test:browser
 
 `first-era/audio.ts`がID→URL、シーン別の再生、フェード、単一プレイヤー、音声ポートを管理する。`use-first-era-audio.ts`が第一紀ホストから画面群・設定・ユーザー操作・可視状態を接続する。共通描画、コア、工房には依存を追加しない。音量はWeb Audio Gainを優先し、非対応時はHTML音量へフォールバックする。進行セーブ形式や保存キーは変更せず、音声設定はタブ内のみ。
 
-実音源のブラウザ試験：Vite起動後に`FIRST_ERA_URL=http://127.0.0.1:5183/first-era.html node apps/game-web/tests/first-era-audio-browser.cjs`（リポジトリルートから）。成果物は`.test-artifacts/first-era-assets-audio/`。通常の第一紀試験にも結果／再戦時の音声継続を含める。再生拒否の回復はシミュレーションし、再生・終端ループは実ファイルで確認する。聴感・実機・他ブラウザの検証とは区別する。
+実音源のブラウザ試験：Vite起動後に`FIRST_ERA_URL=http://127.0.0.1:5183/first-era.html node apps/game-web/tests/first-era-audio-browser.cjs`（リポジトリルートから）。成果物は`.test-artifacts/first-era-assets-audio/`。通常の第一紀試験では、勝敗後のフェードアウト・結果画面の無音・再戦時の曲頭再生を確認する。初回再生拒否と再生開始後の音源エラーからの復旧も検証し、実音源の再生・終端ループを確認する。聴感・実機・他ブラウザの検証とは区別する。
