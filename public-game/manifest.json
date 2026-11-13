@@ -1,0 +1,23 @@
+{
+  "format": "throne-first-era-public-v1",
+  "entrySource": "apps/game-web/first-era.html",
+  "inputHash": "2b373363a929918b5926e66786d6b0663904c78ce03976b20629647137b75d0a",
+  "entryHash": "c7a306afe1f05b615472c7e6ab9a9251574d6de44221d0bd224a1be1bd519c16",
+  "files": {
+    "assets/first-era-BWGhyOKR.css": "edc0a308666a0ef20d495c111f38d341c162b028f29fa9ca719b86f6a856b411",
+    "assets/first-era-qv4tsNys.js": "df0482c2210d04669fc1dce4b31542db63de4c7642f2c377da8ad79abb9215ab",
+    "engine/battle-engine.js": "d1fbec614558d111e5043f5741771cdc06e698c37a9e6d6e138f92469ad30d08",
+    "engine/boss-planner.js": "17e36ccb4fdcb14a24786a8585e6406bb9f5cdfad4c45e54219bf064fafa0b70",
+    "engine/card-data.js": "d03395fe0b08de017ab9cd8f1dcbcf5671b108b76bb524e20fd0991368e0da07",
+    "engine/card-effects.js": "f0d4865768863085b72fc2551ca5da4f017caa2ac862da62deb79dab4ca53130",
+    "engine/combat-math.js": "2b3098d6366d1434660bcfee3757dde7477b0d8c71b512fd2a4399915924f41f",
+    "engine/first-era-rules.js": "544ea8ba8b8a16039eeaf7083f3528d22d3806b6346b9d25c3e096c22b74e912",
+    "first-era/audio/bgm-first-era-hub-forest.mp3": "9850aa1d0d5d66bd9c5daf8bb77c6d852e01f2f4de22f283bd5621e8bed13b75",
+    "first-era/audio/bgm-first-era-old-king.mp3": "cef8e50f55d72eb54613c8c31f83a3aa034acdcf33cc3af44fd43ed134ad4db0",
+    "first-era/audio/sfx-first-era-campfire.mp3": "20b34a31949e9b2155c5cf98a4e7b1d45d7db7461ff67ca82110fc44331e57f4",
+    "first-era/battle.jpg": "8c5d8681719b28a0effc28fbc9a7ecdf5341462fd4233cc448950b6b57ade359",
+    "first-era/boss.png": "549c0e2af377cbcb9babb6bdd911a0c460b63c1c113ae9358a82cf6e6f57c0e9",
+    "first-era/deck.png": "54660f03d26d6dbd72c4862639b4942bd97fc4b91fabe2b165d90ee628d6426f",
+    "first-era/hub.jpg": "06785afa899ed8e040a95b186820eef3fbd07efc18744de82da3c396a34e6cd0"
+  }
+}

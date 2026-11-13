@@ -38,7 +38,7 @@ async function main(){
       if(r.exceptionDetails)throw new Error(r.exceptionDetails.exception?.description||r.exceptionDetails.text);
       return r.result.value;
     }
-    await call('Page.navigate',{url:process.env.BROWSER_TEST_URL||pathToFileURL(path.join(root,'index.html')).href});
+    await call('Page.navigate',{url:process.env.BROWSER_TEST_URL||pathToFileURL(path.join(root,'classic/index.html')).href});
     for(let i=0;i<100;i++){if(await evaluate('typeof trialDebug!=="undefined"'))break;await sleep(100);}
     await evaluate(`document.getElementById('speedButton').click();document.querySelector('.starter-option').click();for(let i=0;i<3;i++){document.querySelector('.card-pick').click();document.getElementById('confirmCard').click();}skipDraft();skipDraft();hideTransitions();`);
     await evaluate(`initBattle('boss_witch_poison')`);
