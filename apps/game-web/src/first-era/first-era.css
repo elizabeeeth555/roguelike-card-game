@@ -46,3 +46,37 @@
 @media(prefers-reduced-motion:reduce){.battle-cutin{animation:none}}
 
 .first-era-battle .battle-chains{z-index:0}.first-era-battle .battle-field{z-index:1}
+
+/* Registered PNGs: viewport-only transparent-margin trimming; no image rewriting. */
+.ui-image{display:inline-block;width:1em;height:1em;vertical-align:middle;pointer-events:none;flex:none;overflow:hidden}
+.first-era-app .registered-skill-art{padding:10px;background:radial-gradient(ellipse,#292b2a,#0b1014)}.registered-skill-art>.ui-image{width:100%;height:100%;max-height:100%}
+.first-era-app .button-frame-art{position:absolute;inset:0;width:100%;height:100%;z-index:-1;filter:drop-shadow(0 2px 2px #0008)}
+.first-era-app button:has(>.button-frame-art){position:relative;isolation:isolate;background:transparent;border-color:transparent;box-shadow:none}.first-era-app button:has(>.button-frame-art):hover:not(:disabled){background:#c8b07616}.first-era-app button:has(>.button-frame-art):focus-visible{outline:2px solid #e2cf9b}
+.first-era-battle .battle-controls button:has(>.button-frame-art){position:absolute}
+.first-era-battle .skill:has(.skill-frame-art){border:0;background:transparent;box-shadow:none}.first-era-battle .skill:has(.skill-frame-art) .skill-open{background:transparent;border:0;box-shadow:none;isolation:isolate}
+.first-era-battle .skill-frame-art{position:absolute;inset:0;width:100%;height:100%;z-index:-1;filter:drop-shadow(0 3px 3px #000)}
+.first-era-battle .skill:has(.skill-frame-art) .skill-symbol{width:33px;height:33px;top:17px;left:16px}.first-era-battle .skill-symbol>.ui-image{width:100%;height:100%}
+.first-era-battle .skill:has(.skill-frame-art) .skill-name{left:55px;right:43px;top:15px}.first-era-battle .skill:has(.skill-frame-art) .skill-state{left:55px;bottom:12px}
+.first-era-battle .skill-cost,.first-era-battle .skill-cd{display:flex;align-items:center;gap:3px}.first-era-battle .skill-cost>.ui-image{width:12px;height:18px}.first-era-battle .skill-cd>.ui-image{width:12px;height:14px}
+.first-era-battle .player-skills .skill:has(.skill-frame-art) .skill-name{left:37px;right:27px;font-size:12px}.first-era-battle .player-skills .skill:has(.skill-frame-art) .skill-symbol{left:5px;width:28px;height:28px;top:18px}.first-era-battle .player-skills .skill:has(.skill-frame-art) .skill-state{left:37px;font-size:8px;bottom:16px}
+.first-era-battle .image-health{position:relative;isolation:isolate}.first-era-battle .health-frame-art{position:absolute;left:-1%;top:50%;translate:0 -50%;width:102%;height:auto;aspect-ratio:21/1;pointer-events:none;overflow:visible}
+.first-era-battle .mana-crystals i{display:inline-flex;width:14px;height:21px;filter:grayscale(1);opacity:.35}.first-era-battle .mana-crystals i.lit{filter:drop-shadow(0 0 3px #2baaff);opacity:1}.first-era-battle .mana-crystals .ui-image{width:100%;height:100%}
+.first-era-battle .status-effects li{display:flex;align-items:center;gap:2px}.first-era-battle .status-effects .ui-image{width:20px;height:20px}
+.first-era-battle .boss-stance{isolation:isolate}.first-era-battle .stagger-frame-art{position:absolute;left:-4%;top:20px;width:108%;height:23px;pointer-events:none}.first-era-battle .boss-stance progress{height:7px;margin:4px auto;width:92%}
+.first-era-battle .ultimate-button:has(.ultimate-frame-art){clip-path:none;border:0;background:transparent;box-shadow:none;isolation:isolate;padding:14px 35px;font-size:20px}.first-era-battle .ultimate-frame-art{position:absolute;inset:0;width:100%;height:100%;z-index:-1}.first-era-battle .ultimate-button span{position:relative;text-shadow:0 2px 5px #000}.first-era-battle .ultimate-button small{position:relative}
+.first-era-app .image-detail{position:relative;isolation:isolate;border:0;background:#101417;padding:28px}.first-era-app .skill-tooltip.image-detail{position:fixed;padding:22px}.first-era-app .detail-frame-art{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}.first-era-app .image-detail .registered-skill-art{background:none;border:0}.first-era-app .image-detail .registered-skill-art .ui-image{max-height:150px}
+@media(max-width:760px){
+/* Preserve existing mobile panel/touch bounds; narrow frames remain a provisional fit. */
+.first-era-battle .skill:has(.skill-frame-art) .skill-symbol,.first-era-battle .player-skills .skill:has(.skill-frame-art) .skill-symbol{left:4px;top:4px;width:20px;height:20px}
+.first-era-battle .skill:has(.skill-frame-art) .skill-name,.first-era-battle .player-skills .skill:has(.skill-frame-art) .skill-name{left:4px;right:4px;top:29px;font-size:11px}
+.first-era-battle .skill:has(.skill-frame-art) .skill-state,.first-era-battle .player-skills .skill:has(.skill-frame-art) .skill-state{left:3px;bottom:4px;font-size:8px}
+.first-era-battle .ultimate-button:has(.ultimate-frame-art){font-size:12px;padding:6px 7px}.first-era-battle .status-effects .ui-image{width:15px;height:15px}.first-era-battle .stagger-frame-art{top:14px;height:20px}.first-era-app .image-detail{padding:20px}
+}
+.first-era-app .detail-cost .ui-image{width:18px;height:22px}
+@media(max-width:760px){.first-era-battle .skill:has(.skill-frame-art){background:linear-gradient(155deg,#25292be8,#101519ed);border:1px solid var(--battle-skill-border,#aa9470);border-left:4px solid var(--category-color,#aa9470);box-shadow:inset 0 0 0 2px #101519,0 4px 12px #000a}.first-era-battle .skill-frame-art{display:none}}
+.first-era-battle .boss-stance{top:12%}.first-era-battle .boss-stance progress{width:88%;margin:0 auto}.first-era-battle .stagger-frame-art{left:0;top:0;width:100%;height:40px}
+@media(min-width:761px){
+.first-era-app .throne-button{min-width:90px}
+.first-era-battle .enemy-area .skill-open{height:90px}.first-era-battle .enemy-area .skill:has(.skill-frame-art) .skill-name{top:25px;left:63px;right:50px}.first-era-battle .enemy-area .skill:has(.skill-frame-art) .skill-symbol{left:23px;top:27px}.first-era-battle .enemy-area .skill-cost{right:25px;top:22px}.first-era-battle .enemy-area .skill-cd{right:25px;bottom:20px}.first-era-battle .enemy-area .skill:has(.skill-frame-art) .skill-state{bottom:20px;left:63px}
+}
+@media(max-width:760px){.first-era-battle .boss-stance{top:19%}.first-era-battle .stagger-frame-art{top:8px;height:18px}}

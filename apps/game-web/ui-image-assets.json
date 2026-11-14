@@ -1,0 +1,365 @@
+{
+  "1": {
+    "path": "assets/ui/battle/stagger-gauge-frame-no-ticks.png",
+    "width": 2172,
+    "height": 724,
+    "viewBox": [
+      52,
+      205,
+      2101,
+      316
+    ]
+  },
+  "2": {
+    "path": "assets/ui/icons/status/barrier-status.png",
+    "width": 1254,
+    "height": 1254,
+    "viewBox": [
+      126,
+      138,
+      985,
+      997
+    ]
+  },
+  "6": {
+    "path": "assets/ui/icons/status/poison.png",
+    "width": 1254,
+    "height": 1254,
+    "viewBox": [
+      204,
+      172,
+      828,
+      878
+    ]
+  },
+  "7": {
+    "path": "assets/ui/icons/status/attack-up.png",
+    "width": 1254,
+    "height": 1254,
+    "viewBox": [
+      374,
+      12,
+      507,
+      1230
+    ]
+  },
+  "8": {
+    "path": "assets/ui/icons/status/weaken.png",
+    "width": 1199,
+    "height": 1312,
+    "viewBox": [
+      279,
+      13,
+      641,
+      1299
+    ]
+  },
+  "9": {
+    "path": "assets/ui/battle/hp-bar-frame.png",
+    "width": 2172,
+    "height": 724,
+    "viewBox": [
+      96,
+      301,
+      1980,
+      118
+    ]
+  },
+  "10": {
+    "path": "assets/ui/cards/skill-detail-frame.png",
+    "width": 1086,
+    "height": 1448,
+    "viewBox": [
+      41,
+      4,
+      1004,
+      1405
+    ]
+  },
+  "12": {
+    "path": "assets/ui/icons/skills/feint.png",
+    "width": 1254,
+    "height": 1254,
+    "viewBox": [
+      200,
+      218,
+      854,
+      818
+    ]
+  },
+  "13": {
+    "path": "assets/ui/icons/skills/first-era-venom-blade.png",
+    "width": 1254,
+    "height": 1254,
+    "viewBox": [
+      200,
+      219,
+      853,
+      817
+    ]
+  },
+  "14": {
+    "path": "assets/ui/icons/ultimate/first-era-ultimate.png",
+    "width": 2064,
+    "height": 762,
+    "viewBox": [
+      56,
+      51,
+      1952,
+      650
+    ]
+  },
+  "15": {
+    "path": "assets/ui/icons/skills/first-era-poison-thrust.png",
+    "width": 1254,
+    "height": 1254,
+    "viewBox": [
+      200,
+      219,
+      854,
+      817
+    ]
+  },
+  "16": {
+    "path": "assets/ui/icons/skills/first-era-corrosion.png",
+    "width": 1254,
+    "height": 1254,
+    "viewBox": [
+      200,
+      218,
+      854,
+      818
+    ]
+  },
+  "18": {
+    "path": "assets/ui/icons/skills/battle-spirit.png",
+    "width": 1254,
+    "height": 1254,
+    "viewBox": [
+      200,
+      220,
+      855,
+      816
+    ]
+  },
+  "19": {
+    "path": "assets/ui/icons/skills/first-aid.png",
+    "width": 1254,
+    "height": 1254,
+    "viewBox": [
+      200,
+      219,
+      855,
+      817
+    ]
+  },
+  "20": {
+    "path": "assets/ui/icons/skills/slash.png",
+    "width": 2048,
+    "height": 2048,
+    "viewBox": [
+      332,
+      364,
+      1384,
+      1324
+    ]
+  },
+  "24": {
+    "path": "assets/ui/icons/skills/barrier.png",
+    "width": 2048,
+    "height": 2048,
+    "viewBox": [
+      332,
+      368,
+      1384,
+      1320
+    ]
+  },
+  "26": {
+    "path": "assets/ui/icons/skills/heavy-slash.png",
+    "width": 1254,
+    "height": 1254,
+    "viewBox": [
+      200,
+      219,
+      853,
+      817
+    ]
+  },
+  "27": {
+    "path": "assets/ui/icons/common/cooldown-hourglass.png",
+    "width": 1964,
+    "height": 2048,
+    "viewBox": [
+      610,
+      609,
+      700,
+      893
+    ]
+  },
+  "28": {
+    "path": "assets/ui/icons/common/mana-crystal.png",
+    "width": 1923,
+    "height": 2048,
+    "viewBox": [
+      717,
+      480,
+      473,
+      1049
+    ]
+  },
+  "29": {
+    "path": "assets/ui/skill-frames/skill-frame-variant-29.png",
+    "width": 1774,
+    "height": 887,
+    "viewBox": [
+      173,
+      155,
+      1428,
+      560
+    ]
+  },
+  "30": {
+    "path": "assets/ui/skill-frames/skill-frame-variant-30.png",
+    "width": 2048,
+    "height": 1024,
+    "viewBox": [
+      188,
+      180,
+      1676,
+      644
+    ]
+  },
+  "31": {
+    "path": "assets/ui/skill-frames/skill-frame-variant-31.png",
+    "width": 2048,
+    "height": 1024,
+    "viewBox": [
+      196,
+      186,
+      1656,
+      636
+    ]
+  },
+  "32": {
+    "path": "assets/ui/skill-frames/skill-frame-variant-32.png",
+    "width": 2048,
+    "height": 1024,
+    "viewBox": [
+      188,
+      188,
+      1672,
+      636
+    ]
+  },
+  "33": {
+    "path": "assets/ui/skill-frames/skill-frame-variant-33.png",
+    "width": 2048,
+    "height": 1024,
+    "viewBox": [
+      188,
+      190,
+      1672,
+      624
+    ]
+  },
+  "34": {
+    "path": "assets/ui/skill-frames/skill-frame-variant-34.png",
+    "width": 2048,
+    "height": 1024,
+    "viewBox": [
+      200,
+      182,
+      1648,
+      640
+    ]
+  },
+  "35": {
+    "path": "assets/ui/skill-frames/skill-frame-variant-35.png",
+    "width": 2048,
+    "height": 1024,
+    "viewBox": [
+      192,
+      188,
+      1664,
+      632
+    ]
+  },
+  "36": {
+    "path": "assets/ui/battle/ornate-horizontal-frame-variant-36.png",
+    "width": 1937,
+    "height": 812,
+    "viewBox": [
+      88,
+      123,
+      1761,
+      558
+    ]
+  },
+  "37": {
+    "path": "assets/ui/battle/ornate-horizontal-frame-variant-37.png",
+    "width": 1937,
+    "height": 812,
+    "viewBox": [
+      91,
+      138,
+      1755,
+      533
+    ]
+  },
+  "38": {
+    "path": "assets/ui/battle/ornate-horizontal-frame-variant-38.png",
+    "width": 1937,
+    "height": 812,
+    "viewBox": [
+      88,
+      130,
+      1762,
+      547
+    ]
+  },
+  "39": {
+    "path": "assets/ui/battle/ornate-horizontal-frame-variant-39.png",
+    "width": 1937,
+    "height": 812,
+    "viewBox": [
+      96,
+      135,
+      1745,
+      538
+    ]
+  },
+  "40": {
+    "path": "assets/ui/battle/ornate-horizontal-frame-variant-40.png",
+    "width": 1935,
+    "height": 812,
+    "viewBox": [
+      96,
+      131,
+      1746,
+      543
+    ]
+  },
+  "41": {
+    "path": "assets/ui/battle/ornate-horizontal-frame-variant-41.png",
+    "width": 1937,
+    "height": 812,
+    "viewBox": [
+      105,
+      140,
+      1728,
+      529
+    ]
+  },
+  "42": {
+    "path": "assets/ui/icons/skills/setup.png",
+    "width": 1254,
+    "height": 1254,
+    "viewBox": [
+      199,
+      219,
+      855,
+      818
+    ]
+  }
+}
