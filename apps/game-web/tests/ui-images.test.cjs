@@ -19,3 +19,13 @@ test('only registered applied images enter the build allowlist; reserved origina
  for(const number of [3,4,5,11,17,21,22,23,25]){assert.equal(UI_IMAGES[number],undefined);assert.equal(uiImageUrl(number),undefined);}
  for(const [number,image]of Object.entries(UI_IMAGES)){const row=rows.find(r=>Number(r['仮ID'])===Number(number));assert.equal(image.path,row['新ファイル']);assert.equal(publication.UI_MEDIA[uiImageUrl(Number(number)).slice(2)],image.path);const[x,y,w,h]=image.viewBox;assert.ok(x>=0&&y>=0&&w>0&&h>0&&x+w<=image.width&&y+h<=image.height);}
 });
+
+test('detail placement preserves player width/center and clamps side inspection to viewport',async()=>{
+ const {detailPosition,detailOrigin}=await import('../src/components/detail-layout.ts');
+ const anchor={left:550,top:540,width:180,height:70,right:730,bottom:610};
+ assert.deepEqual(detailPosition(anchor,180,252,{width:1280,height:720},'above'),{left:550,top:280});
+ assert.equal(detailPosition(anchor,230,320,{width:1280,height:720},'left').left,312);
+ assert.equal(detailPosition({...anchor,left:40,right:220},230,320,{width:1280,height:720},'left').left,8);
+ const card={left:455,top:70,width:370,height:518,right:825,bottom:588},from=detailOrigin(anchor,card);
+ assert.equal(from.scaleX,from.scaleY);assert.ok(Math.abs(card.left+from.x+card.width*from.scaleX/2-640)<.001);assert.ok(Math.abs(card.top+from.y+card.height*from.scaleY/2-575)<.001);
+});
