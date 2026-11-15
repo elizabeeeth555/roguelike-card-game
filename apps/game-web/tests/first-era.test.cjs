@@ -51,3 +51,9 @@ test('cut-in budgets respect presentation speed and do not enter combat snapshot
  const {DECLARATION_MS}=await import('../src/first-era/presentation-timing.ts');assert.ok(DECLARATION_MS.slow>DECLARATION_MS.normal&&DECLARATION_MS.normal>DECLARATION_MS.fast);
  const s=core.createState({ruleset:rules.RULESET,playerDeck:deck});assert.equal(JSON.stringify(s).includes('cutIn'),false);
 });
+
+test('ultimate model uses formal name/MP0 and separates unavailable, ready and spent without changing state',async()=>{
+ const {toFirstEraModel}=await import('../src/first-era/presentation.ts');let s=core.createState({ruleset:rules.RULESET,playerDeck:deck});let m=toFirstEraModel(runtime,s,false,'');assert.equal(m.ultimate.name,'戦技の残響');assert.equal(m.ultimate.cost,0);assert.equal(m.ultimate.used,false);assert.equal(m.ultimate.allowed,false);
+ s=core.transition(s,{type:'card',side:'player',id:'heavy_slash'}).state;s.actors.player.mana=0;const before=core.snapshot(s);m=toFirstEraModel(runtime,s,false,'');assert.equal(m.ultimate.allowed,true);assert.deepEqual(s,before);
+ s=core.transition(s,{type:'ultimate',side:'player'}).state;m=toFirstEraModel(runtime,s,false,'');assert.equal(m.ultimate.used,true);assert.equal(m.ultimate.allowed,false);assert.equal(m.ultimate.stateLabel,'使用済');assert.equal(s.actors.player.mana,0);
+});
