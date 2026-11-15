@@ -22,20 +22,8 @@
     if(id==='first_era_venom_blade')return [{kind:'damage',amount:1+Math.floor(target.poison/2)}];
     return Effects.plan(id,who,target);
   }
-  function direct(state,target,raw,events){
-    if(target!=='boss')return raw;
-    const b=state.bossState,guard=b.stance==='steadfast'&&!b.broken;
-    const adjusted=Math.floor(raw*(guard?.25:b.stance==='rupture'?1.5:1));
-    if(guard){const before=b.gauge;b.gauge=Math.min(4,b.gauge+raw);events.push({type:'breakDamage',raw,amount:b.gauge-before});if(b.gauge===4){b.broken=true;events.push({type:'stanceBreak'});}}
-    return adjusted;
-  }
-  function startBoss(state,events){
-    const b=state.bossState;
-    if(b.stance==='steadfast'){
-      const blocked=b.broken;b.stance='rupture';events.push({type:'stanceChanged',stance:'rupture'},{type:blocked?'flashPrevented':'flashTriggered'});return !blocked;
-    }
-    Object.assign(b,{stance:'steadfast',gauge:0,broken:false});events.push({type:'stanceChanged',stance:'steadfast'},{type:'stanceReset'});return false;
-  }
+  const bossAbility={id:'ashen_king_finisher',name:'断誓一閃',cost:0,damage:8,description:'老王の2ターン目から3ターンごとに通常行動の代わりに直接攻撃を1回行う。バリア・弱体が有効'};
+  const finisherDue=turn=>turn>=2&&(turn-2)%3===0;
   function freeze(v){if(v&&typeof v==='object'){Object.values(v).forEach(freeze);Object.freeze(v);}return v;}
-  return freeze({RULESET,SCHEMA_VERSION:3,pool,bossDeck,ultimate,card,validateDeck,plan,direct,startBoss,poisonDamage:n=>Math.min(n,6),addPoison:(n,amount)=>Math.min(8,n+amount)});
+  return freeze({RULESET,SCHEMA_VERSION:4,pool,bossDeck,ultimate,card,validateDeck,plan,bossAbility,finisherDue,poisonDamage:n=>Math.min(n,6),addPoison:(n,amount)=>Math.min(8,n+amount)});
 });

@@ -1,11 +1,11 @@
 import type { Runtime, RecordWin } from './core';
 export const SAVE_KEY = 'keisei.first-era.progress.v1';
-export interface Save { format: 'keisei-first-era'; version: 1; deck: string[] | null; firstWin: RecordWin | null }
+export interface Save { format: 'keisei-first-era'; version: 2; deck: string[] | null; firstWin: RecordWin | null }
 export interface StoragePort { getItem(key: string): string | null; setItem(key: string, value: string): void; removeItem(key: string): void }
-export const freshSave = (): Save => ({ format: 'keisei-first-era', version: 1, deck: null, firstWin: null });
+export const freshSave = (): Save => ({ format: 'keisei-first-era', version: 2, deck: null, firstWin: null });
 export function validateSave(raw: unknown, runtime: Runtime): Save {
  const s = raw as Save;
- if (!s || s.format !== 'keisei-first-era' || s.version !== 1 || !Object.hasOwn(s, 'deck') || !Object.hasOwn(s, 'firstWin')) throw Error('未対応の保存形式です');
+ if (!s || s.format !== 'keisei-first-era' || s.version !== 2 || !Object.hasOwn(s, 'deck') || !Object.hasOwn(s, 'firstWin')) throw Error('未対応の保存形式です');
  if (s.deck !== null) runtime.rules.validateDeck(s.deck);
  if (s.firstWin !== null) {
   if (s.deck === null) throw Error('確定編成のない勝利記録です');
@@ -29,7 +29,7 @@ export function recordFirstWin(save: Save, win: RecordWin): Save {
 }
 export function createSaveRepository(storage: () => StoragePort, runtime: Runtime) {
  return {
-  load() { try { const text = storage().getItem(SAVE_KEY); if (text === null) return { save: null, error: '', exists: false }; if (text.length > 2_000_000) throw Error('保存容量が大きすぎます'); return { save: validateSave(JSON.parse(text), runtime), error: '', exists: true }; } catch { return { save: null, error: '保存を読み込めません。元データは保持しています。確認付きの初期化、またはメモリ内でプレイできます。', exists: true }; } },
+  load() { try { const text = storage().getItem(SAVE_KEY); if (text === null) return { save: null, error: '', exists: false }; if (text.length > 2_000_000) throw Error('保存容量が大きすぎます'); const raw = JSON.parse(text); if (raw?.format === 'keisei-first-era' && raw.version === 1) { storage().removeItem(SAVE_KEY); return { save: null, error: '第一紀の戦闘仕様更新により旧第一紀セーブを初期化しました。', exists: false }; } return { save: validateSave(raw, runtime), error: '', exists: true }; } catch { return { save: null, error: '保存を読み込めません。元データは保持しています。確認付きの初期化、またはメモリ内でプレイできます。', exists: true }; } },
   write(save: Save) { try { const valid = validateSave(save, runtime), text = JSON.stringify(valid); if (text.length > 2_000_000) throw Error('容量超過'); storage().setItem(SAVE_KEY, text); return ''; } catch { return '保存できませんでした。このブラウザを閉じると変更が失われます。'; } },
   clear() { try { storage().removeItem(SAVE_KEY); return ''; } catch { return '初期化を保存先へ反映できません。メモリ内だけで開始します。'; } }
  };
