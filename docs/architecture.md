@@ -79,7 +79,7 @@ STEP 0は資料更新のみ。必要な静的・軽量テストに限定し、�
 - [設定](../src/ui/presentation-config.js)：`GamePresentationConfig.normalize({desktop:{enemySkillHeightPx},mobile:{enemySkillHeightPx}})`。入力を変更せず、既知の自己データプロパティだけを読み、新しい凍結済み設定を返す。不正値・欠落値はプロファイル別の既定値へ戻す。
 - [アダプター](../src/ui/presentation-adapter.js)：`GamePresentationAdapter.apply(normalized, style)`。同設定モジュールが正規化したオブジェクトのみを受け取り、`--ui-enemy-skill-height-desktop`／`--ui-enemy-skill-height-mobile`の2項目だけを反映する。テストではstyleを注入する。JSONを使う将来の入口でも、先にnormalizeを通す必要がある。
 - CommonJSでも公開し、Nodeで同じ検証処理を試験できる。モジュール未読込時は起動側が適用を省略し、CSSの70px／77pxフォールバックが残る。
-- 設定スキーマ全体・JSON読込UI・王座工房は未実装。操作可否・戦闘状態・素材・演出時間はこの経路に含めない。
+- この旧STEP 2-B②設定経路には汎用設定スキーマとJSON読込UIを接続していない。王座工房の基本編集・JSON入出力MVPは別経路でPR #20により実装済み。操作可否・戦闘状態・素材・演出時間はこの旧設定経路に含めない。
 
 ## React移行とSteam将来対応の設計方針（2026-11-10承認）
 
