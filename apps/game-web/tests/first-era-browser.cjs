@@ -84,7 +84,7 @@ for (const [w,h,speed] of [[1366,768,'slow'],[390,844,'normal']]) {
    if(e.type==='damage'){values[e.target].hp-=e.amount;values[e.target].barrier-=e.blocked;}
    if(e.type==='heal')values[e.side].hp+=e.amount;
    if(e.type==='barrier')values[e.side].barrier+=e.amount;
-   const shown=await evaluate(`(()=>{const result={};for(const [side,scope]of [['boss','.enemy-area'],['player','.player-area']]){const n=document.querySelector(scope+' .battle-hud');const b=[...n.querySelectorAll('.status-effects li')].find(n=>n.textContent.startsWith('バリア '));result[side]={hp:Number(n.querySelector('progress').value),mana:n.querySelectorAll('.mana-crystals .lit').length,barrier:b?Number(b.textContent.split(' ')[1]):0};}return result;})()`);
+   const shown=await evaluate(`(()=>{const result={};for(const [side,scope]of [['boss','.enemy-area'],['player','.player-area']]){const n=document.querySelector(scope+' .battle-hud');const b=n.querySelector('[data-effect=barrier] b');result[side]={hp:Number(n.querySelector('progress').value),mana:n.querySelectorAll('.mana-crystals .lit').length,barrier:b?Number(b.textContent):0};}return result;})()`);
    assert.deepEqual(shown,values,`${speed} ${w}px event ${e.type}`);
    if(e.type==='damage')assert.ok(await evaluate(`!!document.querySelector('.impact-damage')`));
    if(e.type==='heal')assert.ok(await evaluate(`!!document.querySelector('.impact-heal')`));

@@ -149,3 +149,26 @@
 @media(max-width:760px){.first-era-app .boss-ability-icon{width:30px;height:30px}.boss-ability-detail{right:-7vw;top:36px;width:min(280px,85vw);font-size:12px}.boss-charge-notice{top:25%;left:15%;right:15%;max-width:none;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.boss-charging .boss-portrait,.boss-finisher-performing .boss-portrait{animation:none}}
 .first-era-battle .enemy-area>.battle-hud:has(.boss-ability-detail){z-index:12}
+.first-era-battle .enemy-area .skill-frame-art{animation:panel-float 4s ease-in-out infinite alternate}.first-era-battle .enemy-area .skill:nth-child(even) .skill-frame-art{animation-delay:-2s}
+@keyframes panel-float{to{translate:0 1px}}@media(prefers-reduced-motion:reduce){.first-era-battle .enemy-area .skill-frame-art{animation:none}}
+.first-era-battle .skill.availability-locked .skill-frame-art{filter:brightness(.72)}
+.first-era-battle .enemy-area .status-effects{right:44px;max-width:calc(100% - 125px)}
+@media(max-width:760px){.first-era-battle .player-area .status-effects{max-height:none;overflow:visible}.first-era-battle .enemy-area .status-effects{right:36px;max-width:calc(100% - 105px)}}
+
+/* Approved central-lower player feedback; coordinates remain provisional. */
+.first-era-battle .battle-impact.target-player{left:50%;bottom:29%;transform:translateX(-50%);text-align:center}
+@media(max-width:760px){
+.first-era-battle .player-area .status-effects{flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;max-width:100%;scrollbar-width:thin}
+.first-era-battle .player-area .status-effects li{flex:0 0 auto}
+.first-era-battle .player-area>.battle-hud:has(.status-effects li){bottom:calc(24% + 10px)}
+.first-era-battle .player-area>.battle-hud:has(.status-effects li) .image-health{margin:0}
+}
+/* Mobile uses CSS panels instead of frame images: keep state contrast on the panel itself.
+   Frame color remains the shared design setting; text and hitboxes are not filtered. */
+@media(max-width:760px){
+.first-era-battle .skill.availability-ready{background:linear-gradient(155deg,#293329,#111d20);box-shadow:inset 0 0 0 1px #b7ca9b40,0 4px 12px #000a}
+.first-era-battle .skill.availability-used{background:linear-gradient(155deg,#191c20,#0d1013);border-style:dashed;border-left-style:solid;box-shadow:inset 0 0 0 1px #87909b30,0 4px 12px #000a}
+.first-era-battle .skill.availability-cooldown{background:linear-gradient(155deg,#192d43,#0c1728);box-shadow:inset 0 -2px #83b8eb80,0 4px 12px #000a}
+.first-era-battle .skill.availability-mana{background:linear-gradient(155deg,#352126,#1b1016);box-shadow:inset 0 -2px #ed999080,0 4px 12px #000a}
+.first-era-battle .skill.availability-condition{background:linear-gradient(155deg,#302138,#190f23);border-style:dotted;border-left-style:solid;box-shadow:inset 0 -2px #cb9bdf80,0 4px 12px #000a}
+}

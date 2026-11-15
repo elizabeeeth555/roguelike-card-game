@@ -15,10 +15,10 @@ export function createPreviewModel(preset: PreviewPreset): BattleViewModel {
   if (preset === 'special') {
     Object.assign(player, { hp: 9, mana: 0, barrier: 4, poison: 2, weak: 1, attackBonus: 3, setupBonus: 2, manaPenalty: 1, accelerationPending: true, emptySlots: 0 });
     player.skills = [
-      { ...skills[0], stateLabel: 'MP不足' },
+      { ...skills[0], statusCode: 'mana', stateLabel: 'MP不足' },
       { ...skills[1], stateLabel: 'CD中（残1T）', remaining: 1 },
       { ...skills[0], id: 'preview-used', name: '使用済の例', stateLabel: '使用済', used: true },
-      { ...skills[1], id: 'preview-condition', name: '条件未達の例', stateLabel: '条件未達' },
+      { ...skills[1], id: 'preview-condition', statusCode: 'poison', name: '条件未達の例', stateLabel: '条件未達' },
       { ...skills[0], id: 'preview-idle', name: '待機の例' }
     ];
   }
