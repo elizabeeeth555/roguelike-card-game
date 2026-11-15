@@ -1,0 +1,118 @@
+{
+  "baseMain": "be4007d24164bdf54f2cc79088c401053410c3f8",
+  "node": "v24.22.1",
+  "rootTests": {
+    "passed": 130,
+    "failed": 0
+  },
+  "reactTests": {
+    "passed": 44,
+    "failed": 0
+  },
+  "typecheckBuild": "passed",
+  "staticCheck": "passed",
+  "pagesConsistency": "passed",
+  "additionalBrowser": {
+    "passed": true,
+    "fixtureOnly": true,
+    "productionHooks": false,
+    "reports": [
+      {
+        "width": 1366,
+        "manaHoverFocusPendingCommitCap": true,
+        "echoExcluded": true,
+        "normalAndAccelerationConfirm": true,
+        "sevenEffectsReadOnly": true,
+        "unavailableDetails": true,
+        "noHorizontalScroll": true
+      },
+      {
+        "width": 1280,
+        "manaHoverFocusPendingCommitCap": true,
+        "echoExcluded": true,
+        "normalAndAccelerationConfirm": true,
+        "sevenEffectsReadOnly": true,
+        "unavailableDetails": true,
+        "noHorizontalScroll": true
+      },
+      {
+        "width": 320,
+        "manaHoverFocusPendingCommitCap": true,
+        "echoExcluded": true,
+        "normalAndAccelerationConfirm": true,
+        "sevenEffectsReadOnly": true,
+        "unavailableDetails": true,
+        "noHorizontalScroll": true
+      },
+      {
+        "width": 390,
+        "manaHoverFocusPendingCommitCap": true,
+        "echoExcluded": true,
+        "normalAndAccelerationConfirm": true,
+        "sevenEffectsReadOnly": true,
+        "unavailableDetails": true,
+        "noHorizontalScroll": true
+      },
+      {
+        "width": 430,
+        "manaHoverFocusPendingCommitCap": true,
+        "echoExcluded": true,
+        "normalAndAccelerationConfirm": true,
+        "sevenEffectsReadOnly": true,
+        "unavailableDetails": true,
+        "noHorizontalScroll": true
+      },
+      {
+        "width": 760,
+        "manaHoverFocusPendingCommitCap": true,
+        "echoExcluded": true,
+        "normalAndAccelerationConfirm": true,
+        "sevenEffectsReadOnly": true,
+        "unavailableDetails": true,
+        "noHorizontalScroll": true
+      },
+      {
+        "width": 761,
+        "manaHoverFocusPendingCommitCap": true,
+        "echoExcluded": true,
+        "normalAndAccelerationConfirm": true,
+        "sevenEffectsReadOnly": true,
+        "unavailableDetails": true,
+        "noHorizontalScroll": true
+      },
+      {
+        "fullscreenAPIContract": "unsupported",
+        "mocked": true
+      },
+      {
+        "fullscreenAPIContract": "rejected",
+        "mocked": true
+      },
+      {
+        "fullscreenAPIContract": "contract",
+        "mocked": true
+      }
+    ],
+    "errors": [],
+    "httpErrors": [],
+    "consoleErrors": [],
+    "physicalDevices": false,
+    "nativeFullscreen": "未確認：headless native要求が未完了。切替・外部終了・拒否・非対応はAPI境界モックで確認"
+  },
+  "existingBrowserSuites": [
+    "first-era-browser.cjs",
+    "first-era-presentation-browser.cjs",
+    "ui-layout-browser.cjs",
+    "browser-smoke.cjs (React/Studio)",
+    "scripts/browser-smoke.cjs (classic HTTP)",
+    "finisher-browser.cjs"
+  ],
+  "protectedPathsUnchanged": [
+    "src/game/",
+    "public-game/engine/",
+    "assets/",
+    "classic/",
+    "research/"
+  ],
+  "humanPlayVerified": false
+}

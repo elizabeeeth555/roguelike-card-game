@@ -26,7 +26,7 @@ export function createBattleAdapter(core: BattleCore, catalog: Catalog, planner:
       const used = state.active === side && state.actors[side].used.includes(id);
       const remaining = inspection.remaining ?? 0;
       const stateLabel = state.end ? '戦闘終了' : used ? '使用済' : remaining > 0 ? `CD中（残${remaining}T）` : inspection.code === 'mana' ? 'MP不足' : inspection.code === 'poison' ? '条件未達' : '';
-      return { ...skill, allowed: status.allowed, reason: status.reason, remaining, used, stateLabel,
+      return { ...skill, statusCode: inspection.code, allowed: status.allowed, reason: status.reason, remaining, used, stateLabel,
         condition: skill.tags.includes('poison_reference') ? '対象に毒が1以上必要' : 'MP・CD・同ターンの使用制限を満たす' };
     }),
     hasRemainingActions: (state: BattleState) => !state.end && state.active === 'player' && core.legalActions(state).some(action => action.type !== 'endTurn'),

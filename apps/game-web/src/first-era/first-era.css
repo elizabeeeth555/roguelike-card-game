@@ -149,3 +149,17 @@
 @media(max-width:760px){.first-era-app .boss-ability-icon{width:30px;height:30px}.boss-ability-detail{right:-7vw;top:36px;width:min(280px,85vw);font-size:12px}.boss-charge-notice{top:25%;left:15%;right:15%;max-width:none;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.boss-charging .boss-portrait,.boss-finisher-performing .boss-portrait{animation:none}}
 .first-era-battle .enemy-area>.battle-hud:has(.boss-ability-detail){z-index:12}
+.first-era-battle .enemy-area .skill-frame-art{animation:panel-float 4s ease-in-out infinite alternate}.first-era-battle .enemy-area .skill:nth-child(even) .skill-frame-art{animation-delay:-2s}
+@keyframes panel-float{to{translate:0 1px}}@media(prefers-reduced-motion:reduce){.first-era-battle .enemy-area .skill-frame-art{animation:none}}
+.first-era-battle .skill.availability-locked .skill-frame-art{filter:brightness(.72)}
+.first-era-battle .enemy-area .status-effects{right:44px;max-width:calc(100% - 125px)}
+@media(max-width:760px){.first-era-battle .player-area .status-effects{max-height:none;overflow:visible}.first-era-battle .enemy-area .status-effects{right:36px;max-width:calc(100% - 105px)}}
+
+/* Approved central-lower player feedback; coordinates remain provisional. */
+.first-era-battle .battle-impact.target-player{left:50%;bottom:29%;transform:translateX(-50%);text-align:center}
+@media(max-width:760px){
+.first-era-battle .player-area .status-effects{flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;max-width:100%;scrollbar-width:thin}
+.first-era-battle .player-area .status-effects li{flex:0 0 auto}
+.first-era-battle .player-area>.battle-hud:has(.status-effects li){bottom:calc(24% + 10px)}
+.first-era-battle .player-area>.battle-hud:has(.status-effects li) .image-health{margin:0}
+}

@@ -11,7 +11,8 @@ export interface Core {
  legalActions(state: State): Action[];
  availability(state: State, side: Side, id: string): { allowed: boolean; reason: string; remaining?: number; code?: string };
  ultimateStatus(state: State, side?: Side): { allowed: boolean; reason: string };
- accelerationStatus(state: State, side: Side): { allowed: boolean; reason: string };
+ accelerationStatus(state: State, side: Side): { allowed: boolean; reason: string; code?: string };
+ poisonTickDamage(state: State, poison: number): number;
  getCard(state: State, id: string): Skill;
 }
 export interface Rules { RULESET: string; pool: string[]; validateDeck(deck: string[]): string[]; card(id: string): Skill; ultimate: Pick<Skill, 'id' | 'name' | 'cost' | 'description'>; bossAbility: { id: string; name: string; description: string; damage: number } }

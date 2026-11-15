@@ -44,7 +44,7 @@ export interface Impact { target: 'player' | 'boss'; sequence: string; parts: { 
 export function eventImpact(event: Event, sequence: string, stateText = event.type, barrierRemaining?: number): Impact | null {
  const target = event.target ?? event.side ?? 'boss';
  if (event.type === 'damage' || event.type === 'environmentDamage') {
-  const parts: Impact['parts'] = [{ kind: 'damage', text: `${event.amount}ダメージ` }];
+  const parts: Impact['parts'] = [{ kind: 'damage', text: `${event.amount ? '−' : ''}${event.amount}ダメージ` }];
   if (event.blocked) parts.push({ kind: 'barrier', text: `バリア吸収 ${event.blocked}${barrierRemaining === 0 ? "／破壊" : ""}` });
   return { target, sequence, parts };
  }

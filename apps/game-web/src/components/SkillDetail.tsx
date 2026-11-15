@@ -4,14 +4,18 @@ import { useId, useLayoutEffect, useRef, useState } from 'react';
 import type { SkillViewModel } from '../battle-view-model';
 import { detailOrigin, detailPosition } from './detail-layout.ts';
 
+export function detailStatus(skill: Pick<SkillViewModel, 'stateLabel' | 'reason'>) {
+ const normalize = (value: string) => value === '使用済み' ? '使用済' : value === 'マナ不足' ? 'MP不足' : value === 'CD中' && skill.stateLabel.startsWith('CD中') ? skill.stateLabel : value;
+ return [...new Set([skill.stateLabel, skill.reason].filter(Boolean).map(normalize))].join(' ／ ') || '待機中';
+}
 // The same art, fields and information order are used at both inspection sizes.
 export function SkillInformation({ skill, illustrated = false }: { skill: SkillViewModel; illustrated?: boolean }) {
- if (!illustrated) return <><h2>{skill.name}</h2><p className="detail-cost">♦ MP {skill.cost} · 基本CD {skill.cd}</p><p>{skill.description}</p><p>使用条件：{skill.condition}</p><p>{skill.stateLabel || '待機中'}{skill.reason ? ` ／ ${skill.reason}` : ''}</p></>;
+ if (!illustrated) return <><h2>{skill.name}</h2><p className="detail-cost">♦ MP {skill.cost} · 基本CD {skill.cd}</p><p>{skill.description}</p><p>使用条件：{skill.condition}</p><p>{detailStatus(skill)}</p></>;
  return <article className="asset-detail-card" aria-label={`${skill.name}の装飾詳細カード`}>
   <UiImage number={10} className="detail-frame-art" />
   <div className="detail-illustration" aria-label={`${skill.name}：専用イラスト未登録`}>{SKILL_ICONS[skill.id] ? <UiImage number={SKILL_ICONS[skill.id]} /> : <span>イラスト未登録</span>}</div>
   <header className="detail-heading"><h2>{skill.name}</h2><span className="detail-mp" aria-label={`消費MP ${skill.cost}`}><UiImage number={28} /><b>{skill.cost}</b></span></header>
-  <div className="detail-copy" tabIndex={0} aria-label="効果と使用条件"><p>{skill.description}</p><p>使用条件：{skill.condition}</p><p>{skill.stateLabel || '待機中'}{skill.reason ? ` ／ ${skill.reason}` : ''}</p></div>
+  <div className="detail-copy" tabIndex={0} aria-label="効果と使用条件"><p>{skill.description}</p><p>使用条件：{skill.condition}</p><p>{detailStatus(skill)}</p></div>
   <span className="detail-cd" aria-label={`基本CD ${skill.cd}`}><UiImage number={27} /><b>{skill.cd}</b></span>
  </article>;
 }
