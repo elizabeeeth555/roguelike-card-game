@@ -394,5 +394,17 @@
       818
     ],
     "deliveryPath": "assets/ui-webp/icons/skills/setup.webp"
+  },
+  "11": {
+    "path": "assets/ui/icons/boss/boss-unique-ability.png",
+    "deliveryPath": "assets/ui/icons/boss/boss-unique-ability.png",
+    "width": 1254,
+    "height": 1254,
+    "viewBox": [
+      0,
+      0,
+      1254,
+      1254
+    ]
   }
 }

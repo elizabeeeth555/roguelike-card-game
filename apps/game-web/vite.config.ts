@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 const engineFiles = ['card-data.js', 'combat-math.js', 'card-effects.js', 'battle-engine.js', 'boss-planner.js'];
 const firstEraEngine = ['card-data.js', 'combat-math.js', 'card-effects.js', 'first-era-rules.js', 'battle-engine.js', 'boss-planner.js'];
 const publicMedia: Record<string, string> = {
-  ...Object.fromEntries(Object.values(uiImages).map(image => ['first-era/ui/' + image.deliveryPath.slice('assets/ui-webp/'.length), image.deliveryPath])),
+  ...Object.fromEntries(Object.values(uiImages).map(image => ['first-era/ui/' + image.deliveryPath.replace(/^assets\/(?:ui-webp|ui)\//, ''), image.deliveryPath])),
   'first-era/hub.jpg': 'assets/first-era/backgrounds/outpost-hub-source.jpg',
   'first-era/deck.png': 'assets/first-era/backgrounds/deck-building-table-source.png',
   'first-era/battle.jpg': 'assets/first-era/backgrounds/throne-battle-source.jpg',

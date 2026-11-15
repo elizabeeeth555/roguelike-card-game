@@ -82,8 +82,8 @@ export function FirstEraApp({ runtime, storage }: { runtime: Runtime; storage: (
   const result = runtime.core.transition(actual.current, action); if (!result.ok) { setCue(result.reason ?? '使用不可'); return false; }
   actual.current = result.state;
   const frame: Frame = { sequence: frames.current.length + 1, action, events: result.events, after: runtime.core.snapshot(result.state) }; frames.current.push(frame);
-  setImpact(null); setActiveSkill({ skillId: action.type === 'card' ? action.id : undefined, side: action.side });
-  setCue(action.type === 'card' ? `${action.side === 'boss' ? '老王' : '英雄'}：${runtime.rules.card(action.id).name} 発動` : action.type === 'ultimate' ? '戦技の残響' : 'ターン進行');
+  setImpact(null); setActiveSkill({ skillId: action.type === 'card' || action.type === 'ability' ? action.id : undefined, side: action.side });
+  setCue(action.type === 'card' ? `${action.side === 'boss' ? '老王' : '英雄'}：${runtime.rules.card(action.id).name} 発動` : action.type === 'ability' ? `${runtime.rules.bossAbility.name} 発動` : action.type === 'ultimate' ? '戦技の残響' : 'ターン進行');
   const duration = { slow: 4500, normal: 1800, fast: 400 }[speedRef.current];
   await wait(duration * .2); if (token !== generation.current) return false;
   for (const [i, event] of result.events.entries()) {
@@ -92,7 +92,7 @@ export function FirstEraApp({ runtime, storage }: { runtime: Runtime; storage: (
    const text = eventText(event, runtime); setCue(text); setLog(lines => [...lines, `${frame.sequence}.${i + 1} ${text}`]);
    setImpact(eventImpact(event, `${frame.sequence}.${i}`, text, displayed.actors[event.target ?? event.side ?? 'boss'].barrier));
    if (event.type === 'turn' && !await declare(event.side === 'boss' ? 'ENEMY TURN' : 'YOUR TURN', token)) return false;
-   if (event.kind === 'flash') setActiveSkill({ side: 'boss', skillId: '@oath_strike' });
+   if (event.type === 'bossAbility') setActiveSkill({ side: 'boss', skillId: event.id });
    await wait(duration * .5 / Math.max(1, result.events.length));
   }
   if (token !== generation.current) return false;

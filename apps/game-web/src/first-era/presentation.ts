@@ -21,7 +21,7 @@ export function toFirstEraModel(runtime: Runtime, state: State, busy: boolean, m
  const echo = core.ultimateStatus(state), accel = core.accelerationStatus(state, 'player');
  const last = state.ultimate.lastSkillId ? rules.card(state.ultimate.lastSkillId).name : 'なし';
  return { layout: 'first-era', damagePreview: !busy && selected?.side === 'player' ? attackPreview(runtime, state, selected.id) ?? undefined : undefined, player: actor('player'), boss: { ...actor('boss'), portrait: './first-era/boss.png' }, background: './first-era/battle.jpg', round: state.round, turn: state.active === 'player' ? 'Player' : 'Old King', result: state.end ? state.end === 'player' ? '第一紀 踏破' : '敗北' : null, message,
-  stance: `${state.bossState.stance === 'steadfast' ? '不退' : '断誓'}の構え${state.bossState.broken ? '・崩壊' : ''}`, breakGauge: state.bossState.gauge,
+  bossAbility: { id: rules.bossAbility.id, name: rules.bossAbility.name, description: rules.bossAbility.description + `。基本威力${rules.bossAbility.damage}`, condition: '直前の英雄ターン開始時に予告。発動ターンは通常行動を置換', status: state.end ? '戦闘終了' : state.bossState.charging ? 'チャージ中' : '待機中', charging: !state.end && state.bossState.charging },
   ultimate: { id: rules.ultimate.id, name: rules.ultimate.name, cost: rules.ultimate.cost, cd: 0, category: 'buff', description: rules.ultimate.description + `。再演対象：${last}`, condition: 'この自ターンに通常スキルを使用・戦闘中1回', allowed: !busy && echo.allowed, reason: busy ? '演出中' : echo.reason, used: !state.ultimate.available, remaining: 0, stateLabel: !state.ultimate.available ? '使用済' : `再演：${last}` },
   controls: { accelerate: { allowed: !busy && accel.allowed, reason: accel.reason, label: 'マナ加速' }, endTurn: !busy && !state.end && state.active === 'player', reset: false } };
 }

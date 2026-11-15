@@ -15,8 +15,8 @@ test('player/boss visual frame mapping matches approved 29–41 roles without ch
 });
 test('only registered applied images enter the build allowlist; reserved originals remain untouched',async()=>{
  const {UI_IMAGES,uiImageUrl}=await import('../src/ui-image-assets.ts');const publication=require('../../../scripts/prepare-pages.cjs');
- assert.equal(Object.keys(UI_IMAGES).length,33);
- for(const number of [3,4,5,11,17,21,22,23,25]){assert.equal(UI_IMAGES[number],undefined);assert.equal(uiImageUrl(number),undefined);}
+ assert.equal(Object.keys(UI_IMAGES).length,34);
+ for(const number of [3,4,5,17,21,22,23,25]){assert.equal(UI_IMAGES[number],undefined);assert.equal(uiImageUrl(number),undefined);}
  for(const [number,image]of Object.entries(UI_IMAGES)){const row=rows.find(r=>Number(r['仮ID'])===Number(number));assert.equal(image.path,row['新ファイル']);assert.equal(publication.UI_MEDIA[uiImageUrl(Number(number)).slice(2)],image.deliveryPath);const[x,y,w,h]=image.viewBox;assert.ok(x>=0&&y>=0&&w>0&&h>0&&x+w<=image.width&&y+h<=image.height);}
 });
 

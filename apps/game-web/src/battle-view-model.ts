@@ -13,7 +13,7 @@ export interface CharacterViewModel {
 }
 export interface BattleViewModel {
   damagePreview?: { hpDamage: number; barrierAbsorbed: number };
-  layout?: 'first-era'; stance?: string; breakGauge?: number; ultimate?: SkillViewModel;
+  layout?: 'first-era'; bossAbility?: { id: string; name: string; description: string; condition: string; status: string; charging: boolean }; ultimate?: SkillViewModel;
   player: CharacterViewModel; boss: CharacterViewModel;
   background: string; round: number; turn: string; result: string | null; message: string;
   controls: { accelerate: { allowed: boolean; reason: string; label: string }; endTurn: boolean; reset: boolean };

@@ -138,3 +138,14 @@
 .first-era-battle .ultimate-button.ultimate-unavailable{filter:brightness(.8)}
 .first-era-battle .ultimate-button.ultimate-ready{filter:none}
 .first-era-battle .ultimate-button.ultimate-used:focus-visible{outline:3px solid #e2cf9b;outline-offset:3px}
+/* New finisher presentation: provisional CSS only; state comes from resolved core events. */
+.first-era-battle .enemy-area .battle-hud>div{position:relative}
+.boss-ability{position:absolute;right:0;top:calc(100% - 4px);z-index:7;text-shadow:0 2px 4px #000}
+.first-era-app .boss-ability-icon{display:grid;place-items:center;width:40px;height:40px;padding:2px;border:1px solid #ad9461;border-radius:50%;background:#15181ded;box-shadow:0 0 0 2px #302a20}
+.boss-ability-icon .ui-image{width:100%;height:100%}.boss-ability-detail{position:absolute;right:0;top:48px;width:min(310px,calc(100vw - 20px));padding:14px;background:#10151bf5;border:1px solid #ad9461;color:#eee3ca;font:14px/1.6 system-ui,sans-serif;z-index:35;max-height:55dvh;overflow:auto}.boss-ability-detail p{margin:8px 0}.boss-ability-detail strong{font-size:18px}
+.boss-charge-notice{position:absolute;left:3%;right:auto;max-width:28%;top:18%;z-index:3;text-align:center;color:#ebc17d;text-shadow:0 2px 8px #000;font:16px/1.5 system-ui,sans-serif;pointer-events:none}
+.boss-charging .boss-portrait{filter:drop-shadow(0 0 15px #da995b);animation:king-charge 1.4s ease-in-out infinite alternate}.boss-finisher-performing .boss-portrait{animation:king-finisher .6s ease-in-out infinite alternate;filter:drop-shadow(0 0 24px #e5b078)}
+@keyframes king-charge{to{filter:drop-shadow(0 0 26px #e9bb78);opacity:.9}}@keyframes king-finisher{to{translate:0 -9px;filter:brightness(1.4) drop-shadow(0 0 28px #ffd194)}}
+@media(max-width:760px){.first-era-app .boss-ability-icon{width:30px;height:30px}.boss-ability-detail{right:-7vw;top:36px;width:min(280px,85vw);font-size:12px}.boss-charge-notice{top:25%;left:15%;right:15%;max-width:none;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.boss-charging .boss-portrait,.boss-finisher-performing .boss-portrait{animation:none}}
+.first-era-battle .enemy-area>.battle-hud:has(.boss-ability-detail){z-index:12}

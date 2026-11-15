@@ -106,4 +106,6 @@
 
 初回勝利時だけ、確定5枚・初期戦闘状態・結果・順序付き詳細行動/イベントログを固定保存する。再戦勝利では上書きしない。再戦は直前の確定編成で戦闘状態だけ初期化する。敗北は編成・進行を失わず同じ英雄で拠点/再戦、勝利は「第一紀 踏破」からタイトル/再戦へ進む。第二紀進行は未実装であり、この仮導線を本進行と混同しない。既存セーブ上書きの新規開始・設定からの初期化は確認を必須とする。
 
-実装形式は`format: keisei-first-era`／`version: 1`、保存キーは`keisei.first-era.progress.v1`。保存内容は確定deckとfirstWin（初回編成・initial・順序付きframesのaction/events/after・result）。戦闘コアのschema3 snapshotはログ検証用に記録し、途中再開のセーブとして扱わない。読込時は採用編成とログをコアで合法再生し、破損・未知形式・過大データを拒否して原文を保持する。保存処理は[first-era/save.ts](../../apps/game-web/src/first-era/save.ts)の注入可能な保存先へ分離し、書込不能時は案内してメモリ内で継続する。将来の互換移行を無条件に保証するものではない。
+実装形式は`format: keisei-first-era`／`version: 2`、保存キーは`keisei.first-era.progress.v1`。保存内容は確定deckとfirstWin（初回編成・initial・順序付きframesのaction/events/after・result）。戦闘コアのschema4 snapshotはログ検証用に記録し、途中再開のセーブとして扱わない。読込時は採用編成とログをコアで合法再生し、破損・未知形式・過大データを拒否して原文を保持する。保存処理は[first-era/save.ts](../../apps/game-web/src/first-era/save.ts)の注入可能な保存先へ分離し、書込不能時は案内してメモリ内で継続する。将来の互換移行を無条件に保証するものではない。
+
+今回の老王能力更新では、旧第一紀セーブ・初回勝利ログの互換維持を不要とするユーザー承認により、同じ第一紀専用キーにある既知の`format: keisei-first-era`／version1のみ読込時に初期化し案内する。version2では新版コアの初回勝利ログを検証する。未知形式・破損データは保持し、classic・王座工房・音量等の他キーを削除しない。専用ブランチに実装済み、main反映は未実施。

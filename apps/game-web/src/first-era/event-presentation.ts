@@ -28,17 +28,15 @@ export function presentEvent(current: State, after: State, event: Event): State 
  if (event.type === 'weak' && target) view.actors[target].weak = event.remaining!;
  if (event.type === 'attackBonus' && side) view.actors[side].attackBonus = event.remaining!;
  if (event.type === 'setupBonus' && side) view.actors[side].setupBonus = event.remaining!;
- if (event.type === 'breakDamage') view.bossState.gauge += event.amount ?? 0;
- if (event.type === 'stanceBreak') view.bossState.broken = true;
- if (event.type === 'stanceChanged') view.bossState.stance = event.stance!;
- if (event.type === 'stanceReset') { view.bossState.gauge = after.bossState.gauge; view.bossState.broken = after.bossState.broken; }
+ if (event.type === 'bossWarning') view.bossState.charging = true;
+ if (event.type === 'bossAbility') { view.bossState.charging = false; view.bossState.flashUsedTurn = after.bossState.flashUsedTurn; }
  if (event.type === 'turn' && side) {
   view.active = after.active; view.round = after.round;
   const { hp, barrier, poison } = view.actors[side];
   view.actors[side] = { ...structuredClone(after.actors[side]), hp, barrier, poison };
   view.ultimate = { ...after.ultimate };
  }
- if (event.type === 'finish') view.end = after.end;
+ if (event.type === 'finish') { view.end = after.end; view.bossState.charging = false; }
  return view;
 }
 export type ImpactKind = 'damage' | 'heal' | 'barrier' | 'state';
@@ -52,6 +50,6 @@ export function eventImpact(event: Event, sequence: string, stateText = event.ty
  }
  if (event.type === 'heal') return { target, sequence, parts: [{ kind: 'heal', text: `回復 +${event.amount}` }] };
  if (event.type === 'barrier' || event.type === 'barrierExpired') return { target, sequence, parts: [{ kind: 'barrier', text: event.type === 'barrier' ? `バリア +${event.amount}` : 'バリア消滅' }] };
- if (['poisonApplied', 'weak', 'stanceBreak'].includes(event.type)) return { target, sequence, parts: [{ kind: 'state', text: stateText }] };
+ if (['poisonApplied', 'weak'].includes(event.type)) return { target, sequence, parts: [{ kind: 'state', text: stateText }] };
  return null;
 }
