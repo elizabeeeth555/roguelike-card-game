@@ -68,7 +68,7 @@ assert.equal(await evaluate(`[...document.querySelectorAll('dialog button')].fin
 await textClick('設定');await textClick('最初からやり直す');await textClick('実行する');await settled();await sleep(4700);assert.ok(await evaluate(`!!document.querySelector('.hub-screen')&&!document.querySelector('.result-screen')`));assert.equal(await evaluate(`localStorage.getItem('keisei.first-era.progress.v1')`),null);
 // Review regression: observe resolved events against the HUD while real animations run.
 for (const [w,h,speed] of [[1366,768,'slow'],[390,844,'normal']]) {
- await reload();await evaluate(`localStorage.setItem('keisei.first-era.progress.v1',JSON.stringify({format:'keisei-first-era',version:1,deck:['heavy_slash','barrier','first_aid','battle_spirit','slash'],firstWin:null}))`);await reload();await viewport(w,h);await textClick('続きから');await settled();await textClick('王に挑む');await settled();
+ await reload();await evaluate(`localStorage.setItem('keisei.first-era.progress.v1',JSON.stringify({format:'keisei-first-era',version:2,deck:['heavy_slash','barrier','first_aid','battle_spirit','slash'],firstWin:null}))`);await reload();await viewport(w,h);await textClick('続きから');await settled();await textClick('王に挑む');await settled();
  await evaluate(`(()=>{const n=document.querySelector('[aria-label="演出速度"]');n.value=${JSON.stringify(speed)};n.dispatchEvent(new Event('change',{bubbles:true}));window.__syncState=GameBattle.createState({ruleset:'first-era-v1',playerDeck:['heavy_slash','barrier','first_aid','battle_spirit','slash']});})()`);
  assert.equal(await evaluate(`!!document.querySelector('.first-era-battle .resource-numbers')`),false);
  assert.equal(await evaluate(`document.querySelector('.hud-heading>span').textContent.includes('HP')`),false);

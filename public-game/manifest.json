@@ -1,11 +1,11 @@
 {
   "format": "throne-first-era-public-v1",
   "entrySource": "apps/game-web/first-era.html",
-  "inputHash": "ab900ebb6100b7e76d8908e2a11316e08e93810226484643a3d2720d143fa520",
-  "entryHash": "632c5949baccd0ab4574c24750ab446dd0ad443e7245e29e71f08eeb9b4fc834",
+  "inputHash": "e8690bf68f79cfeeeca17a01cefbce1fbd390da5b2e056e60ff529521443a9d0",
+  "entryHash": "821c3203ba71a6bdc2fc08876f5511986271566ff76b36d2ccef42b989b29469",
   "files": {
-    "assets/first-era-BtUVqjZk.js": "45b3fdec6cf9c56a7a789e0256ff4d76d4501bde4e1afc81fa222a5ece668714",
-    "assets/first-era-RAjbUIc0.css": "b8753c5541a88b8addea896442f57f8e23face351314aba2e7918607f2cfc724",
+    "assets/first-era-CDQnqBCh.css": "dac1c657dc786cf8a3f9c833c72cdbb526b3ece95f7b181f18870f2c1771fdc8",
+    "assets/first-era-D3ZrmyDA.js": "f16992dffba5c44e8392a8b00241b1c06400148ca7ef2802a85c3a22fdd29e10",
     "engine/battle-engine.js": "3939fc2699e894574bb9abf61e710e4962df1365628b1912a4ef1280baa60ef3",
     "engine/boss-planner.js": "17e36ccb4fdcb14a24786a8585e6406bb9f5cdfad4c45e54219bf064fafa0b70",
     "engine/card-data.js": "d03395fe0b08de017ab9cd8f1dcbcf5671b108b76bb524e20fd0991368e0da07",
@@ -28,6 +28,7 @@
     "first-era/ui/battle/ornate-horizontal-frame-variant-41.webp": "0dcac7ded63b0733ecae64e2e992bb4a3a940961c25b517ad819aef1f129d6bd",
     "first-era/ui/battle/stagger-gauge-frame-no-ticks.webp": "e2b3eee9b3d0893203c6aa8bfc9acc095d8fe67a72ad000184c09fcabc93d799",
     "first-era/ui/cards/skill-detail-frame.webp": "aa65d5d7bdae78aef87fe730aed629c799f2ca3ad9c5ed3addbfccf997ffe564",
+    "first-era/ui/icons/boss/boss-unique-ability.png": "77623d6b0c803f35804109828a98f11184b35ef0ecc0dccf7dc3fd1e9d7064e7",
     "first-era/ui/icons/common/cooldown-hourglass.webp": "c3e152037cce174a79e569014c937a813dfea68e115dc4811f7f9ed6f2804153",
     "first-era/ui/icons/common/mana-crystal.webp": "daaa64795fc8085019944a04a116be91dc742dc846b0bda61eefe85b21b91998",
     "first-era/ui/icons/skills/barrier.webp": "2d14a071e7c172cef3d213a1ec65463aedebc2301d436df0f8d119f70f12861c",

@@ -5,7 +5,7 @@ const ENGINE=['card-data.js','combat-math.js','card-effects.js','first-era-rules
 const MEDIA=['hub.jpg','deck.png','battle.jpg','boss.png','audio/bgm-first-era-hub-forest.mp3','audio/sfx-first-era-campfire.mp3','audio/bgm-first-era-old-king.mp3'];
 const INPUTS=['apps/game-web/first-era.html','apps/game-web/vite.config.ts','apps/game-web/tsconfig.json','apps/game-web/package.json','apps/game-web/package-lock.json','scripts/prepare-pages.cjs',...ENGINE.map(n=>'src/game/'+n),...MEDIA.map(n=>'assets/first-era/'+({'hub.jpg':'backgrounds/outpost-hub-source.jpg','deck.png':'backgrounds/deck-building-table-source.png','battle.jpg':'backgrounds/throne-battle-source.jpg','boss.png':'boss/ashen-king-transparent.png'}[n]??n))];
 const LEGACY_UI_MEDIA=Object.fromEntries(Object.values(require('../apps/game-web/ui-image-assets.json')).map(image=>['first-era/ui/'+image.path.slice('assets/ui/'.length),image.path]));
-const UI_MEDIA=Object.fromEntries(Object.values(require('../apps/game-web/ui-image-assets.json')).map(image=>['first-era/ui/'+image.deliveryPath.slice('assets/ui-webp/'.length),image.deliveryPath]));
+const UI_MEDIA=Object.fromEntries(Object.values(require('../apps/game-web/ui-image-assets.json')).map(image=>['first-era/ui/'+image.deliveryPath.replace(/^assets\/(?:ui-webp|ui)\//, ''),image.deliveryPath]));
 INPUTS.push('apps/game-web/ui-image-assets.json',...Object.values(UI_MEDIA),...Object.values(LEGACY_UI_MEDIA));
 const FORMAT='throne-first-era-public-v1',DIR='public-game',MANIFEST='manifest.json';
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');

@@ -18,7 +18,7 @@ async function settled(){await wait(`!document.querySelector('.fade-out,.fade-in
 async function shot(name){const r=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});fs.writeFileSync(path.join(out,name+'.png'),Buffer.from(r.data,'base64'));}
 const url=process.env.FIRST_ERA_URL||'http://127.0.0.1:8071/';
 const deck=['first_aid','barrier','battle_spirit','slash','first_era_corrosion'];
-await viewport(1366,768);await call('Page.navigate',{url});await ready();await evaluate(`localStorage.setItem('keisei.first-era.progress.v1',JSON.stringify({format:'keisei-first-era',version:1,deck:${JSON.stringify(deck)},firstWin:null}))`);await reload();await click('.title-actions button:last-child');await settled();await textClick('スキル編成');await settled();
+await viewport(1366,768);await call('Page.navigate',{url});await ready();await evaluate(`localStorage.setItem('keisei.first-era.progress.v1',JSON.stringify({format:'keisei-first-era',version:2,deck:${JSON.stringify(deck)},firstWin:null}))`);await reload();await click('.title-actions button:last-child');await settled();await textClick('スキル編成');await settled();
 assert.equal(await evaluate(`document.querySelectorAll('.deck-catalog .registered-skill-art [data-ui-image]').length`),10);
 await shot('deck-1366');await textClick('拠点へ戻る');await settled();await textClick('王に挑む');await settled();
 for(const [w,h]of [[1366,768],[1280,720],[390,844],[320,812]]){
@@ -29,7 +29,7 @@ for(const [w,h]of [[1366,768],[1280,720],[390,844],[320,812]]){
  }
  for(const [id,frame]of [['slash',41],['heavy_slash',41],['battle_spirit',36],['feint',38]])assert.ok(await evaluate(`!!document.querySelector('.enemy-area [data-skill-id="${id}"] [data-ui-image="${frame}"]')`));
  assert.equal(await evaluate(`document.querySelectorAll('.health-frame-art[data-ui-image="9"]').length`),2);
- assert.ok(await evaluate(`!!document.querySelector('.stagger-frame-art[data-ui-image="1"]')&&!!document.querySelector('.ultimate-frame-art[data-ui-image="14"]')`));
+ assert.ok(await evaluate(`!!document.querySelector('.boss-ability-icon [data-ui-image="11"]')&&!!document.querySelector('.ultimate-frame-art[data-ui-image="14"]')`));
  await shot('battle-'+w);await click('.player-skills [data-skill-id=slash] .skill-open');await wait(`!!document.querySelector('dialog[open]')`);
  assert.ok(await evaluate(`(()=>{const d=document.querySelector('dialog[open]'),r=d.getBoundingClientRect();return !!d.querySelector('[data-ui-image="10"]')&&!!d.querySelector('.detail-illustration [data-ui-image="20"]')&&r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight;})()`));
  await shot('detail-'+w);await textClick('閉じる');
@@ -37,7 +37,7 @@ for(const [w,h]of [[1366,768],[1280,720],[390,844],[320,812]]){
  assert.ok(await evaluate(`[...document.querySelectorAll('.ui-image')].every(n=>getComputedStyle(n).pointerEvents==='none')`));
 }
 const assets=require('../ui-image-assets.json');
-for(const image of Object.values(assets)){const relative='public-game/first-era/ui/'+image.deliveryPath.slice('assets/ui-webp/'.length);const bytes=Buffer.from(await(await fetch(new URL(relative,url))).arrayBuffer());assert.deepEqual(bytes,fs.readFileSync(path.resolve(__dirname,'../../..',image.deliveryPath)));}
+for(const image of Object.values(assets)){const relative='public-game/first-era/ui/'+image.deliveryPath.replace(/^assets\/(?:ui-webp|ui)\//, '');const bytes=Buffer.from(await(await fetch(new URL(relative,url))).arrayBuffer());assert.deepEqual(bytes,fs.readFileSync(path.resolve(__dirname,'../../..',image.deliveryPath)));}
 assert.deepEqual(errors,[]);assert.deepEqual(httpErrors,[]);assert.deepEqual(consoleErrors,[]);
-const report={passed:true,viewports:[1366,1280,390,320],tenDeckIcons:true,playerAndBossFrames:true,hpStaggerUltimate:true,detailFrame:true,pointerEventsSafe:true,servedWebpDerivatives:33,errors,httpErrors,consoleErrors};fs.writeFileSync(path.join(out,'results.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
+const report={passed:true,viewports:[1366,1280,390,320],tenDeckIcons:true,playerAndBossFrames:true,hpAbilityUltimate:true,detailFrame:true,pointerEventsSafe:true,servedWebpDerivatives:33,servedOriginalAbilityPng:true,errors,httpErrors,consoleErrors};fs.writeFileSync(path.join(out,'results.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
 }finally{ws?.close();chrome.kill();}}main().catch(e=>{console.error(e);process.exitCode=1;});
