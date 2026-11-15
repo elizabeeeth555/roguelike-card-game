@@ -1,6 +1,7 @@
+import { UiImage } from '../components/UiImage';
 import { useEffect, useRef } from 'react';
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
-export function ThroneButton(props: ButtonHTMLAttributes<HTMLButtonElement>) { return <button {...props} className={`throne-button ${props.className ?? ''}`} />; }
+export function ThroneButton(props: ButtonHTMLAttributes<HTMLButtonElement>) { return <button {...props} className={`throne-button ${props.className ?? ''}`}><UiImage number={29} className="button-frame-art" />{props.children}</button>; }
 export function Panel({ children, className = '' }: { children: ReactNode; className?: string }) { return <section className={`throne-panel ${className}`}>{children}</section>; }
 export function Modal({ title, children, onClose }: { title: string; children: ReactNode; onClose: () => void }) {
  const ref = useRef<HTMLDialogElement>(null);

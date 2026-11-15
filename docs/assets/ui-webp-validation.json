@@ -1,0 +1,842 @@
+{
+  "format": "throne-ui-image-validation-v1",
+  "encoder": {
+    "pillow": "13.0.0",
+    "libwebp": "1.6.0",
+    "quality": 98,
+    "method": 6,
+    "exact": true,
+    "lossless": false
+  },
+  "count": 33,
+  "sourceBytes": 45901195,
+  "deliveryBytes": 7110600,
+  "reductionPercent": 84.5089,
+  "images": [
+    {
+      "id": "1",
+      "source": "assets/ui/battle/stagger-gauge-frame-no-ticks.png",
+      "delivery": "assets/ui-webp/battle/stagger-gauge-frame-no-ticks.webp",
+      "sourceSha256": "fae2f4c121e7dc6fdf73b502a59ae0b3c7d803f3d8c56ac3d44fb60605e5994c",
+      "deliverySha256": "e2b3eee9b3d0893203c6aa8bfc9acc095d8fe67a72ad000184c09fcabc93d799",
+      "sourceBytes": 470851,
+      "deliveryBytes": 131584,
+      "width": 2172,
+      "height": 724,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          1.53377,
+          0.69089,
+          3.054721
+        ],
+        "light": [
+          1.533676,
+          0.693463,
+          3.054392
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "source": "assets/ui/icons/status/barrier-status.png",
+      "delivery": "assets/ui-webp/icons/status/barrier-status.webp",
+      "sourceSha256": "999037c0468486b7e87a65d194828ed41a2f2021c48f6dbff7e7e375a54c0aa3",
+      "deliverySha256": "b2ead018c81b39b757745cc3e5225b3644d520ac711deacd25ae4d179969775f",
+      "sourceBytes": 1128615,
+      "deliveryBytes": 215304,
+      "width": 1254,
+      "height": 1254,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          2.405555,
+          0.942245,
+          1.696512
+        ],
+        "light": [
+          2.419738,
+          0.947383,
+          1.704411
+        ]
+      }
+    },
+    {
+      "id": "6",
+      "source": "assets/ui/icons/status/poison.png",
+      "delivery": "assets/ui-webp/icons/status/poison.webp",
+      "sourceSha256": "d4aa81ac34af903de5acff3f472271b5553f6a8b4cdd179641da60e5fb24777a",
+      "deliverySha256": "f212578e76c6c67a5ef90c56e7a3a536ee76e8d7752c822fd6357170c9be9d4b",
+      "sourceBytes": 752107,
+      "deliveryBytes": 96428,
+      "width": 1254,
+      "height": 1254,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          0.828303,
+          0.661484,
+          0.929716
+        ],
+        "light": [
+          0.829011,
+          0.658845,
+          0.931372
+        ]
+      }
+    },
+    {
+      "id": "7",
+      "source": "assets/ui/icons/status/attack-up.png",
+      "delivery": "assets/ui-webp/icons/status/attack-up.webp",
+      "sourceSha256": "4182adc4af00788e8fb64c968a905aa18e62f8881381f17d0add6a7daa490649",
+      "deliverySha256": "586e00eeb3ad90105aa3f482e1c0808b6baaca0f474e48112a042ebd2593797c",
+      "sourceBytes": 438507,
+      "deliveryBytes": 104072,
+      "width": 1254,
+      "height": 1254,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          0.737363,
+          0.4938,
+          1.47209
+        ],
+        "light": [
+          0.737132,
+          0.494652,
+          1.477718
+        ]
+      }
+    },
+    {
+      "id": "8",
+      "source": "assets/ui/icons/status/weaken.png",
+      "delivery": "assets/ui-webp/icons/status/weaken.webp",
+      "sourceSha256": "bb22f7a172980c81a15717b590fcd54ca48d95340b2fa4f0bdbdc039823a5f48",
+      "deliverySha256": "8710d66e399dc3261630aaa1fe5038b9a93101f8c248f214cab67e62e8160205",
+      "sourceBytes": 532467,
+      "deliveryBytes": 100518,
+      "width": 1199,
+      "height": 1312,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          0.507651,
+          0.451327,
+          0.631985
+        ],
+        "light": [
+          0.507006,
+          0.45115,
+          0.63398
+        ]
+      }
+    },
+    {
+      "id": "9",
+      "source": "assets/ui/battle/hp-bar-frame.png",
+      "delivery": "assets/ui-webp/battle/hp-bar-frame.webp",
+      "sourceSha256": "b86f0e2fdb02f6477332c27e94871af9cf8689b0e945e2d3d349bcdb005b1420",
+      "deliverySha256": "5c061a0487882015d9e401016bfa3a1a37d953f5e96a6441f1c1d09f1efcca9d",
+      "sourceBytes": 189408,
+      "deliveryBytes": 73634,
+      "width": 2172,
+      "height": 724,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          0.243449,
+          0.201813,
+          0.27535
+        ],
+        "light": [
+          0.242123,
+          0.20241,
+          0.276526
+        ]
+      }
+    },
+    {
+      "id": "10",
+      "source": "assets/ui/cards/skill-detail-frame.png",
+      "delivery": "assets/ui-webp/cards/skill-detail-frame.webp",
+      "sourceSha256": "9114f84c4ec74d7bad20b2e53030e6ea743f45044a5882e3b49b5e2097647394",
+      "deliverySha256": "aa65d5d7bdae78aef87fe730aed629c799f2ca3ad9c5ed3addbfccf997ffe564",
+      "sourceBytes": 1769331,
+      "deliveryBytes": 369502,
+      "width": 1086,
+      "height": 1448,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          2.375232,
+          1.192716,
+          3.346504
+        ],
+        "light": [
+          2.373563,
+          1.192286,
+          3.351185
+        ]
+      }
+    },
+    {
+      "id": "12",
+      "source": "assets/ui/icons/skills/feint.png",
+      "delivery": "assets/ui-webp/icons/skills/feint.webp",
+      "sourceSha256": "5dce3e2a1017ca047b199496b6842f28f55accead8ca6b2e9758135ae495684a",
+      "deliverySha256": "74d3cd9210f292d7e700162c0400d322d694dbce2ce14c0da92509c568759e5c",
+      "sourceBytes": 1086673,
+      "deliveryBytes": 174334,
+      "width": 1254,
+      "height": 1254,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          1.333429,
+          0.780595,
+          1.776667
+        ],
+        "light": [
+          1.328905,
+          0.78151,
+          1.7806
+        ]
+      }
+    },
+    {
+      "id": "13",
+      "source": "assets/ui/icons/skills/first-era-venom-blade.png",
+      "delivery": "assets/ui-webp/icons/skills/first-era-venom-blade.webp",
+      "sourceSha256": "5ff4affe48e66656a2efdb02cd13717fadab69da1d36d979dd0d0906e705d7d6",
+      "deliverySha256": "95c4fe5eafcbb16e6e40b6495f1d5b9a440d344f1a31fe5c76193101b6bba305",
+      "sourceBytes": 1097316,
+      "deliveryBytes": 178698,
+      "width": 1254,
+      "height": 1254,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          1.401978,
+          0.808529,
+          1.921216
+        ],
+        "light": [
+          1.400367,
+          0.807739,
+          1.922828
+        ]
+      }
+    },
+    {
+      "id": "14",
+      "source": "assets/ui/icons/ultimate/first-era-ultimate.png",
+      "delivery": "assets/ui-webp/icons/ultimate/first-era-ultimate.webp",
+      "sourceSha256": "3712fdf4b2fa8fb59f500096263877fd3d7976bf5dabc5a7401c39e5ccee3628",
+      "deliverySha256": "f26eb23237c1c1967a3c8b6de7c72e4a53fe4f16be7c2f3d2bb4dbeb381d0777",
+      "sourceBytes": 1622541,
+      "deliveryBytes": 427914,
+      "width": 2064,
+      "height": 762,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          1.916171,
+          1.010593,
+          2.610451
+        ],
+        "light": [
+          1.9106,
+          1.003074,
+          2.612477
+        ]
+      }
+    },
+    {
+      "id": "15",
+      "source": "assets/ui/icons/skills/first-era-poison-thrust.png",
+      "delivery": "assets/ui-webp/icons/skills/first-era-poison-thrust.webp",
+      "sourceSha256": "213b2c92af05cfb94cf3c0df7b48dd348a57087b77f23990d305abf0751d5ef6",
+      "deliverySha256": "bc1c8f5a8b53d4ee7b591104a9e8b451f41156c07264c28abd79c162ea55d5da",
+      "sourceBytes": 1105334,
+      "deliveryBytes": 182028,
+      "width": 1254,
+      "height": 1254,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          1.317593,
+          0.788293,
+          1.82649
+        ],
+        "light": [
+          1.314613,
+          0.787244,
+          1.829445
+        ]
+      }
+    },
+    {
+      "id": "16",
+      "source": "assets/ui/icons/skills/first-era-corrosion.png",
+      "delivery": "assets/ui-webp/icons/skills/first-era-corrosion.webp",
+      "sourceSha256": "369e0d35c12f65d874b1f09a1219aa1d7d75595e0f4b322835fef2cb2ee74ae7",
+      "deliverySha256": "dd417a5e643d578f8a5d97d52b8523e89e03e458beba55c9dca770b9982f2e4d",
+      "sourceBytes": 1069301,
+      "deliveryBytes": 183708,
+      "width": 1254,
+      "height": 1254,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          1.437889,
+          0.795678,
+          1.91875
+        ],
+        "light": [
+          1.435302,
+          0.796648,
+          1.918846
+        ]
+      }
+    },
+    {
+      "id": "18",
+      "source": "assets/ui/icons/skills/battle-spirit.png",
+      "delivery": "assets/ui-webp/icons/skills/battle-spirit.webp",
+      "sourceSha256": "57d747c4086a01e965867c38f445b2ebc74df8e3eae53c2bc97a76a6874952b8",
+      "deliverySha256": "821852c7011c8aa30abb9c5636c72d276688d33b59a061142122d37910748767",
+      "sourceBytes": 1140391,
+      "deliveryBytes": 198568,
+      "width": 1254,
+      "height": 1254,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          1.400123,
+          0.817036,
+          1.842336
+        ],
+        "light": [
+          1.398956,
+          0.818085,
+          1.847664
+        ]
+      }
+    },
+    {
+      "id": "19",
+      "source": "assets/ui/icons/skills/first-aid.png",
+      "delivery": "assets/ui-webp/icons/skills/first-aid.webp",
+      "sourceSha256": "d0fa81c636ce25cbe6929af4e70193708936bc54602565b14f6155fb692f15d8",
+      "deliverySha256": "d00dc3991b7376ab0bce32100f228118f5d852f66acc6d4df85327d380dcd763",
+      "sourceBytes": 1152221,
+      "deliveryBytes": 202212,
+      "width": 1254,
+      "height": 1254,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          1.305189,
+          0.808338,
+          1.721716
+        ],
+        "light": [
+          1.301047,
+          0.807464,
+          1.72091
+        ]
+      }
+    },
+    {
+      "id": "20",
+      "source": "assets/ui/icons/skills/slash.png",
+      "delivery": "assets/ui-webp/icons/skills/slash.webp",
+      "sourceSha256": "dad7023b7f21fcb72ffaeed41fbd33a5c1f72e7875f711adec443d27cfc84c29",
+      "deliverySha256": "661b97a7aff0885649ac324191692145413c99a58be21a8a01e201cb6fd2658c",
+      "sourceBytes": 3438739,
+      "deliveryBytes": 302506,
+      "width": 2048,
+      "height": 2048,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          0.94996,
+          0.64698,
+          1.17778
+        ],
+        "light": [
+          0.949924,
+          0.646801,
+          1.17793
+        ]
+      }
+    },
+    {
+      "id": "24",
+      "source": "assets/ui/icons/skills/barrier.png",
+      "delivery": "assets/ui-webp/icons/skills/barrier.webp",
+      "sourceSha256": "12bf837db80ed7364c42a38e064aabe43a10c29e07ef549b393e8659906f5aaa",
+      "deliverySha256": "2d14a071e7c172cef3d213a1ec65463aedebc2301d436df0f8d119f70f12861c",
+      "sourceBytes": 3666381,
+      "deliveryBytes": 356646,
+      "width": 2048,
+      "height": 2048,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          0.972447,
+          0.6757,
+          1.194311
+        ],
+        "light": [
+          0.972234,
+          0.675741,
+          1.194405
+        ]
+      }
+    },
+    {
+      "id": "26",
+      "source": "assets/ui/icons/skills/heavy-slash.png",
+      "delivery": "assets/ui-webp/icons/skills/heavy-slash.webp",
+      "sourceSha256": "297ffc77f5f903eb14d47175382d794cd535b68a3af9317bab0f459d9bc05c54",
+      "deliverySha256": "54c1a88e409d1628251a104c8bc7d4409e113b4d5a8660646bb3ddc7357023aa",
+      "sourceBytes": 1147431,
+      "deliveryBytes": 224698,
+      "width": 1254,
+      "height": 1254,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          1.342143,
+          0.797995,
+          1.87024
+        ],
+        "light": [
+          1.339386,
+          0.796517,
+          1.871715
+        ]
+      }
+    },
+    {
+      "id": "27",
+      "source": "assets/ui/icons/common/cooldown-hourglass.png",
+      "delivery": "assets/ui-webp/icons/common/cooldown-hourglass.webp",
+      "sourceSha256": "15e7754afff79911e6f92fb8936b6ded634d1c3ad2f3dfdef9779e19c856dafe",
+      "deliverySha256": "c3e152037cce174a79e569014c937a813dfea68e115dc4811f7f9ed6f2804153",
+      "sourceBytes": 1249090,
+      "deliveryBytes": 178446,
+      "width": 1964,
+      "height": 2048,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          0.48652,
+          0.348987,
+          0.637257
+        ],
+        "light": [
+          0.486341,
+          0.349246,
+          0.638414
+        ]
+      }
+    },
+    {
+      "id": "28",
+      "source": "assets/ui/icons/common/mana-crystal.png",
+      "delivery": "assets/ui-webp/icons/common/mana-crystal.webp",
+      "sourceSha256": "6d8a5033f9208dfff071de2553bbd4958d8f4b4c3c01fca72b74661d9ff38654",
+      "deliverySha256": "daaa64795fc8085019944a04a116be91dc742dc846b0bda61eefe85b21b91998",
+      "sourceBytes": 952503,
+      "deliveryBytes": 147436,
+      "width": 1923,
+      "height": 2048,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          0.830916,
+          0.459309,
+          0.739205
+        ],
+        "light": [
+          0.822207,
+          0.459057,
+          0.739463
+        ]
+      }
+    },
+    {
+      "id": "29",
+      "source": "assets/ui/skill-frames/skill-frame-variant-29.png",
+      "delivery": "assets/ui-webp/skill-frames/skill-frame-variant-29.webp",
+      "sourceSha256": "06de6291390423e97f9c3b71a8c288f347d0c5cf005f8d85c7f6472e71774375",
+      "deliverySha256": "88146435cc71302a89bf8bc2705030b5d5bdb6ee5931de6a6df8f59f523b196f",
+      "sourceBytes": 1286289,
+      "deliveryBytes": 240348,
+      "width": 1774,
+      "height": 887,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          1.100282,
+          0.773473,
+          1.37291
+        ],
+        "light": [
+          1.096501,
+          0.770038,
+          1.373277
+        ]
+      }
+    },
+    {
+      "id": "30",
+      "source": "assets/ui/skill-frames/skill-frame-variant-30.png",
+      "delivery": "assets/ui-webp/skill-frames/skill-frame-variant-30.webp",
+      "sourceSha256": "2fd0eee1ff89a03eb796bc5e4da132a4432a7395186a397630421a36b0ed82bf",
+      "deliverySha256": "4b91bdbd68ba36ad3387f5431003ee6ecaec56d0ce64e95489cb3ca32591012b",
+      "sourceBytes": 1780604,
+      "deliveryBytes": 185046,
+      "width": 2048,
+      "height": 1024,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          0.892419,
+          0.688174,
+          1.086037
+        ],
+        "light": [
+          0.892755,
+          0.688118,
+          1.08562
+        ]
+      }
+    },
+    {
+      "id": "31",
+      "source": "assets/ui/skill-frames/skill-frame-variant-31.png",
+      "delivery": "assets/ui-webp/skill-frames/skill-frame-variant-31.webp",
+      "sourceSha256": "5c4f48f12a7326bbc2d0b7ac536e4b25b22ad30f08d96e913947ceea121fb6e5",
+      "deliverySha256": "ebb9df40fcfd54228250e31281fcaaf79a6cc87334b63f0a6ee3ac8c650eca9b",
+      "sourceBytes": 1759837,
+      "deliveryBytes": 198038,
+      "width": 2048,
+      "height": 1024,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          0.903276,
+          0.675576,
+          0.994994
+        ],
+        "light": [
+          0.903056,
+          0.676047,
+          0.995292
+        ]
+      }
+    },
+    {
+      "id": "32",
+      "source": "assets/ui/skill-frames/skill-frame-variant-32.png",
+      "delivery": "assets/ui-webp/skill-frames/skill-frame-variant-32.webp",
+      "sourceSha256": "bcf7a9f98b82b78ade61638641f00ad1d662c71d70b0fcbe4e39701c82884a44",
+      "deliverySha256": "0e492fe623b3fe51ff067e668cece5e83a6ed4a3fca4726fae9d943573be50e9",
+      "sourceBytes": 1784704,
+      "deliveryBytes": 201476,
+      "width": 2048,
+      "height": 1024,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          0.930022,
+          0.686476,
+          1.161963
+        ],
+        "light": [
+          0.930278,
+          0.686533,
+          1.162136
+        ]
+      }
+    },
+    {
+      "id": "33",
+      "source": "assets/ui/skill-frames/skill-frame-variant-33.png",
+      "delivery": "assets/ui-webp/skill-frames/skill-frame-variant-33.webp",
+      "sourceSha256": "54eae91bb8416199fba601889722d254b635b7c56929496c3ff23e48167e3d45",
+      "deliverySha256": "cfe4fa18f5661de9d25b64164ac26b21003717b821032361210ffaba669d3fbd",
+      "sourceBytes": 1777937,
+      "deliveryBytes": 203114,
+      "width": 2048,
+      "height": 1024,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          0.973946,
+          0.69374,
+          1.015621
+        ],
+        "light": [
+          0.973955,
+          0.693831,
+          1.015334
+        ]
+      }
+    },
+    {
+      "id": "34",
+      "source": "assets/ui/skill-frames/skill-frame-variant-34.png",
+      "delivery": "assets/ui-webp/skill-frames/skill-frame-variant-34.webp",
+      "sourceSha256": "ea9ba8f898d8c88facbe5222affdd7f6b84e4ad6db1d1ca775698e9f6ad7fb5e",
+      "deliverySha256": "09e39eb3f802b39a230209678d9bd4866deab6af76d44ce855c83235e0eb4813",
+      "sourceBytes": 1729295,
+      "deliveryBytes": 181078,
+      "width": 2048,
+      "height": 1024,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          0.880893,
+          0.667146,
+          0.922198
+        ],
+        "light": [
+          0.880882,
+          0.667417,
+          0.921805
+        ]
+      }
+    },
+    {
+      "id": "35",
+      "source": "assets/ui/skill-frames/skill-frame-variant-35.png",
+      "delivery": "assets/ui-webp/skill-frames/skill-frame-variant-35.webp",
+      "sourceSha256": "d466e609b402698cc7c7a143e6378b68a725684520beaa06ec41ce38e91fdabf",
+      "deliverySha256": "1ce9f20a6f3e390e5e5481569222ece5acd317cf3f924cfa832ae9419bcf4856",
+      "sourceBytes": 1778376,
+      "deliveryBytes": 187158,
+      "width": 2048,
+      "height": 1024,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          0.86455,
+          0.675803,
+          0.877498
+        ],
+        "light": [
+          0.864728,
+          0.676152,
+          0.877912
+        ]
+      }
+    },
+    {
+      "id": "36",
+      "source": "assets/ui/battle/ornate-horizontal-frame-variant-36.png",
+      "delivery": "assets/ui-webp/battle/ornate-horizontal-frame-variant-36.webp",
+      "sourceSha256": "6306fbfe1a15f3e374a43295bfb7e076f3cb4842a7e51a7dd44a3807cd017fe3",
+      "deliverySha256": "870375ad2c88d6a3f143d2750008effa73a28794352ca1366b642dba5c47fe81",
+      "sourceBytes": 1303286,
+      "deliveryBytes": 272582,
+      "width": 1937,
+      "height": 812,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          1.7358,
+          0.913982,
+          3.191419
+        ],
+        "light": [
+          1.733509,
+          0.911004,
+          3.207046
+        ]
+      }
+    },
+    {
+      "id": "37",
+      "source": "assets/ui/battle/ornate-horizontal-frame-variant-37.png",
+      "delivery": "assets/ui-webp/battle/ornate-horizontal-frame-variant-37.webp",
+      "sourceSha256": "bb5f906fae0286a973fab303b65d9573f62e4c2039b813cf0af65e61a67a80ca",
+      "deliverySha256": "2e250a9acdeb62c8448517ac196021a2fa797931a2edcec1cc9e729ad22a63f6",
+      "sourceBytes": 1729779,
+      "deliveryBytes": 329288,
+      "width": 1937,
+      "height": 812,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          1.175114,
+          0.851745,
+          2.078955
+        ],
+        "light": [
+          1.170028,
+          0.846443,
+          2.086697
+        ]
+      }
+    },
+    {
+      "id": "38",
+      "source": "assets/ui/battle/ornate-horizontal-frame-variant-38.png",
+      "delivery": "assets/ui-webp/battle/ornate-horizontal-frame-variant-38.webp",
+      "sourceSha256": "e7e08c9830fae5b8e46fd2e78cfb55beff01e442e1f04e875e4b7f474f77075d",
+      "deliverySha256": "6f6b0276ee30dae2d5aea0abf5098c9deab48f4f729cb2e44b6c757740de63ea",
+      "sourceBytes": 1613479,
+      "deliveryBytes": 260952,
+      "width": 1937,
+      "height": 812,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          1.097023,
+          0.785992,
+          1.560329
+        ],
+        "light": [
+          1.093302,
+          0.7809,
+          1.561175
+        ]
+      }
+    },
+    {
+      "id": "39",
+      "source": "assets/ui/battle/ornate-horizontal-frame-variant-39.png",
+      "delivery": "assets/ui-webp/battle/ornate-horizontal-frame-variant-39.webp",
+      "sourceSha256": "0e05841b19118181b7bb53073d5e9a5b74cdfae6f9ac3733ad55af53a359bb06",
+      "deliverySha256": "157ff577e050927615fa7becc1211454a0020971a1ac18f2af31ac955ed6161c",
+      "sourceBytes": 1686265,
+      "deliveryBytes": 267636,
+      "width": 1937,
+      "height": 812,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          1.236906,
+          0.88301,
+          1.553224
+        ],
+        "light": [
+          1.233297,
+          0.881193,
+          1.551864
+        ]
+      }
+    },
+    {
+      "id": "40",
+      "source": "assets/ui/battle/ornate-horizontal-frame-variant-40.png",
+      "delivery": "assets/ui-webp/battle/ornate-horizontal-frame-variant-40.webp",
+      "sourceSha256": "6819bc1c14543d17d92638b49a9c9ddf4c199da245a4ea3b5a927dcab8db1683",
+      "deliverySha256": "7a7c10ac20b80a3ecc6d376ca41947ba3c8113f00f3c94075899ca617ccbd22e",
+      "sourceBytes": 1306983,
+      "deliveryBytes": 267374,
+      "width": 1935,
+      "height": 812,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          1.407688,
+          0.837374,
+          1.924202
+        ],
+        "light": [
+          1.406174,
+          0.83376,
+          1.924746
+        ]
+      }
+    },
+    {
+      "id": "41",
+      "source": "assets/ui/battle/ornate-horizontal-frame-variant-41.png",
+      "delivery": "assets/ui-webp/battle/ornate-horizontal-frame-variant-41.webp",
+      "sourceSha256": "060641740bfe3f8d0d71367da405aec668248a5a42a34a27b036a4da9c06c6c6",
+      "deliverySha256": "0dcac7ded63b0733ecae64e2e992bb4a3a940961c25b517ad819aef1f129d6bd",
+      "sourceBytes": 1245060,
+      "deliveryBytes": 285498,
+      "width": 1937,
+      "height": 812,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          2.488928,
+          1.220697,
+          2.35138
+        ],
+        "light": [
+          2.483758,
+          1.220543,
+          2.357888
+        ]
+      }
+    },
+    {
+      "id": "42",
+      "source": "assets/ui/icons/skills/setup.png",
+      "delivery": "assets/ui-webp/icons/skills/setup.webp",
+      "sourceSha256": "faaef5b4817464f331ab7e025c7a18111f1364a5907656e94e8dd8fb62b65c71",
+      "deliverySha256": "ff3ad3290f3a2b8e3c7fb59dfa56bd5ccad87e1582bdea8b1c0492e71d866538",
+      "sourceBytes": 1110094,
+      "deliveryBytes": 182776,
+      "width": 1254,
+      "height": 1254,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          1.26092,
+          0.782729,
+          1.651675
+        ],
+        "light": [
+          1.257826,
+          0.782559,
+          1.651309
+        ]
+      }
+    }
+  ]
+}

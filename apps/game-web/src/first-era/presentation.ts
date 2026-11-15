@@ -1,6 +1,10 @@
 import type { Runtime, State, Action } from './core';
 import type { BattleViewModel, SkillViewModel, SkillSelection } from '../battle-view-model';
-export function category(tags: string[]): string { return tags.includes('poison') || tags.includes('poison_reference') ? 'poison' : tags.includes('debuff') ? 'debuff' : tags.includes('defense') ? 'defense' : tags.includes('heal') ? 'heal' : tags.includes('buff') && !tags.includes('attack') ? 'buff' : 'attack'; }
+export function category(tags: string[]): string {
+ const additions = [tags.some(t => t === 'poison' || t === 'poison_reference') && 'poison', tags.includes('debuff') && 'debuff', tags.includes('defense') && 'defense', tags.includes('heal') && 'heal', tags.includes('buff') && 'buff'].filter(Boolean);
+ // No unapproved priority for multiple additional effects. Current first-era pool has no such conflict.
+ return additions.length === 1 ? additions[0] as string : additions.length > 1 ? 'none' : 'attack';
+}
 export function toFirstEraModel(runtime: Runtime, state: State, busy: boolean, message: string, selected?: SkillSelection | null): BattleViewModel {
  const { core, rules } = runtime;
  function skill(side: 'player' | 'boss', id: string): SkillViewModel {

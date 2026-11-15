@@ -30,7 +30,7 @@
 | first_era_venom_blade | 毒刃 | 2 | 1 | 基本1ダメージに、対象毒スタックの半分（小数点以下切捨て）を追加。毒を消費せず、毒0でも使用可能。追加分を含め1ヒットとして補正は一度だけ | attack, poison_reference |
 | feint | 牽制 | 1 | 1 | 1ダメージ。対象の次の攻撃ダメージ−2 | attack, debuff |
 
-全種とも所持・手番・MP・CD・同ターン使用済み判定は共通エンジンを正とする。再演は通常の使用済み/CD/MPを追加消費しない。スキル固有画像・強化・アイコン等は未実装。変動威力の表示原則は[UI正本](ui.md#variable-skill-display)を参照する。
+全種とも所持・手番・MP・CD・同ターン使用済み判定は共通エンジンを正とする。再演は通常の使用済み/CD/MPを追加消費しない。専用スキルイラスト・強化は未実装。登録済みスキルアイコンは第一紀Reactの専用ブランチへ接続済みで、原本・対応・適用状態は[素材台帳](../assets/ui-image-inventory.md)、共通表示方針は[UI正本](ui.md#ui-image-application)を参照。変動威力の表示原則は[UI正本](ui.md#variable-skill-display)を参照する。
 
 <a id="poison-thrust"></a>
 <a id="venom-blade-new"></a>

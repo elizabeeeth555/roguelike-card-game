@@ -17,6 +17,7 @@
 | [ボス](features/bosses.md) | 固定5体と研究中の世代ボス |
 | [AI](features/ai.md) | 本編AI-2と研究モデル、限界 |
 | [UI・演出](features/ui.md) | 操作、表示、音声、今後のツール |
+| [UI画像台帳](assets/ui-image-inventory.md) | 登録PNGの番号・用途・原本ハッシュ・適用状態（CSV参照） |
 | [世界観・素材](features/world-assets.md) | 物語、採用デザイン、実ファイル |
 | [保留案](backlog.md) | 将来構想と保留事項。個別スキル草案はスキル正本への参照 |
 | [移管台帳](migration.md) | 旧文書の移管先、矛盾、検証結果 |
