@@ -10,5 +10,8 @@
 - [当時の未確定事項](first-era-input/09-open-items.md)
 - [初期受入項目](first-era-acceptance-original.md)
 - [初期実測](first-era-baseline-2026-11-06.md)
+- [2026-11-15整理前の開発状況（旧status）](status-before-2026-11-15-cleanup.md)
+- [2026-11-15整理前の旧UI・工程記録](ui-before-2026-11-15-cleanup.md)
+- [2026-11-15整理前のReactアプリ開発README](react-app-readme-before-2026-11-15-cleanup.md)
 
 受領時3ファイルは入力時点の固有条件・対応関係を保存する補助資料として保持。現在の状態は[status](../status.md)。

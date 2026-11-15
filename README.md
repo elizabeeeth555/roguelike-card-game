@@ -4,9 +4,9 @@
 
 『継世の王座』（けいせいのおうざ）はスキル自由構築型RPGです。React第一紀では通常10種類から5種類を編成し、灰鎖の老王へ挑戦できます。
 
-このブランチは公開トップをReact第一紀へ切り替えるための**公開配置を準備した状態**です。PR・mainへのマージ・公開操作は未実施で、現在のGitHub Pagesへの反映を意味しません。Pagesの`main`／ルート公開設定は維持します。
+**PR #28でmainの公開配置ソースをReact第一紀へ切替済み。** 旧ランダム習得型は`/classic/`に保持している。Pagesの設定は`main`／ルート方式。mainのファイル配置と実際のPages配信・実機動作は区別し、この資料整理では公開URLの実動作を確認していない。
 
-| 入口 | このブランチの配置 | 公開反映後のURL |
+| 入口 | mainの配置 | URL（実動作は別途確認） |
 |---|---|---|
 | 新React第一紀 | [index.html](index.html) → [public-game/](public-game/) | https://elizabeeeth555.github.io/roguelike-card-game/ |
 | 保存したclassic版 | [classic/index.html](classic/index.html) | https://elizabeeeth555.github.io/roguelike-card-game/classic/ |
@@ -55,7 +55,7 @@ npm run build:pages
 ## 開発・資料
 
 - [設計資料の入口](docs/README.md)：仕様の優先順位と状態区分。
-- [現在の開発状況](docs/status.md)：本編・研究・未反映事項。
+- [現在の開発状況](docs/status.md)：現行第一紀・旧classic・工房・未実装事項。
 - [構造・テスト・公開](docs/architecture.md)：各モジュールと検査方法。
 - [スキル管理表](docs/features/skills.md)：スキル個別仕様の正本。
 - [作業規約](AGENTS.md)：未コミット作業・素材の保護。
