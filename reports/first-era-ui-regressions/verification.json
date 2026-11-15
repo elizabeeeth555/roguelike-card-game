@@ -114,5 +114,11 @@
     "classic/",
     "research/"
   ],
-  "humanPlayVerified": false
+  "humanPlayVerified": false,
+  "designSettingInheritance": {
+    "passed": true,
+    "method": "Chromium computed borderColor of ready skill under custom --battle-skill-border",
+    "expected": "rgb(18, 52, 86)",
+    "actual": "rgb(18, 52, 86)"
+  }
 }
