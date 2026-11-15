@@ -132,3 +132,9 @@
 .first-era-battle .battle-controls button:last-child{padding-left:95px;padding-right:0}.first-era-battle .battle-controls button:last-child>.button-frame-art{left:auto;right:0;width:190px}
 .first-era-battle .player-area .hud-heading h2{font-size:13px}
 }
+
+/* Usage remains inspectable: do not disable the detail-opening button. */
+.first-era-battle .ultimate-button.ultimate-used{filter:brightness(.42) saturate(.25)}
+.first-era-battle .ultimate-button.ultimate-unavailable{filter:brightness(.8)}
+.first-era-battle .ultimate-button.ultimate-ready{filter:none}
+.first-era-battle .ultimate-button.ultimate-used:focus-visible{outline:3px solid #e2cf9b;outline-offset:3px}

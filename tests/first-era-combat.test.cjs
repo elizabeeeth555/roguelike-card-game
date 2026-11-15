@@ -54,9 +54,9 @@ test('exhaustion kills before stance/refill/flash; flash kill stops normal actio
  const s=create();s.round=12;s.actors.boss.hp=1;const out=end(s);assert.equal(s.end,'player');assert.equal(s.endCause,'exhaustion');assert.equal(out.events.some(e=>e.type==='flashTriggered'),false);
  const t=create();t.actors.player.hp=5;end(t);assert.equal(t.end,'boss');assert.equal(t.endCause,'flash');assert.deepEqual(B.legalActions(t),[]);assert.equal(card(t,'slash','boss').ok,false);
 });
-test('replay safety, MP1, used/CD bypass, one use; recalculates after break, not prior damage',()=>{
- const s=create();assert.equal(B.ultimateStatus(s).code,'reference');const before=B.snapshot(s);assert.equal(echo(s).ok,false);assert.deepEqual(s,before);card(s,'heavy_slash');const ready=s.actors.player.readyOn.heavy_slash;assert.equal(s.actors.boss.hp,39);assert.equal(B.ultimateStatus(s).allowed,true);const out=echo(s);assert.equal(s.actors.boss.hp,35);assert.equal(s.actors.player.mana,0);assert.equal(s.actors.player.readyOn.heavy_slash,ready);assert.deepEqual(s.actors.player.used,['heavy_slash']);assert.equal(out.events.find(e=>e.replay).amount,4);assert.equal(echo(s).ok,false);
- const t=create();card(t,'heavy_slash');t.actors.player.mana=0;assert.equal(B.ultimateStatus(t).code,'mana');t.end='boss';assert.equal(B.ultimateStatus(t).code,'ended');assert.equal(echo(t).ok,false);
+test('replay safety, MP0, used/CD bypass, one use; recalculates after break, not prior damage',()=>{
+ const s=create();assert.equal(B.ultimateStatus(s).code,'reference');const before=B.snapshot(s);assert.equal(echo(s).ok,false);assert.deepEqual(s,before);card(s,'heavy_slash');const ready=s.actors.player.readyOn.heavy_slash;assert.equal(s.actors.boss.hp,39);assert.equal(B.ultimateStatus(s).allowed,true);const out=echo(s);assert.equal(s.actors.boss.hp,35);assert.equal(s.actors.player.mana,1);assert.equal(out.events.find(e=>e.type==='ultimate').cost,0);assert.equal(s.actors.player.readyOn.heavy_slash,ready);assert.deepEqual(s.actors.player.used,['heavy_slash']);assert.equal(out.events.find(e=>e.replay).amount,4);assert.equal(echo(s).ok,false);
+ const t=create();card(t,'heavy_slash');t.actors.player.mana=0;assert.equal(B.ultimateStatus(t).allowed,true);const replay=echo(t);assert.ok(replay.ok);assert.equal(t.actors.player.mana,0);assert.equal(B.ultimateStatus(t).code,'used');t.end='boss';assert.equal(B.ultimateStatus(t).code,'ended');assert.equal(echo(t).ok,false);
 });
 test('replay uses current poison and consumes buff only on the first hit; poison replay adds/caps',()=>{
  const s=create();s.actors.boss.poison=2;card(s,'first_era_venom_blade');s.actors.boss.poison=8;s.bossState.broken=true;const out=echo(s);assert.equal(out.events.find(e=>e.type==='damage').baseDamage,5);assert.equal(s.actors.boss.poison,8);
@@ -88,4 +88,11 @@ test('existing AI distinguishes ultimate/acceleration candidate identities and e
 test('logic-only representative battle reaches a legal terminal state without UI/research engine',()=>{
  const s=create();let count=0;while(!s.end&&count<250){const plan=AI.plan(B.snapshot(s),{lookahead:s.active==='boss'});for(const a of plan.actions){if(s.end)break;assert.equal(B.execute(s,a).ok,true);count++;}if(!s.end){assert.equal(end(s).ok,true);count++;}}
  assert.ok(s.end==='player'||s.end==='boss');assert.ok(count<250);assert.deepEqual(B.legalActions(s),[]);assert.equal(echo(s).ok,false);
+});
+
+test('formal echo keeps ID/schema, allows zero-MP replay and restores used snapshots with the existing schema',()=>{
+ assert.equal(R.ultimate.id,'first_era_echo');assert.equal(R.ultimate.name,'戦技の残響');assert.equal(R.ultimate.cost,0);
+ const s=create();s.actors.player.mana=0;assert.equal(B.ultimateStatus(s).code,'reference');assert.equal(echo(s).ok,false);
+ const used=create();card(used,'heavy_slash');echo(used);used.actors.player.mana=0;const oldSnapshot=B.snapshot(used);assert.equal(oldSnapshot.schemaVersion,3);assert.deepEqual(B.restore(oldSnapshot),oldSnapshot);assert.equal(B.ultimateStatus(B.restore(oldSnapshot)).code,'used');
+ const next=create();assert.equal(next.ultimate.available,true);assert.equal(B.ultimateStatus(next).code,'reference');
 });

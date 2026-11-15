@@ -13,7 +13,7 @@
   };
   const pool=['slash','heavy_slash','barrier','first_aid','battle_spirit','setup','first_era_corrosion','first_era_poison_thrust','first_era_venom_blade','feint'];
   const bossDeck=['slash','heavy_slash','great_swing','feint','battle_spirit'];
-  const ultimate={id:'first_era_echo',name:'戦技の残響（仮）',cost:1,description:'この自ターンに最後に使用した通常スキルを再演する。戦闘中1回'};
+  const ultimate={id:'first_era_echo',name:'戦技の残響',cost:0,description:'この自ターンに最後に使用した通常スキルを再演する。戦闘中1回'};
   function validateDeck(deck){if(!Array.isArray(deck)||deck.length!==5||new Set(deck).size!==5||deck.some(id=>!pool.includes(id)))throw new TypeError('First era requires five distinct adopted skills');return [...deck];}
   function card(id){return Object.prototype.hasOwnProperty.call(extra,id)?extra[id]:Object.prototype.hasOwnProperty.call(Data.CARDS,id)?Data.CARDS[id]:null;}
   function plan(id,who,target){
