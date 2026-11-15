@@ -8,7 +8,8 @@
       205,
       2101,
       316
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/battle/stagger-gauge-frame-no-ticks.webp"
   },
   "2": {
     "path": "assets/ui/icons/status/barrier-status.png",
@@ -19,7 +20,8 @@
       138,
       985,
       997
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/icons/status/barrier-status.webp"
   },
   "6": {
     "path": "assets/ui/icons/status/poison.png",
@@ -30,7 +32,8 @@
       172,
       828,
       878
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/icons/status/poison.webp"
   },
   "7": {
     "path": "assets/ui/icons/status/attack-up.png",
@@ -41,7 +44,8 @@
       12,
       507,
       1230
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/icons/status/attack-up.webp"
   },
   "8": {
     "path": "assets/ui/icons/status/weaken.png",
@@ -52,7 +56,8 @@
       13,
       641,
       1299
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/icons/status/weaken.webp"
   },
   "9": {
     "path": "assets/ui/battle/hp-bar-frame.png",
@@ -63,7 +68,8 @@
       301,
       1980,
       118
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/battle/hp-bar-frame.webp"
   },
   "10": {
     "path": "assets/ui/cards/skill-detail-frame.png",
@@ -74,7 +80,8 @@
       4,
       1004,
       1405
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/cards/skill-detail-frame.webp"
   },
   "12": {
     "path": "assets/ui/icons/skills/feint.png",
@@ -85,7 +92,8 @@
       218,
       854,
       818
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/icons/skills/feint.webp"
   },
   "13": {
     "path": "assets/ui/icons/skills/first-era-venom-blade.png",
@@ -96,7 +104,8 @@
       219,
       853,
       817
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/icons/skills/first-era-venom-blade.webp"
   },
   "14": {
     "path": "assets/ui/icons/ultimate/first-era-ultimate.png",
@@ -107,7 +116,8 @@
       51,
       1952,
       650
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/icons/ultimate/first-era-ultimate.webp"
   },
   "15": {
     "path": "assets/ui/icons/skills/first-era-poison-thrust.png",
@@ -118,7 +128,8 @@
       219,
       854,
       817
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/icons/skills/first-era-poison-thrust.webp"
   },
   "16": {
     "path": "assets/ui/icons/skills/first-era-corrosion.png",
@@ -129,7 +140,8 @@
       218,
       854,
       818
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/icons/skills/first-era-corrosion.webp"
   },
   "18": {
     "path": "assets/ui/icons/skills/battle-spirit.png",
@@ -140,7 +152,8 @@
       220,
       855,
       816
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/icons/skills/battle-spirit.webp"
   },
   "19": {
     "path": "assets/ui/icons/skills/first-aid.png",
@@ -151,7 +164,8 @@
       219,
       855,
       817
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/icons/skills/first-aid.webp"
   },
   "20": {
     "path": "assets/ui/icons/skills/slash.png",
@@ -162,7 +176,8 @@
       364,
       1384,
       1324
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/icons/skills/slash.webp"
   },
   "24": {
     "path": "assets/ui/icons/skills/barrier.png",
@@ -173,7 +188,8 @@
       368,
       1384,
       1320
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/icons/skills/barrier.webp"
   },
   "26": {
     "path": "assets/ui/icons/skills/heavy-slash.png",
@@ -184,7 +200,8 @@
       219,
       853,
       817
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/icons/skills/heavy-slash.webp"
   },
   "27": {
     "path": "assets/ui/icons/common/cooldown-hourglass.png",
@@ -195,7 +212,8 @@
       609,
       700,
       893
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/icons/common/cooldown-hourglass.webp"
   },
   "28": {
     "path": "assets/ui/icons/common/mana-crystal.png",
@@ -206,7 +224,8 @@
       480,
       473,
       1049
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/icons/common/mana-crystal.webp"
   },
   "29": {
     "path": "assets/ui/skill-frames/skill-frame-variant-29.png",
@@ -217,7 +236,8 @@
       155,
       1428,
       560
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/skill-frames/skill-frame-variant-29.webp"
   },
   "30": {
     "path": "assets/ui/skill-frames/skill-frame-variant-30.png",
@@ -228,7 +248,8 @@
       180,
       1676,
       644
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/skill-frames/skill-frame-variant-30.webp"
   },
   "31": {
     "path": "assets/ui/skill-frames/skill-frame-variant-31.png",
@@ -239,7 +260,8 @@
       186,
       1656,
       636
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/skill-frames/skill-frame-variant-31.webp"
   },
   "32": {
     "path": "assets/ui/skill-frames/skill-frame-variant-32.png",
@@ -250,7 +272,8 @@
       188,
       1672,
       636
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/skill-frames/skill-frame-variant-32.webp"
   },
   "33": {
     "path": "assets/ui/skill-frames/skill-frame-variant-33.png",
@@ -261,7 +284,8 @@
       190,
       1672,
       624
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/skill-frames/skill-frame-variant-33.webp"
   },
   "34": {
     "path": "assets/ui/skill-frames/skill-frame-variant-34.png",
@@ -272,7 +296,8 @@
       182,
       1648,
       640
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/skill-frames/skill-frame-variant-34.webp"
   },
   "35": {
     "path": "assets/ui/skill-frames/skill-frame-variant-35.png",
@@ -283,7 +308,8 @@
       188,
       1664,
       632
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/skill-frames/skill-frame-variant-35.webp"
   },
   "36": {
     "path": "assets/ui/battle/ornate-horizontal-frame-variant-36.png",
@@ -294,7 +320,8 @@
       123,
       1761,
       558
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/battle/ornate-horizontal-frame-variant-36.webp"
   },
   "37": {
     "path": "assets/ui/battle/ornate-horizontal-frame-variant-37.png",
@@ -305,7 +332,8 @@
       138,
       1755,
       533
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/battle/ornate-horizontal-frame-variant-37.webp"
   },
   "38": {
     "path": "assets/ui/battle/ornate-horizontal-frame-variant-38.png",
@@ -316,7 +344,8 @@
       130,
       1762,
       547
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/battle/ornate-horizontal-frame-variant-38.webp"
   },
   "39": {
     "path": "assets/ui/battle/ornate-horizontal-frame-variant-39.png",
@@ -327,7 +356,8 @@
       135,
       1745,
       538
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/battle/ornate-horizontal-frame-variant-39.webp"
   },
   "40": {
     "path": "assets/ui/battle/ornate-horizontal-frame-variant-40.png",
@@ -338,7 +368,8 @@
       131,
       1746,
       543
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/battle/ornate-horizontal-frame-variant-40.webp"
   },
   "41": {
     "path": "assets/ui/battle/ornate-horizontal-frame-variant-41.png",
@@ -349,7 +380,8 @@
       140,
       1728,
       529
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/battle/ornate-horizontal-frame-variant-41.webp"
   },
   "42": {
     "path": "assets/ui/icons/skills/setup.png",
@@ -360,6 +392,7 @@
       219,
       855,
       818
-    ]
+    ],
+    "deliveryPath": "assets/ui-webp/icons/skills/setup.webp"
   }
 }

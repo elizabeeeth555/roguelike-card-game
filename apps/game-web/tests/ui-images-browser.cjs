@@ -37,7 +37,7 @@ for(const [w,h]of [[1366,768],[1280,720],[390,844],[320,812]]){
  assert.ok(await evaluate(`[...document.querySelectorAll('.ui-image')].every(n=>getComputedStyle(n).pointerEvents==='none')`));
 }
 const assets=require('../ui-image-assets.json');
-for(const image of Object.values(assets)){const relative='public-game/first-era/ui/'+image.path.slice('assets/ui/'.length);const bytes=Buffer.from(await(await fetch(new URL(relative,url))).arrayBuffer());assert.deepEqual(bytes,fs.readFileSync(path.resolve(__dirname,'../../..',image.path)));}
+for(const image of Object.values(assets)){const relative='public-game/first-era/ui/'+image.deliveryPath.slice('assets/ui-webp/'.length);const bytes=Buffer.from(await(await fetch(new URL(relative,url))).arrayBuffer());assert.deepEqual(bytes,fs.readFileSync(path.resolve(__dirname,'../../..',image.deliveryPath)));}
 assert.deepEqual(errors,[]);assert.deepEqual(httpErrors,[]);assert.deepEqual(consoleErrors,[]);
-const report={passed:true,viewports:[1366,1280,390,320],tenDeckIcons:true,playerAndBossFrames:true,hpStaggerUltimate:true,detailFrame:true,pointerEventsSafe:true,servedOriginals:33,errors,httpErrors,consoleErrors};fs.writeFileSync(path.join(out,'results.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
+const report={passed:true,viewports:[1366,1280,390,320],tenDeckIcons:true,playerAndBossFrames:true,hpStaggerUltimate:true,detailFrame:true,pointerEventsSafe:true,servedWebpDerivatives:33,errors,httpErrors,consoleErrors};fs.writeFileSync(path.join(out,'results.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
 }finally{ws?.close();chrome.kill();}}main().catch(e=>{console.error(e);process.exitCode=1;});
