@@ -160,6 +160,8 @@
 .first-era-battle .battle-toolbar button,.first-era-battle .battle-toolbar select,.first-era-battle .log-toggle{font-size:16px;min-height:40px}
 .first-era-battle .enemy-area>.battle-hud{left:33%;width:34%;top:7%}
 .first-era-battle .enemy-area .resource{margin:0}
+.first-era-battle .enemy-area .hud-mana-row{position:relative;min-height:24px}
+.first-era-battle .enemy-area .boss-ability{top:50%;translate:0 -50%;right:0}
 .first-era-battle .enemy-area .status-effects{margin:3px 0 0}
 .first-era-battle .battle-field{inset:23% 27% 16%}
 .first-era-battle .enemy-area .skill:nth-child(1){top:26%}.first-era-battle .enemy-area .skill:nth-child(2){top:39%}.first-era-battle .enemy-area .skill:nth-child(3){top:52%}.first-era-battle .enemy-area .skill:nth-child(4){top:31%}.first-era-battle .enemy-area .skill:nth-child(5){top:47%}
@@ -178,19 +180,20 @@
 .first-era-battle .enemy-area .skill{width:min(26%,380px);left:10%}
 .first-era-battle .enemy-area .skill:nth-child(4),.first-era-battle .enemy-area .skill:nth-child(5){left:auto;right:10%}
 .first-era-battle .enemy-area .skill-open{height:auto;aspect-ratio:3.24}
-.first-era-battle .skill:has(.skill-frame-art) .skill-symbol{left:8%;top:29%;width:34px;height:36px}
-.first-era-battle .skill:has(.skill-frame-art) .skill-name{left:23%;right:23%;top:27%;font:600 18px/1.4 var(--ui-font-gothic);white-space:nowrap}
-.first-era-battle .skill:has(.skill-frame-art) .skill-state{left:23%;right:22%;bottom:22%;font:13px/1.2 var(--ui-font-gothic);white-space:nowrap}
-.first-era-battle .skill-cost,.first-era-battle .skill-cd{right:9%;font:600 14px/1 var(--ui-font-gothic);gap:5px}
+.first-era-battle .skill:has(.skill-frame-art) .skill-symbol{left:13%;top:29%;width:34px;height:36px}
+.first-era-battle .skill:has(.skill-frame-art) .skill-name{left:26%;right:27%;top:27%;font:600 21px/1.4 var(--ui-font-gothic);white-space:nowrap}
+.first-era-battle .skill:has(.skill-frame-art) .skill-state{left:26%;right:27%;bottom:22%;font:13px/1.2 var(--ui-font-gothic);white-space:nowrap}
+.first-era-battle .skill-cost,.first-era-battle .skill-cd{right:15%;font:600 14px/1 var(--ui-font-gothic);gap:5px}
 .first-era-battle .skill-cost{top:24%}.first-era-battle .skill-cd{bottom:22%}
 .first-era-battle .skill-cost>.ui-image{width:13px;height:20px}.first-era-battle .skill-cd>.ui-image{width:13px;height:17px}
 .first-era-battle .enemy-area .availability-ready .skill-frame-art{filter:brightness(1.12) drop-shadow(0 0 3px #d5b87365)}
 .first-era-battle .enemy-area .skill:not(.availability-ready) .skill-frame-art{filter:brightness(.48) saturate(.55)}
 .first-era-battle .skill-state{color:#efe5d3}
 .first-era-battle .boss-charge-notice{left:37%;right:37%;max-width:none;top:20%;font:600 20px/1.5 var(--ui-font-mincho);text-shadow:1px 1px 2px #000,-1px -1px 2px #000,0 3px 8px #000;margin:0;background:radial-gradient(ellipse,#090c10a0,transparent 75%)}
-.first-era-battle .player-skills{left:50%;right:auto;width:min(1240px,calc(100% - 72px));transform:translateX(-50%);bottom:21%;gap:var(--battle-skill-gap,8px);align-items:center}
+.first-era-battle .player-skills{left:50%;right:auto;width:min(1400px,calc(100% - 20px));transform:translateX(-50%);bottom:19.8%;gap:var(--battle-skill-gap,5px);align-items:center}
 .first-era-battle .player-skills>.skill{max-width:none;min-width:0}
-.first-era-battle .player-skills .skill-open{height:86px}
+.first-era-battle .player-skills .skill-open{height:96px}
+.first-era-battle .player-skills>.skill:nth-child(1),.first-era-battle .player-skills>.skill:nth-child(5){translate:0 6px}
 .first-era-battle .player-skills .skill:has(.skill-frame-art) .skill-symbol{left:6%;top:29%;width:28px;height:32px}
 .first-era-battle .player-skills .skill:has(.skill-frame-art) .skill-name{left:22%;right:22%;top:27%;font-size:17px;line-height:1.4}
 .first-era-battle .player-skills .skill:has(.skill-frame-art) .skill-state{left:22%;right:22%;bottom:21%;font-size:13px}

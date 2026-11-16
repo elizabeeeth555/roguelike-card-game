@@ -1,6 +1,6 @@
 # 第一紀PC UI・最終レビュー画像（2026-11-16）
 
-対象ブランチ：`fix/first-era-pc-ui-polish`。修正前HEAD：`cac344c3fb47bcc78fdb5de4edc3b3881917d639`。本資料と画像は今回の修正後のソースを既存Pagesビルド手順で生成し、ローカルHTTP配信して取得したレビュー成果物。GitHub Pagesへのデプロイ・main統合は行っていない。
+対象ブランチ：`fix/first-era-pc-ui-polish`。今回の追加調整前HEAD：`86c50bb7719cb4e214ccac94b66904dce0e91f4c`。本資料と画像は今回の修正後のソースを既存Pagesビルド手順で生成し、ローカルHTTP配信して取得したレビュー成果物。GitHub Pagesへのデプロイ・main統合は行っていない。
 
 仕様は[UI正本](../../docs/features/ui.md#pc-battle-ui-polish-2026-11-15)、スキル固有の素材対応は[スキル正本](../../docs/features/skills.md#個別ui素材強化の管理元)、原本・配信ハッシュは[素材台帳](../../docs/assets/ui-image-inventory.md)を参照。
 
@@ -10,7 +10,7 @@
 | 1366×768 | [画像](screenshots/battle-1366.png) | [画像](screenshots/ultimate-hover-1366.png) | [画像](screenshots/charge-1366.png) | [画像](screenshots/enemy-states-1366.png) |
 | 1280×720 | [画像](screenshots/battle-1280.png) | [画像](screenshots/ultimate-hover-1280.png) | [画像](screenshots/charge-1280.png) | [画像](screenshots/enemy-states-1280.png) |
 
-通常画面では英雄の暗色シルエットと、大振りの採用済みアイコンを確認できる。敵スキルの3状態画像は**表示検証用の初期状態fixture**：老王MPを1、重斬のCD待ちを設定し、斬撃等＝使用可能、重斬＝CD中、大振り＝MP不足を同時表示する。本編の既定値・AI・戦闘ルールを変更した結果ではなく、研究結果・バランス評価・AIの確定行動予告でもない。
+12枚ともPC配置の追加調整後の画面。ボス枠の外側は変更せず、内部のアイコンとMP/CDを中央へ寄せて技名を拡大。能力アイコンはマナ結晶と同じ行へ揃え、プレイヤー枠は間隔を縮めて拡大した。通常画面では英雄の暗色シルエットと、大振りの採用済みアイコンを確認できる。敵スキルの3状態画像は**表示検証用の初期状態fixture**：老王MPを1、重斬のCD待ちを設定し、斬撃等＝使用可能、重斬＝CD中、大振り＝MP不足を同時表示する。本編の既定値・AI・戦闘ルールを変更した結果ではなく、研究結果・バランス評価・AIの確定行動予告でもない。
 
 画像はChromium headless／deviceScaleFactor=1のブラウザ自動操作で取得。OSのネイティブ全画面・iOS等の実機・人間のプレイ／画質／聴感評価は未確認。長文詳細は内容を省略せずスクロールとクリック拡大で閲覧できる。
 
@@ -32,3 +32,5 @@ FIRST_ERA_URL=http://127.0.0.1:8081/ node apps/game-web/tests/finisher-browser.c
 ルート130件・React45件、型チェック・ビルド・静的チェック・Pages配置整合、PNG42枚の原本ハッシュ、配信用WebP34枚の寸法・alpha・ハッシュを確認。PC3解像度と320/390pxの操作・モーダル、仮肖像・25番アイコン・配置・HP・MP/CD・詳細の回帰を確認する。工房／React技術検証は既存`apps/game-web/tests/browser-smoke.cjs`、classicは既存`npm run test:browser`で別途検証する。
 
 ブラウザの詳細ログ・JSON・Chromeプロファイル・中間ビルドは同梱しない。公開配置には従来どおり必要な実行用ビルドだけを含める。
+
+PCの自動実測：能力アイコンとマナ結晶の垂直中央差は3解像度すべて0px。敵枠の位置・寸法は直前のCSS値と一致し、5枠とも技名21pxで文字切れ・アイコン／MP/CDの重なりなし。プレイヤー枠の横幅は1920／1366／1280pxで直前比約14.2%／9.8%／5.4%、高さ約11.6%拡大。間隔は5px、1280pxでは横幅の拡大を抑えてHUD・奥義・ターン終了との非重複を優先している。寸法は正式固定値ではなくレビュー用の暫定値。
