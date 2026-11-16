@@ -67,3 +67,16 @@ test('enemy candidate brightness uses read-only owner availability, not player t
  s.actors.boss.mana=0;assert.ok(p.toFirstEraModel(runtime,s,false,'').boss.skills.every(x=>!x.allowed&&x.statusCode==='mana'));
  s.actors.boss.mana=before.actors.boss.mana;assert.deepEqual(s,before);
 });
+
+test('first victory replay contract rejects tampering at every stored boundary',async()=>{
+ const [m]=await modules(),original=m.recordFirstWin({...m.freshSave(),deck},victory());
+ assert.deepEqual(m.validateSave(original,runtime),original);
+ const changes=[
+  win=>{win.initial.round=2;},
+  win=>{win.frames[0].action={type:'endTurn',side:'boss'};},
+  win=>{win.frames[0].after.actors.player.hp=0;},
+  win=>{win.result.actors.player.hp=0;}
+ ];
+ for(const change of changes){const tampered=structuredClone(original);change(tampered.firstWin);assert.throws(()=>m.validateSave(tampered,runtime));}
+ assert.deepEqual(m.validateSave(original,runtime),original);
+});
