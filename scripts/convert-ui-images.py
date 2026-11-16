@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild/check the 33 approved delivery images. Requires Pillow 13.0.0 + WebP.
+"""Create missing/check the 34 approved WebP delivery images. Requires Pillow 13.0.0 + WebP.
 PNG originals, dimensions and UI viewBoxes are never modified.
 """
 import argparse
@@ -27,7 +27,7 @@ def inspect(pair, check):
         raise ValueError('Unexpected image path: ' + number)
     target = ROOT / expected
     original = Image.open(source).convert('RGBA')
-    if not check:
+    if not check and not target.exists():
         target.parent.mkdir(parents=True, exist_ok=True)
         original.save(target, format='WEBP', quality=QUALITY, method=6, exact=True)
     delivered = Image.open(target).convert('RGBA')
@@ -49,9 +49,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true', help='Decode/verify existing derivatives and recorded provenance without writing')
     args = parser.parse_args()
-    items = json.loads(CATALOG.read_text())
-    if len(items) != 33:
-        raise ValueError('Expected exactly 33 approved UI images')
+    catalog = json.loads(CATALOG.read_text())
+    # Boss ability 11 deliberately remains PNG; do not re-encode or erase its CSV record.
+    items = {number: item for number, item in catalog.items() if item['deliveryPath'].endswith('.webp')}
+    if len(items) != 34:
+        raise ValueError('Expected exactly 34 approved WebP UI images')
     rows = list(csv.DictReader(CSV.open(encoding='utf-8-sig')))
     for row in rows:
         if digest(ROOT / row['新ファイル']) != row['SHA256']:
@@ -88,6 +90,8 @@ def main():
         fields += [key for key in extra if key not in fields]
         for row in rows:
             image = by_id.get(int(row['仮ID']))
+            if row['仮ID'].lstrip('0') in catalog and image is None:
+                continue
             row.update(dict.fromkeys(extra, ''))
             row['原本Bytes'] = str((ROOT / row['新ファイル']).stat().st_size)
             if image:

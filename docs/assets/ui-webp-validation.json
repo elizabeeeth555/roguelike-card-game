@@ -8,10 +8,10 @@
     "exact": true,
     "lossless": false
   },
-  "count": 33,
-  "sourceBytes": 45901195,
-  "deliveryBytes": 7110600,
-  "reductionPercent": 84.5089,
+  "count": 34,
+  "sourceBytes": 49757757,
+  "deliveryBytes": 7516190,
+  "reductionPercent": 84.894436,
   "images": [
     {
       "id": "1",
@@ -410,6 +410,31 @@
           0.972234,
           0.675741,
           1.194405
+        ]
+      }
+    },
+    {
+      "id": "25",
+      "source": "assets/ui/library/candidates/unused-slash.png",
+      "delivery": "assets/ui-webp/library/candidates/unused-slash.webp",
+      "sourceSha256": "927cba3ce138445c71ecbc26584f79d97f863280674536001f1f9a4e7ec73e4d",
+      "deliverySha256": "a619501b570ced8643abf0d2a52f89e75d8a1e8caf916a30debd755c5bb85043",
+      "sourceBytes": 3856562,
+      "deliveryBytes": 405590,
+      "width": 2048,
+      "height": 2048,
+      "alphaExact": true,
+      "rgbaExact": false,
+      "compositeChannelRms": {
+        "dark": [
+          1.000268,
+          0.695396,
+          1.304727
+        ],
+        "light": [
+          1.000003,
+          0.695325,
+          1.304671
         ]
       }
     },

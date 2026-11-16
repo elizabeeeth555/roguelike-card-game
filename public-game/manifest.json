@@ -1,11 +1,11 @@
 {
   "format": "throne-first-era-public-v1",
   "entrySource": "apps/game-web/first-era.html",
-  "inputHash": "4f6d51d0f33ad9ce9dd0f0063ad517a0949019f146c092155f629f8fa50405d7",
-  "entryHash": "06a53a225c8d172ccbb9c46453a1ebd6eab064bcf8a2f0b2024699bb11819ea4",
+  "inputHash": "d841c95b6ce46c2608b97a58bf3e4a33958cdd6affaeecd630a986472df0765c",
+  "entryHash": "5951e9ea17a41639e562fc65e312149dcbdd2b810b3a74b6dd38ca27efd6ea48",
   "files": {
-    "assets/first-era--gGQQOVE.js": "6a69c8147c31fddd23d669166eac9c0255b9daed5102ac70cfc37299c900fd13",
-    "assets/first-era-D7VWS02F.css": "e98c2416b4c1df68a86257207ac857aab18aa12cc07f013b3b13873f51c3c27e",
+    "assets/first-era-ChR8_G_3.js": "8af36482911826265b90f2218866661bae347d5b468511ce96e83c6de9ea1513",
+    "assets/first-era-HimCRasN.css": "9526cd71f92905ce4f2eea1f8cae850932ca00a127de0577cf3358464c16a63e",
     "engine/battle-engine.js": "3939fc2699e894574bb9abf61e710e4962df1365628b1912a4ef1280baa60ef3",
     "engine/boss-planner.js": "17e36ccb4fdcb14a24786a8585e6406bb9f5cdfad4c45e54219bf064fafa0b70",
     "engine/card-data.js": "d03395fe0b08de017ab9cd8f1dcbcf5671b108b76bb524e20fd0991368e0da07",
@@ -46,6 +46,7 @@
     "first-era/ui/icons/status/poison.webp": "f212578e76c6c67a5ef90c56e7a3a536ee76e8d7752c822fd6357170c9be9d4b",
     "first-era/ui/icons/status/weaken.webp": "8710d66e399dc3261630aaa1fe5038b9a93101f8c248f214cab67e62e8160205",
     "first-era/ui/icons/ultimate/first-era-ultimate.webp": "f26eb23237c1c1967a3c8b6de7c72e4a53fe4f16be7c2f3d2bb4dbeb381d0777",
+    "first-era/ui/library/candidates/unused-slash.webp": "a619501b570ced8643abf0d2a52f89e75d8a1e8caf916a30debd755c5bb85043",
     "first-era/ui/skill-frames/skill-frame-variant-29.webp": "88146435cc71302a89bf8bc2705030b5d5bdb6ee5931de6a6df8f59f523b196f",
     "first-era/ui/skill-frames/skill-frame-variant-30.webp": "4b91bdbd68ba36ad3387f5431003ee6ecaec56d0ce64e95489cb3ca32591012b",
     "first-era/ui/skill-frames/skill-frame-variant-31.webp": "ebb9df40fcfd54228250e31281fcaaf79a6cc87334b63f0a6ee3ac8c650eca9b",

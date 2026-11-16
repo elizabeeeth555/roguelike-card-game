@@ -15,7 +15,7 @@ export function toFirstEraModel(runtime: Runtime, state: State, busy: boolean, m
   const hit = preview.events.find(e => e.type === 'damage');
   const description = spec.description + (hit ? `（現在の威力${hit.baseDamage}／補正・バリア後のHPダメージ${hit.amount}）` : '');
   const used = state.active === side && state.actors[side].used.includes(id), remaining = inspection.remaining ?? 0;
-  return { ...spec, statusCode: state.end ? 'ended' : inspection.code, description, category: category(spec.tags), allowed: !busy && status.allowed, reason: state.end ? '戦闘終了' : busy ? '演出中' : status.reason, remaining, used, stateLabel: used ? '使用済' : remaining ? `CD中 ${remaining}T` : status.code === 'mana' ? 'MP不足' : '', condition: 'MP・CD・自ターンの使用制限を満たす' };
+  return { ...spec, statusCode: state.end ? 'ended' : inspection.code, description, category: category(spec.tags), allowed: side === 'boss' ? !state.end && inspection.allowed : !busy && status.allowed, reason: state.end ? '戦闘終了' : side === 'boss' ? inspection.reason : busy ? '演出中' : status.reason, remaining, used, stateLabel: used ? '使用済' : remaining ? `CD中 ${remaining}T` : inspection.code === 'mana' ? 'MP不足' : '', condition: 'MP・CD・自ターンの使用制限を満たす' };
  }
  const actor = (side: 'player' | 'boss') => ({ ...state.actors[side], poisonDamage: core.poisonTickDamage(state, state.actors[side].poison), name: side === 'boss' ? '灰鎖の老王' : '望郷の復讐者', facePlaceholder: side === 'player', skills: state.actors[side].deck.map(id => skill(side, id)), emptySlots: 0 });
  const echo = core.ultimateStatus(state), accel = core.accelerationStatus(state, 'player');

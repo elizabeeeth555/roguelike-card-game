@@ -191,6 +191,18 @@
     ],
     "deliveryPath": "assets/ui-webp/icons/skills/barrier.webp"
   },
+  "25": {
+    "path": "assets/ui/library/candidates/unused-slash.png",
+    "width": 2048,
+    "height": 2048,
+    "viewBox": [
+      332,
+      364,
+      1388,
+      1324
+    ],
+    "deliveryPath": "assets/ui-webp/library/candidates/unused-slash.webp"
+  },
   "26": {
     "path": "assets/ui/icons/skills/heavy-slash.png",
     "width": 1254,

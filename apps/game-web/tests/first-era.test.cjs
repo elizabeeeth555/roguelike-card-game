@@ -58,3 +58,12 @@ test('ultimate model uses formal name/MP0 and separates unavailable, ready and s
  s=core.transition(s,{type:'card',side:'player',id:'heavy_slash'}).state;s.actors.player.mana=0;const before=core.snapshot(s);m=toFirstEraModel(runtime,s,false,'');assert.equal(m.ultimate.allowed,true);assert.deepEqual(s,before);
  s=core.transition(s,{type:'ultimate',side:'player'}).state;m=toFirstEraModel(runtime,s,false,'');assert.equal(m.ultimate.used,true);assert.equal(m.ultimate.allowed,false);assert.equal(m.ultimate.stateLabel,'使用済');assert.equal(s.actors.player.mana,0);
 });
+
+test('enemy candidate brightness uses read-only owner availability, not player turn lock or AI commitment',async()=>{
+ const [,p]=await modules(),s=core.createState({ruleset:rules.RULESET,playerDeck:deck}),before=core.snapshot(s);
+ for(const busy of [false,true]){const vm=p.toFirstEraModel(runtime,s,busy,'');
+  for(const skill of vm.boss.skills){const status=core.availability({...s,active:'boss'},'boss',skill.id);assert.equal(skill.allowed,status.allowed);assert.equal(skill.statusCode,status.code);}
+ }
+ s.actors.boss.mana=0;assert.ok(p.toFirstEraModel(runtime,s,false,'').boss.skills.every(x=>!x.allowed&&x.statusCode==='mana'));
+ s.actors.boss.mana=before.actors.boss.mana;assert.deepEqual(s,before);
+});
