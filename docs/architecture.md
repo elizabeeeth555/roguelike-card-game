@@ -5,6 +5,150 @@
 main（PR #28以降）の公開配置ソースは、コンパイル済みReact第一紀を`index.html`、classicを`classic/index.html`とする。Pages上の実動作・配信ジョブは別途確認する。純粋コアはCommonJSでも読める。`apps/game-web/`は第一紀・技術検証・工房の開発元であり、API・DB・認証は不要。
 `UI/アプリ → 戦闘エンジン → 効果・数値・データ` の方向。`src/game/`からDOM、Audio、タイマー、共有appを参照しない。
 
+## アーキテクチャ構成図（2026-11-16時点）
+
+以下はmainのソースを基準にした主要経路の俯瞰図。矢印は利用・データ受渡しの方向で、すべてのimportや実行時呼出しを列挙したものではない。**As-Isは実装済みの構造、To-Beは未承認のリファクタリング提案**であり、第二紀の機能・数値を確定しない。現行の仕様状態は[status](status.md)、ルールの正本は[戦闘](features/combat.md)・[ボス](features/bosses.md)・[進行／保存](features/progression.md)を参照する。
+
+### As-Is：システム全体
+
+```mermaid
+flowchart TB
+  subgraph GameWeb["Reactアプリ（apps/game-web/src）"]
+    First["第一紀本編ホスト<br/>first-era/FirstEraApp.tsx"]
+    Studio["王座工房MVP<br/>studio/StudioScreen.tsx"]
+    Preview["編集・試写データ<br/>preview-presets.ts"]
+    View["共通描画<br/>BattleView.tsx / components/"]
+    Save["保存・勝利ログ検証<br/>first-era/save.ts"]
+    Playback["音声・イベント演出<br/>first-era/audio.ts<br/>first-era/event-presentation.ts"]
+    Trial["独立React技術検証<br/>BattleScreen.tsx / battle-session.ts"]
+  end
+  subgraph Shared["共通JS（src/game）"]
+    Core["戦闘コア<br/>battle-engine.js"]
+    Rules["ルール・効果・数値<br/>first-era-rules.js<br/>card-effects.js / combat-math.js<br/>card-data.js"]
+    Planner["AI-2<br/>boss-planner.js"]
+  end
+  First --> View
+  First --> Save
+  First --> Playback
+  First --> Core
+  First --> Planner
+  Studio --> Preview --> View
+  Trial --> View
+  Trial --> Core
+  Trial --> Planner
+  Save -->|"ログを合法再実行"| Core
+  Planner --> Core
+  Core --> Rules
+
+  Classic["classic/index.html<br/>旧ランダム習得型・DOMホスト"]
+  Classic --> Core
+  Classic --> Planner
+  Research["research/ 等：独立研究"]
+  Research -.->|"研究条件で参照"| Core
+
+  Build["Vite + scripts/prepare-pages.cjs"]
+  Public["index.html / public-game/<br/>classic/は別入口"]
+  Pages["GitHub Pages<br/>main ルート公開"]
+  First --> Build --> Public --> Pages
+  Classic --> Public
+```
+
+工房MVPは**同じBattleView**を使用する一方、第一紀本編と同じ実戦データを自動注入するものではない。classic／研究／legacyは新版第一紀とは別の責務・互換境界に置く。FX Labの未マージPRは上図のmain実装に含まれない。
+
+### As-Is：主要モジュールの依存方向
+
+```mermaid
+flowchart LR
+  Entry["first-era/main.tsx"]
+  Host["first-era/FirstEraApp.tsx<br/>画面遷移・戦闘進行・入力"]
+  Project["first-era/presentation.ts<br/>ViewModel・予測"]
+  Events["first-era/event-presentation.ts"]
+  Audio["first-era/audio.ts<br/>use-first-era-audio.ts"]
+  Save["first-era/save.ts<br/>版・保存・勝利ログ再実行"]
+  View["BattleView.tsx"]
+  UI["components/*"]
+  Core["src/game/battle-engine.js"]
+  Profile["src/game/first-era-rules.js<br/>第一紀・老王"]
+  AI["src/game/boss-planner.js"]
+
+  Entry --> Host
+  Host --> Project
+  Host --> Events
+  Host --> Audio
+  Host --> Save
+  Host --> Core
+  Host --> AI
+  Host --> View
+  View --> UI
+  Project -->|"読取用transition"| Core
+  Save -->|"履歴を再実行"| Core
+  AI -->|"合法手・遷移"| Core
+  Core -->|"第一紀・老王を直接参照"| Profile
+
+  Studio["studio/StudioScreen.tsx"]
+  Preset["preview-presets.ts"]
+  Studio --> Preset
+  Studio --> View
+
+  classDef attention fill:#fff1db,stroke:#b7791f,color:#222
+  class Host,Project,Save,Core attention
+```
+
+主要なリファクタリング対象は、共通コアから老王専用の処理を参照する境界、現在ルールで再生検証する保存境界、画面遷移・戦闘・AI・演出を兼務する本編ホスト。明示import／require上に循環がないことは、classicのグローバル関数やDOMイベントまで含む無循環性の証明ではない。
+
+### To-Be：第二紀に備える構成案（**提案・未実装**）
+
+```mermaid
+flowchart TB
+  Host["既存本編ホストを段階分割"]
+  Session["提案：戦闘セッション<br/>入力・AI実行・中断管理"]
+  Playback["提案：演出制御<br/>イベント順序・スキップ"]
+  Projection["提案：共通表示アダプター<br/>戦闘状態→ViewModel"]
+  View["既存 BattleView.tsx<br/>本編と工房で共用"]
+  Core["既存共通戦闘コア<br/>戦闘・合法判定・効果適用"]
+  Port["提案：世代・ボスの接続契約<br/>初期化・固有行動・復元検証"]
+  EraOne["既存第一紀・灰鎖の老王<br/>既存ID・挙動は維持"]
+  Future["将来の第二紀・追加ボス<br/>具体仕様は別途承認"]
+  AI["既存AI-2<br/>必要な拡張点だけ分離"]
+  Save["既存保存ホスト"]
+  Replay["提案：版付きログ再生／互換境界"]
+  Studio["既存王座工房<br/>共通View用fixture"]
+
+  Host -.-> Session
+  Session --> Core
+  Session --> AI
+  AI --> Core
+  Core -.->|"具象への直接依存を置換"| Port
+  Port -.-> EraOne
+  Port -.-> Future
+  Session -.-> Playback
+  Playback -.-> Projection
+  Projection --> View
+  Studio --> View
+  Host --> Save
+  Save -.-> Replay
+  Replay --> Core
+
+  classDef proposal fill:#eef4ff,stroke:#5274a6,stroke-dasharray:5 5,color:#222
+  class Session,Playback,Projection,Port,Future,Replay proposal
+```
+
+共通コアが特定ボスのクラスを直接呼ぶのではなく、接続契約を介して個別定義・関数を差し替える方向。クラス継承を必須とせず、宣言データ・小さな関数・インターフェースから適切な方式を選ぶ。**いまは設計比較用の図であり、上記パスやAPIが実装済みという意味ではない。**
+
+| 境界 | 現行の責務・課題 | 実装時の保護条件 |
+|---|---|---|
+| 共通コア ↔ 世代・ボス | 第一紀・老王の直接分岐がある | 旧classicと第一紀の合法手・処理順・イベント・snapshotを維持 |
+| 保存 ↔ ルール | 現在ルールによる初回勝利ログの厳密再実行 | 過去の記録保護と再現可能性を区別。互換方針は別途レビュー |
+| 本編ホスト ↔ 演出 | 非同期処理・中断・画面遷移が集中 | リセット・演出スキップ・再戦時の古い処理を再実行しない |
+| 表示アダプター ↔ 共通View | 老王固有の文言・設定が混在 | 本編／工房が同じ描画ソースを使う |
+| AI ↔ 共通コア | AI-2が共通合法手・遷移を使用 | 探索方針・評価値の変更は別途検証／承認 |
+
+### 現行の回帰基準とCI
+
+基本検査は[GitHub Actions](../.github/workflows/ci.yml)でpush・main向けPR時に自動実行する。Node.js 24で`npm run check`、`npm test`、`npm --prefix apps/game-web test`、React型チェック・ビルド、`npm run check:pages`を確認する。ブラウザ実機・聴感・大量シミュレーションはこの軽量CIに含めない。
+
+新旧プロファイルの境界・コアの不変遷移・老王イベント経路は[契約テスト](../tests/battle-profile-contract.test.cjs)で固定する。初回勝利記録の各保存境界の改ざん検出は[第一紀テスト](../apps/game-web/tests/first-era.test.cjs)に追加。これらは**現在の実装に対する退行防止**であり、将来の承認済み仕様変更時は仕様正本を確認したうえで期待値を更新する。
+
 | ディレクトリ・ファイル | 責務 |
 |---|---|
 | [index.html](../index.html) | 第一紀専用ビルド由来の公開トップ（生TSXではない） |
@@ -13,6 +157,7 @@ main（PR #28以降）の公開配置ソースは、コンパイル済みReact�
 | [prepare-pages.cjs](../scripts/prepare-pages.cjs) | 第一紀専用ビルド・配置・整合検査・ローカル旧版復帰 |
 | [src/game/card-data.js](../src/game/card-data.js) | 現行19種・初期3セット・固定5ボス |
 | [card-effects.js](../src/game/card-effects.js) | 状態とスキルから効果を構築 |
+| [first-era-rules.js](../src/game/first-era-rules.js) | 新第一紀のスキル・ボス固有定義と効果命令 |
 | [combat-math.js](../src/game/combat-math.js) | HP・バリア・毒・回復等の計算 |
 | [battle-engine.js](../src/game/battle-engine.js) | 合法手・更新・ターン開始終了・勝敗・JSON境界 |
 | [boss-planner.js](../src/game/boss-planner.js) | AI-2の列挙・候補選別・先読み |
@@ -141,7 +286,7 @@ const result = Battle.transition(next.state, {type:'ultimate',side:'player'});
 
 `Rules.pool`/`validateDeck`が編成の正、`Battle.getCard(state,id)`がプロファイルに対応する定義、`legalActions`が奥義を含む合法手一覧を返す。`poisonTickDamage(state,n)`は共通毒計算をAIと共有する。失敗時は状態を変更せずok:false。イベント配列は各操作の戻り値から取得し、コアにUI・保存・音声を混入させない。
 
-新版はschemaVersion3 / ruleset first-era-v1、bossPresetId ashen_king、`bossState`と`ultimate`で固有状態を保持。旧schema2/first-era-trialの既定生成・snapshot復元を維持する。新旧を自動変換しない。キャラクター素材IDは新版ではnull（今回素材・表示は未接続）。状態生成時に5つの採用IDを必ず渡す。
+新版はschemaVersion 4 / ruleset first-era-v1、bossPresetId ashen_king、`bossState`と`ultimate`で固有状態を保持。旧schemaVersion 2 / first-era-trialの既定生成・snapshot復元を維持する。新旧を自動変換しない。新版の戦闘状態内キャラクターIDはnullのまま、背景・老王肖像などは第一紀表示側から供給する（現行本編に素材接続済み）。状態生成時に5つの採用IDを必ず渡す。
 
 CommonJSは新モジュールを自動解決。ブラウザで将来新版を使う場合はData/Effectsの後、battle-engineの前にfirst-era-rulesを読み込む。既存classic/Reactの入口は変更せず、旧ルールはこの追加scriptなしで動作する。PR #25時点ではReactへのアダプター/型/画面接続、セーブは第2弾以降としていた。追加実装は下記ホスト節を参照。
 
@@ -165,7 +310,7 @@ CommonJSは新モジュールを自動解決。ブラウザで将来新版を使
 - トップの`<base href="./public-game/">`により、JS/CSS・engine・第一紀の画像／音声は専用ディレクトリ内を参照する。`/roguelike-card-game/`等の配信サブディレクトリをハードコードせず、トップの`index.html`指定・再読込でも同じ基準URLとなる。
 - `classic/index.html`は旧ルートHTMLを保持し、`<base href="../" data-classic-root>`で既存の`src/`・`assets/`を参照する。画像背景の動的URLもdocument.baseURIを使う既存処理のまま。JS/CSS/素材原本・戦闘・AI・進行をコピー改変せず、入口の基準URLだけを変更する。空のdata faviconで不要なfavicon要求を抑える。
 - `public-game/manifest.json`は生成形式・元入口・ビルド入力のダイジェスト・公開HTMLと各配布ファイルのSHA256を記録する。`npm run check:pages`は手編集・不足・未知ファイル・シンボリックリンク・未ビルドのソース変更を検出する。
-- 基本配布対象はハッシュ付きJS/CSS、明示したコア、第一紀画像・音声と登録UI画像33点の配信用WebP派生物。詳細な対象は公開ビルドスクリプトと[画像台帳](assets/ui-image-inventory.md)を正とし、過去の「画像4点のみ」という条件を現行allowlistにしない。`publicDir:false`を維持し、研究・非公開素材・工房・技術検証用scene素材は新しい配布ツリーへコピーしない。mainルート公開が既存の追跡ファイルも配信する方式である点は変更しない。
+- 基本配布対象はハッシュ付きJS/CSS、明示したコア、第一紀画像・音声と画像台帳に登録された配信用WebP／PNG（点数は台帳を正とする）。詳細な対象は公開ビルドスクリプトと[画像台帳](assets/ui-image-inventory.md)を正とし、過去の「画像4点のみ」という条件を現行allowlistにしない。`publicDir:false`を維持し、研究・非公開素材・工房・技術検証用scene素材は新しい配布ツリーへコピーしない。mainルート公開が既存の追跡ファイルも配信する方式である点は変更しない。
 - 更新前にmanifest所有ファイルの既存ハッシュとトップHTMLを検証する。未知・変更済みファイルがあれば無変更で停止する。新出力を一時ファイル経由で配置した後、古いmanifestが所有する不要ファイルだけを削除する。ディレクトリの一括削除は行わない。`apps/game-web/dist/`は従来どおり再生成可能なビルド出力で、非公開素材や手作業成果を置かない。
 - ソース・依存ロック・型設定・Vite設定・配置スクリプトを変更したら、`npm --prefix apps/game-web ci`と`npm run build:pages`で生成し直す。HTML・manifest・管理下の生成物も対象を確認してコミットする。生成物を手編集しない。
 - 進行セーブの形式・キーは変えない。第一紀は`keisei.first-era.progress.v1`、classicの演出設定は従来の`first-era-fx`等。工房保存にも干渉せず、同一オリジンで両入口を行き来しても相互に上書きしない。
