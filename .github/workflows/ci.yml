@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Code checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: apps/game-web/package-lock.json
+
+      - name: Install React dependencies
+        run: npm --prefix apps/game-web ci
+
+      - name: Check JavaScript syntax
+        run: npm run check
+
+      - name: Test game core
+        run: npm test
+
+      - name: Test React app
+        run: npm --prefix apps/game-web test
+
+      - name: Typecheck React app
+        run: npm --prefix apps/game-web run typecheck
+
+      - name: Build React app
+        run: npm --prefix apps/game-web run build
+
+      - name: Verify committed GitHub Pages output
+        run: npm run check:pages
