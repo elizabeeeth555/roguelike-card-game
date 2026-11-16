@@ -236,3 +236,9 @@
 .first-era-battle .player-skills .skill:has(.skill-frame-art) .skill-symbol{width:20px;height:24px}
 .first-era-battle .player-skills .skill:has(.skill-frame-art) .skill-state{font-size:11px}
 }
+
+/* CSS-only temporary portrait; BattleHUD's face prop replaces this fallback. */
+.first-era-battle .hero-placeholder{overflow:hidden;background:radial-gradient(ellipse,#53606a50,transparent 75%);position:relative}
+.first-era-battle .hero-placeholder::before{content:'';position:absolute;left:33%;top:9%;width:34%;height:39%;border-radius:50% 50% 42% 42%;background:linear-gradient(100deg,#7e8485,#41474c)}
+.first-era-battle .hero-placeholder::after{content:'';position:absolute;left:8%;bottom:0;width:84%;height:58%;border-radius:50% 50% 0 0;background:linear-gradient(110deg,#596169,#252d34);clip-path:polygon(26% 0,74% 0,100% 60%,100% 100%,0 100%,0 60%)}
+@media(min-width:761px){.first-era-battle .player-area .hero-placeholder{position:absolute}}

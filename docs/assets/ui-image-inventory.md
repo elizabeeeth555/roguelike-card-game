@@ -51,7 +51,7 @@
 | 22 | unused-multi-slash | 保留 |
 | 23 | unused-shield-ring | 保留 |
 | 24 | barrier | 採用 |
-| 25 | unused-slash | 保留 |
+| 25 | great_swing（旧ファイル名：unused-slash） | 採用 |
 | 26 | heavy-slash | 採用 |
 | 42 | setup | 採用 |
 
@@ -83,7 +83,7 @@
 | 22 | `assets/ui/library/candidates/unused-multi-slash.png` | 保留 | 2048x2048 |
 | 23 | `assets/ui/library/candidates/unused-shield-ring.png` | 保留 | 2048x2048 |
 | 24 | `assets/ui/icons/skills/barrier.png` | 採用 | 2048x2048 |
-| 25 | `assets/ui/library/candidates/unused-slash.png` | 保留 | 2048x2048 |
+| 25 | `assets/ui/library/candidates/unused-slash.png` | 採用 | 2048x2048 |
 | 26 | `assets/ui/icons/skills/heavy-slash.png` | 採用 | 1254x1254 |
 | 27 | `assets/ui/icons/common/cooldown-hourglass.png` | 採用 | 1964x2048 |
 | 28 | `assets/ui/icons/common/mana-crystal.png` | 採用 | 1923x2048 |
@@ -149,3 +149,10 @@ PC 1280／1366pxの中央スキル・奥義・崩し枠・HP収容の測定結�
 ## 新老王能力の接続（2026-11-15・依存ブランチ）
 
 素材11番を共通BattleViewの固有能力アイコンへ接続。登録済みPNGを無加工で配信し、既存WebP33枚は変更しない。原本42枚のSHA256は維持。旧崩しゲージ1番は表示を撤去したが原本・既存配信ファイルは保持する。能力・操作規則は[UI](../features/ui.md#boss-ability-detail)を参照し、本台帳へ個別効果を複製しない。main反映・公開は未実施。
+
+## 大振りアイコンの採用（2026-11-16）
+
+- 素材25番を第一紀Reactの《大振り》へ接続済み（`fix/first-era-pc-ui-polish`）。スキル固有の割当は[スキル正本](../features/skills.md#個別ui素材強化の管理元)を参照。保留は17・21・22・23で、原本の`library/candidates/unused-slash.png`という旧名は履歴追跡のため維持する。過去の適用記録にある25番未適用・仮記号は当時の状態。
+- 原本PNG42枚と既存派生33枚のバイト列は維持。25番だけQ98のWebPを追加し、現行配信はWebP34枚＋能力アイコン11番のPNG1枚。allowlistは共通登録JSONからVite／Pagesへ反映する。
+- 原本25番3,856,562 BytesからWebP405,590 Bytes（89.48%削減）。寸法2048×2048・alpha全画素一致。暗色／明色合成の測定値とハッシュは[検証記録](ui-webp-validation.json)。現在のWebP合計は7,516,190 Bytes。上記33枚の比較表は採用当時の記録として保持する。
+- 変換は既存の検証済み派生を再エンコードせず、未生成分だけ作成する。PNG配信の11番を変換・除外しない。CSVと検証記録を`python3 scripts/convert-ui-images.py --check`で再照合できる。人間による実機画質評価は未実施。
